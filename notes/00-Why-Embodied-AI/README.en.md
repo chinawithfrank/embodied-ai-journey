@@ -41,4 +41,4 @@ Writing these concerns down now is so I can come back later and check whether th
 
 ## Next step
 
-Next chapter: [Linux & Hardware](../01-Linux-And-Hardware) — setting up the machine that will run a robot.
+Next chapter: [ROS2 Fundamentals](../01-ROS2-Fundamentals) — learning the nervous system that connects a robot's parts.

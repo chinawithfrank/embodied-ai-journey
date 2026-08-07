@@ -35,12 +35,9 @@ that proves I understand it, and share exactly what went wrong along the way.
 
 | # | Chapter | Status | Notes |
 |---|---------|--------|-------|
-| 00 | [Why Embodied AI](notes/00-Why-Embodied-AI) | 📝 Draft | Why a software engineer is betting on physical intelligence |
-| 01 | [Linux & Hardware](notes/01-Linux-And-Hardware) | 📝 Draft | Setting up the machine that will run a robot |
-| 02 | [ROS2 Fundamentals](notes/02-ROS2-Fundamentals) | 📝 Draft | The nervous system that connects a robot's parts |
-| 03 | [TF2 & Coordinate Systems](notes/03-TF2-And-Coordinate-Systems) | 📝 Draft | How I taught my robot to understand where things are |
+| 00 | [Why Embodied AI](notes/00-Why-Embodied-AI) | ✅ Published | Why a software engineer is betting on physical intelligence |
 
-More chapters (simulation, perception, AI agents, real-world deployment) are added as I get there.
+More chapters (ROS2 fundamentals, TF2 coordinate systems, simulation, perception, AI agents, real-world deployment…) get added here as each one is actually written.
 
 ## 🧭 How Each Chapter Is Written
 
@@ -69,15 +66,6 @@ The pitfalls I hit.
 Where this leads next.
 ```
 
-Example — Chapter 03: *Understanding TF2*
-
-> **Problem:** the robot's camera sees an object, but the robot's arm
-> doesn't know where it is.
->
-> **What I learned:** coordinate frames, transforms, the tf tree.
->
-> **Build:** `camera_frame` → `base_link`.
-
 ## 🗂️ Repo Structure
 
 ```
@@ -87,9 +75,8 @@ embodied-ai-journey/
 ├── notes/              the journey, written chapter by chapter
 │   ├── TEMPLATE.md
 │   ├── 00-Why-Embodied-AI/
-│   ├── 01-Linux-And-Hardware/
-│   ├── 02-ROS2-Fundamentals/
-│   └── 03-TF2-And-Coordinate-Systems/
+│   ├── 01-ROS2-Fundamentals/
+│   └── 02-TF2-And-Coordinate-Systems/
 └── ros_ws/             the ROS2 workspace — everything I build gets run here
     └── src/
 ```

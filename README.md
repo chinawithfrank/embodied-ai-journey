@@ -34,12 +34,7 @@
 
 | # | 章节 | 状态 | 说明 |
 |---|------|------|------|
-| 00 | [为什么是具身智能](notes/00-Why-Embodied-AI) | 📝 草稿中 | 一个软件工程师为什么押注物理世界的智能 |
-| 01 | [Linux 与硬件](notes/01-Linux-And-Hardware) | 📝 草稿中 | 搭建能跑机器人的那台机器 |
-| 02 | [ROS2 基础](notes/02-ROS2-Fundamentals) | 📝 草稿中 | 连接机器人各个部件的"神经系统" |
-| 03 | [TF2 与坐标系](notes/03-TF2-And-Coordinate-Systems) | 📝 草稿中 | 我如何教会机器人理解"东西在哪儿" |
-
-更多章节（仿真、感知、AI 智能体、真实部署）会随着旅程推进持续更新。
+| 00 | [为什么是具身智能](notes/00-Why-Embodied-AI) | ✅ 已发布 | 一个软件工程师为什么押注物理世界的智能 |
 
 ## 🧭 每一章是怎么写的
 
@@ -77,9 +72,8 @@ embodied-ai-journey/
 ├── notes/              旅程记录，逐章更新
 │   ├── TEMPLATE.md
 │   ├── 00-Why-Embodied-AI/
-│   ├── 01-Linux-And-Hardware/
-│   ├── 02-ROS2-Fundamentals/
-│   └── 03-TF2-And-Coordinate-Systems/
+│   ├── 01-ROS2-Fundamentals/
+│   └── 02-TF2-And-Coordinate-Systems/
 └── ros_ws/             ROS2 工作空间——所有代码都在这里跑起来
     └── src/
 ```
