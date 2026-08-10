@@ -3,12 +3,14 @@
 <package format="3">
   <name>ros2_fundamentals</name>
   <version>0.0.1</version>
-  <description>Chapter 01 experiments: turtlesim keyboard teleop, and a pub/sub example.</description>
+  <description>Chapter 01 examples for ROS2 topic, service, action, and parameters.</description>
   <maintainer email="frank@chinawithfrank.com">frank</maintainer>
   <license>MIT</license>
 
   <exec_depend>rclpy</exec_depend>
+  <exec_depend>rcl_interfaces</exec_depend>
   <exec_depend>std_msgs</exec_depend>
+  <exec_depend>std_srvs</exec_depend>
   <exec_depend>geometry_msgs</exec_depend>
   <exec_depend>turtlesim</exec_depend>
 
