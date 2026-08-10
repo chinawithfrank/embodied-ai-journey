@@ -35,7 +35,8 @@ embodied-ai-journey/
     └── 01-Fundamentals/
         ├── README.md               # month entry and product goal
         ├── 01-ROS2-Communication/
-        └── 02-TF2-And-Coordinate-Systems/
+        ├── 02-TF2-And-Coordinate-Systems/
+        └── 03-URDF-And-RViz/
 ```
 
 New experiment code belongs in `ros_ws`; its purpose, instructions, observations, and failures belong in `notes`. Readers can follow the story through the notes or build the workspace directly.
@@ -50,9 +51,13 @@ New experiment code belongs in `ros_ws`; its purpose, instructions, observations
 
 [02 · TF2 & Coordinate Systems](02-TF2-And-Coordinate-Systems) uses static and dynamic frames to make “where the camera is on the robot” queryable. The circular motion is deliberately minimal and visible; a real camera, arm, and visual detection will all depend on the same TF tree later.
 
+### In progress: make the robot visible
+
+[03 · URDF & RViz](03-URDF-And-RViz) makes R2D2's structure, joint state, and TF visible together. It is the key step from understanding frames to verifying that data drives a model.
+
 ### Next: make it demonstrable
 
-The remaining Fundamentals work stays intentionally narrow: URDF + RViz to see the robot, rosbag2 + MCAP to preserve a run, FastAPI + WebSocket + a web console to connect ROS2 to the web, then Docker Compose and one-command startup so a stranger can reproduce the demo.
+The remaining Fundamentals work stays intentionally narrow: rosbag2 + MCAP to preserve a run, FastAPI + WebSocket + a web console to connect ROS2 to the web, then Docker Compose and one-command startup so a stranger can reproduce the demo.
 
 ## Run the current experiments
 
@@ -60,7 +65,7 @@ The environment is fixed to **Ubuntu 24.04 + ROS2 Jazzy**. For a first build:
 
 ```bash
 cd ros_ws
-colcon build --packages-select ros2_fundamentals tf2_coordinate_systems
+colcon build --packages-select ros2_fundamentals tf2_coordinate_systems urdf_r2d2
 source install/setup.bash
 ```
 

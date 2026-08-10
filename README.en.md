@@ -77,11 +77,13 @@ embodied-ai-journey/
 │   ├── 00-Why-Embodied-AI/
 │   └── 01-Fundamentals/             month one: ROS2 Web Gateway v0.1
 │       ├── 01-ROS2-Communication/
-│       └── 02-TF2-And-Coordinate-Systems/
+│       ├── 02-TF2-And-Coordinate-Systems/
+│       └── 03-URDF-And-RViz/
 └── ros_ws/             the ROS2 workspace — everything I build gets run here
     └── src/fundamentals/
         ├── ros2_fundamentals/
-        └── tf2_coordinate_systems/
+        ├── tf2_coordinate_systems/
+        └── urdf_r2d2/
 ```
 
 ## ⭐ Follow Along

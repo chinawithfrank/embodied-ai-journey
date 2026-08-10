@@ -44,7 +44,8 @@ embodied-ai-journey/
     └── 01-Fundamentals/
         ├── README.md               # 本月入口与产品目标
         ├── 01-ROS2-Communication/
-        └── 02-TF2-And-Coordinate-Systems/
+        ├── 02-TF2-And-Coordinate-Systems/
+        └── 03-URDF-And-RViz/
 ```
 
 新的实验代码只进入 `ros_ws`；每个实验的“为什么做、怎么运行、看到了什么、踩了什么坑”只写在 `notes`。这样读者可以从笔记理解旅程，也可以只进入工作空间直接构建代码。
@@ -59,9 +60,13 @@ embodied-ai-journey/
 
 [02 · TF2 与坐标系](02-TF2-And-Coordinate-Systems) 用静态和动态 frame 把“相机在机器人哪里”变成可查询的事实。现在的圆周运动只是一个看得见的最小实验；后面真实的相机、机械臂和检测结果都要依赖同样的 TF 树。
 
+### 已开始：让机器人能被看见
+
+[03 · URDF 与 RViz](03-URDF-And-RViz) 让 R2D2 的结构、关节状态和 TF 同时可见。它是从“理解 frame”到“验证一个模型正在被数据驱动”的关键一步。
+
 ### 接下来：让系统变得可展示
 
-接下来的学习将继续留在 Fundamentals 范围内：URDF + RViz 负责“看见机器人”，rosbag2 + MCAP 负责“留住一次运行”，FastAPI + WebSocket + Web Console 负责“把机器人接入 Web”，最后用 Docker Compose 与一键启动脚本把演示交给陌生人复现。
+接下来的学习将继续留在 Fundamentals 范围内：rosbag2 + MCAP 负责“留住一次运行”，FastAPI + WebSocket + Web Console 负责“把机器人接入 Web”，最后用 Docker Compose 与一键启动脚本把演示交给陌生人复现。
 
 ## 从零运行当前实验
 
@@ -69,7 +74,7 @@ embodied-ai-journey/
 
 ```bash
 cd ros_ws
-colcon build --packages-select ros2_fundamentals tf2_coordinate_systems
+colcon build --packages-select ros2_fundamentals tf2_coordinate_systems urdf_r2d2
 source install/setup.bash
 ```
 
