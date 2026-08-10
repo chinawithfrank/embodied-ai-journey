@@ -75,10 +75,13 @@ embodied-ai-journey/
 ├── notes/              the journey, written chapter by chapter
 │   ├── TEMPLATE.md
 │   ├── 00-Why-Embodied-AI/
-│   ├── 01-ROS2-Fundamentals/
-│   └── 02-TF2-And-Coordinate-Systems/
+│   └── 01-Fundamentals/             month one: ROS2 Web Gateway v0.1
+│       ├── 01-ROS2-Communication/
+│       └── 02-TF2-And-Coordinate-Systems/
 └── ros_ws/             the ROS2 workspace — everything I build gets run here
-    └── src/
+    └── src/fundamentals/
+        ├── ros2_fundamentals/
+        └── tf2_coordinate_systems/
 ```
 
 ## ⭐ Follow Along

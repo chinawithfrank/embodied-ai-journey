@@ -1,12 +1,23 @@
-[← 返回主页](../../README.md) · **中文** | [English](README.en.md)
+[← 第一个月 Fundamentals](../README.md) · [返回主页](../../../README.md) · **中文** | [English](README.en.md)
 
-# ROS2 基础
+# 01 · ROS2 通信：先让模块彼此说话
 
 本章统一使用 **ROS2 Jazzy Jalisco**（对应 Ubuntu 24.04）。
 
 ## 为什么学这个
 
-机器人不是一个整体程序，而是一堆相互独立的模块：摄像头节点、底盘节点、机械臂节点……它们跑在不同进程甚至不同机器上，却要实时协作。ROS2 要解决的第一个问题，就是让这些模块能用统一的方式互相通信。不先搞懂这套通信机制，后面感知、决策、控制怎么接起来都无从谈起。
+第一个真正让我从“写 Web 服务”切换到“写机器人软件”的瞬间，是意识到机器人并不是一个整体程序。摄像头节点、底盘节点、机械臂节点各自在不同进程、甚至不同机器上运行，却必须对同一件事达成协作。ROS2 要先解决的，就是让这些小模块用同一种语言交换消息、请求和任务。
+
+这个实验包刻意很小：字符串、开关和 turtlesim 的小乌龟都不是真实产品功能。但它们让我先看见通信模型的边界——什么时候系统只需要推送一个事件，什么时候应该等待答复，什么时候任务必须有进度和取消能力。Web Gateway 最终会把这些边界变成网页上的实时状态、按钮和任务记录。
+
+### 这一步如何进入月末产品
+
+| 今天的实验 | 在 ROS2 Web Gateway 中会变成 |
+|---|---|
+| Topic 发布/订阅 | 实时状态或传感器数据，通过 WebSocket 推到网页 |
+| Service | 短操作，例如更新一个开关或读取即时状态 |
+| Action | 可显示进度、可取消的长任务 |
+| Parameter | 启动配置和运行期可调项 |
 
 ## 概念
 
@@ -20,13 +31,13 @@
 
 ## 构建
 
-代码在 [`ros_ws/src/ros2_fundamentals`](../../ros_ws/src/ros2_fundamentals)，包含以下实验：
+代码在 [`ros_ws/src/fundamentals/ros2_fundamentals`](../../../ros_ws/src/fundamentals/ros2_fundamentals)，包含以下实验：
 
-1. **键盘控制小乌龟**（[`keyboard_teleop.py`](../../ros_ws/src/ros2_fundamentals/ros2_fundamentals/keyboard_teleop.py)）—— 用 `termios`/`tty` 读终端按键，映射成 `Twist` 发布到 `/turtle1/cmd_vel`，驱动 turtlesim 的乌龟移动。
-2. **Pub / Sub 样例**（[`pub_example.py`](../../ros_ws/src/ros2_fundamentals/ros2_fundamentals/pub_example.py) / [`sub_example.py`](../../ros_ws/src/ros2_fundamentals/ros2_fundamentals/sub_example.py)）—— 一个节点每秒发一条 `String` 到 `chatter` 话题，另一个节点订阅并打印。
-3. **Service 样例**（[`service_server.py`](../../ros_ws/src/ros2_fundamentals/ros2_fundamentals/service_server.py) / [`service_client.py`](../../ros_ws/src/ros2_fundamentals/ros2_fundamentals/service_client.py)）—— 服务端提供 `std_srvs/SetBool` 类型的 `/set_motors_enabled`；客户端发送“启用/禁用电机”请求并等待响应。
-4. **Action 样例**（[`action_client.py`](../../ros_ws/src/ros2_fundamentals/ros2_fundamentals/action_client.py)）—— 连接 turtlesim 内置的 `/turtle1/rotate_absolute` action，发送目标朝向并输出旋转过程中的反馈。
-5. **Parameter 样例**（[`parameter_example.py`](../../ros_ws/src/ros2_fundamentals/ros2_fundamentals/parameter_example.py)）—— 声明并校验 `robot_name` 与 `publish_period`；修改周期时会重建定时器，使配置立即生效。
+1. **键盘控制小乌龟**（[`keyboard_teleop.py`](../../../ros_ws/src/fundamentals/ros2_fundamentals/ros2_fundamentals/keyboard_teleop.py)）—— 用 `termios`/`tty` 读终端按键，映射成 `Twist` 发布到 `/turtle1/cmd_vel`，驱动 turtlesim 的乌龟移动。
+2. **Pub / Sub 样例**（[`pub_example.py`](../../../ros_ws/src/fundamentals/ros2_fundamentals/ros2_fundamentals/pub_example.py) / [`sub_example.py`](../../../ros_ws/src/fundamentals/ros2_fundamentals/ros2_fundamentals/sub_example.py)）—— 一个节点每秒发一条 `String` 到 `chatter` 话题，另一个节点订阅并打印。
+3. **Service 样例**（[`service_server.py`](../../../ros_ws/src/fundamentals/ros2_fundamentals/ros2_fundamentals/service_server.py) / [`service_client.py`](../../../ros_ws/src/fundamentals/ros2_fundamentals/ros2_fundamentals/service_client.py)）—— 服务端提供 `std_srvs/SetBool` 类型的 `/set_motors_enabled`；客户端发送“启用/禁用电机”请求并等待响应。
+4. **Action 样例**（[`action_client.py`](../../../ros_ws/src/fundamentals/ros2_fundamentals/ros2_fundamentals/action_client.py)）—— 连接 turtlesim 内置的 `/turtle1/rotate_absolute` action，发送目标朝向并输出旋转过程中的反馈。
+5. **Parameter 样例**（[`parameter_example.py`](../../../ros_ws/src/fundamentals/ros2_fundamentals/ros2_fundamentals/parameter_example.py)）—— 声明并校验 `robot_name` 与 `publish_period`；修改周期时会重建定时器，使配置立即生效。
 
 ### 依赖
 
@@ -151,9 +162,16 @@ ros2 param set /parameter_example publish_period 0.5
 
 `robot_name` 会在下一次日志中更新；`publish_period` 会重新设置定时器。空名称和非正周期会被节点拒绝。
 
-## 实验
+## 运行后应该看到什么
 
-TODO：在 Ubuntu + ROS2 Jazzy 上实际跑通后补充截图/录屏。
+不要只满足于“命令没有报错”。运行后，请至少验证这些可观察结果：
+
+1. `pub_example` 每秒打印一次 `Publishing`，`sub_example` 能在另一终端收到同一计数。
+2. service 客户端得到 `Motors are enabled.` 或 `Motors are disabled.`；服务端也会记录同样的状态变化。
+3. action 客户端持续打印 `Remaining rotation`，而不是只在结束时返回一个结果。
+4. 修改 `robot_name` 或 `publish_period` 后，parameter 节点的下一条日志或输出频率发生变化。
+
+这些观察点以后会成为 Web 页面与后端测试的验收条件。建议在真正的 Ubuntu 环境跑通后，把终端输出或 60 秒录屏补在这里，并记下第一次与预期不同的地方。
 
 ## 踩过的坑
 
@@ -165,4 +183,4 @@ TODO：在 Ubuntu + ROS2 Jazzy 上实际跑通后补充截图/录屏。
 
 ## 下一步
 
-下一章：[TF2 与坐标系](../02-TF2-And-Coordinate-Systems) —— 让机器人知道"东西在哪儿"。
+下一章：[TF2 与坐标系](../02-TF2-And-Coordinate-Systems) —— 让机器人知道“东西在哪儿”。

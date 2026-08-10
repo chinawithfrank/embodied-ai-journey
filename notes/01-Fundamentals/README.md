@@ -1,0 +1,91 @@
+[← 返回主页](../../README.md) · **中文** | [English](README.en.md)
+
+# 第一个月：机器人软件 Fundamentals
+
+> **本月目标：ROS2 Web Gateway v0.1** —— 让机器人世界里的数据和任务，第一次进入我熟悉的 Web 系统。
+
+我不是从电机、机械结构或控制理论开始这段旅程，而是从一个更贴近自己背景的问题开始：一个机器人节点产生的数据，怎样可靠地抵达后端与网页？一个网页上的按钮，怎样变成可追踪、可取消的机器人任务？
+
+这一个月不会急着买硬件，也不会追逐 SLAM、Isaac Sim 或 VLA。先搭起最小但完整的软件骨架：ROS2 负责机器人侧的通信和任务，Web 系统负责把状态、日志和控制交给人。后面的机械臂、视觉与数据平台都会长在这条链路上。
+
+## 这个月完成什么
+
+月末的展示产品叫做 **ROS2 Web Gateway v0.1**。它不是一个漂亮但空洞的 Dashboard，而是一条能跑通的任务链路：
+
+```text
+ROS2 节点发布状态 ──> 后端接收 ──> WebSocket ──> 网页实时展示
+网页创建任务 ────────> 后端调用 ──> ROS2 Service / Action ──> 节点执行
+                                             │
+                                     进度、取消、日志、MCAP 记录
+```
+
+月末验收时，演示至少要回答六个问题：
+
+1. 机器人现在是否在线？
+2. 它正在发送什么传感器或状态数据？
+3. 用户能否从网页创建一个任务？
+4. 长任务的进度是否可见、是否可取消？
+5. 发生问题时，日志在哪里？
+6. 这次运行能否被录制和回放？
+
+这是**本月产品契约**，不是当前完成清单。现在仓库正处在打地基阶段：通信样例与 TF2 样例已经可运行；URDF、RViz、rosbag2/MCAP、Web Bridge、Dashboard 与 Docker 化会继续加入同一条主线。
+
+## 目录约定
+
+这里保持一个非常简单的边界：
+
+```text
+embodied-ai-journey/
+├── ros_ws/                         # 只放可构建、可运行的 ROS2 实验代码
+│   └── src/fundamentals/
+│       ├── ros2_fundamentals/      # Topic、Service、Action、Parameter
+│       └── tf2_coordinate_systems/ # 静态/动态 TF 与查询
+└── notes/                          # 只放学习叙事、概念解释、实验步骤与复盘
+    └── 01-Fundamentals/
+        ├── README.md               # 本月入口与产品目标
+        ├── 01-ROS2-Communication/
+        └── 02-TF2-And-Coordinate-Systems/
+```
+
+新的实验代码只进入 `ros_ws`；每个实验的“为什么做、怎么运行、看到了什么、踩了什么坑”只写在 `notes`。这样读者可以从笔记理解旅程，也可以只进入工作空间直接构建代码。
+
+## 学习地图
+
+### 已开始：让节点互相说话
+
+[01 · ROS2 通信](01-ROS2-Communication) 从 Topic 开始，逐步把 Service、Action 和 Parameter 放进同一个小包里。它回答的是：什么时候只需要“广播事件”，什么时候要“等一个答复”，什么时候必须“看进度、允许取消”。这些边界会直接决定 Web Gateway 的 API 形状。
+
+### 已开始：让数据知道自己在哪里
+
+[02 · TF2 与坐标系](02-TF2-And-Coordinate-Systems) 用静态和动态 frame 把“相机在机器人哪里”变成可查询的事实。现在的圆周运动只是一个看得见的最小实验；后面真实的相机、机械臂和检测结果都要依赖同样的 TF 树。
+
+### 接下来：让系统变得可展示
+
+接下来的学习将继续留在 Fundamentals 范围内：URDF + RViz 负责“看见机器人”，rosbag2 + MCAP 负责“留住一次运行”，FastAPI + WebSocket + Web Console 负责“把机器人接入 Web”，最后用 Docker Compose 与一键启动脚本把演示交给陌生人复现。
+
+## 从零运行当前实验
+
+环境固定为 **Ubuntu 24.04 + ROS2 Jazzy**。首次使用时：
+
+```bash
+cd ros_ws
+colcon build --packages-select ros2_fundamentals tf2_coordinate_systems
+source install/setup.bash
+```
+
+然后从上面的两个章节任选一个实验，严格按“终端 1 / 终端 2”的步骤运行。每个新终端进入 `ros_ws` 后都需要再执行一次：
+
+```bash
+source install/setup.bash
+```
+
+## 学习记录方式
+
+这不是官方教程的逐句翻译。每一篇笔记都会保留四件事：
+
+- **我当时想验证什么**：先把实验放回真实机器人/产品问题里。
+- **你可以照做的步骤**：命令、终端数量、预期输出和观察点都写出来。
+- **概念边界**：说明一个机制该用在哪里，以及不该滥用在哪里。
+- **失败与下一步**：保留问题，不把学习过程写成“永远一次成功”的假象。
+
+当本月结束时，这些章节应当连成一条可回放的证据链，而不只是零散的 API 笔记。

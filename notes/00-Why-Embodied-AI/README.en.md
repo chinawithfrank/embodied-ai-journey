@@ -41,4 +41,4 @@ Writing these concerns down now is so I can come back later and check whether th
 
 ## Next step
 
-Next chapter: [ROS2 Fundamentals](../01-ROS2-Fundamentals) — learning the nervous system that connects a robot's parts.
+Next chapter: [Month One: Robot Software Fundamentals](../01-Fundamentals) — bringing robot data and tasks into a familiar web system first.

@@ -1,12 +1,23 @@
-[← Back to Home](../../README.en.md) · [中文](README.md) | **English**
+[← Month One Fundamentals](../README.en.md) · [Back to Home](../../../README.en.md) · [中文](README.md) | **English**
 
-# ROS2 Fundamentals
+# 01 · ROS2 Communication: Make Modules Talk First
 
 This chapter targets **ROS2 Jazzy Jalisco** (Ubuntu 24.04) throughout.
 
 ## Why I learned this
 
-A robot isn't one monolithic program — it's a pile of independent modules: a camera node, a chassis node, an arm node, each running as its own process, sometimes on different machines, that still need to cooperate in real time. The first problem ROS2 solves is giving those modules a common way to talk to each other. Without understanding that communication layer first, there's no way to wire up perception, decision-making, and control later on.
+The first moment this stopped feeling like web development was realizing that a robot is not one program. A camera node, chassis node, and arm node run in separate processes—sometimes on separate machines—yet need to cooperate on one physical task. ROS2 first gives those modules a common language for messages, requests, and tasks.
+
+This package is deliberately small: strings, switches, and a turtlesim turtle are not product features. They make the communication boundaries visible first: when to push an event, wait for a reply, or expose progress and cancellation. The Web Gateway will later turn those boundaries into live UI state, buttons, and task records.
+
+### How this feeds the month-end product
+
+| Experiment today | Becomes in ROS2 Web Gateway |
+|---|---|
+| Topic publisher/subscriber | Live robot state or sensor data pushed to the web through WebSocket |
+| Service | A short operation, such as toggling a setting or reading immediate state |
+| Action | A longer task with visible progress and cancellation |
+| Parameter | Startup configuration and values adjustable while running |
 
 ## Concept
 
@@ -20,13 +31,13 @@ A robot isn't one monolithic program — it's a pile of independent modules: a c
 
 ## Build
 
-Code lives in [`ros_ws/src/ros2_fundamentals`](../../ros_ws/src/ros2_fundamentals), with these experiments:
+Code lives in [`ros_ws/src/fundamentals/ros2_fundamentals`](../../../ros_ws/src/fundamentals/ros2_fundamentals), with these experiments:
 
-1. **Keyboard-controlled turtlesim** ([`keyboard_teleop.py`](../../ros_ws/src/ros2_fundamentals/ros2_fundamentals/keyboard_teleop.py)) — reads raw keypresses from the terminal via `termios`/`tty`, maps them to a `Twist`, and publishes it on `/turtle1/cmd_vel` to drive the turtle.
-2. **Pub / Sub example** ([`pub_example.py`](../../ros_ws/src/ros2_fundamentals/ros2_fundamentals/pub_example.py) / [`sub_example.py`](../../ros_ws/src/ros2_fundamentals/ros2_fundamentals/sub_example.py)) — one node publishes a `String` on `chatter` once a second, the other subscribes and logs it.
-3. **Service example** ([`service_server.py`](../../ros_ws/src/ros2_fundamentals/ros2_fundamentals/service_server.py) / [`service_client.py`](../../ros_ws/src/ros2_fundamentals/ros2_fundamentals/service_client.py)) — a server exposes `/set_motors_enabled` using `std_srvs/SetBool`; the client sends an enable/disable request and waits for the response.
-4. **Action example** ([`action_client.py`](../../ros_ws/src/ros2_fundamentals/ros2_fundamentals/action_client.py)) — connects to turtlesim's built-in `/turtle1/rotate_absolute` action, sends a target heading, and prints feedback during the rotation.
-5. **Parameter example** ([`parameter_example.py`](../../ros_ws/src/ros2_fundamentals/ros2_fundamentals/parameter_example.py)) — declares and validates `robot_name` and `publish_period`; changing the period rebuilds the timer so the configuration takes effect immediately.
+1. **Keyboard-controlled turtlesim** ([`keyboard_teleop.py`](../../../ros_ws/src/fundamentals/ros2_fundamentals/ros2_fundamentals/keyboard_teleop.py)) — reads raw keypresses from the terminal via `termios`/`tty`, maps them to a `Twist`, and publishes it on `/turtle1/cmd_vel` to drive the turtle.
+2. **Pub / Sub example** ([`pub_example.py`](../../../ros_ws/src/fundamentals/ros2_fundamentals/ros2_fundamentals/pub_example.py) / [`sub_example.py`](../../../ros_ws/src/fundamentals/ros2_fundamentals/ros2_fundamentals/sub_example.py)) — one node publishes a `String` on `chatter` once a second, the other subscribes and logs it.
+3. **Service example** ([`service_server.py`](../../../ros_ws/src/fundamentals/ros2_fundamentals/ros2_fundamentals/service_server.py) / [`service_client.py`](../../../ros_ws/src/fundamentals/ros2_fundamentals/ros2_fundamentals/service_client.py)) — a server exposes `/set_motors_enabled` using `std_srvs/SetBool`; the client sends an enable/disable request and waits for the response.
+4. **Action example** ([`action_client.py`](../../../ros_ws/src/fundamentals/ros2_fundamentals/ros2_fundamentals/action_client.py)) — connects to turtlesim's built-in `/turtle1/rotate_absolute` action, sends a target heading, and prints feedback during the rotation.
+5. **Parameter example** ([`parameter_example.py`](../../../ros_ws/src/fundamentals/ros2_fundamentals/ros2_fundamentals/parameter_example.py)) — declares and validates `robot_name` and `publish_period`; changing the period rebuilds the timer so the configuration takes effect immediately.
 
 ### Dependencies
 
@@ -151,9 +162,16 @@ ros2 param set /parameter_example publish_period 0.5
 
 `robot_name` is reflected in the next log message, while `publish_period` recreates the timer. Empty names and non-positive periods are rejected by the node.
 
-## Experiment
+## What to observe after running
 
-TODO: add screenshots/recordings once this actually runs on Ubuntu + ROS2 Jazzy.
+Do not stop at “the command did not fail.” Verify these visible outcomes:
+
+1. `pub_example` logs one `Publishing` message per second and `sub_example` receives the same counter in another terminal.
+2. The service client reports `Motors are enabled.` or `Motors are disabled.`, while the server records the same transition.
+3. The action client repeatedly reports `Remaining rotation` instead of returning only a final result.
+4. Updating `robot_name` or `publish_period` changes the next parameter-node log or its output frequency.
+
+These observations will later become acceptance checks for the backend and web UI. After running on Ubuntu, add a terminal capture or 60-second recording here—and keep the first unexpected result too.
 
 ## What went wrong
 
