@@ -36,8 +36,12 @@ that proves I understand it, and share exactly what went wrong along the way.
 | # | Chapter | Status | Notes |
 |---|---------|--------|-------|
 | 00 | [Why Embodied AI](notes/00-Why-Embodied-AI) | ✅ Published | Why a software engineer is betting on physical intelligence |
+| 01 | [Month One: Robot Software Fundamentals](notes/01-Fundamentals) | 🚧 In progress | Month-end goal: ROS2 Web Gateway v0.1 |
+| 01.1 | [ROS2 Communication](notes/01-Fundamentals/01-ROS2-Communication) | ✅ Published | Topic, Service, Action, and Parameter boundaries with runnable examples |
+| 01.2 | [TF2 & Coordinate Systems](notes/01-Fundamentals/02-TF2-And-Coordinate-Systems) | ✅ Published | Static/dynamic transforms, lookup, and the TF tree |
+| 01.3 | [URDF & RViz](notes/01-Fundamentals/03-URDF-And-RViz) | ✅ Published | R2D2 model, joint state, and TF working together in a visualisation |
 
-More chapters (ROS2 fundamentals, TF2 coordinate systems, simulation, perception, AI agents, real-world deployment…) get added here as each one is actually written.
+This table is maintained in sync with `notes/`: every new learning subchapter gets a direct link and an updated status here.
 
 ## 🧭 How Each Chapter Is Written
 
