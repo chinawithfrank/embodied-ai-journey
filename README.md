@@ -39,6 +39,7 @@
 | 01.1 | [ROS2 通信](notes/01-Fundamentals/01-ROS2-Communication) | ✅ 已发布 | Topic、Service、Action 与 Parameter 的边界和样例 |
 | 01.2 | [TF2 与坐标系](notes/01-Fundamentals/02-TF2-And-Coordinate-Systems) | ✅ 已发布 | 静态/动态变换、查询与 TF 树 |
 | 01.3 | [URDF 与 RViz](notes/01-Fundamentals/03-URDF-And-RViz) | ✅ 已发布 | 用 R2D2 验证模型、关节状态与 TF 如何共同驱动可视化 |
+| 01.4 | [RViz Marker：基础形状](notes/01-Fundamentals/04-RViz-Markers) | ✅ 已发布 | 通过 `visualization_msgs/Marker` 在 RViz 显示循环基础形状 |
 
 目录与 `notes/` 同步维护：每新增一个学习子板块，都要在这里补上对应入口链接和状态。
 
@@ -86,7 +87,8 @@ embodied-ai-journey/
     └── src/fundamentals/
         ├── ros2_fundamentals/
         ├── tf2_coordinate_systems/
-        └── urdf_r2d2/
+        ├── urdf_r2d2/
+        └── rviz_markers/
 ```
 
 ## ⭐ 一起关注

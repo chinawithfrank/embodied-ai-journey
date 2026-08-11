@@ -30,13 +30,16 @@ embodied-ai-journey/
 ├── ros_ws/                         # runnable, buildable ROS2 experiment code only
 │   └── src/fundamentals/
 │       ├── ros2_fundamentals/      # Topic, Service, Action, Parameter
-│       └── tf2_coordinate_systems/ # static/dynamic TF and lookup
+│       ├── tf2_coordinate_systems/ # static/dynamic TF and lookup
+│       ├── urdf_r2d2/              # URDF, JointState, TF, and RViz
+│       └── rviz_markers/           # basic shapes and later visualisation labs
 └── notes/                          # learning narrative, concepts, labs, and retrospectives only
     └── 01-Fundamentals/
         ├── README.md               # month entry and product goal
         ├── 01-ROS2-Communication/
         ├── 02-TF2-And-Coordinate-Systems/
-        └── 03-URDF-And-RViz/
+        ├── 03-URDF-And-RViz/
+        └── 04-RViz-Markers/
 ```
 
 New experiment code belongs in `ros_ws`; its purpose, instructions, observations, and failures belong in `notes`. Readers can follow the story through the notes or build the workspace directly.
@@ -54,6 +57,10 @@ New experiment code belongs in `ros_ws`; its purpose, instructions, observations
 ### In progress: make the robot visible
 
 [03 · URDF & RViz](03-URDF-And-RViz) makes R2D2's structure, joint state, and TF visible together. It is the key step from understanding frames to verifying that data drives a model.
+
+### In progress: put runtime information into the scene
+
+[04 · RViz Marker](04-RViz-Markers) starts with basic shapes and turns ROS2 runtime messages into RViz objects. Later detections, trajectories, and debugging regions use the same visual channel.
 
 ### Next: make it demonstrable
 

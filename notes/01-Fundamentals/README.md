@@ -39,13 +39,16 @@ embodied-ai-journey/
 ├── ros_ws/                         # 只放可构建、可运行的 ROS2 实验代码
 │   └── src/fundamentals/
 │       ├── ros2_fundamentals/      # Topic、Service、Action、Parameter
-│       └── tf2_coordinate_systems/ # 静态/动态 TF 与查询
+│       ├── tf2_coordinate_systems/ # 静态/动态 TF 与查询
+│       ├── urdf_r2d2/              # URDF、JointState、TF 与 RViz
+│       └── rviz_markers/           # Marker 基础形状与后续可视化实验
 └── notes/                          # 只放学习叙事、概念解释、实验步骤与复盘
     └── 01-Fundamentals/
         ├── README.md               # 本月入口与产品目标
         ├── 01-ROS2-Communication/
         ├── 02-TF2-And-Coordinate-Systems/
-        └── 03-URDF-And-RViz/
+        ├── 03-URDF-And-RViz/
+        └── 04-RViz-Markers/
 ```
 
 新的实验代码只进入 `ros_ws`；每个实验的“为什么做、怎么运行、看到了什么、踩了什么坑”只写在 `notes`。这样读者可以从笔记理解旅程，也可以只进入工作空间直接构建代码。
@@ -63,6 +66,10 @@ embodied-ai-journey/
 ### 已开始：让机器人能被看见
 
 [03 · URDF 与 RViz](03-URDF-And-RViz) 让 R2D2 的结构、关节状态和 TF 同时可见。它是从“理解 frame”到“验证一个模型正在被数据驱动”的关键一步。
+
+### 已开始：让运行时信息浮现在画面上
+
+[04 · RViz Marker](04-RViz-Markers) 以基础形状开始，把 ROS2 运行时消息变成 RViz 中的对象。后面的感知目标、轨迹和调试区域都会使用这条可视化通道。
 
 ### 接下来：让系统变得可展示
 

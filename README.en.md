@@ -40,6 +40,7 @@ that proves I understand it, and share exactly what went wrong along the way.
 | 01.1 | [ROS2 Communication](notes/01-Fundamentals/01-ROS2-Communication) | ✅ Published | Topic, Service, Action, and Parameter boundaries with runnable examples |
 | 01.2 | [TF2 & Coordinate Systems](notes/01-Fundamentals/02-TF2-And-Coordinate-Systems) | ✅ Published | Static/dynamic transforms, lookup, and the TF tree |
 | 01.3 | [URDF & RViz](notes/01-Fundamentals/03-URDF-And-RViz) | ✅ Published | R2D2 model, joint state, and TF working together in a visualisation |
+| 01.4 | [RViz Marker: Basic Shapes](notes/01-Fundamentals/04-RViz-Markers) | ✅ Published | Cycled basic shapes in RViz with `visualization_msgs/Marker` |
 
 This table is maintained in sync with `notes/`: every new learning subchapter gets a direct link and an updated status here.
 
@@ -87,7 +88,8 @@ embodied-ai-journey/
     └── src/fundamentals/
         ├── ros2_fundamentals/
         ├── tf2_coordinate_systems/
-        └── urdf_r2d2/
+        ├── urdf_r2d2/
+        └── rviz_markers/
 ```
 
 ## ⭐ Follow Along
