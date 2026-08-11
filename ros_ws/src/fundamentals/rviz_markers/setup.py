@@ -21,6 +21,7 @@ setup(
     entry_points={
         'console_scripts': [
             'basic_shapes = rviz_markers.basic_shapes:main',
+            'points_and_lines = rviz_markers.points_and_lines:main',
         ],
     },
 )

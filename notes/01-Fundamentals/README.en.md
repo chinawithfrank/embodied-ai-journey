@@ -60,7 +60,7 @@ New experiment code belongs in `ros_ws`; its purpose, instructions, observations
 
 ### In progress: put runtime information into the scene
 
-[04 · RViz Marker](04-RViz-Markers) starts with basic shapes and turns ROS2 runtime messages into RViz objects. Later detections, trajectories, and debugging regions use the same visual channel.
+[04 · RViz Marker](04-RViz-Markers) now includes basic shapes plus points and lines, turning ROS2 runtime messages into RViz objects. Later detections, trajectories, and debugging regions use the same visual channel.
 
 ### Next: make it demonstrable
 

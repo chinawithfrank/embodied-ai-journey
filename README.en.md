@@ -41,6 +41,7 @@ that proves I understand it, and share exactly what went wrong along the way.
 | 01.2 | [TF2 & Coordinate Systems](notes/01-Fundamentals/02-TF2-And-Coordinate-Systems) | ✅ Published | Static/dynamic transforms, lookup, and the TF tree |
 | 01.3 | [URDF & RViz](notes/01-Fundamentals/03-URDF-And-RViz) | ✅ Published | R2D2 model, joint state, and TF working together in a visualisation |
 | 01.4 | [RViz Marker: Basic Shapes](notes/01-Fundamentals/04-RViz-Markers) | ✅ Published | Cycled basic shapes in RViz with `visualization_msgs/Marker` |
+| 01.5 | [RViz Marker: Points and Lines](notes/01-Fundamentals/04-RViz-Markers/02-Points-And-Lines) | ✅ Published | Time-varying point sets with `POINTS`, `LINE_STRIP`, and `LINE_LIST` |
 
 This table is maintained in sync with `notes/`: every new learning subchapter gets a direct link and an updated status here.
 

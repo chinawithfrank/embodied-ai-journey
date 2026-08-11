@@ -6,6 +6,11 @@ The R2D2 lab shows what the robot itself looks like. Real development also needs
 
 This is the first RViz Marker lab. Once per second it updates one Marker into a green cube, sphere, arrow, and cylinder. The goal is to see RViz as a ROS2-message-driven debugging canvas, not just a robot-model viewer.
 
+## Lab index
+
+1. **Basic Shapes** (this page) — one updating Marker for type, colour, scale, and identity.
+2. [**Points and Lines**](02-Points-And-Lines) — `POINTS`, `LINE_STRIP`, and `LINE_LIST` together, showing how one point array can mean different geometry.
+
 ## Concepts
 
 - **Marker** — one visual object sent to RViz. It is not a physical collision object and does not move a robot.
