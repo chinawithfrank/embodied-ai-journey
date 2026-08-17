@@ -1,0 +1,429 @@
+<?xml version="1.0" ?>
+<!-- SDF 根元素：version 指定使用 SDF 1.8 格式。 -->
+<sdf version="1.8">
+    <!-- 仿真世界：name 是世界名称。 -->
+    <world name="car_world">
+        <!-- 物理引擎配置：name 是配置名称，type 由 Gazebo 选择实际物理后端。 -->
+        <physics name="1ms" type="ignored">
+            <!-- 单次物理积分的最大时间步长，单位为秒。 -->
+            <max_step_size>0.001</max_step_size>
+            <!-- 仿真时间相对真实时间的目标倍速，1.0 表示实时。 -->
+            <real_time_factor>1.0</real_time_factor>
+        </physics>
+
+        <!-- 物理系统插件：负责计算重力、碰撞和关节动力学。 -->
+        <plugin
+            filename="gz-sim-physics-system"
+            name="gz::sim::systems::Physics">
+        </plugin>
+        <!-- 用户命令插件：允许通过 Gazebo 界面或命令创建、删除和控制实体。 -->
+        <plugin
+            filename="gz-sim-user-commands-system"
+            name="gz::sim::systems::UserCommands">
+        </plugin>
+        <!-- 场景广播插件：将世界中的实体与可视状态发送给 GUI。 -->
+        <plugin
+            filename="gz-sim-scene-broadcaster-system"
+            name="gz::sim::systems::SceneBroadcaster">
+        </plugin>
+
+
+        <!-- 定向光源：模拟太阳光。 -->
+        <light type="directional" name="sun">
+            <!-- 是否让该光源产生阴影。 -->
+            <cast_shadows>true</cast_shadows>
+            <!-- 光源位姿：x y z roll pitch yaw。 -->
+            <pose>0 0 10 0 0 0</pose>
+            <!-- 漫反射光颜色：r g b alpha。 -->
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <!-- 镜面反射光颜色：r g b alpha。 -->
+            <specular>0.2 0.2 0.2 1</specular>
+            <!-- 光照随距离衰减的参数组。 -->
+            <attenuation>
+                <!-- 光源的有效照射距离。 -->
+                <range>1000</range>
+                <!-- 常数衰减系数。 -->
+                <constant>0.9</constant>
+                <!-- 一次线性衰减系数。 -->
+                <linear>0.01</linear>
+                <!-- 二次衰减系数。 -->
+                <quadratic>0.001</quadratic>
+            </attenuation>
+            <!-- 光线照射方向向量。 -->
+            <direction>-0.5 0.1 -0.9</direction>
+        </light>
+
+        <!-- 静态地面模型：不会受物理引擎作用而移动。 -->
+        <model name="ground_plane">
+            <!-- 将整个地面模型设为静态。 -->
+            <static>true</static>
+            <!-- 地面的刚体部件。 -->
+            <link name="link">
+                <!-- 碰撞几何：供物理引擎计算接触和碰撞。 -->
+                <collision name="collision">
+                    <!-- 碰撞体的几何形状容器。 -->
+                    <geometry>
+                        <!-- 无限平面几何体。 -->
+                        <plane>
+                            <!-- 平面的法线方向，z 轴向上。 -->
+                            <normal>0 0 1</normal>
+                        </plane>
+                    </geometry>
+                </collision>
+                <!-- 可视几何：只决定 GUI 中的外观。 -->
+                <visual name="visual">
+                    <!-- 可视体的几何形状容器。 -->
+                    <geometry>
+                        <!-- 用平面绘制地面。 -->
+                        <plane>
+                            <!-- 可视平面的法线方向。 -->
+                            <normal>0 0 1</normal>
+                            <!-- 可视平面的宽和长，单位为米。 -->
+                            <size>100 100</size>
+                        </plane>
+                    </geometry>
+                    <!-- 地面材质与颜色设置。 -->
+                    <material>
+                        <!-- 环境光下的地面颜色。 -->
+                        <ambient>0.8 0.8 0.8 1</ambient>
+                        <!-- 漫反射颜色。 -->
+                        <diffuse>0.8 0.8 0.8 1</diffuse>
+                        <!-- 镜面反射颜色。 -->
+                        <specular>0.8 0.8 0.8 1</specular>
+                    </material>
+                </visual>
+            </link>
+        </model>
+
+        <!-- 移动小车模型：canonical_link 指定模型的参考刚体。 -->
+        <model name='vehicle_blue' canonical_link='chassis'>
+            <!-- 整车相对世界坐标系的初始位姿。 -->
+            <pose relative_to='world'>0 0 0 0 0 0</pose>
+
+            <!-- 底盘刚体。 -->
+            <link name='chassis'>
+                <!-- 底盘相对模型坐标系的位姿。 -->
+                <pose relative_to='__model__'>0.5 0 0.4 0 0 0</pose>
+                <!-- 底盘的质量和转动惯量。 -->
+                <inertial>
+                    <!-- 底盘质量，单位为千克。 -->
+                    <mass>1.14395</mass>
+                    <!-- 转动惯量矩阵的各个分量。 -->
+                    <inertia>
+                        <!-- 绕 x 轴的转动惯量。 -->
+                        <ixx>0.095329</ixx>
+                        <!-- x-y 平面的惯性积。 -->
+                        <ixy>0</ixy>
+                        <!-- x-z 平面的惯性积。 -->
+                        <ixz>0</ixz>
+                        <!-- 绕 y 轴的转动惯量。 -->
+                        <iyy>0.381317</iyy>
+                        <!-- y-z 平面的惯性积。 -->
+                        <iyz>0</iyz>
+                        <!-- 绕 z 轴的转动惯量。 -->
+                        <izz>0.476646</izz>
+                    </inertia>
+                </inertial>
+                <!-- 底盘的可视外观。 -->
+                <visual name='visual'>
+                    <!-- 可视外观的几何形状容器。 -->
+                    <geometry>
+                        <!-- 用长方体表示底盘。 -->
+                        <box>
+                            <!-- 长方体长、宽、高，单位为米。 -->
+                            <size>2.0 1.0 0.5</size>
+                        </box>
+                    </geometry>
+                    <!-- 底盘颜色材质。 -->
+                    <material>
+                        <!-- 环境光下的蓝色。 -->
+                        <ambient>0.0 0.0 1.0 1</ambient>
+                        <!-- 漫反射蓝色。 -->
+                        <diffuse>0.0 0.0 1.0 1</diffuse>
+                        <!-- 镜面反射蓝色。 -->
+                        <specular>0.0 0.0 1.0 1</specular>
+                    </material>
+                </visual>
+                <!-- 底盘的物理碰撞体。 -->
+                <collision name='collision'>
+                    <!-- 碰撞体的几何形状容器。 -->
+                    <geometry>
+                        <!-- 碰撞体也使用同尺寸长方体。 -->
+                        <box>
+                            <!-- 碰撞长方体长、宽、高。 -->
+                            <size>2.0 1.0 0.5</size>
+                        </box>
+                    </geometry>
+                </collision>
+            </link>
+
+            <!-- 左侧驱动轮刚体。 -->
+            <link name='left_wheel'>
+                <!-- 左轮相对底盘的位置和姿态；角度单位为弧度。 -->
+                <pose relative_to="chassis">-0.5 0.6 0 -1.5707 0 0</pose>
+                <!-- 左轮的质量和转动惯量。 -->
+                <inertial>
+                    <!-- 左轮质量，单位为千克。 -->
+                    <mass>1</mass>
+                    <!-- 左轮转动惯量矩阵。 -->
+                    <inertia>
+                        <!-- 绕 x 轴的转动惯量。 -->
+                        <ixx>0.043333</ixx>
+                        <!-- x-y 平面的惯性积。 -->
+                        <ixy>0</ixy>
+                        <!-- x-z 平面的惯性积。 -->
+                        <ixz>0</ixz>
+                        <!-- 绕 y 轴的转动惯量。 -->
+                        <iyy>0.043333</iyy>
+                        <!-- y-z 平面的惯性积。 -->
+                        <iyz>0</iyz>
+                        <!-- 绕 z 轴的转动惯量。 -->
+                        <izz>0.08</izz>
+                    </inertia>
+                </inertial>
+                <!-- 左轮的可视外观。 -->
+                <visual name='visual'>
+                    <!-- 左轮可视体的几何形状容器。 -->
+                    <geometry>
+                        <!-- 用圆柱体表示车轮。 -->
+                        <cylinder>
+                            <!-- 车轮半径，单位为米。 -->
+                            <radius>0.4</radius>
+                            <!-- 车轮厚度，单位为米。 -->
+                            <length>0.2</length>
+                        </cylinder>
+                    </geometry>
+                    <!-- 左轮红色材质。 -->
+                    <material>
+                        <!-- 环境光下的红色。 -->
+                        <ambient>1.0 0.0 0.0 1</ambient>
+                        <!-- 漫反射红色。 -->
+                        <diffuse>1.0 0.0 0.0 1</diffuse>
+                        <!-- 镜面反射红色。 -->
+                        <specular>1.0 0.0 0.0 1</specular>
+                    </material>
+                </visual>
+                <!-- 左轮的物理碰撞体。 -->
+                <collision name='collision'>
+                    <!-- 左轮碰撞体的几何形状容器。 -->
+                    <geometry>
+                        <!-- 碰撞体使用同尺寸圆柱。 -->
+                        <cylinder>
+                            <!-- 碰撞圆柱半径。 -->
+                            <radius>0.4</radius>
+                            <!-- 碰撞圆柱长度。 -->
+                            <length>0.2</length>
+                        </cylinder>
+                    </geometry>
+                </collision>
+            </link>
+
+            <!-- 右侧驱动轮刚体。 -->
+            <link name='right_wheel'>
+                <!-- 右轮相对底盘的位置和姿态；角度单位为弧度。 -->
+                <pose relative_to="chassis">-0.5 -0.6 0 -1.5707 0 0</pose>
+                <!-- 右轮的质量和转动惯量。 -->
+                <inertial>
+                    <!-- 右轮质量，单位为千克。 -->
+                    <mass>1</mass>
+                    <!-- 右轮转动惯量矩阵。 -->
+                    <inertia>
+                        <!-- 绕 x 轴的转动惯量。 -->
+                        <ixx>0.043333</ixx>
+                        <!-- x-y 平面的惯性积。 -->
+                        <ixy>0</ixy>
+                        <!-- x-z 平面的惯性积。 -->
+                        <ixz>0</ixz>
+                        <!-- 绕 y 轴的转动惯量。 -->
+                        <iyy>0.043333</iyy>
+                        <!-- y-z 平面的惯性积。 -->
+                        <iyz>0</iyz>
+                        <!-- 绕 z 轴的转动惯量。 -->
+                        <izz>0.08</izz>
+                    </inertia>
+                </inertial>
+                <!-- 右轮的可视外观。 -->
+                <visual name='visual'>
+                    <!-- 右轮可视体的几何形状容器。 -->
+                    <geometry>
+                        <!-- 用圆柱体表示车轮。 -->
+                        <cylinder>
+                            <!-- 车轮半径，单位为米。 -->
+                            <radius>0.4</radius>
+                            <!-- 车轮厚度，单位为米。 -->
+                            <length>0.2</length>
+                        </cylinder>
+                    </geometry>
+                    <!-- 右轮红色材质。 -->
+                    <material>
+                        <!-- 环境光下的红色。 -->
+                        <ambient>1.0 0.0 0.0 1</ambient>
+                        <!-- 漫反射红色。 -->
+                        <diffuse>1.0 0.0 0.0 1</diffuse>
+                        <!-- 镜面反射红色。 -->
+                        <specular>1.0 0.0 0.0 1</specular>
+                    </material>
+                </visual>
+                <!-- 右轮的物理碰撞体。 -->
+                <collision name='collision'>
+                    <!-- 右轮碰撞体的几何形状容器。 -->
+                    <geometry>
+                        <!-- 碰撞体使用同尺寸圆柱。 -->
+                        <cylinder>
+                            <!-- 碰撞圆柱半径。 -->
+                            <radius>0.4</radius>
+                            <!-- 碰撞圆柱长度。 -->
+                            <length>0.2</length>
+                        </cylinder>
+                    </geometry>
+                </collision>
+            </link>
+
+            <!-- 脚轮安装参考坐标系：固定在底盘上。 -->
+            <frame name="caster_frame" attached_to='chassis'>
+                <!-- 脚轮参考坐标系相对底盘的位姿。 -->
+                <pose>0.8 0 -0.2 0 0 0</pose>
+            </frame>
+
+            <!-- 球形脚轮刚体。 -->
+            <link name='caster'>
+                <!-- 脚轮位姿继承自 caster_frame。 -->
+                <pose relative_to='caster_frame'/>
+                <!-- 脚轮的质量和转动惯量。 -->
+                <inertial>
+                    <!-- 脚轮质量，单位为千克。 -->
+                    <mass>1</mass>
+                    <!-- 脚轮转动惯量矩阵。 -->
+                    <inertia>
+                        <!-- 绕 x 轴的转动惯量。 -->
+                        <ixx>0.016</ixx>
+                        <!-- x-y 平面的惯性积。 -->
+                        <ixy>0</ixy>
+                        <!-- x-z 平面的惯性积。 -->
+                        <ixz>0</ixz>
+                        <!-- 绕 y 轴的转动惯量。 -->
+                        <iyy>0.016</iyy>
+                        <!-- y-z 平面的惯性积。 -->
+                        <iyz>0</iyz>
+                        <!-- 绕 z 轴的转动惯量。 -->
+                        <izz>0.016</izz>
+                    </inertia>
+                </inertial>
+                <!-- 脚轮的可视外观。 -->
+                <visual name='visual'>
+                    <!-- 脚轮可视体的几何形状容器。 -->
+                    <geometry>
+                        <!-- 用球体表示万向脚轮。 -->
+                        <sphere>
+                            <!-- 脚轮球体半径，单位为米。 -->
+                            <radius>0.2</radius>
+                        </sphere>
+                    </geometry>
+                    <!-- 脚轮绿色材质。 -->
+                    <material>
+                        <!-- 环境光下的绿色。 -->
+                        <ambient>0.0 1 0.0 1</ambient>
+                        <!-- 漫反射绿色。 -->
+                        <diffuse>0.0 1 0.0 1</diffuse>
+                        <!-- 镜面反射绿色。 -->
+                        <specular>0.0 1 0.0 1</specular>
+                    </material>
+                </visual>
+                <!-- 脚轮的物理碰撞体。 -->
+                <collision name='collision'>
+                    <!-- 脚轮碰撞体的几何形状容器。 -->
+                    <geometry>
+                        <!-- 碰撞体使用同尺寸球体。 -->
+                        <sphere>
+                            <!-- 碰撞球体半径。 -->
+                            <radius>0.2</radius>
+                        </sphere>
+                    </geometry>
+                </collision>
+            </link>
+
+            <!-- 左轮旋转关节。 -->
+            <joint name='left_wheel_joint' type='revolute'>
+                <!-- 关节坐标系相对左轮的位姿；空标签使用默认位姿。 -->
+                <pose relative_to='left_wheel'/>
+                <!-- 关节父刚体，即底盘。 -->
+                <parent>chassis</parent>
+                <!-- 关节子刚体，即左轮。 -->
+                <child>left_wheel</child>
+                <!-- 关节转轴和角度限制配置。 -->
+                <axis>
+                    <!-- 转轴方向，使用模型坐标系表达。 -->
+                    <xyz expressed_in='__model__'>0 1 0</xyz>
+                    <!-- 关节位置范围。 -->
+                    <limit>
+                        <!-- 关节角度下限，近似负无穷。 -->
+                        <lower>-1.79769e+308</lower>
+                        <!-- 关节角度上限，近似正无穷。 -->
+                        <upper>1.79769e+308</upper>
+                    </limit>
+                </axis>
+            </joint>
+
+            <!-- 右轮旋转关节。 -->
+            <joint name='right_wheel_joint' type='revolute'>
+                <!-- 关节坐标系相对右轮的位姿；空标签使用默认位姿。 -->
+                <pose relative_to='right_wheel'/>
+                <!-- 关节父刚体，即底盘。 -->
+                <parent>chassis</parent>
+                <!-- 关节子刚体，即右轮。 -->
+                <child>right_wheel</child>
+                <!-- 关节转轴和角度限制配置。 -->
+                <axis>
+                    <!-- 转轴方向，使用模型坐标系表达。 -->
+                    <xyz expressed_in='__model__'>0 1 0</xyz>
+                    <!-- 关节位置范围。 -->
+                    <limit>
+                        <!-- 关节角度下限，近似负无穷。 -->
+                        <lower>-1.79769e+308</lower>
+                        <!-- 关节角度上限，近似正无穷。 -->
+                        <upper>1.79769e+308</upper>
+                    </limit>
+                </axis>
+            </joint>
+
+            <!-- 脚轮球关节：允许脚轮在多个方向自由转动。 -->
+            <joint name='caster_wheel' type='ball'>
+                <!-- 球关节父刚体，即底盘。 -->
+                <parent>chassis</parent>
+                <!-- 球关节子刚体，即脚轮。 -->
+                <child>caster</child>
+            </joint>
+
+            <plugin
+                filename="gz-sim-diff-drive-system"
+                name="gz::sim::systems::DiffDrive">
+                <left_joint>left_wheel_joint</left_joint>
+                <right_joint>right_wheel_joint</right_joint>
+                <wheel_separation>1.2</wheel_separation>
+                <wheel_radius>0.4</wheel_radius>
+                <odom_publish_frequency>1</odom_publish_frequency>
+                <topic>cmd_vel</topic>
+            </plugin>
+
+            <plugin filename="gz-sim-triggered-publisher-system"
+                    name="gz::sim::systems::TriggeredPublisher">
+                <input type="gz.msgs.Int32" topic="/keyboard/keypress">
+                    <match field="data">16777235</match>
+                </input>
+                <output type="gz.msgs.Twist" topic="/cmd_vel">
+                    linear: {x: 0.5}, angular: {z: 0.0}
+                </output>
+            </plugin>
+            <!-- Moving Backward-->
+            <plugin filename="gz-sim-triggered-publisher-system"
+                    name="gz::sim::systems::TriggeredPublisher">
+                <input type="gz.msgs.Int32" topic="/keyboard/keypress">
+                    <match field="data">16777237</match>
+                </input>
+                <output type="gz.msgs.Twist" topic="/cmd_vel">
+                    linear: {x: -0.5}, angular: {z: 0.0}
+                </output>
+            </plugin>
+        </model>
+    </world>
+</sdf>
