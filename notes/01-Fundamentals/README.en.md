@@ -21,7 +21,7 @@ web UI creates a task    -> backend calls it     -> ROS2 Service / Action -> nod
 
 The final demo must answer six questions: is the robot online, what data is it publishing, can a user create a task, can a long task show progress and be cancelled, where are its logs, and can the run be recorded and replayed?
 
-This is the **product contract**, not a claim that the product already exists. The repository is still laying foundations: the communication and TF2 examples are runnable today; URDF, RViz, rosbag2/MCAP, the web bridge, dashboard, and Docker workflow will join this same path.
+This is the **product contract**, not a claim that the product already exists. The repository is still laying foundations: communication, TF2, URDF, RViz, and rosbag2/MCAP examples are runnable today; the web bridge, dashboard, and Docker workflow will join this same path.
 
 ## Directory contract
 
@@ -32,14 +32,16 @@ embodied-ai-journey/
 │       ├── ros2_fundamentals/      # Topic, Service, Action, Parameter
 │       ├── tf2_coordinate_systems/ # static/dynamic TF and lookup
 │       ├── urdf_r2d2/              # URDF, JointState, TF, and RViz
-│       └── rviz_markers/           # basic shapes and later visualisation labs
+│       ├── rviz_markers/           # basic shapes and later visualisation labs
+│       └── rosbag2_fundamentals/   # MCAP recording and visual replay
 └── notes/                          # learning narrative, concepts, labs, and retrospectives only
     └── 01-Fundamentals/
         ├── README.md               # month entry and product goal
         ├── 01-ROS2-Communication/
         ├── 02-TF2-And-Coordinate-Systems/
         ├── 03-URDF-And-RViz/
-        └── 04-RViz-Markers/
+        ├── 04-RViz-Markers/
+        └── 05-Rosbag2-And-MCAP/
 ```
 
 New experiment code belongs in `ros_ws`; its purpose, instructions, observations, and failures belong in `notes`. Readers can follow the story through the notes or build the workspace directly.
@@ -62,9 +64,13 @@ New experiment code belongs in `ros_ws`; its purpose, instructions, observations
 
 [04 · RViz Marker](04-RViz-Markers) now includes basic shapes plus points and lines, turning ROS2 runtime messages into RViz objects. Later detections, trajectories, and debugging regions use the same visual channel.
 
+### In progress: make one run replayable
+
+[05 · rosbag2 & MCAP](05-Rosbag2-And-MCAP) writes R2D2 joint messages and Marker animation to MCAP, then returns them to RViz after the live publishers stop. It turns “what happened in that run?” into inspectable, shareable evidence.
+
 ### Next: make it demonstrable
 
-The remaining Fundamentals work stays intentionally narrow: rosbag2 + MCAP to preserve a run, FastAPI + WebSocket + a web console to connect ROS2 to the web, then Docker Compose and one-command startup so a stranger can reproduce the demo.
+The remaining Fundamentals work stays intentionally narrow: FastAPI + WebSocket + a web console to connect ROS2 to the web, then Docker Compose and one-command startup so a stranger can reproduce the demo.
 
 ## Run the current experiments
 
@@ -72,7 +78,7 @@ The environment is fixed to **Ubuntu 24.04 + ROS2 Jazzy**. For a first build:
 
 ```bash
 cd ros_ws
-colcon build --packages-select ros2_fundamentals tf2_coordinate_systems urdf_r2d2
+colcon build --packages-select ros2_fundamentals tf2_coordinate_systems urdf_r2d2 rviz_markers rosbag2_fundamentals
 source install/setup.bash
 ```
 

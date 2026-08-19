@@ -42,6 +42,7 @@ that proves I understand it, and share exactly what went wrong along the way.
 | 01.3 | [URDF & RViz](notes/01-Fundamentals/03-URDF-And-RViz) | ✅ Published | R2D2 model, joint state, and TF working together in a visualisation |
 | 01.4 | [RViz Marker: Basic Shapes](notes/01-Fundamentals/04-RViz-Markers) | ✅ Published | Cycled basic shapes in RViz with `visualization_msgs/Marker` |
 | 01.5 | [RViz Marker: Points and Lines](notes/01-Fundamentals/04-RViz-Markers/02-Points-And-Lines) | ✅ Published | Time-varying point sets with `POINTS`, `LINE_STRIP`, and `LINE_LIST` |
+| 01.6 | [rosbag2 & MCAP](notes/01-Fundamentals/05-Rosbag2-And-MCAP) | ✅ Published | Record joint and Marker messages, then replay a run in RViz |
 
 This table is maintained in sync with `notes/`: every new learning subchapter gets a direct link and an updated status here.
 
@@ -84,13 +85,16 @@ embodied-ai-journey/
 │   └── 01-Fundamentals/             month one: ROS2 Web Gateway v0.1
 │       ├── 01-ROS2-Communication/
 │       ├── 02-TF2-And-Coordinate-Systems/
-│       └── 03-URDF-And-RViz/
+│       ├── 03-URDF-And-RViz/
+│       ├── 04-RViz-Markers/
+│       └── 05-Rosbag2-And-MCAP/
 └── ros_ws/             the ROS2 workspace — everything I build gets run here
     └── src/fundamentals/
         ├── ros2_fundamentals/
         ├── tf2_coordinate_systems/
         ├── urdf_r2d2/
-        └── rviz_markers/
+        ├── rviz_markers/
+        └── rosbag2_fundamentals/
 ```
 
 ## ⭐ Follow Along

@@ -41,6 +41,7 @@
 | 01.3 | [URDF 与 RViz](notes/01-Fundamentals/03-URDF-And-RViz) | ✅ 已发布 | 用 R2D2 验证模型、关节状态与 TF 如何共同驱动可视化 |
 | 01.4 | [RViz Marker：基础形状](notes/01-Fundamentals/04-RViz-Markers) | ✅ 已发布 | 通过 `visualization_msgs/Marker` 在 RViz 显示循环基础形状 |
 | 01.5 | [RViz Marker：点与线](notes/01-Fundamentals/04-RViz-Markers/02-Points-And-Lines) | ✅ 已发布 | 用 `POINTS`、`LINE_STRIP` 和 `LINE_LIST` 观察时序点集 |
+| 01.6 | [rosbag2 与 MCAP](notes/01-Fundamentals/05-Rosbag2-And-MCAP) | ✅ 已发布 | 录制关节与 Marker 消息，并在 RViz 中回放一次运行 |
 
 目录与 `notes/` 同步维护：每新增一个学习子板块，都要在这里补上对应入口链接和状态。
 
@@ -83,13 +84,16 @@ embodied-ai-journey/
 │   └── 01-Fundamentals/             第一个月：ROS2 Web Gateway v0.1
 │       ├── 01-ROS2-Communication/
 │       ├── 02-TF2-And-Coordinate-Systems/
-│       └── 03-URDF-And-RViz/
+│       ├── 03-URDF-And-RViz/
+│       ├── 04-RViz-Markers/
+│       └── 05-Rosbag2-And-MCAP/
 └── ros_ws/             ROS2 工作空间——所有代码都在这里跑起来
     └── src/fundamentals/
         ├── ros2_fundamentals/
         ├── tf2_coordinate_systems/
         ├── urdf_r2d2/
-        └── rviz_markers/
+        ├── rviz_markers/
+        └── rosbag2_fundamentals/
 ```
 
 ## ⭐ 一起关注

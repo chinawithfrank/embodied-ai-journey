@@ -28,7 +28,7 @@ ROS2 节点发布状态 ──> 后端接收 ──> WebSocket ──> 网页实
 5. 发生问题时，日志在哪里？
 6. 这次运行能否被录制和回放？
 
-这是**本月产品契约**，不是当前完成清单。现在仓库正处在打地基阶段：通信样例与 TF2 样例已经可运行；URDF、RViz、rosbag2/MCAP、Web Bridge、Dashboard 与 Docker 化会继续加入同一条主线。
+这是**本月产品契约**，不是当前完成清单。现在仓库正处在打地基阶段：通信、TF2、URDF、RViz 与 rosbag2/MCAP 样例已经可运行；Web Bridge、Dashboard 与 Docker 化会继续加入同一条主线。
 
 ## 目录约定
 
@@ -41,14 +41,16 @@ embodied-ai-journey/
 │       ├── ros2_fundamentals/      # Topic、Service、Action、Parameter
 │       ├── tf2_coordinate_systems/ # 静态/动态 TF 与查询
 │       ├── urdf_r2d2/              # URDF、JointState、TF 与 RViz
-│       └── rviz_markers/           # Marker 基础形状与后续可视化实验
+│       ├── rviz_markers/           # Marker 基础形状与后续可视化实验
+│       └── rosbag2_fundamentals/   # MCAP 录制与可视化回放
 └── notes/                          # 只放学习叙事、概念解释、实验步骤与复盘
     └── 01-Fundamentals/
         ├── README.md               # 本月入口与产品目标
         ├── 01-ROS2-Communication/
         ├── 02-TF2-And-Coordinate-Systems/
         ├── 03-URDF-And-RViz/
-        └── 04-RViz-Markers/
+        ├── 04-RViz-Markers/
+        └── 05-Rosbag2-And-MCAP/
 ```
 
 新的实验代码只进入 `ros_ws`；每个实验的“为什么做、怎么运行、看到了什么、踩了什么坑”只写在 `notes`。这样读者可以从笔记理解旅程，也可以只进入工作空间直接构建代码。
@@ -71,9 +73,13 @@ embodied-ai-journey/
 
 [04 · RViz Marker](04-RViz-Markers) 已包含基础形状与点线实验，把 ROS2 运行时消息变成 RViz 中的对象。后面的感知目标、轨迹和调试区域都会使用这条可视化通道。
 
+### 已开始：让一次运行可以被重放
+
+[05 · rosbag2 与 MCAP](05-Rosbag2-And-MCAP) 把 R2D2 的关节消息和 Marker 动画写入 MCAP，并在停止实时发布器后重新送回 RViz。它让“这次到底发生了什么”有了可检查、可分享的运行证据。
+
 ### 接下来：让系统变得可展示
 
-接下来的学习将继续留在 Fundamentals 范围内：rosbag2 + MCAP 负责“留住一次运行”，FastAPI + WebSocket + Web Console 负责“把机器人接入 Web”，最后用 Docker Compose 与一键启动脚本把演示交给陌生人复现。
+接下来的学习将继续留在 Fundamentals 范围内：FastAPI + WebSocket + Web Console 负责“把机器人接入 Web”，最后用 Docker Compose 与一键启动脚本把演示交给陌生人复现。
 
 ## 从零运行当前实验
 
@@ -81,7 +87,7 @@ embodied-ai-journey/
 
 ```bash
 cd ros_ws
-colcon build --packages-select ros2_fundamentals tf2_coordinate_systems urdf_r2d2
+colcon build --packages-select ros2_fundamentals tf2_coordinate_systems urdf_r2d2 rviz_markers rosbag2_fundamentals
 source install/setup.bash
 ```
 
