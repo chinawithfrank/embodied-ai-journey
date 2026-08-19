@@ -38,8 +38,8 @@ class RotateTurtleClient(Node):
         result_future.add_done_callback(self.result_callback)
 
     def feedback_callback(self, feedback_message):
-        remaining_delta = feedback_message.feedback.remaining_delta
-        self.get_logger().info(f'Remaining rotation: {remaining_delta:.2f}')
+        remaining = feedback_message.feedback.remaining
+        self.get_logger().info(f'Remaining rotation: {remaining:.2f}')
 
     def result_callback(self, future):
         result = future.result().result

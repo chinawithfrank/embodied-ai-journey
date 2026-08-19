@@ -3,3 +3,6 @@ build
 log
 ros_ws/recordings/
 recordings
+web_gateway/frontend/node_modules/
+web_gateway/frontend/.next/
+web_gateway/backend/.venv/

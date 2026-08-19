@@ -28,7 +28,7 @@ ROS2 节点发布状态 ──> 后端接收 ──> WebSocket ──> 网页实
 5. 发生问题时，日志在哪里？
 6. 这次运行能否被录制和回放？
 
-这是**本月产品契约**，不是当前完成清单。现在仓库正处在打地基阶段：通信、TF2、URDF、RViz 与 rosbag2/MCAP 样例已经可运行；Web Bridge、Dashboard 与 Docker 化会继续加入同一条主线。
+这是本月已经完成的产品契约：通信、TF2、URDF、RViz 与 rosbag2/MCAP 样例最终汇入了可运行的 Web Gateway。它仍是本地实验版，不是直接用于实体机器人安全控制的产品。
 
 ## 目录约定
 
@@ -42,7 +42,8 @@ embodied-ai-journey/
 │       ├── tf2_coordinate_systems/ # 静态/动态 TF 与查询
 │       ├── urdf_r2d2/              # URDF、JointState、TF 与 RViz
 │       ├── rviz_markers/           # Marker 基础形状与后续可视化实验
-│       └── rosbag2_fundamentals/   # MCAP 录制与可视化回放
+│       ├── rosbag2_fundamentals/   # MCAP 录制与可视化回放
+│       └── web_gateway_demo/        # 组合前述节点的月度成果演示图
 └── notes/                          # 只放学习叙事、概念解释、实验步骤与复盘
     └── 01-Fundamentals/
         ├── README.md               # 本月入口与产品目标
@@ -50,7 +51,8 @@ embodied-ai-journey/
         ├── 02-TF2-And-Coordinate-Systems/
         ├── 03-URDF-And-RViz/
         ├── 04-RViz-Markers/
-        └── 05-Rosbag2-And-MCAP/
+        ├── 05-Rosbag2-And-MCAP/
+        └── 06-ROS2-Web-Gateway/
 ```
 
 新的实验代码只进入 `ros_ws`；每个实验的“为什么做、怎么运行、看到了什么、踩了什么坑”只写在 `notes`。这样读者可以从笔记理解旅程，也可以只进入工作空间直接构建代码。
@@ -77,9 +79,9 @@ embodied-ai-journey/
 
 [05 · rosbag2 与 MCAP](05-Rosbag2-And-MCAP) 把 R2D2 的关节消息和 Marker 动画写入 MCAP，并在停止实时发布器后重新送回 RViz。它让“这次到底发生了什么”有了可检查、可分享的运行证据。
 
-### 接下来：让系统变得可展示
+### 已完成：让系统变得可展示
 
-接下来的学习将继续留在 Fundamentals 范围内：FastAPI + WebSocket + Web Console 负责“把机器人接入 Web”，最后用 Docker Compose 与一键启动脚本把演示交给陌生人复现。
+[06 · ROS2 Web Gateway v0.1](06-ROS2-Web-Gateway) 用 FastAPI、WebSocket、Next.js 和 Docker Compose 把前面的能力收拢为一个本地实验控制台。它显示机器人状态、创建/取消受限任务、保存网关日志，并让用户从网页开始或停止 MCAP 录制。
 
 ## 从零运行当前实验
 
@@ -87,7 +89,7 @@ embodied-ai-journey/
 
 ```bash
 cd ros_ws
-colcon build --packages-select ros2_fundamentals tf2_coordinate_systems urdf_r2d2 rviz_markers rosbag2_fundamentals
+colcon build --packages-select ros2_fundamentals tf2_coordinate_systems urdf_r2d2 rviz_markers rosbag2_fundamentals web_gateway_demo
 source install/setup.bash
 ```
 

@@ -1,0 +1,29 @@
+:root {
+  --ink: #12231f;
+  --muted: #64736e;
+  --paper: #f6f5f0;
+  --line: #d8ddd6;
+  --green: #12664f;
+  --lime: #bbef69;
+  --orange: #ff7043;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--ink); background: var(--paper); font-family: Arial, sans-serif; }
+main { max-width: 1260px; margin: auto; padding: 48px 28px 28px; }
+.hero { display: flex; justify-content: space-between; gap: 24px; align-items: flex-start; margin-bottom: 32px; }
+.eyebrow, .label { margin: 0 0 8px; color: var(--green); font-size: 11px; letter-spacing: .16em; font-weight: 700; }
+h1, h2, p { margin-top: 0; } h1 { font-size: clamp(34px, 6vw, 70px); letter-spacing: -.07em; margin-bottom: 8px; } h1 span { color: var(--green); }
+h2 { font-size: 22px; margin-bottom: 8px; } .subtitle, .muted { color: var(--muted); } .subtitle { font-size: 18px; }
+.badge { white-space: nowrap; padding: 10px 14px; border: 1px solid var(--line); border-radius: 100px; color: var(--muted); background: white; font-weight: 700; }
+.badge i { display: inline-block; width: 9px; height: 9px; margin-right: 5px; border-radius: 50%; background: #aeb9b5; } .badge.online { color: var(--green); border-color: var(--green); } .badge.online i { background: var(--lime); }
+.grid { display: grid; gap: 16px; margin-bottom: 16px; } .overview { grid-template-columns: repeat(3, 1fr); } .primary-grid { grid-template-columns: 1.35fr .9fr; } .lower-grid { grid-template-columns: repeat(3, 1fr); }
+.card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 22px; box-shadow: 0 8px 30px rgba(28, 53, 45, .04); } .status-card strong { display: block; font-size: 24px; margin-bottom: 6px; } .status-card p { color: var(--muted); margin-bottom: 0; } .recording-card { background: var(--ink); color: white; } .recording-card .label { color: var(--lime); } .recording-card p { color: #bdd0c8; }
+button { border: 0; border-radius: 8px; padding: 10px 14px; background: var(--green); color: white; font-weight: 700; cursor: pointer; } button:hover { filter: brightness(1.08); } button:disabled { cursor: not-allowed; opacity: .45; } .recording-card button { margin-top: 13px; background: var(--lime); color: var(--ink); }
+.card-heading { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; } .topic { color: var(--muted); background: #eef2ed; border-radius: 6px; padding: 5px 7px; font-family: monospace; font-size: 12px; }
+.joint-row { display: grid; grid-template-columns: 80px 1fr 95px; gap: 12px; align-items: center; padding: 13px 0; border-top: 1px solid #edf0eb; } .joint-row div, .progress { overflow: hidden; height: 8px; background: #e9eee8; border-radius: 100px; } .joint-row i, .progress i { display: block; height: 100%; border-radius: inherit; background: var(--lime); } .joint-row b { text-align: right; font-family: monospace; font-size: 12px; }
+.button-row, .input-row { display: flex; gap: 8px; } .button-row { margin: 18px 0 28px; } .quiet { color: var(--green); background: #e4eee9; } label { display: block; margin-bottom: 8px; font-size: 13px; font-weight: 700; } input { min-width: 0; flex: 1; border: 1px solid var(--line); border-radius: 8px; padding: 10px; font: inherit; }
+.task, .recording { position: relative; padding: 12px 0; border-top: 1px solid #edf0eb; } .task div:first-child, .recording { display: flex; justify-content: space-between; gap: 10px; } .task span, .recording span { color: var(--muted); font-size: 12px; } .task small { color: var(--muted); } .task .progress { margin: 9px 0 5px; } .text-button { float: right; padding: 4px 7px; background: transparent; color: var(--orange); }
+.logs { background: #19312a; color: #edf8e9; } .logs .label { color: var(--lime); } .log { margin-bottom: 10px; font-size: 13px; } .log time { color: #aabbb4; margin-right: 8px; font-family: monospace; } .log.warning { color: #ffe49b; } .log.error { color: #ffab91; }
+.empty { color: var(--muted); margin: 26px 0; } .error { padding: 12px; border-radius: 8px; color: #8a2318; background: #ffe2db; } footer { color: var(--muted); text-align: center; font-size: 12px; padding: 18px 0 0; }
+@media (max-width: 850px) { main { padding: 28px 16px; } .hero { display: block; } .badge { display: inline-block; margin-top: 10px; } .overview, .primary-grid, .lower-grid { grid-template-columns: 1fr; } }

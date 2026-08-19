@@ -1,0 +1,26 @@
+services:
+  gateway:
+    build:
+      context: ..
+      dockerfile: web_gateway/backend/Dockerfile
+    environment:
+      ROS_DOMAIN_ID: ${ROS_DOMAIN_ID:-0}
+      CORS_ORIGINS: ${NEXT_PUBLIC_GATEWAY_URL:-http://localhost:8000},http://localhost:3001
+      RECORDINGS_DIR: /recordings
+    volumes:
+      - gateway-recordings:/recordings
+    ports:
+      - "8000:8000"
+
+  dashboard:
+    build:
+      context: ./frontend
+    environment:
+      NEXT_PUBLIC_GATEWAY_URL: ${NEXT_PUBLIC_GATEWAY_URL:-http://localhost:8000}
+    ports:
+      - "3001:3000"
+    depends_on:
+      - gateway
+
+volumes:
+  gateway-recordings:

@@ -21,7 +21,7 @@ web UI creates a task    -> backend calls it     -> ROS2 Service / Action -> nod
 
 The final demo must answer six questions: is the robot online, what data is it publishing, can a user create a task, can a long task show progress and be cancelled, where are its logs, and can the run be recorded and replayed?
 
-This is the **product contract**, not a claim that the product already exists. The repository is still laying foundations: communication, TF2, URDF, RViz, and rosbag2/MCAP examples are runnable today; the web bridge, dashboard, and Docker workflow will join this same path.
+This product contract is now implemented: communication, TF2, URDF, RViz, and rosbag2/MCAP examples converge in a runnable Web Gateway. It remains a local experiment product, not a safety system for physical hardware.
 
 ## Directory contract
 
@@ -33,7 +33,8 @@ embodied-ai-journey/
 │       ├── tf2_coordinate_systems/ # static/dynamic TF and lookup
 │       ├── urdf_r2d2/              # URDF, JointState, TF, and RViz
 │       ├── rviz_markers/           # basic shapes and later visualisation labs
-│       └── rosbag2_fundamentals/   # MCAP recording and visual replay
+│       ├── rosbag2_fundamentals/   # MCAP recording and visual replay
+│       └── web_gateway_demo/        # month-one demo graph combining prior nodes
 └── notes/                          # learning narrative, concepts, labs, and retrospectives only
     └── 01-Fundamentals/
         ├── README.md               # month entry and product goal
@@ -41,7 +42,8 @@ embodied-ai-journey/
         ├── 02-TF2-And-Coordinate-Systems/
         ├── 03-URDF-And-RViz/
         ├── 04-RViz-Markers/
-        └── 05-Rosbag2-And-MCAP/
+        ├── 05-Rosbag2-And-MCAP/
+        └── 06-ROS2-Web-Gateway/
 ```
 
 New experiment code belongs in `ros_ws`; its purpose, instructions, observations, and failures belong in `notes`. Readers can follow the story through the notes or build the workspace directly.
@@ -68,9 +70,9 @@ New experiment code belongs in `ros_ws`; its purpose, instructions, observations
 
 [05 · rosbag2 & MCAP](05-Rosbag2-And-MCAP) writes R2D2 joint messages and Marker animation to MCAP, then returns them to RViz after the live publishers stop. It turns “what happened in that run?” into inspectable, shareable evidence.
 
-### Next: make it demonstrable
+### Complete: make it demonstrable
 
-The remaining Fundamentals work stays intentionally narrow: FastAPI + WebSocket + a web console to connect ROS2 to the web, then Docker Compose and one-command startup so a stranger can reproduce the demo.
+[06 · ROS2 Web Gateway v0.1](06-ROS2-Web-Gateway) uses FastAPI, WebSocket, Next.js, and Docker Compose to bring prior capabilities into a local experiment console. It shows robot state, creates/cancels restricted tasks, retains gateway logs, and starts/stops MCAP recording from the web.
 
 ## Run the current experiments
 
@@ -78,7 +80,7 @@ The environment is fixed to **Ubuntu 24.04 + ROS2 Jazzy**. For a first build:
 
 ```bash
 cd ros_ws
-colcon build --packages-select ros2_fundamentals tf2_coordinate_systems urdf_r2d2 rviz_markers rosbag2_fundamentals
+colcon build --packages-select ros2_fundamentals tf2_coordinate_systems urdf_r2d2 rviz_markers rosbag2_fundamentals web_gateway_demo
 source install/setup.bash
 ```
 

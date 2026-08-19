@@ -35,13 +35,14 @@
 | # | 章节 | 状态 | 说明 |
 |---|------|------|------|
 | 00 | [为什么是具身智能](notes/00-Why-Embodied-AI) | ✅ 已发布 | 一个软件工程师为什么押注物理世界的智能 |
-| 01 | [第一个月：机器人软件 Fundamentals](notes/01-Fundamentals) | 🚧 进行中 | 月末目标：ROS2 Web Gateway v0.1 |
+| 01 | [第一个月：机器人软件 Fundamentals](notes/01-Fundamentals) | ✅ 已完成 | 月度成果：ROS2 Web Gateway v0.1 |
 | 01.1 | [ROS2 通信](notes/01-Fundamentals/01-ROS2-Communication) | ✅ 已发布 | Topic、Service、Action 与 Parameter 的边界和样例 |
 | 01.2 | [TF2 与坐标系](notes/01-Fundamentals/02-TF2-And-Coordinate-Systems) | ✅ 已发布 | 静态/动态变换、查询与 TF 树 |
 | 01.3 | [URDF 与 RViz](notes/01-Fundamentals/03-URDF-And-RViz) | ✅ 已发布 | 用 R2D2 验证模型、关节状态与 TF 如何共同驱动可视化 |
 | 01.4 | [RViz Marker：基础形状](notes/01-Fundamentals/04-RViz-Markers) | ✅ 已发布 | 通过 `visualization_msgs/Marker` 在 RViz 显示循环基础形状 |
 | 01.5 | [RViz Marker：点与线](notes/01-Fundamentals/04-RViz-Markers/02-Points-And-Lines) | ✅ 已发布 | 用 `POINTS`、`LINE_STRIP` 和 `LINE_LIST` 观察时序点集 |
 | 01.6 | [rosbag2 与 MCAP](notes/01-Fundamentals/05-Rosbag2-And-MCAP) | ✅ 已发布 | 录制关节与 Marker 消息，并在 RViz 中回放一次运行 |
+| 01.7 | [ROS2 Web Gateway v0.1](notes/01-Fundamentals/06-ROS2-Web-Gateway) | ✅ 已发布 | 在网页观察 ROS2 状态、创建/取消任务、查看日志并触发 MCAP 录制 |
 
 目录与 `notes/` 同步维护：每新增一个学习子板块，都要在这里补上对应入口链接和状态。
 
@@ -86,14 +87,18 @@ embodied-ai-journey/
 │       ├── 02-TF2-And-Coordinate-Systems/
 │       ├── 03-URDF-And-RViz/
 │       ├── 04-RViz-Markers/
-│       └── 05-Rosbag2-And-MCAP/
-└── ros_ws/             ROS2 工作空间——所有代码都在这里跑起来
+│       ├── 05-Rosbag2-And-MCAP/
+│       └── 06-ROS2-Web-Gateway/
+├── ros_ws/             ROS2 工作空间——所有代码都在这里跑起来
     └── src/fundamentals/
         ├── ros2_fundamentals/
         ├── tf2_coordinate_systems/
         ├── urdf_r2d2/
         ├── rviz_markers/
-        └── rosbag2_fundamentals/
+        ├── rosbag2_fundamentals/
+        └── web_gateway_demo/
+├── web_gateway/        月度成果：FastAPI bridge、Next.js Dashboard、Docker Compose
+└── recordings/         本地 rosbag2/MCAP 运行产物（不进入 Git）
 ```
 
 ## ⭐ 一起关注
