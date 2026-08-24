@@ -43,6 +43,8 @@
 | 01.5 | [RViz Marker：点与线](notes/01-Fundamentals/04-RViz-Markers/02-Points-And-Lines) | ✅ 已发布 | 用 `POINTS`、`LINE_STRIP` 和 `LINE_LIST` 观察时序点集 |
 | 01.6 | [rosbag2 与 MCAP](notes/01-Fundamentals/05-Rosbag2-And-MCAP) | ✅ 已发布 | 录制关节与 Marker 消息，并在 RViz 中回放一次运行 |
 | 01.7 | [ROS2 Web Gateway v0.1](notes/01-Fundamentals/06-ROS2-Web-Gateway) | ✅ 已发布 | 在网页观察 ROS2 状态、创建/取消任务、查看日志并触发 MCAP 录制 |
+| 02 | [第二个月：MoveIt 与机械臂运动规划](notes/02-MoveIt) | 🚧 进行中 | 学习机械臂的位姿目标、路径规划、碰撞检查与轨迹执行 |
+| 02.1 | [第一个 MoveItPy 项目](notes/02-MoveIt/01-Your-First-MoveIt-Project) | ✅ 已发布 | 用 Python `MoveItPy` 为 Panda 规划并执行第一次末端位姿运动 |
 
 目录与 `notes/` 同步维护：每新增一个学习子板块，都要在这里补上对应入口链接和状态。
 
@@ -89,14 +91,19 @@ embodied-ai-journey/
 │       ├── 04-RViz-Markers/
 │       ├── 05-Rosbag2-And-MCAP/
 │       └── 06-ROS2-Web-Gateway/
+│   └── 02-MoveIt/                  第二个月：MoveIt 与机械臂运动规划
+│       └── 01-Your-First-MoveIt-Project/
 ├── ros_ws/             ROS2 工作空间——所有代码都在这里跑起来
-    └── src/fundamentals/
-        ├── ros2_fundamentals/
-        ├── tf2_coordinate_systems/
-        ├── urdf_r2d2/
-        ├── rviz_markers/
-        ├── rosbag2_fundamentals/
-        └── web_gateway_demo/
+│   └── src/
+│       ├── fundamentals/
+│       │   ├── ros2_fundamentals/
+│       │   ├── tf2_coordinate_systems/
+│       │   ├── urdf_r2d2/
+│       │   ├── rviz_markers/
+│       │   ├── rosbag2_fundamentals/
+│       │   └── web_gateway_demo/
+│       └── moveit/
+│           └── hello_moveit_py/
 ├── web_gateway/        月度成果：FastAPI bridge、Next.js Dashboard、Docker Compose
 └── recordings/         本地 rosbag2/MCAP 运行产物（不进入 Git）
 ```

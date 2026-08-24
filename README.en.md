@@ -44,6 +44,8 @@ that proves I understand it, and share exactly what went wrong along the way.
 | 01.5 | [RViz Marker: Points and Lines](notes/01-Fundamentals/04-RViz-Markers/02-Points-And-Lines) | ✅ Published | Time-varying point sets with `POINTS`, `LINE_STRIP`, and `LINE_LIST` |
 | 01.6 | [rosbag2 & MCAP](notes/01-Fundamentals/05-Rosbag2-And-MCAP) | ✅ Published | Record joint and Marker messages, then replay a run in RViz |
 | 01.7 | [ROS2 Web Gateway v0.1](notes/01-Fundamentals/06-ROS2-Web-Gateway) | ✅ Published | Observe ROS2 state, create/cancel tasks, inspect logs, and trigger MCAP recording from the web |
+| 02 | [Month Two: MoveIt & Arm Motion Planning](notes/02-MoveIt) | 🚧 In progress | Learn pose goals, path planning, collision checking, and trajectory execution for arms |
+| 02.1 | [First MoveItPy Project](notes/02-MoveIt/01-Your-First-MoveIt-Project) | ✅ Published | Plan and execute Panda's first end-effector pose motion with Python `MoveItPy` |
 
 This table is maintained in sync with `notes/`: every new learning subchapter gets a direct link and an updated status here.
 
@@ -90,14 +92,19 @@ embodied-ai-journey/
 │       ├── 04-RViz-Markers/
 │       ├── 05-Rosbag2-And-MCAP/
 │       └── 06-ROS2-Web-Gateway/
+│   └── 02-MoveIt/                  month two: MoveIt and arm motion planning
+│       └── 01-Your-First-MoveIt-Project/
 ├── ros_ws/             the ROS2 workspace — everything I build gets run here
-    └── src/fundamentals/
-        ├── ros2_fundamentals/
-        ├── tf2_coordinate_systems/
-        ├── urdf_r2d2/
-        ├── rviz_markers/
-        ├── rosbag2_fundamentals/
-        └── web_gateway_demo/
+│   └── src/
+│       ├── fundamentals/
+│       │   ├── ros2_fundamentals/
+│       │   ├── tf2_coordinate_systems/
+│       │   ├── urdf_r2d2/
+│       │   ├── rviz_markers/
+│       │   ├── rosbag2_fundamentals/
+│       │   └── web_gateway_demo/
+│       └── moveit/
+│           └── hello_moveit_py/
 ├── web_gateway/        monthly outcome: FastAPI bridge, Next.js Dashboard, Docker Compose
 └── recordings/         local rosbag2/MCAP runtime output (not in Git)
 ```
