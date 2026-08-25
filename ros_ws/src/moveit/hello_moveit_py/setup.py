@@ -26,6 +26,8 @@ setup(
     entry_points={
         'console_scripts': [
             'hello_moveit_py = hello_moveit_py.pose_goal:main',
+            'planning_around_objects = '
+            'hello_moveit_py.planning_around_objects:main',
             'rviz_visualizer = hello_moveit_py.rviz_visualizer:main',
         ],
     },

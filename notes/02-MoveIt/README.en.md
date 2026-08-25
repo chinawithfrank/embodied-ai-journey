@@ -18,6 +18,10 @@ MoveIt is the workbench for that problem. It connects robot models, collision ch
 
 [02 · Understand a Plan in RViz](02-Visualizing-In-RViz-With-Python) uses Python-only target markers and `DisplayTrajectory`, then splits “show goal → plan → execute” into three repeatable ROS 2 services. It makes the source of each RViz visual and the boundary between preview and controller execution explicit.
 
+### Completed: make the planner see an obstacle
+
+[03 · Python Collision-Aware Planning](03-Planning-Around-Objects-With-Python) synchronizes one `CollisionObject` to MoveItPy and `move_group`, then verifies a path around `box1` with a real planned trajectory rather than an RViz-only box.
+
 ## Directory contract
 
 ```text
@@ -27,7 +31,8 @@ embodied-ai-journey/
 │   └── moveit/hello_moveit_py/    # this month's MoveIt Python client
 └── notes/02-MoveIt/
     ├── 01-Your-First-MoveIt-Project/
-    └── 02-Visualizing-In-RViz-With-Python/
+    ├── 02-Visualizing-In-RViz-With-Python/
+    └── 03-Planning-Around-Objects-With-Python/
 ```
 
 Third-party MoveIt resources are not copied into this repository. The lab uses the installed `moveit_resources_panda_moveit_config`, while this repository keeps my code, steps, and observations ready to be reused with a future arm configuration package.

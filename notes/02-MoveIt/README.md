@@ -18,6 +18,10 @@ MoveIt 是这个问题的工作台。它不是一个简单的“机械臂移动�
 
 [02 · 在 RViz 中看懂一次规划](02-Visualizing-In-RViz-With-Python) 用纯 Python 发布目标 Marker 和 `DisplayTrajectory`，并将“显示目标 → 规划 → 执行”拆成三个可重复调用的 ROS2 服务。它回答了：屏幕上的图形究竟来自哪里，何时只是预览，何时才进入控制器。
 
+### 已完成：让规划器看见障碍物
+
+[03 · 纯 Python 绕障规划](03-Planning-Around-Objects-With-Python) 将同一个 `CollisionObject` 同步给 MoveItPy 与 `move_group`，用真实规划轨迹验证机械臂绕开 `box1`，而不是只在 RViz 中画一只盒子。
+
 ## 目录约定
 
 ```text
@@ -31,7 +35,8 @@ embodied-ai-journey/
     └── 02-MoveIt/
         ├── README.md
         ├── 01-Your-First-MoveIt-Project/
-        └── 02-Visualizing-In-RViz-With-Python/
+        ├── 02-Visualizing-In-RViz-With-Python/
+        └── 03-Planning-Around-Objects-With-Python/
 ```
 
 第三方 MoveIt 资源不复制进这个仓库；实验直接使用系统安装的 `moveit_resources_panda_moveit_config`。我的代码、我的运行步骤和我的观察都留在这里，便于以后换成自己的机械臂配置包。
