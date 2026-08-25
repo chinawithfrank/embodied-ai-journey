@@ -14,6 +14,10 @@ MoveIt 是这个问题的工作台。它不是一个简单的“机械臂移动�
 
 [01 · 第一个 MoveItPy 项目](01-Your-First-MoveIt-Project) 用 Python 的 `MoveItPy` 创建 `panda_arm` 规划组件，给末端设置位姿目标，在 RViz 的模拟控制器中规划并执行轨迹。这是从 ROS2 通信进入机械臂运动规划的第一条完整链路。
 
+### 已完成：在执行前看懂轨迹
+
+[02 · 在 RViz 中看懂一次规划](02-Visualizing-In-RViz-With-Python) 用纯 Python 发布目标 Marker 和 `DisplayTrajectory`，并将“显示目标 → 规划 → 执行”拆成三个可重复调用的 ROS2 服务。它回答了：屏幕上的图形究竟来自哪里，何时只是预览，何时才进入控制器。
+
 ## 目录约定
 
 ```text
@@ -26,7 +30,8 @@ embodied-ai-journey/
 └── notes/
     └── 02-MoveIt/
         ├── README.md
-        └── 01-Your-First-MoveIt-Project/
+        ├── 01-Your-First-MoveIt-Project/
+        └── 02-Visualizing-In-RViz-With-Python/
 ```
 
 第三方 MoveIt 资源不复制进这个仓库；实验直接使用系统安装的 `moveit_resources_panda_moveit_config`。我的代码、我的运行步骤和我的观察都留在这里，便于以后换成自己的机械臂配置包。

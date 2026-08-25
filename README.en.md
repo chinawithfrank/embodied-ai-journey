@@ -46,6 +46,7 @@ that proves I understand it, and share exactly what went wrong along the way.
 | 01.7 | [ROS2 Web Gateway v0.1](notes/01-Fundamentals/06-ROS2-Web-Gateway) | ✅ Published | Observe ROS2 state, create/cancel tasks, inspect logs, and trigger MCAP recording from the web |
 | 02 | [Month Two: MoveIt & Arm Motion Planning](notes/02-MoveIt) | 🚧 In progress | Learn pose goals, path planning, collision checking, and trajectory execution for arms |
 | 02.1 | [First MoveItPy Project](notes/02-MoveIt/01-Your-First-MoveIt-Project) | ✅ Published | Plan and execute Panda's first end-effector pose motion with Python `MoveItPy` |
+| 02.2 | [Understand a Plan in RViz](notes/02-MoveIt/02-Visualizing-In-RViz-With-Python) | ✅ Published | Use Python Markers, `DisplayTrajectory`, and staged services to visualize a goal, plan, and execution |
 
 This table is maintained in sync with `notes/`: every new learning subchapter gets a direct link and an updated status here.
 
@@ -93,7 +94,8 @@ embodied-ai-journey/
 │       ├── 05-Rosbag2-And-MCAP/
 │       └── 06-ROS2-Web-Gateway/
 │   └── 02-MoveIt/                  month two: MoveIt and arm motion planning
-│       └── 01-Your-First-MoveIt-Project/
+│       ├── 01-Your-First-MoveIt-Project/
+│       └── 02-Visualizing-In-RViz-With-Python/
 ├── ros_ws/             the ROS2 workspace — everything I build gets run here
 │   └── src/
 │       ├── fundamentals/

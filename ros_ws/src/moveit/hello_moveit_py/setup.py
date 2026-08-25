@@ -23,10 +23,10 @@ setup(
     maintainer_email='frank@chinawithfrank.com',
     description='First MoveItPy planning and execution experiment.',
     license='MIT',
-    tests_require=['pytest'],
     entry_points={
         'console_scripts': [
             'hello_moveit_py = hello_moveit_py.pose_goal:main',
+            'rviz_visualizer = hello_moveit_py.rviz_visualizer:main',
         ],
     },
 )

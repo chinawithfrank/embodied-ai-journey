@@ -45,6 +45,7 @@
 | 01.7 | [ROS2 Web Gateway v0.1](notes/01-Fundamentals/06-ROS2-Web-Gateway) | ✅ 已发布 | 在网页观察 ROS2 状态、创建/取消任务、查看日志并触发 MCAP 录制 |
 | 02 | [第二个月：MoveIt 与机械臂运动规划](notes/02-MoveIt) | 🚧 进行中 | 学习机械臂的位姿目标、路径规划、碰撞检查与轨迹执行 |
 | 02.1 | [第一个 MoveItPy 项目](notes/02-MoveIt/01-Your-First-MoveIt-Project) | ✅ 已发布 | 用 Python `MoveItPy` 为 Panda 规划并执行第一次末端位姿运动 |
+| 02.2 | [在 RViz 中看懂一次规划](notes/02-MoveIt/02-Visualizing-In-RViz-With-Python) | ✅ 已发布 | 用 Python Marker、`DisplayTrajectory` 和分步服务可视化目标、轨迹与执行 |
 
 目录与 `notes/` 同步维护：每新增一个学习子板块，都要在这里补上对应入口链接和状态。
 
@@ -92,7 +93,8 @@ embodied-ai-journey/
 │       ├── 05-Rosbag2-And-MCAP/
 │       └── 06-ROS2-Web-Gateway/
 │   └── 02-MoveIt/                  第二个月：MoveIt 与机械臂运动规划
-│       └── 01-Your-First-MoveIt-Project/
+│       ├── 01-Your-First-MoveIt-Project/
+│       └── 02-Visualizing-In-RViz-With-Python/
 ├── ros_ws/             ROS2 工作空间——所有代码都在这里跑起来
 │   └── src/
 │       ├── fundamentals/

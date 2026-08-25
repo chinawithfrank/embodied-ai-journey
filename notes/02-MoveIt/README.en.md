@@ -14,6 +14,10 @@ MoveIt is the workbench for that problem. It connects robot models, collision ch
 
 [01 · First MoveItPy Project](01-Your-First-MoveIt-Project) uses Python `MoveItPy` to create a `panda_arm` planning component, set an end-effector pose target, and plan/execute the trajectory with MoveIt's mock controller in RViz.
 
+### Completed: inspect a trajectory before execution
+
+[02 · Understand a Plan in RViz](02-Visualizing-In-RViz-With-Python) uses Python-only target markers and `DisplayTrajectory`, then splits “show goal → plan → execute” into three repeatable ROS 2 services. It makes the source of each RViz visual and the boundary between preview and controller execution explicit.
+
 ## Directory contract
 
 ```text
@@ -22,7 +26,8 @@ embodied-ai-journey/
 │   ├── fundamentals/              # month-one ROS2 labs
 │   └── moveit/hello_moveit_py/    # this month's MoveIt Python client
 └── notes/02-MoveIt/
-    └── 01-Your-First-MoveIt-Project/
+    ├── 01-Your-First-MoveIt-Project/
+    └── 02-Visualizing-In-RViz-With-Python/
 ```
 
 Third-party MoveIt resources are not copied into this repository. The lab uses the installed `moveit_resources_panda_moveit_config`, while this repository keeps my code, steps, and observations ready to be reused with a future arm configuration package.
