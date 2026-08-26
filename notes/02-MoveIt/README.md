@@ -22,6 +22,10 @@ MoveIt 是这个问题的工作台。它不是一个简单的“机械臂移动�
 
 [03 · 纯 Python 绕障规划](03-Planning-Around-Objects-With-Python) 将同一个 `CollisionObject` 同步给 MoveItPy 与 `move_group`，用真实规划轨迹验证机械臂绕开 `box1`，而不是只在 RViz 中画一只盒子。
 
+### 已完成：将抓取与放置组织成阶段任务
+
+[04 · MTC 纯 Python 抓取放置](04-Pick-And-Place-With-MTC-Python) 使用 MoveIt Task Constructor 的 Python 绑定，将靠近、抓取、抬起、搬运、放下和撤离拆成可独立检查的任务阶段，并在 RViz 中查看整个解决方案树。
+
 ## 目录约定
 
 ```text
@@ -36,7 +40,8 @@ embodied-ai-journey/
         ├── README.md
         ├── 01-Your-First-MoveIt-Project/
         ├── 02-Visualizing-In-RViz-With-Python/
-        └── 03-Planning-Around-Objects-With-Python/
+        ├── 03-Planning-Around-Objects-With-Python/
+        └── 04-Pick-And-Place-With-MTC-Python/
 ```
 
 第三方 MoveIt 资源不复制进这个仓库；实验直接使用系统安装的 `moveit_resources_panda_moveit_config`。我的代码、我的运行步骤和我的观察都留在这里，便于以后换成自己的机械臂配置包。

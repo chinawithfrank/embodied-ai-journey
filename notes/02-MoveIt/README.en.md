@@ -22,6 +22,10 @@ MoveIt is the workbench for that problem. It connects robot models, collision ch
 
 [03 · Python Collision-Aware Planning](03-Planning-Around-Objects-With-Python) synchronizes one `CollisionObject` to MoveItPy and `move_group`, then verifies a path around `box1` with a real planned trajectory rather than an RViz-only box.
 
+### Completed: organize pick and place as task stages
+
+[04 · Python MTC Pick and Place](04-Pick-And-Place-With-MTC-Python) uses MoveIt Task Constructor's Python binding to separate approach, grasp, lift, transport, place, and retract into inspectable stages, then visualizes the complete task solution in RViz.
+
 ## Directory contract
 
 ```text
@@ -32,7 +36,8 @@ embodied-ai-journey/
 └── notes/02-MoveIt/
     ├── 01-Your-First-MoveIt-Project/
     ├── 02-Visualizing-In-RViz-With-Python/
-    └── 03-Planning-Around-Objects-With-Python/
+    ├── 03-Planning-Around-Objects-With-Python/
+    └── 04-Pick-And-Place-With-MTC-Python/
 ```
 
 Third-party MoveIt resources are not copied into this repository. The lab uses the installed `moveit_resources_panda_moveit_config`, while this repository keeps my code, steps, and observations ready to be reused with a future arm configuration package.

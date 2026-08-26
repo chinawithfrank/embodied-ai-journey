@@ -48,6 +48,7 @@ that proves I understand it, and share exactly what went wrong along the way.
 | 02.1 | [First MoveItPy Project](notes/02-MoveIt/01-Your-First-MoveIt-Project) | ✅ Published | Plan and execute Panda's first end-effector pose motion with Python `MoveItPy` |
 | 02.2 | [Understand a Plan in RViz](notes/02-MoveIt/02-Visualizing-In-RViz-With-Python) | ✅ Published | Use Python Markers, `DisplayTrajectory`, and staged services to visualize a goal, plan, and execution |
 | 02.3 | [Python Collision-Aware Planning](notes/02-MoveIt/03-Planning-Around-Objects-With-Python) | ✅ Published | Synchronize a `CollisionObject` to MoveItPy and `move_group`, then plan and execute around an obstacle |
+| 02.4 | [Python MTC Pick and Place](notes/02-MoveIt/04-Pick-And-Place-With-MTC-Python) | ✅ Published | Use MTC Python task stages to plan, inspect, and execute Panda pick and place |
 
 This table is maintained in sync with `notes/`: every new learning subchapter gets a direct link and an updated status here.
 
@@ -97,7 +98,8 @@ embodied-ai-journey/
 │   └── 02-MoveIt/                  month two: MoveIt and arm motion planning
 │       ├── 01-Your-First-MoveIt-Project/
 │       ├── 02-Visualizing-In-RViz-With-Python/
-│       └── 03-Planning-Around-Objects-With-Python/
+│       ├── 03-Planning-Around-Objects-With-Python/
+│       └── 04-Pick-And-Place-With-MTC-Python/
 ├── ros_ws/             the ROS2 workspace — everything I build gets run here
 │   └── src/
 │       ├── fundamentals/

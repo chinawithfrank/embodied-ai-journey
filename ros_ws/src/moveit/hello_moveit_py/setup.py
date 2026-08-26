@@ -28,6 +28,8 @@ setup(
             'hello_moveit_py = hello_moveit_py.pose_goal:main',
             'planning_around_objects = '
             'hello_moveit_py.planning_around_objects:main',
+            'mtc_pick_place = hello_moveit_py.mtc_pick_place:main',
+            'mtc_scene_setup = hello_moveit_py.mtc_scene_setup:main',
             'rviz_visualizer = hello_moveit_py.rviz_visualizer:main',
         ],
     },
