@@ -26,6 +26,10 @@ MoveIt 是这个问题的工作台。它不是一个简单的“机械臂移动�
 
 [04 · MTC 纯 Python 抓取放置](04-Pick-And-Place-With-MTC-Python) 使用 MoveIt Task Constructor 的 Python 绑定，将靠近、抓取、抬起、搬运、放下和撤离拆成可独立检查的任务阶段，并在 RViz 中查看整个解决方案树。
 
+### 本月成果：从网页创建一项抓取任务
+
+[05 · MoveIt Web Studio](05-MoveIt-Web-Studio) 把本月的 MoveIt 练习收束成一个可演示的小产品：网页端使用 Next.js、React Three Fiber、Three.js、URDF Loader 和 ROSLIB.js 显示 Panda 与实时关节状态；FastAPI 网关将受限的取放坐标交给 MoveItPy，执行完整的抓取、搬运与放置流程。
+
 ## 目录约定
 
 ```text
@@ -41,7 +45,8 @@ embodied-ai-journey/
         ├── 01-Your-First-MoveIt-Project/
         ├── 02-Visualizing-In-RViz-With-Python/
         ├── 03-Planning-Around-Objects-With-Python/
-        └── 04-Pick-And-Place-With-MTC-Python/
+        ├── 04-Pick-And-Place-With-MTC-Python/
+        └── 05-MoveIt-Web-Studio/
 ```
 
 第三方 MoveIt 资源不复制进这个仓库；实验直接使用系统安装的 `moveit_resources_panda_moveit_config`。我的代码、我的运行步骤和我的观察都留在这里，便于以后换成自己的机械臂配置包。

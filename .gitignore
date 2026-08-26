@@ -6,3 +6,5 @@ recordings
 web_gateway/frontend/node_modules/
 web_gateway/frontend/.next/
 web_gateway/backend/.venv/
+moveit_web_studio/frontend/node_modules/
+moveit_web_studio/frontend/.next/

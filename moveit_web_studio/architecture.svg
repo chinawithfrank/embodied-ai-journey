@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-labelledby="title desc">
+  <title id="title">MoveIt Web Studio architecture</title>
+  <desc id="desc">Browser, FastAPI gateway, ROS2 MoveIt executor, and mock Panda controller exchange task and state messages.</desc>
+  <rect width="1200" height="300" rx="24" fill="#10151a"/>
+  <g font-family="Arial, sans-serif" text-anchor="middle">
+    <text x="600" y="45" fill="#eaf2f8" font-size="25" font-weight="700">MoveIt Web Studio v0.1 · bounded task flow</text>
+    <g fill="#17222c" stroke="#65d6ff" stroke-width="2">
+      <rect x="45" y="105" width="210" height="115" rx="16"/>
+      <rect x="345" y="105" width="210" height="115" rx="16"/>
+      <rect x="645" y="105" width="210" height="115" rx="16"/>
+      <rect x="945" y="105" width="210" height="115" rx="16"/>
+    </g>
+    <g fill="#eaf2f8" font-size="19" font-weight="700">
+      <text x="150" y="145">Browser</text>
+      <text x="450" y="145">FastAPI Gateway</text>
+      <text x="750" y="145">ROS2 + MoveItPy</text>
+      <text x="1050" y="145">Panda Mock</text>
+    </g>
+    <g fill="#aebdca" font-size="14">
+      <text x="150" y="174">Next.js · Three.js</text>
+      <text x="150" y="195">URDF Loader · ROSLIB.js</text>
+      <text x="450" y="174">validate coordinates</text>
+      <text x="450" y="195">HTTP API + task status</text>
+      <text x="750" y="174">plan · collision check</text>
+      <text x="750" y="195">grasp · transport · place</text>
+      <text x="1050" y="174">joint_states</text>
+      <text x="1050" y="195">trajectory execution</text>
+    </g>
+    <g stroke="#ff8a3d" stroke-width="3" fill="none" marker-end="url(#arrow)">
+      <path d="M255 143H335"/>
+      <path d="M555 143H635"/>
+      <path d="M855 143H935"/>
+      <path d="M945 206H265Q245 206 245 226V235Q245 245 255 245H950"/>
+    </g>
+    <g fill="#ffbd88" font-size="13">
+      <text x="300" y="132">pick/place intent</text>
+      <text x="600" y="132">/web_moveit/task_request</text>
+      <text x="900" y="132">planned trajectory</text>
+      <text x="600" y="272">/joint_states + /web_moveit/task_status</text>
+    </g>
+  </g>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#ff8a3d"/>
+    </marker>
+  </defs>
+</svg>

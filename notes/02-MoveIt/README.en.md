@@ -26,6 +26,10 @@ MoveIt is the workbench for that problem. It connects robot models, collision ch
 
 [04 · Python MTC Pick and Place](04-Pick-And-Place-With-MTC-Python) uses MoveIt Task Constructor's Python binding to separate approach, grasp, lift, transport, place, and retract into inspectable stages, then visualizes the complete task solution in RViz.
 
+### Monthly outcome: create a pick-and-place task from the browser
+
+[05 · MoveIt Web Studio](05-MoveIt-Web-Studio) turns this month's MoveIt work into a small demo product: Next.js, React Three Fiber, Three.js, URDF Loader, and ROSLIB.js render Panda and its live joint state; a bounded FastAPI gateway sends pick/place coordinates to a MoveItPy executor.
+
 ## Directory contract
 
 ```text
@@ -37,7 +41,8 @@ embodied-ai-journey/
     ├── 01-Your-First-MoveIt-Project/
     ├── 02-Visualizing-In-RViz-With-Python/
     ├── 03-Planning-Around-Objects-With-Python/
-    └── 04-Pick-And-Place-With-MTC-Python/
+    ├── 04-Pick-And-Place-With-MTC-Python/
+    └── 05-MoveIt-Web-Studio/
 ```
 
 Third-party MoveIt resources are not copied into this repository. The lab uses the installed `moveit_resources_panda_moveit_config`, while this repository keeps my code, steps, and observations ready to be reused with a future arm configuration package.

@@ -31,6 +31,7 @@ setup(
             'mtc_pick_place = hello_moveit_py.mtc_pick_place:main',
             'mtc_scene_setup = hello_moveit_py.mtc_scene_setup:main',
             'rviz_visualizer = hello_moveit_py.rviz_visualizer:main',
+            'web_task_executor = hello_moveit_py.web_task_executor:main',
         ],
     },
 )

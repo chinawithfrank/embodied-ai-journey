@@ -1,0 +1,19 @@
+services:
+  gateway:
+    build:
+      context: ..
+      dockerfile: moveit_web_studio/backend/Dockerfile
+    ports:
+      - "8001:8001"
+      - "9092:9092"
+
+  studio:
+    build:
+      context: ./frontend
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8001
+      NEXT_PUBLIC_ROSBRIDGE_URL: ws://localhost:9092
+    ports:
+      - "3002:3000"
+    depends_on:
+      - gateway

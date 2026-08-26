@@ -44,11 +44,12 @@ that proves I understand it, and share exactly what went wrong along the way.
 | 01.5 | [RViz Marker: Points and Lines](notes/01-Fundamentals/04-RViz-Markers/02-Points-And-Lines) | ✅ Published | Time-varying point sets with `POINTS`, `LINE_STRIP`, and `LINE_LIST` |
 | 01.6 | [rosbag2 & MCAP](notes/01-Fundamentals/05-Rosbag2-And-MCAP) | ✅ Published | Record joint and Marker messages, then replay a run in RViz |
 | 01.7 | [ROS2 Web Gateway v0.1](notes/01-Fundamentals/06-ROS2-Web-Gateway) | ✅ Published | Observe ROS2 state, create/cancel tasks, inspect logs, and trigger MCAP recording from the web |
-| 02 | [Month Two: MoveIt & Arm Motion Planning](notes/02-MoveIt) | 🚧 In progress | Learn pose goals, path planning, collision checking, and trajectory execution for arms |
+| 02 | [Month Two: MoveIt & Arm Motion Planning](notes/02-MoveIt) | ✅ Complete | Monthly outcome: MoveIt Web Studio v0.1 |
 | 02.1 | [First MoveItPy Project](notes/02-MoveIt/01-Your-First-MoveIt-Project) | ✅ Published | Plan and execute Panda's first end-effector pose motion with Python `MoveItPy` |
 | 02.2 | [Understand a Plan in RViz](notes/02-MoveIt/02-Visualizing-In-RViz-With-Python) | ✅ Published | Use Python Markers, `DisplayTrajectory`, and staged services to visualize a goal, plan, and execution |
 | 02.3 | [Python Collision-Aware Planning](notes/02-MoveIt/03-Planning-Around-Objects-With-Python) | ✅ Published | Synchronize a `CollisionObject` to MoveItPy and `move_group`, then plan and execute around an obstacle |
 | 02.4 | [Python MTC Pick and Place](notes/02-MoveIt/04-Pick-And-Place-With-MTC-Python) | ✅ Published | Use MTC Python task stages to plan, inspect, and execute Panda pick and place |
+| 02.5 | [MoveIt Web Studio](notes/02-MoveIt/05-MoveIt-Web-Studio) | ✅ Published | Build a bounded pick-and-place task in the browser, then execute it with MoveItPy |
 
 This table is maintained in sync with `notes/`: every new learning subchapter gets a direct link and an updated status here.
 
@@ -99,7 +100,8 @@ embodied-ai-journey/
 │       ├── 01-Your-First-MoveIt-Project/
 │       ├── 02-Visualizing-In-RViz-With-Python/
 │       ├── 03-Planning-Around-Objects-With-Python/
-│       └── 04-Pick-And-Place-With-MTC-Python/
+│       ├── 04-Pick-And-Place-With-MTC-Python/
+│       └── 05-MoveIt-Web-Studio/
 ├── ros_ws/             the ROS2 workspace — everything I build gets run here
 │   └── src/
 │       ├── fundamentals/
@@ -111,7 +113,8 @@ embodied-ai-journey/
 │       │   └── web_gateway_demo/
 │       └── moveit/
 │           └── hello_moveit_py/
-├── web_gateway/        monthly outcome: FastAPI bridge, Next.js Dashboard, Docker Compose
+├── web_gateway/        month-one outcome: ROS2 Web Gateway v0.1
+├── moveit_web_studio/  month-two outcome: browser-based MoveIt pick-and-place studio
 └── recordings/         local rosbag2/MCAP runtime output (not in Git)
 ```
 
