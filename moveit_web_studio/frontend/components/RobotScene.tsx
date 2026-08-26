@@ -11,13 +11,22 @@ type Position = { x: number; y: number; z: number };
 
 type JointState = Record<string, number>;
 
-function PandaUrdf({ joints }: { joints: JointState }) {
+function PandaUrdf({
+  joints,
+  assetUrl,
+}: {
+  joints: JointState;
+  assetUrl: string;
+}) {
   const [robot, setRobot] = useState<THREE.Object3D | null>(null);
 
   useEffect(() => {
     const loader = new URDFLoader();
-    loader.load('/robot/panda_web.urdf', setRobot);
-  }, []);
+    loader.packages = {
+      moveit_resources_panda_description: `${assetUrl}/assets/panda`,
+    };
+    loader.load(`${assetUrl}/assets/panda/urdf/panda.urdf`, setRobot);
+  }, [assetUrl]);
 
   useFrame(() => {
     const urdfRobot = robot as THREE.Object3D & {
@@ -31,7 +40,13 @@ function PandaUrdf({ joints }: { joints: JointState }) {
   return robot ? <primitive object={robot} rotation-x={-Math.PI / 2} /> : null;
 }
 
-function LiveRobot({ rosUrl }: { rosUrl: string }) {
+function LiveRobot({
+  rosUrl,
+  assetUrl,
+}: {
+  rosUrl: string;
+  assetUrl: string;
+}) {
   const [joints, setJoints] = useState<JointState>({});
 
   useEffect(() => {
@@ -59,7 +74,7 @@ function LiveRobot({ rosUrl }: { rosUrl: string }) {
     };
   }, [rosUrl]);
 
-  return <PandaUrdf joints={joints} />;
+  return <PandaUrdf joints={joints} assetUrl={assetUrl} />;
 }
 
 function TaskMarkers({
@@ -100,11 +115,13 @@ export function RobotScene({
   pick,
   place,
   rosUrl,
+  assetUrl,
   taskStatus,
 }: {
   pick: Position;
   place: Position;
   rosUrl: string;
+  assetUrl: string;
   taskStatus?: string;
 }) {
   return <Canvas camera={{ position: [1.25, 0.9, 1.25], fov: 42 }}>
@@ -113,7 +130,7 @@ export function RobotScene({
     <directionalLight position={[3, 5, 3]} intensity={2.2} castShadow />
     <Grid args={[2, 2]} cellColor="#2d3742" sectionColor="#51606e" />
     <TaskMarkers pick={pick} place={place} taskStatus={taskStatus} />
-    <LiveRobot rosUrl={rosUrl} />
+    <LiveRobot rosUrl={rosUrl} assetUrl={assetUrl} />
     <OrbitControls makeDefault minDistance={0.8} maxDistance={3} />
   </Canvas>;
 }

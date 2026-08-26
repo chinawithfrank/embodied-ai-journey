@@ -7,7 +7,7 @@
 ## What it demonstrates
 
 - **Next.js + React Three Fiber + Three.js** render an interactive scene.
-- **URDF Loader** loads a lightweight Panda model in the browser.
+- **URDF Loader** loads the Panda visual URDF and meshes from the same ROS description package used by RViz.
 - **ROSLIB.js** subscribes to `/joint_states`, so the browser model follows the mock controller.
 - **FastAPI** accepts only bounded pick/place coordinates and exposes task progress.
 - **MoveItPy** plans the approach, grasp, transport, place, retreat, and return-to-ready motions.

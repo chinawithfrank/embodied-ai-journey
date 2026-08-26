@@ -39,9 +39,9 @@ moveit_web_studio/
 ├── frontend/                         # Next.js + React Three Fiber 前端
 │   ├── app/page.tsx                  # 任务表单、连接状态和任务进度
 │   ├── components/RobotScene.tsx     # Three.js 场景、URDF Loader、ROSLIB.js
-│   └── public/robot/panda_web.urdf   # 浏览器使用的轻量 Panda URDF
 ├── backend/                          # FastAPI 到 ROS2 的受限网关
-│   └── app/ros_bridge.py             # 发布任务、接收状态和 joint_states
+│   ├── app/ros_bridge.py             # 发布任务、接收状态和 joint_states
+│   └── app/main.py                   # 提供官方 Panda URDF 与视觉网格
 └── docker-compose.yml                # 一条命令启动整套演示
 
 ros_ws/src/moveit/hello_moveit_py/
@@ -78,6 +78,7 @@ docker compose -f moveit_web_studio/docker-compose.yml down
 ```bash
 sudo apt update
 sudo apt install ros-jazzy-moveit \
+  ros-jazzy-moveit-resources-panda-description \
   ros-jazzy-moveit-resources-panda-moveit-config \
   ros-jazzy-rosbridge-suite
 ```
@@ -117,10 +118,10 @@ npm run dev
 ## 第一次实验应该看到什么
 
 1. 打开网页后，可用鼠标旋转、缩放 Three.js 场景。
-2. `ROSLIB` 显示 `ws://localhost:9090`，状态为“机器人在线”。这说明 `/joint_states` 正在到达浏览器。
+2. `ROSLIB` 显示 `ws://localhost:9092`，状态为“机器人在线”。这说明 `/joint_states` 正在到达浏览器。
 3. 默认橙色方块在 `x=0.45, y=-0.20, z=0.03`，蓝色圆柱在 `x=0.25, y=0.35, z=0.03`。
 4. 点击“规划并执行”。状态依次经过 `queued`、`planning`、`grasping`、`transporting`、`placing`、`returning`，最后是 `succeeded`。
-5. Panda 的 URDF 模型随真实 `/joint_states` 转动；方块在搬运阶段向目标位置过渡。这是 UI 对任务状态的解释性显示，真正的无碰撞轨迹仍由 MoveIt 计算。
+5. Panda 的真实视觉网格与 RViz 使用同一个 ROS 描述包，模型随真实 `/joint_states` 转动；方块在搬运阶段向目标位置过渡。这是 UI 对任务状态的解释性显示，真正的无碰撞轨迹仍由 MoveIt 计算。
 
 如果还想同时看更底层的规划效果，可在终端一中额外启动 RViz：
 

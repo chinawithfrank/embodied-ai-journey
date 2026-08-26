@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3-colcon-common-extensions \
     python3-pip \
     ros-jazzy-moveit \
+    ros-jazzy-moveit-resources-panda-description \
     ros-jazzy-moveit-resources-panda-moveit-config \
     ros-jazzy-rosbridge-suite \
     && rm -rf /var/lib/apt/lists/*

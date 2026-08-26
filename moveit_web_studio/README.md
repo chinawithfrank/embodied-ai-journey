@@ -4,8 +4,8 @@
 
 ## 架构
 
-- `frontend/`：Next.js、React Three Fiber、Three.js、URDF Loader 和 ROSLIB.js；加载 Web Panda URDF，订阅 `/joint_states`，编辑抓取与放置坐标。
-- `backend/`：FastAPI 网关；仅接受范围受限的取放坐标，发布到 `/web_moveit/task_request`，并接收 `/web_moveit/task_status`。
+- `frontend/`：Next.js、React Three Fiber、Three.js、URDF Loader 和 ROSLIB.js；加载与 RViz 同源的 Panda 网格，订阅 `/joint_states`，编辑抓取与放置坐标。
+- `backend/`：FastAPI 网关；仅接受范围受限的取放坐标，发布到 `/web_moveit/task_request`，接收 `/web_moveit/task_status`，并提供 ROS Panda 描述包中的真实网格资源。
 - `ros_ws/src/moveit/hello_moveit_py/web_task_executor.py`：MoveItPy 执行器；按固定的靠近、闭爪、搬运、开爪、回位流程执行任务。
 
 浏览器绝不会直接调用 `move_group`，也不能传递任意 ROS 命令或 shell 命令。

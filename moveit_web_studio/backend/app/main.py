@@ -1,8 +1,15 @@
 import asyncio
 from contextlib import asynccontextmanager
+from pathlib import Path
 
 from fastapi import FastAPI, HTTPException, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+
+try:
+    from ament_index_python.packages import get_package_share_directory
+except ImportError:
+    get_package_share_directory = None
 
 from .models import PickPlaceRequest
 from .ros_bridge import RosBridge
@@ -55,6 +62,22 @@ app.add_middleware(
     allow_methods=['GET', 'POST'],
     allow_headers=['*'],
 )
+
+
+def mount_panda_assets():
+    if get_package_share_directory is None:
+        return
+    try:
+        package_path = Path(get_package_share_directory(
+            'moveit_resources_panda_description'))
+    except Exception:
+        return
+    app.mount(
+        '/assets/panda', StaticFiles(directory=package_path),
+        name='panda_assets')
+
+
+mount_panda_assets()
 
 
 @app.get('/health')

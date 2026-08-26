@@ -104,6 +104,7 @@ export default function Home() {
         pick={activeTask?.pick ?? pick}
         place={activeTask?.place ?? place}
         rosUrl={rosUrl}
+        assetUrl={apiUrl}
         taskStatus={activeTask?.status}
       />
         <div className="scene-key"><span className="pick-dot" />抓取物 <span className="place-dot" />放置目标</div>
