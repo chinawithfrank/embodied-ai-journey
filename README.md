@@ -49,6 +49,8 @@
 | 02.3 | [纯 Python 绕障规划](notes/02-MoveIt/03-Planning-Around-Objects-With-Python) | ✅ 已发布 | 将 `CollisionObject` 同步到 MoveItPy 与 `move_group`，规划并执行绕开障碍物的轨迹 |
 | 02.4 | [MTC 纯 Python 抓取放置](notes/02-MoveIt/04-Pick-And-Place-With-MTC-Python) | ✅ 已发布 | 用 MTC Python 阶段任务规划、检查并执行 Panda 的抓取与放置 |
 | 02.5 | [MoveIt Web Studio](notes/02-MoveIt/05-MoveIt-Web-Studio) | ✅ 已发布 | 在网页创建受限抓取任务，用 Three.js 观察 Panda，用 MoveItPy 执行取放 |
+| 03 | [第三个月：机器人视觉](notes/03-Vision) | 🚧 进行中 | 学习从相机画面中检测物体，并逐步连接到机器人坐标系 |
+| 03.1 | [YOLO 网球识别与像素坐标](notes/03-Vision/01-YOLO-Tennis-Ball) | ✅ 已发布 | 训练单类别 YOLO 模型，在摄像头画面中识别网球并显示中心像素坐标 |
 
 目录与 `notes/` 同步维护：每新增一个学习子板块，都要在这里补上对应入口链接和状态。
 
@@ -88,19 +90,21 @@ embodied-ai-journey/
 ├── notes/              旅程记录，逐章更新
 │   ├── TEMPLATE.md
 │   ├── 00-Why-Embodied-AI/
-│   └── 01-Fundamentals/             第一个月：ROS2 Web Gateway v0.1
+│   ├── 01-Fundamentals/             第一个月：ROS2 Web Gateway v0.1
 │       ├── 01-ROS2-Communication/
 │       ├── 02-TF2-And-Coordinate-Systems/
 │       ├── 03-URDF-And-RViz/
 │       ├── 04-RViz-Markers/
 │       ├── 05-Rosbag2-And-MCAP/
 │       └── 06-ROS2-Web-Gateway/
-│   └── 02-MoveIt/                  第二个月：MoveIt 与机械臂运动规划
+│   ├── 02-MoveIt/                  第二个月：MoveIt 与机械臂运动规划
 │       ├── 01-Your-First-MoveIt-Project/
 │       ├── 02-Visualizing-In-RViz-With-Python/
 │       ├── 03-Planning-Around-Objects-With-Python/
 │       ├── 04-Pick-And-Place-With-MTC-Python/
 │       └── 05-MoveIt-Web-Studio/
+│   └── 03-Vision/                   第三个月：机器人视觉
+│       └── 01-YOLO-Tennis-Ball/
 ├── ros_ws/             ROS2 工作空间——所有代码都在这里跑起来
 │   └── src/
 │       ├── fundamentals/
@@ -110,8 +114,10 @@ embodied-ai-journey/
 │       │   ├── rviz_markers/
 │       │   ├── rosbag2_fundamentals/
 │       │   └── web_gateway_demo/
-│       └── moveit/
+│       ├── moveit/
 │           └── hello_moveit_py/
+│       └── vision/
+│           └── yolo_tennis_ball/
 ├── web_gateway/        第一个月成果：ROS2 Web Gateway v0.1
 ├── moveit_web_studio/  第二个月成果：MoveIt 网页抓取放置工作台
 └── recordings/         本地 rosbag2/MCAP 运行产物（不进入 Git）

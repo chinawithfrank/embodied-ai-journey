@@ -50,6 +50,8 @@ that proves I understand it, and share exactly what went wrong along the way.
 | 02.3 | [Python Collision-Aware Planning](notes/02-MoveIt/03-Planning-Around-Objects-With-Python) | ✅ Published | Synchronize a `CollisionObject` to MoveItPy and `move_group`, then plan and execute around an obstacle |
 | 02.4 | [Python MTC Pick and Place](notes/02-MoveIt/04-Pick-And-Place-With-MTC-Python) | ✅ Published | Use MTC Python task stages to plan, inspect, and execute Panda pick and place |
 | 02.5 | [MoveIt Web Studio](notes/02-MoveIt/05-MoveIt-Web-Studio) | ✅ Published | Build a bounded pick-and-place task in the browser, then execute it with MoveItPy |
+| 03 | [Month Three: Robot Vision](notes/03-Vision) | 🚧 In progress | Learn to detect objects from camera images, then connect them to robot coordinate frames |
+| 03.1 | [YOLO Tennis-Ball Detection and Pixel Coordinates](notes/03-Vision/01-YOLO-Tennis-Ball) | ✅ Published | Train a one-class YOLO model, then show the tennis-ball centre pixel in a webcam stream |
 
 This table is maintained in sync with `notes/`: every new learning subchapter gets a direct link and an updated status here.
 
@@ -89,19 +91,21 @@ embodied-ai-journey/
 ├── notes/              the journey, written chapter by chapter
 │   ├── TEMPLATE.md
 │   ├── 00-Why-Embodied-AI/
-│   └── 01-Fundamentals/             month one: ROS2 Web Gateway v0.1
+│   ├── 01-Fundamentals/             month one: ROS2 Web Gateway v0.1
 │       ├── 01-ROS2-Communication/
 │       ├── 02-TF2-And-Coordinate-Systems/
 │       ├── 03-URDF-And-RViz/
 │       ├── 04-RViz-Markers/
 │       ├── 05-Rosbag2-And-MCAP/
 │       └── 06-ROS2-Web-Gateway/
-│   └── 02-MoveIt/                  month two: MoveIt and arm motion planning
+│   ├── 02-MoveIt/                  month two: MoveIt and arm motion planning
 │       ├── 01-Your-First-MoveIt-Project/
 │       ├── 02-Visualizing-In-RViz-With-Python/
 │       ├── 03-Planning-Around-Objects-With-Python/
 │       ├── 04-Pick-And-Place-With-MTC-Python/
 │       └── 05-MoveIt-Web-Studio/
+│   └── 03-Vision/                   month three: robot vision
+│       └── 01-YOLO-Tennis-Ball/
 ├── ros_ws/             the ROS2 workspace — everything I build gets run here
 │   └── src/
 │       ├── fundamentals/
@@ -111,8 +115,10 @@ embodied-ai-journey/
 │       │   ├── rviz_markers/
 │       │   ├── rosbag2_fundamentals/
 │       │   └── web_gateway_demo/
-│       └── moveit/
+│       ├── moveit/
 │           └── hello_moveit_py/
+│       └── vision/
+│           └── yolo_tennis_ball/
 ├── web_gateway/        month-one outcome: ROS2 Web Gateway v0.1
 ├── moveit_web_studio/  month-two outcome: browser-based MoveIt pick-and-place studio
 └── recordings/         local rosbag2/MCAP runtime output (not in Git)

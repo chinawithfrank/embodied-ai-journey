@@ -1,0 +1,5 @@
+ultralytics>=8.4.158,<8.5
+# 摄像头实验需要带 GUI 支持的 OpenCV，而不是 opencv-python-headless。
+opencv-python>=4.10,<5
+roboflow>=1.1,<2
+polars[rtcompat]>=1.44,<2
