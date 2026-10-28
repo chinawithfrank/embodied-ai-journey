@@ -51,6 +51,9 @@
 | 02.5 | [MoveIt Web Studio](notes/02-MoveIt/05-MoveIt-Web-Studio) | ✅ 已发布 | 在网页创建受限抓取任务，用 Three.js 观察 Panda，用 MoveItPy 执行取放 |
 | 03 | [第三个月：机器人视觉](notes/03-Vision) | 🚧 进行中 | 学习从相机画面中检测物体，并逐步连接到机器人坐标系 |
 | 03.1 | [YOLO 网球识别与像素坐标](notes/03-Vision/01-YOLO-Tennis-Ball) | ✅ 已发布 | 训练单类别 YOLO 模型，在摄像头画面中识别网球并显示中心像素坐标 |
+| 04 | [真实项目：风扇机器人](notes/04-Fan-Robot) | 🚧 进行中 | 从相机取流开始，逐步实现视觉闭环与强化学习实验 |
+| 04.1 | [ESP32-S3 与 OV2640：第一双眼睛](notes/04-Fan-Robot/01-ESP32-Camera) | ✅ 浏览器取流已验证 | 板载24MHz、8MB PSRAM及网页视频已跑通；Python拍照与长时间稳定性继续验收 |
+| 04.2 | [ESP32 离线手部检测](notes/04-Fan-Robot/02-Offline-Hand-Detection) | 🚧 待实物验收 | S3 本地模型输出手部框、中心与偏差；可选热点预览，也可关闭 Wi-Fi |
 
 目录与 `notes/` 同步维护：每新增一个学习子板块，都要在这里补上对应入口链接和状态。
 
@@ -103,8 +106,11 @@ embodied-ai-journey/
 │       ├── 03-Planning-Around-Objects-With-Python/
 │       ├── 04-Pick-And-Place-With-MTC-Python/
 │       └── 05-MoveIt-Web-Studio/
-│   └── 03-Vision/                   第三个月：机器人视觉
-│       └── 01-YOLO-Tennis-Ball/
+│   ├── 03-Vision/                   第三个月：机器人视觉
+│   │   └── 01-YOLO-Tennis-Ball/
+│   └── 04-Fan-Robot/                真实项目：风扇机器人
+│       ├── 01-ESP32-Camera/
+│       └── 02-Offline-Hand-Detection/
 ├── ros_ws/             ROS2 工作空间——所有代码都在这里跑起来
 │   └── src/
 │       ├── fundamentals/
@@ -116,8 +122,11 @@ embodied-ai-journey/
 │       │   └── web_gateway_demo/
 │       ├── moveit/
 │           └── hello_moveit_py/
-│       └── vision/
-│           └── yolo_tennis_ball/
+│       ├── vision/
+│       │   └── yolo_tennis_ball/
+│       └── fan_robot/               相机固件与电脑端实验工具
+│           ├── firmware/
+│           └── tools/
 ├── web_gateway/        第一个月成果：ROS2 Web Gateway v0.1
 ├── moveit_web_studio/  第二个月成果：MoveIt 网页抓取放置工作台
 └── recordings/         本地 rosbag2/MCAP 运行产物（不进入 Git）

@@ -1,0 +1,9 @@
+.venv/
+captures/
+firmware/esp32_camera/camera_config.local.h
+firmware/esp32_camera/build/
+firmware/esp32_hand/build/
+firmware/esp32_hand/managed_components/
+firmware/esp32_hand/sdkconfig
+firmware/esp32_hand/sdkconfig.old
+__pycache__/

@@ -1,0 +1,17 @@
+menu "Fan robot: offline hand detector"
+
+config FAN_ENABLE_PREVIEW
+    bool "Enable optional local Wi-Fi AP and browser preview"
+    default y
+
+config FAN_HAND_SCORE_PERCENT
+    int "Minimum hand confidence (percent)"
+    range 1 99
+    default 50
+
+config FAN_HAND_INTERVAL_MS
+    int "Minimum capture cycle interval (milliseconds)"
+    range 100 5000
+    default 400
+
+endmenu

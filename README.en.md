@@ -52,6 +52,9 @@ that proves I understand it, and share exactly what went wrong along the way.
 | 02.5 | [MoveIt Web Studio](notes/02-MoveIt/05-MoveIt-Web-Studio) | ✅ Published | Build a bounded pick-and-place task in the browser, then execute it with MoveItPy |
 | 03 | [Month Three: Robot Vision](notes/03-Vision) | 🚧 In progress | Learn to detect objects from camera images, then connect them to robot coordinate frames |
 | 03.1 | [YOLO Tennis-Ball Detection and Pixel Coordinates](notes/03-Vision/01-YOLO-Tennis-Ball) | ✅ Published | Train a one-class YOLO model, then show the tennis-ball centre pixel in a webcam stream |
+| 04 | [Real Hardware Project: Fan Robot](notes/04-Fan-Robot/README.en.md) | 🚧 In progress | Start with capture, then build toward visual control and reinforcement learning |
+| 04.1 | [ESP32-S3 and OV2640: First Eyes](notes/04-Fan-Robot/01-ESP32-Camera/README.en.md) | ✅ Browser video verified | Onboard24MHz,8MB PSRAM, and browser video working; Python snapshots and extended stability still to check |
+| 04.2 | [Offline Hand Detection on ESP32](notes/04-Fan-Robot/02-Offline-Hand-Detection/README.en.md) | 🚧 Hardware acceptance pending | S3-local model outputs hand boxes, centers, and offsets; optional AP preview or Wi-Fi-disabled operation |
 
 This table is maintained in sync with `notes/`: every new learning subchapter gets a direct link and an updated status here.
 
@@ -104,8 +107,11 @@ embodied-ai-journey/
 │       ├── 03-Planning-Around-Objects-With-Python/
 │       ├── 04-Pick-And-Place-With-MTC-Python/
 │       └── 05-MoveIt-Web-Studio/
-│   └── 03-Vision/                   month three: robot vision
-│       └── 01-YOLO-Tennis-Ball/
+│   ├── 03-Vision/                   month three: robot vision
+│   │   └── 01-YOLO-Tennis-Ball/
+│   └── 04-Fan-Robot/                real hardware project: fan robot
+│       ├── 01-ESP32-Camera/
+│       └── 02-Offline-Hand-Detection/
 ├── ros_ws/             the ROS2 workspace — everything I build gets run here
 │   └── src/
 │       ├── fundamentals/
@@ -117,8 +123,11 @@ embodied-ai-journey/
 │       │   └── web_gateway_demo/
 │       ├── moveit/
 │           └── hello_moveit_py/
-│       └── vision/
-│           └── yolo_tennis_ball/
+│       ├── vision/
+│       │   └── yolo_tennis_ball/
+│       └── fan_robot/               camera firmware and computer-side tools
+│           ├── firmware/
+│           └── tools/
 ├── web_gateway/        month-one outcome: ROS2 Web Gateway v0.1
 ├── moveit_web_studio/  month-two outcome: browser-based MoveIt pick-and-place studio
 └── recordings/         local rosbag2/MCAP runtime output (not in Git)

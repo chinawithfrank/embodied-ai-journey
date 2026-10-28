@@ -12,3 +12,4 @@ ros_ws/src/vision/yolo_tennis_ball/.venv/
 ros_ws/src/vision/yolo_tennis_ball/captures/
 ros_ws/src/vision/yolo_tennis_ball/data/
 ros_ws/src/vision/yolo_tennis_ball/runs/
+.DS_Store
