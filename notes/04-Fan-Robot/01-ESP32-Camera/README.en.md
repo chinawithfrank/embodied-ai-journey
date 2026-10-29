@@ -119,7 +119,7 @@ The frequency and route are established by the user-supplied product schematic a
    ```
 
 2. Install **esp32 by Espressif Systems**. The build target for this experiment is **3.3.12**. Its camera driver is bundled; do not install an unrelated library to obtain `esp_camera.h`.
-3. Open `firmware/esp32_camera/esp32_camera.ino` without renaming the sketch directory.
+3. Open `firmware/esp32_camera/esp32_camera.ino` without renaming the sketch directory. It calls the shared `camera_app.hpp` implementation, also reused by experiment03's camera-plus-manual-motor sketch; this camera-only entry still configures no motor outputs.
 4. For a generic ESP32-S3-WROOM-1-N16R8 board, select `ESP32S3 Dev Module`, `Flash Size = 16MB`, `PSRAM = OPI PSRAM`, and an appropriate partition scheme. Prefer manufacturer settings for specialized boards.
 5. For native USB, configure USB CDC as required by the board. A USB-UART bridge is a different interface; select the corresponding serial port. Use 115200 for the serial monitor and reduce upload speed if necessary.
 6. Upload and reset. If bootloader entry fails, hold BOOT, tap RESET, release BOOT, and retry the upload.

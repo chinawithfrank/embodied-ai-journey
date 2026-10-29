@@ -54,6 +54,7 @@
 | 04 | [真实项目：风扇机器人](notes/04-Fan-Robot) | 🚧 进行中 | 从相机取流开始，逐步实现视觉闭环与强化学习实验 |
 | 04.1 | [ESP32-S3 与 OV2640：第一双眼睛](notes/04-Fan-Robot/01-ESP32-Camera) | ✅ 浏览器取流已验证 | 板载24MHz、8MB PSRAM及网页视频已跑通；Python拍照与长时间稳定性继续验收 |
 | 04.2 | [ESP32 离线手部检测](notes/04-Fan-Robot/02-Offline-Hand-Detection) | 🚧 待实物验收 | S3 本地模型输出手部框、中心与偏差；可选热点预览，也可关闭 Wi-Fi |
+| 04.3 | [保留相机，手动控制双 N20 电机](notes/04-Fan-Robot/03-Manual-Motor-Control) | 🚧 待实物验收 | DRV8833 双路点动、松手/断联锁定；相机预览保留，新增单电机500ms满功率诊断 |
 
 目录与 `notes/` 同步维护：每新增一个学习子板块，都要在这里补上对应入口链接和状态。
 
@@ -110,7 +111,8 @@ embodied-ai-journey/
 │   │   └── 01-YOLO-Tennis-Ball/
 │   └── 04-Fan-Robot/                真实项目：风扇机器人
 │       ├── 01-ESP32-Camera/
-│       └── 02-Offline-Hand-Detection/
+│       ├── 02-Offline-Hand-Detection/
+│       └── 03-Manual-Motor-Control/
 ├── ros_ws/             ROS2 工作空间——所有代码都在这里跑起来
 │   └── src/
 │       ├── fundamentals/

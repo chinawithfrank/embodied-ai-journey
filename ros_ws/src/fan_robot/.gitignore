@@ -2,6 +2,8 @@
 captures/
 firmware/esp32_camera/camera_config.local.h
 firmware/esp32_camera/build/
+firmware/esp32_motor_manual/motor_config.local.h
+firmware/esp32_motor_manual/build/
 firmware/esp32_hand/build/
 firmware/esp32_hand/managed_components/
 firmware/esp32_hand/sdkconfig

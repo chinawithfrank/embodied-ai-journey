@@ -85,7 +85,8 @@ SCCB 的 SDA/SCL 是配置通道，不负责把整张图像传给电脑；DVP �
 
 | 文件 | 作用 |
 |---|---|
-| [`esp32_camera.ino`](../../../ros_ws/src/fan_robot/firmware/esp32_camera/esp32_camera.ino) | 读取相机、启动 Wi-Fi 与网页服务；每次取帧后归还帧缓冲区 |
+| [`esp32_camera.ino`](../../../ros_ws/src/fan_robot/firmware/esp32_camera/esp32_camera.ino) | Arduino入口，调用相机共用实现，不配置电机输出 |
+| [`camera_app.hpp`](../../../ros_ws/src/fan_robot/firmware/esp32_camera/camera_app.hpp) | 读取相机、启动Wi-Fi与网页服务；第三节手动电机草图也复用这份实现 |
 | [`camera_config.example.h`](../../../ros_ws/src/fan_robot/firmware/esp32_camera/camera_config.example.h) | 接线、网络、镜像和帧率设置的示例 |
 | [`camera_config.onboard_clock.example.h`](../../../ros_ws/src/fan_robot/firmware/esp32_camera/camera_config.onboard_clock.example.h) | 无XCLK引出时的候选配置；需先确认镜头与转接板兼容及实际时钟 |
 | [`camera_config.by_ov2640_v15.example.h`](../../../ros_ws/src/fan_robot/firmware/esp32_camera/camera_config.by_ov2640_v15.example.h) | 当前模块的专用模板：板载24MHz，读者自行确认接线后启用 |
