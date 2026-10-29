@@ -13,8 +13,11 @@ img{width:100%;background:#060c12;min-height:100px}pre{white-space:pre-wrap}a{co
 <p>只是电机电压占空比，不是转速闭环，也不是根据摄像头自动行动。</p>
 <h2 id="message">正在检查驱动配置</h2><button id="arm" disabled>解锁一次</button>
 <button id="stop" class="stop">停止并锁定</button>
-<p>占空比 <input id="speed" type="range" min="10" max="40" step="5" value="20">
-<span id="speedValue">20%</span>（软件上限40%）</p>
+<p>占空比 <input id="speed" type="range" min="10" max="100" step="5" value="20">
+<span id="speedValue">20%</span>（上限100%，默认20%，不自动加起动冲击）</p>
+<p>仅按本次4.5V电池 + 6V N20配置测试。40%不起动但100%诊断能转时，
+先只接A，分别试60%、80%，每次空载按住0.2～0.5秒；只嗡响不转立即停。
+100%为持续驱动，不证明中间占空比的PWM波形正确；不要增加电池电压或连续堵转。</p>
 <div><button class="drive" data-a="1" data-b="0" disabled>A 正转</button>
 <button class="drive" data-a="-1" data-b="0" disabled>A 反转</button></div>
 <div><button class="drive" data-a="0" data-b="1" disabled>B 正转</button>
@@ -24,7 +27,7 @@ img{width:100%;background:#060c12;min-height:100px}pre{white-space:pre-wrap}a{co
 <h3>单电机诊断（仅限本次4.5V电池 + 6V N20）</h3>
 <p>只连接电机A并固定空载，撤掉IN1接3V3的测试线、恢复GPIO接线。
 重新解锁后按住下方按钮：A正转持续高电平，板端500ms限时后锁定，松手可提前停止。
-此项绕过40%上限，不是常规调速；无反应或堵转立即断电，不要反复测试。</p>
+此项忽略滑块设置、固定100%，只做单次诊断；无反应或堵转立即断电，不要反复测试。</p>
 <button class="drive stop" data-diagnostic="true" disabled>A 正转100%诊断 · 最长0.5秒</button>
 <pre id="detail"></pre><h2>相机接线保持不变</h2>
 <button id="videoStart">打开视频</button><button id="videoStop">关闭视频</button>

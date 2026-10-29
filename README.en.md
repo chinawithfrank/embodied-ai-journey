@@ -55,7 +55,7 @@ that proves I understand it, and share exactly what went wrong along the way.
 | 04 | [Real Hardware Project: Fan Robot](notes/04-Fan-Robot/README.en.md) | 🚧 In progress | Start with capture, then build toward visual control and reinforcement learning |
 | 04.1 | [ESP32-S3 and OV2640: First Eyes](notes/04-Fan-Robot/01-ESP32-Camera/README.en.md) | ✅ Browser video verified | Onboard24MHz,8MB PSRAM, and browser video working; Python snapshots and extended stability still to check |
 | 04.2 | [Offline Hand Detection on ESP32](notes/04-Fan-Robot/02-Offline-Hand-Detection/README.en.md) | 🚧 Hardware acceptance pending | S3-local model outputs hand boxes, centers, and offsets; optional AP preview or Wi-Fi-disabled operation |
-| 04.3 | [Manual Dual N20 Control, Camera Retained](notes/04-Fan-Robot/03-Manual-Motor-Control/README.en.md) | 🚧 Hardware acceptance pending | DRV8833 jog controls, release/link-loss lockout, camera preview, and a single-motor500ms full-drive diagnostic |
+| 04.3 | [Manual Dual N20 Control, Camera Retained](notes/04-Fan-Robot/03-Manual-Motor-Control/README.en.md) | 🚧 Partially verified | MotorA turns at80% PWM, not60%; dual-motor wiring/test guide added; MotorB and coexistence pending; camera/stop safeguards retained |
 
 This table is maintained in sync with `notes/`: every new learning subchapter gets a direct link and an updated status here.
 

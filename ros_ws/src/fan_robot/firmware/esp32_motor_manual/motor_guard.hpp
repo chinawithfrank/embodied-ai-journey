@@ -6,7 +6,7 @@ namespace manual_motor {
 
 class MotorGuard {
 public:
-  static constexpr int maximum_percent = 40;
+  static constexpr int maximum_percent = 100;
   static constexpr uint32_t heartbeat_ms = 600;
   static constexpr uint32_t arm_idle_ms = 5000;
   static constexpr uint32_t maximum_session_ms = 3000;
