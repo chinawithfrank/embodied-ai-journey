@@ -15,6 +15,10 @@
 | `firmware/tests/hand_observation_test.cpp` | 手部框、最高置信度、归一化偏差及过期结果清空的主机测试 |
 | `firmware/esp32_motor_manual/` | Arduino 相机加双N20手动点动；82端口控制、独立停机任务，默认电机禁用 |
 | `firmware/tests/motor_guard_test.cpp` | 心跳/运行限时、旧会话与倒序命令拒绝、反转等待和引脚冲突测试 |
+| `firmware/esp32_fan_manual/` | 复用相机及电机配置，82端口同页增加LR7843风扇开关；候选GPIO40，默认风扇禁用 |
+| `firmware/tests/fan_guard_test.cpp` / `fan_page_test.js` | 风扇租期、30秒限时、旧会话拒绝、独立/全部停止、迟到响应测试 |
+
+第四节：[保留相机和电机，独立控制5V风扇](../../../notes/04-Fan-Robot/04-Manual-Fan-Control/README.md)。新草图 `esp32_fan_manual/esp32_fan_manual.ino` 继续读取旧目录中的相机/电机私有配置，不改旧接线；只增加数字风扇开关，不占LEDC定时器，风扇和电机在同一个82端口页面独立控制。开启后需心跳续租、单次最多30秒，切后台/断联会撤销输出。风扇默认 `wiring_confirmed = false`，本次未创建本地启用文件。已收到Delta AFB0405MA-A（标签5V/0.10A、红黑两线）和LR7843/PC817照片，识别PWM/GND及+/LOAD/-；用户选择共用4.5V电机电池。笔记已补先直连、再开关及联合验证步骤；4.5V位于对应风扇系列电压范围下限，模块低压与3.3V控制兼容尚需确认，不能凭照片宣称已验收。旧第三节草图仍没有风扇输出，新组合版也未集成手部推理、自动跟随或调速。
 
 第三节：[保留相机，手动点动双N20](../../../notes/04-Fan-Robot/03-Manual-Motor-Control/README.md)。GPIO1/2/38/39接DRV8833的IN1/IN2/IN3/IN4，电机独立供电并共地；默认 `wiring_confirmed = false`，需确认电源和实际接线。相机80/81端口保留，手动控制在82端口；松开、断联或普通点动超过3秒会锁定。用户提供的模块说明确认J1默认拉高EEP、OUT1/2对应IN1/2、OUT3/4对应IN3/4，保留J1和 `sleep_pin = -1`。A路500ms持续高电平诊断已由用户确认能转，普通点动现支持10～100%、仍默认20%，便于逐步比较60%/80%的PWM起动；不自动加起动冲击，先读第三节操作步骤。用户补充的LR7843是开关而非电源，当前不加入电路。该Arduino固件不包含第二节的手部检测，不会根据画面自动驱动电机，也没有风扇输出。
 

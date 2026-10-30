@@ -56,6 +56,7 @@ that proves I understand it, and share exactly what went wrong along the way.
 | 04.1 | [ESP32-S3 and OV2640: First Eyes](notes/04-Fan-Robot/01-ESP32-Camera/README.en.md) | ✅ Browser video verified | Onboard24MHz,8MB PSRAM, and browser video working; Python snapshots and extended stability still to check |
 | 04.2 | [Offline Hand Detection on ESP32](notes/04-Fan-Robot/02-Offline-Hand-Detection/README.en.md) | 🚧 Hardware acceptance pending | S3-local model outputs hand boxes, centers, and offsets; optional AP preview or Wi-Fi-disabled operation |
 | 04.3 | [Manual Dual N20 Control, Camera Retained](notes/04-Fan-Robot/03-Manual-Motor-Control/README.en.md) | 🚧 Partially verified | MotorA turns at80% PWM, not60%; dual-motor wiring/test guide added; MotorB and coexistence pending; camera/stop safeguards retained |
+| 04.4 | [Independent5V Fan, Camera and Motors Retained](notes/04-Fan-Robot/04-Manual-Fan-Control/README.en.md) | 🚧 Low-voltage/coexistence checks pending | Delta two-wire fan and LR7843 labels identified; shared4.5V battery plan, direct-drive then switching/combined tests; disabled by default |
 
 This table is maintained in sync with `notes/`: every new learning subchapter gets a direct link and an updated status here.
 
@@ -113,7 +114,8 @@ embodied-ai-journey/
 │   └── 04-Fan-Robot/                real hardware project: fan robot
 │       ├── 01-ESP32-Camera/
 │       ├── 02-Offline-Hand-Detection/
-│       └── 03-Manual-Motor-Control/
+│       ├── 03-Manual-Motor-Control/
+│       └── 04-Manual-Fan-Control/
 ├── ros_ws/             the ROS2 workspace — everything I build gets run here
 │   └── src/
 │       ├── fundamentals/

@@ -308,7 +308,7 @@ static esp_err_t status_handler(httpd_req_t *request) {
   return send_state(request);
 }
 
-static void begin() {
+static void begin(esp_err_t (*register_extension)(httpd_handle_t) = nullptr) {
   guard_mutex = xSemaphoreCreateMutex();
   if (!guard_mutex) {
     Serial.println("Motor controls disabled: mutex allocation failed.");
@@ -322,6 +322,9 @@ static void begin() {
   config.send_wait_timeout = 1;
   config.recv_wait_timeout = 1;
   config.lru_purge_enable = true;
+  if (register_extension) {
+    config.max_uri_handlers = 12;
+  }
   httpd_handle_t server = nullptr;
   esp_err_t result = httpd_start(&server, &config);
   if (result == ESP_OK) {
@@ -339,6 +342,9 @@ static void begin() {
         break;
       }
     }
+  }
+  if (result == ESP_OK && register_extension) {
+    result = register_extension(server);
   }
   if (result != ESP_OK) {
     xSemaphoreTake(guard_mutex, portMAX_DELAY);

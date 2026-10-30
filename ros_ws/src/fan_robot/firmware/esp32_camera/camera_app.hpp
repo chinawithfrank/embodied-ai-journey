@@ -327,10 +327,12 @@ static bool start_network() {
   return true;
 }
 
-inline void setup_camera_app(bool camera_only = true) {
+inline void setup_camera_app(bool camera_only = true, bool fan_controls = false) {
   Serial.begin(115200);
   delay(1500);
-  Serial.println(camera_only
+  Serial.println(fan_controls
+    ? "Fan robot: camera + manual motors + independent fan switch. No autonomous control."
+    : camera_only
     ? "Fan robot: camera-only experiment. No motor or fan outputs are configured."
     : "Fan robot: camera + separate manual motor controls. No visual motor control or fan outputs.");
   Serial.printf("PSRAM: %u bytes\n", ESP.getPsramSize());

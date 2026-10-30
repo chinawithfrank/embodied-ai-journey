@@ -55,6 +55,7 @@
 | 04.1 | [ESP32-S3 与 OV2640：第一双眼睛](notes/04-Fan-Robot/01-ESP32-Camera) | ✅ 浏览器取流已验证 | 板载24MHz、8MB PSRAM及网页视频已跑通；Python拍照与长时间稳定性继续验收 |
 | 04.2 | [ESP32 离线手部检测](notes/04-Fan-Robot/02-Offline-Hand-Detection) | 🚧 待实物验收 | S3 本地模型输出手部框、中心与偏差；可选热点预览，也可关闭 Wi-Fi |
 | 04.3 | [保留相机，手动控制双 N20 电机](notes/04-Fan-Robot/03-Manual-Motor-Control) | 🚧 部分实测 | A路80% PWM能转、60%不转；已补双电机接线和联测步骤，B路及共存待验收；保留相机及停机保护 |
+| 04.4 | [保留相机和电机，独立控制5V风扇](notes/04-Fan-Robot/04-Manual-Fan-Control) | 🚧 待低压与联合实测 | Delta两线风扇及LR7843端子已识别；计划共用4.5V电池，先直连、再开关与联合验证；默认禁用 |
 
 目录与 `notes/` 同步维护：每新增一个学习子板块，都要在这里补上对应入口链接和状态。
 
@@ -112,7 +113,8 @@ embodied-ai-journey/
 │   └── 04-Fan-Robot/                真实项目：风扇机器人
 │       ├── 01-ESP32-Camera/
 │       ├── 02-Offline-Hand-Detection/
-│       └── 03-Manual-Motor-Control/
+│       ├── 03-Manual-Motor-Control/
+│       └── 04-Manual-Fan-Control/
 ├── ros_ws/             ROS2 工作空间——所有代码都在这里跑起来
 │   └── src/
 │       ├── fundamentals/
