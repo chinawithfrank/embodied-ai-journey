@@ -53,8 +53,65 @@ int main() {
     adaptive.reset();
     adaptive.step(hand(1,100,1),100,true);
     assert(stopped(adaptive.step(Target{},150,true))); // lost target interrupts long pulse
-    Config bad_turn; bad_turn.turn_max_ms=401; assert(!bad_turn.valid());
+    Config bad_turn; bad_turn.turn_max_ms=801; assert(!bad_turn.valid());
     bad_turn.turn_max_ms=350; bad_turn.stale_ms=300; assert(!bad_turn.valid());
+    Config fast; fast.duty=75; fast.pulse_ms=700; fast.cooldown_ms=100;
+    fast.turn_min_ms=200; fast.turn_max_ms=700; fast.turn_cooldown_ms=100;
+    assert(fast.valid());
+    HandFollower quicker(fast);
+    c=quicker.step(hand(1,100,1),100,true); assert(c.left==75 && c.right==-75);
+    c=quicker.step(hand(2,500,.9f),500,true); assert(c.left==75);
+    assert(parked_fan(quicker.step(hand(2,500,.9f),800,true))); // fixed 700ms deadline
+    assert(parked_fan(quicker.step(hand(3,850,.9f),850,true))); // cooldown preserved
+    quicker.reset();quicker.step(hand(1,100,1),100,true);
+    assert(parked_fan(quicker.step(hand(2,200,0),200,true))); // early stop when centred
+    quicker.reset();quicker.step(hand(1,100,1),100,true);
+    assert(stopped(quicker.step(Target{},200,true))); // invalid camera still overrides
+    quicker.reset();
+    c=quicker.step(hand(1,100,0,.1f),100,true); assert(c.left==75 && c.right==75);
+    c=quicker.step(hand(2,500,0,.15f),500,true); assert(c.left==75 && c.right==75);
+    c=quicker.step(hand(2,500,0,.15f),799,true); assert(c.left==75);
+    assert(parked_fan(quicker.step(hand(2,500,0,.15f),800,true)));
+    assert(parked_fan(quicker.step(hand(3,850,0,.15f),850,true)));
+    c=quicker.step(hand(4,900,0,.15f),900,true); assert(c.left==75);
+    quicker.reset();
+    c=quicker.step(hand(1,100,0,.6f),100,true); assert(c.left==-75 && c.right==-75);
+    c=quicker.step(hand(2,500,0,.55f),500,true); assert(c.left==-75 && c.right==-75);
+    assert(parked_fan(quicker.step(hand(2,500,0,.55f),800,true)));
+    for (auto interruption : {hand(2,300,0,.35f), hand(2,300,0,.6f), hand(2,300,.6f,.1f)}) {
+        quicker.reset();quicker.step(hand(1,100,0,.1f),100,true);
+        assert(parked_fan(quicker.step(interruption,300,true)));
+    }
+    quicker.reset();quicker.step(hand(1,100,0,.1f),100,true);
+    Target lost;lost.frame=2;lost.captured_ms=300;
+    assert(parked_fan(quicker.step(lost,300,true))); // fan holds; tracks stop immediately
+    quicker.reset();quicker.step(hand(1,100,0,.1f),100,true);
+    assert(stopped(quicker.step(Target{},300,true)));
+    Config bad_translation;bad_translation.pulse_ms=801;assert(!bad_translation.valid());
+    bad_translation.pulse_ms=700;bad_translation.stale_ms=700;assert(!bad_translation.valid());
+    auto absent=[](uint32_t id,int64_t time) { Target t; t.frame=id; t.captured_ms=time; return t; };
+    HandFollower hold;
+    assert(stopped(hold.step(absent(1,100),100,true)));
+    assert(hold.step(hand(2,200,.8f),200,true).fan);
+    assert(parked_fan(hold.step(absent(3,250),250,true))); // tracks stop, fan continues
+    assert(hold.fan_hold_remaining_ms(250)==29950);
+    assert(parked_fan(hold.step(absent(4,30199),30199,true)));
+    assert(stopped(hold.step(absent(5,30200),30200,true))); // exact expiry
+    hold.reset();
+    hold.step(hand(1,100),100,true);
+    hold.step(hand(2,20100),20100,true); // renewal grants another full 30 seconds
+    assert(parked_fan(hold.step(absent(3,40000),40000,true)));
+    assert(parked_fan(hold.step(absent(4,50099),50099,true)));
+    assert(stopped(hold.step(absent(5,50100),50100,true)));
+    hold.reset();hold.step(hand(1,100),100,true);
+    hold.step(hand(1,100),900,true);
+    assert(hold.fan_hold_remaining_ms(900)==29200); // duplicate frame doesn't extend
+    assert(stopped(hold.step(absent(2,1000),2001,true))); // camera stalls override hold
+    assert(hold.fan_hold_remaining_ms(2001)==0);
+    assert(stopped(hold.step(absent(3,2100),2100,true))); // no revival after fault
+    hold.step(hand(4,2200),2200,true);
+    assert(stopped(hold.step(absent(5,2300),2300,false))); // stop clears hold
+    assert(stopped(hold.step(absent(6,2400),2400,true)));
     Supervisor autonomous;
     assert(autonomous.arm(100,true));
     autonomous.tick(10000000); assert(autonomous.armed);

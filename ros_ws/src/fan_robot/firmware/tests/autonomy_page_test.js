@@ -5,7 +5,7 @@ const vm = require('node:vm');
 const source = fs.readFileSync(path.join(__dirname, '../esp32_hand/main/autonomy/runtime.hpp'), 'utf8').match(/<script>([\s\S]*?)<\/script>/)[1];
 const flush = () => new Promise(resolve => setImmediate(resolve));
 function app(deferArm=false, automatic=false) {
-  const elements = Object.fromEntries(['safe','start','stop','status','fanStatus','modeStatus'].map(id=>[id,{checked:false,textContent:''}]));
+  const elements = Object.fromEntries(['safe','start','stop','status','fanStatus','modeStatus','fanHold'].map(id=>[id,{checked:false,textContent:''}]));
   const a={elements,events:{},timers:[],calls:[],armed:automatic,fail:false,fan:false};
   const document={hidden:false,getElementById:id=>elements[id],addEventListener:(id,fn)=>a.events[id]=fn};
   a.document=document;
@@ -15,7 +15,7 @@ function app(deferArm=false, automatic=false) {
       if(a.fail) throw Error('network lost');
       if(url==='/robot/arm') a.armed=true;
       if(url==='/robot/stop') a.armed=false;
-      const response={ok:true,json:async()=>({armed:a.armed,session:7,auto_start:automatic,fan_output_on:a.armed && a.fan})};
+      const response={ok:true,json:async()=>({armed:a.armed,session:7,auto_start:automatic,fan_hold_remaining_ms:a.armed&&a.fan?29500:0,fan_output_on:a.armed && a.fan})};
       if(deferArm && url==='/robot/arm') return new Promise(resolve=>a.release=()=>resolve(response));
       return response;
     }});
@@ -30,6 +30,7 @@ function app(deferArm=false, automatic=false) {
   assert.equal(a.calls.at(-1).opts.headers['X-Robot-Session'],'7');
   a.fan=true;await a.poll();assert.match(a.elements.fanStatus.textContent,/已下发开启/);
   assert.match(a.elements.fanStatus.textContent,/转动未确认/);
+  assert.match(a.elements.fanHold.textContent,/30 秒/);
   await a.elements.stop.onclick();const before=a.count('/robot/heartbeat');await a.poll();
   assert.equal(a.count('/robot/heartbeat'),before);
   assert.match(a.elements.fanStatus.textContent,/已下发关闭/);

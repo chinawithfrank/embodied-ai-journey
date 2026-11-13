@@ -27,8 +27,8 @@ struct Config {
             x_enter > 0 && x_exit > x_enter && x_exit < 1 &&
             size_enter > 0 && size_exit > size_enter && y_limit > 0 && y_limit <= 1 &&
             duty >= 10 && duty <= 100 && (turn_sign == 1 || turn_sign == -1) &&
-            pulse_ms > 0 && pulse_ms <= 200 && cooldown_ms >= 100 &&
-            turn_min_ms > 0 && turn_max_ms >= turn_min_ms && turn_max_ms <= 400 &&
+            pulse_ms > 0 && pulse_ms <= 800 && pulse_ms < stale_ms && cooldown_ms >= 100 &&
+            turn_min_ms > 0 && turn_max_ms >= turn_min_ms && turn_max_ms <= 800 &&
             turn_cooldown_ms >= 100 && turn_max_ms < stale_ms &&
             stale_ms >= 100 && stale_ms <= 1500 && stable_frames >= 2;
     }
@@ -62,17 +62,34 @@ public:
     explicit HandFollower(Config settings = {}) : cfg(settings) {}
     const char *state = "idle";
     void reset() { output = {}; stable = 0; aligned = false; settled = false;
-        last_frame = 0; next_pulse = 0; pulse_end = 0; state = "idle"; }
+        fan_until = 0; last_hand_capture = 0; last_frame = 0; next_pulse = 0; pulse_end = 0; state = "idle"; }
+    int fan_hold_remaining_ms(int64_t now) const {
+        return static_cast<int>(std::clamp<int64_t>(fan_until-now, 0, 30000));
+    }
     Command step(const Target &t, int64_t now, bool enabled) {
         if (!enabled || !cfg.valid()) { reset(); state = "disarmed"; return {}; }
-        if (!t.valid || !t.frame || t.captured_ms <= 0 || now < t.captured_ms ||
-            now-t.captured_ms > cfg.stale_ms || !std::isfinite(t.x) ||
-            !std::isfinite(t.y) || !std::isfinite(t.size) ||
-            std::abs(t.x)>1 || std::abs(t.y)>1 || t.size<=0 || t.size>1) {
-            output = {}; stable = 0; aligned = settled = false; state = "waiting_hand";
+        // Camera failures/stalls override the hold. A fresh no-hand frame does not.
+        if (!t.frame || t.captured_ms <= 0 || now < t.captured_ms ||
+            now-t.captured_ms > cfg.stale_ms) {
+            reset(); state = "waiting_camera"; return {};
+        }
+        if (!t.valid) {
+            output = {}; stable = 0; aligned = settled = false;
+            last_frame = t.frame;
+            output.fan = now < fan_until;
+            state = output.fan ? "fan_hold" : "waiting_hand";
             return output;
         }
-        output.fan = true; // A fresh valid hand opens the fan independently of motion alignment.
+        if (!std::isfinite(t.x) || !std::isfinite(t.y) || !std::isfinite(t.size) ||
+            std::abs(t.x)>1 || std::abs(t.y)>1 || t.size<=0 || t.size>1) {
+            reset(); state = "invalid_target"; return {};
+        }
+        // Only new capture timestamps extend the deadline; polling cannot renew it.
+        if (t.frame != last_frame && t.captured_ms > last_hand_capture) {
+            last_hand_capture = t.captured_ms;
+            fan_until = t.captured_ms + 30000;
+        }
+        output.fan = now < fan_until;
         if (now >= pulse_end) output.left = output.right = 0;
         // Repeated frames cannot start another pulse or satisfy settling.
         if (t.frame == last_frame) return output;
@@ -104,6 +121,13 @@ public:
             output = previous;
             return output;
         }
+        // Fresh frames may continue the same translation, never extend its deadline.
+        // Settling, lateral misalignment or a changed distance sign stop it early.
+        if (was_moving && aligned && previous.left == previous.right &&
+            previous.left * (distance_error > 0 ? 1 : -1) > 0) {
+            output = previous;
+            return output;
+        }
         if (now < next_pulse || t.captured_ms < pulse_end) return output;
         if (!aligned) {
             const int turn = (t.x > 0 ? 1 : -1)*cfg.turn_sign*cfg.duty;
@@ -125,5 +149,6 @@ private:
     int stable = 0;
     bool aligned = false, settled = false;
     int64_t pulse_end = 0, next_pulse = 0;
+    int64_t fan_until = 0, last_hand_capture = 0;
 };
 } // namespace robot

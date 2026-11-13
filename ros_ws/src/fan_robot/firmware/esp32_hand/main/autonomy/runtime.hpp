@@ -129,11 +129,12 @@ static esp_err_t control_handler(httpd_req_t *request) {
     }
     if (ready && !supervisor.armed) coast();
     char json[512];
-    snprintf(json,sizeof(json),"{\"ready\":%s,\"armed\":%s,\"session\":%lu,\"state\":\"%s\",\"reason\":\"%s\",\"fault\":\"%s\",\"size\":%.4f,\"x\":%.4f,\"y\":%.4f,\"fan_output_on\":%s,\"fan_rotation_confirmed\":null,\"auto_start\":%s}",
+    snprintf(json,sizeof(json),"{\"ready\":%s,\"armed\":%s,\"session\":%lu,\"state\":\"%s\",\"reason\":\"%s\",\"fault\":\"%s\",\"size\":%.4f,\"x\":%.4f,\"y\":%.4f,\"fan_output_on\":%s,\"fan_rotation_confirmed\":null,\"auto_start\":%s,\"fan_hold_remaining_ms\":%d}",
         ready?"true":"false",supervisor.armed?"true":"false",static_cast<unsigned long>(supervisor.session),
         follower.state,supervisor.reason,fault,target.size,target.x,target.y,
         fan_output_known ? (fan_output_on ? "true" : "false") : "null",
-        autonomy_settings::auto_start ? "true" : "false");
+        autonomy_settings::auto_start ? "true" : "false",
+        supervisor.armed && ready ? follower.fan_hold_remaining_ms(now_ms()) : 0);
     xSemaphoreGive(mutex);
     httpd_resp_set_type(request,"application/json"); httpd_resp_set_hdr(request,"Cache-Control","no-store");
     if (!accepted) httpd_resp_set_status(request,"409 Conflict");
@@ -143,15 +144,15 @@ static const char PAGE[] = R"HTML(<!doctype html><html lang="zh-CN"><meta charse
 <meta name="viewport" content="width=device-width, initial-scale=1"><title>手部跟随</title>
 <style>body{max-width:720px;margin:32px auto;padding:16px;font:18px system-ui}button{padding:16px;margin:8px}pre{white-space:pre-wrap}</style>
 <h1>桌面风扇机器人 · 手部跟随</h1><p>先打开<a href="/" target="_blank">相机预览</a>进行距离标定。状态中的 size 是手框相对尺寸。</p>
-<p>只纠正左右位置；手太高或太低时履带停止。启用后检测到手就开风扇，丢手则关闭。</p>
+<p>只纠正左右位置；手太高或太低时履带停止。检测到手后风扇续转 30 秒，再次检测到手重新计时；丢手时履带立即停止。</p>
 <p id="modeStatus">正在读取运行模式</p><label><input id="safe" type="checkbox">已确认方向、安装和距离标定，并在有物理围挡的测试区域</label>
-<p><button id="start">启用 30 秒</button><button id="stop">立即停止</button></p><p id="fanStatus" role="status">风扇状态：等待设备</p><p>显示的是设备开关输出；当前风扇没有转速反馈，无法确认扇叶是否实际转动。</p><pre id="status"></pre>
+<p><button id="start">启用 30 秒</button><button id="stop">立即停止</button></p><p id="fanHold">续转计时：等待设备</p><p id="fanStatus" role="status">风扇状态：等待设备</p><p>显示的是设备开关输出；当前风扇没有转速反馈，无法确认扇叶是否实际转动。</p><pre id="status"></pre>
 <script>
 let session=null, generation=0, autoStart=false;
 const status=document.getElementById('status');
 const fanStatus=document.getElementById('fanStatus');
-function render(s){autoStart=s.auto_start===true;document.getElementById('modeStatus').textContent=autoStart?'上电自动跟随；关闭网页或断开 Wi-Fi 不会停止。点击停止后须手动恢复或重启 ESP32。':'手动模式：每次 30 秒，关闭页面或断线后停止。';document.getElementById('start').textContent=autoStart?'恢复自动跟随':'启用 30 秒';status.textContent=JSON.stringify(s,null,2);fanStatus.textContent=s.fan_output_on===true?'风扇：已下发开启（转动未确认）':s.fan_output_on===false?'风扇：已下发关闭':'风扇：输出状态未知';}
-function unknownFan(){fanStatus.textContent='风扇：连接异常，状态未知';}
+function render(s){document.getElementById('fanHold').textContent='风扇续转剩余：'+Math.ceil((s.fan_hold_remaining_ms||0)/1000)+' 秒';autoStart=s.auto_start===true;document.getElementById('modeStatus').textContent=autoStart?'上电自动跟随；关闭网页或断开 Wi-Fi 不会停止。点击停止后须手动恢复或重启 ESP32。':'手动模式：每次 30 秒，关闭页面或断线后停止。';document.getElementById('start').textContent=autoStart?'恢复自动跟随':'启用 30 秒';status.textContent=JSON.stringify(s,null,2);fanStatus.textContent=s.fan_output_on===true?'风扇：已下发开启（转动未确认）':s.fan_output_on===false?'风扇：已下发关闭':'风扇：输出状态未知';}
+function unknownFan(){document.getElementById('fanHold').textContent='续转计时：状态未知';fanStatus.textContent='风扇：连接异常，状态未知';}
 async function call(path,method='GET',token=null){const r=await fetch(path,{method,cache:'no-store',headers:token===null?{}:{'X-Robot-Session':String(token)},signal:AbortSignal.timeout(700)});const s=await r.json();if(!r.ok)throw Error(JSON.stringify(s));return s;}
 async function stop(){generation++;session=null;try{render(await call('/robot/stop','POST'));}catch(e){unknownFan();status.textContent='停止请求未确认，请关闭电池开关：'+e.message;}}
 document.getElementById('start').onclick=async()=>{if(!document.getElementById('safe').checked||document.hidden)return;const g=++generation;session=null;try{const s=await call('/robot/arm','POST');if(g!==generation||(document.hidden && !s.auto_start)){await stop();return;}render(s);session=autoStart?null:s.session;}catch(e){unknownFan();status.textContent=e.message;}};
