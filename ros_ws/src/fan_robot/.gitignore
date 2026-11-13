@@ -11,3 +11,4 @@ firmware/esp32_hand/managed_components/
 firmware/esp32_hand/sdkconfig
 firmware/esp32_hand/sdkconfig.old
 __pycache__/
+firmware/esp32_hand/main/autonomy/settings.local.h

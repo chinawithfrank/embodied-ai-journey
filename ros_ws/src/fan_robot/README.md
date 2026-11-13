@@ -1,5 +1,8 @@
 # 风扇机器人实验代码
 
+新增 [第五节：本机手部跟随闭环](../../../notes/04-Fan-Robot/05-Hand-Follow/README.md)。用户已确认三个部件可分别控制；现在 `esp32_hand` 可选集成识别、短点动转向/前后调距、稳定后吹风及独立停机监督。默认不启用自动输出，需标定并主动启用；实物闭环尚待验收。旧 Arduino 手动草图继续保留。
+
+
 学习过程和完整启动步骤见 [风扇机器人笔记](../../../notes/04-Fan-Robot/README.md)，第一节是 [ESP32-S3 + OV2640 相机取流](../../../notes/04-Fan-Robot/01-ESP32-Camera/README.md)。
 
 | 路径 | 用途 |
@@ -41,4 +44,4 @@ python3 tools/camera_client.py --url http://192.168.4.1 snapshot --output captur
 python3 -m unittest discover -s tools/tests -v
 ```
 
-这不是已经完成视觉闭环或强化学习的整机，也不是需要 `colcon build` 的 ROS2 包。第一节相机和第三节手动电机固件由 Arduino 工具链编译，第二节离线手部检测由 ESP-IDF 编译；Python 相机工具直接运行。`firmware/COLCON_IGNORE` 防止 ROS2 构建扫描进入嵌入式工程。代码在工作空间中，不代表它必须运行在 ROS2 上。后续可在本目录下增加真正的 ROS2 相机桥接包。
+这是仍需实物验收的视觉闭环原型，不是已经完成强化学习的整机，也不是需要 `colcon build` 的 ROS2 包。第一节相机和第三节手动电机固件由 Arduino 工具链编译，第二节离线手部检测由 ESP-IDF 编译；Python 相机工具直接运行。`firmware/COLCON_IGNORE` 防止 ROS2 构建扫描进入嵌入式工程。代码在工作空间中，不代表它必须运行在 ROS2 上。后续可在本目录下增加真正的 ROS2 相机桥接包。

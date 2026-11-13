@@ -14,4 +14,12 @@ config FAN_HAND_INTERVAL_MS
     range 100 5000
     default 400
 
+config FAN_ENABLE_AUTONOMY
+    bool "Enable local hand-follow controller (requires calibrated local settings)"
+    depends on FAN_ENABLE_PREVIEW
+    default n
+    help
+        Adds /robot arming UI, a 20ms output supervisor, and bounded track pulses.
+        Starts disarmed. Requires confirmed motor/fan wiring and autonomy settings.
+
 endmenu

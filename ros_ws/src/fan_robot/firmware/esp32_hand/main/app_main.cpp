@@ -31,6 +31,11 @@
 #error "This firmware targets ESP32-S3 N16R8."
 #endif
 
+#include "autonomy/output_safety.hpp"
+#if CONFIG_FAN_ENABLE_AUTONOMY
+#include "autonomy/runtime.hpp"
+#endif
+
 static constexpr const char *TAG = "offline_hand";
 static constexpr size_t MAX_JPEG_BYTES = 96 * 1024;
 static SemaphoreHandle_t observation_mutex;
@@ -82,6 +87,9 @@ static void publish(const HandObservation &observation, const camera_fb_t *frame
         latest_jpeg_size = frame->len;
     }
     xSemaphoreGive(observation_mutex);
+#if CONFIG_FAN_ENABLE_AUTONOMY
+    autonomy::publish(observation);
+#endif
     char *payload = observation_json(fresh_observation(observation, esp_timer_get_time()));
     if (payload) {
         printf("HAND %s\n", payload);
@@ -178,8 +186,14 @@ static bool initialize_camera() {
         publish_failure("expected_ov2640");
         return false;
     }
-    sensor->set_vflip(sensor, camera_settings::vertical_flip);
-    sensor->set_hmirror(sensor, camera_settings::horizontal_mirror);
+    if (sensor->set_vflip(sensor, camera_settings::vertical_flip) != 0 ||
+        sensor->set_hmirror(sensor, camera_settings::horizontal_mirror) != 0) {
+        esp_camera_deinit();
+        publish_failure("camera_orientation_failed");
+        return false;
+    }
+    ESP_LOGI(TAG, "Camera orientation: vflip=%d hmirror=%d",
+        camera_settings::vertical_flip, camera_settings::horizontal_mirror);
     camera_ready = true;
     ESP_LOGI(TAG, "OV2640 ready: JPEG 320x240, PSRAM %u bytes, XCLK %s %d Hz",
         static_cast<unsigned>(esp_psram_get_size()),
@@ -304,6 +318,7 @@ static esp_err_t start_preview() {
     ESP_RETURN_ON_ERROR(esp_wifi_start(), TAG, "Wi-Fi start");
     httpd_config_t http_config = HTTPD_DEFAULT_CONFIG();
     http_config.stack_size = 8192;
+    http_config.max_uri_handlers = 12;
     http_config.lru_purge_enable = true;
     http_config.send_wait_timeout = 2;
     httpd_handle_t server = nullptr;
@@ -321,19 +336,30 @@ static esp_err_t start_preview() {
     ESP_RETURN_ON_ERROR(httpd_register_uri_handler(server, &index), TAG, "index route");
     ESP_RETURN_ON_ERROR(httpd_register_uri_handler(server, &state), TAG, "state route");
     ESP_RETURN_ON_ERROR(httpd_register_uri_handler(server, &capture), TAG, "capture route");
+#if CONFIG_FAN_ENABLE_AUTONOMY
+    ESP_RETURN_ON_ERROR(autonomy::routes(server), TAG, "autonomy routes");
+#endif
     ESP_LOGI(TAG, "Optional preview: FanRobot-Hand / fanrobot123 / http://192.168.4.1");
     return ESP_OK;
 }
 #endif
 
 extern "C" void app_main() {
-    ESP_LOGI(TAG, "Offline hand detector. No motor, servo, or fan outputs are configured.");
+    if (!output_safety::initialize()) {
+        ESP_LOGE(TAG, "Safe GPIO initialization failed; aborting camera and control startup. Disconnect motor power.");
+        return;
+    }
+    ESP_LOGI(TAG, "BOOT_SAFE: confirmed motor inputs LOW, fan OFF; motion remains disarmed");
+    ESP_LOGI(TAG, "Offline hand detector; optional autonomy starts disarmed.");
     observation_mutex = xSemaphoreCreateMutex();
     if (!observation_mutex) {
         ESP_LOGE(TAG, "Cannot allocate observation mutex");
         return;
     }
     initialize_camera();
+#if CONFIG_FAN_ENABLE_AUTONOMY
+    if (camera_ready) autonomy::begin();
+#endif
 #if CONFIG_FAN_ENABLE_PREVIEW
     latest_jpeg = static_cast<uint8_t *>(heap_caps_malloc(MAX_JPEG_BYTES, MALLOC_CAP_SPIRAM));
     esp_err_t preview_result = start_preview();
@@ -371,12 +397,20 @@ extern "C" void app_main() {
                 observation.frame_id = ++frame_id;
                 observation.captured_us = started;
                 observation.status = "not_found";
+                unsigned hand_count = 0;
                 for (const auto &hand : detector.run(image)) {
                     if (hand.box.size() >= 4) {
+                        if (std::isfinite(hand.score) && hand.score >= CONFIG_FAN_HAND_SCORE_PERCENT / 100.0f) ++hand_count;
                         consider_hand(observation, hand.score, hand.box[0], hand.box[1],
                             hand.box[2], hand.box[3], CONFIG_FAN_HAND_SCORE_PERCENT / 100.0f);
                     }
                 }
+#if CONFIG_FAN_ENABLE_AUTONOMY
+                // Ambiguous scenes cannot switch motion between different hands.
+                if (hand_count > 1) { observation.found = false; observation.status = "multiple_hands"; }
+#else
+                (void)hand_count;
+#endif
                 observation.processing_us = esp_timer_get_time() - started;
                 publish(observation, frame);
                 heap_caps_free(image.data);
