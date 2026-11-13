@@ -3,6 +3,7 @@
 namespace autonomy_settings {
 // Copy to settings.local.h only after direction/installation calibration.
 constexpr bool motion_confirmed = false;
+constexpr bool auto_start = false; // Boot tracking without a browser lease.
 constexpr int left_sign = 1;   // Motor A is the physical LEFT track.
 constexpr int right_sign = 1;  // +1 command must move this track forward.
 inline robot::Config controller() {

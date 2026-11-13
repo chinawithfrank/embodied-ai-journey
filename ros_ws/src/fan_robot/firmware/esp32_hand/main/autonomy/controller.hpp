@@ -37,21 +37,22 @@ struct Config {
 class Supervisor {
 public:
     bool armed = false;
+    bool automatic = false;
     const char *reason = "disarmed";
     uint32_t session = 0;
-    bool arm(int64_t now) {
+    bool arm(int64_t now, bool autonomous = false) {
         if (armed) return false;
-        ++session; armed = true; deadline = now + 30000; lease = now + 1000;
-        reason = "armed"; return true;
+        ++session; armed = true; automatic = autonomous; deadline = now + 30000; lease = now + 1000;
+        reason = automatic ? "automatic" : "armed"; return true;
     }
     bool heartbeat(uint32_t token, int64_t now) {
         tick(now);
-        if (!armed || token != session) return false;
+        if (!armed || automatic || token != session) return false;
         lease = now + 1000; return true;
     }
     void stop(const char *why = "stopped") { armed = false; reason = why; }
     void tick(int64_t now) {
-        if (armed && (now >= lease || now >= deadline)) stop("lease_or_session_expired");
+        if (armed && !automatic && (now >= lease || now >= deadline)) stop("lease_or_session_expired");
     }
 private:
     int64_t deadline = 0, lease = 0;
@@ -71,6 +72,7 @@ public:
             output = {}; stable = 0; aligned = settled = false; state = "waiting_hand";
             return output;
         }
+        output.fan = true; // A fresh valid hand opens the fan independently of motion alignment.
         if (now >= pulse_end) output.left = output.right = 0;
         // Repeated frames cannot start another pulse or satisfy settling.
         if (t.frame == last_frame) return output;
@@ -78,6 +80,7 @@ public:
         const bool was_moving = output.left || output.right;
         const Command previous = output;
         output = {};
+        output.fan = true;
         if (std::abs(t.y) > cfg.y_limit) {
             stable = 0; aligned = settled = false; state = "adjust_hand_height"; return output;
         }
@@ -89,7 +92,7 @@ public:
             if (was_moving || t.captured_ms < pulse_end) stable = 0;
             else ++stable;
             state = stable >= cfg.stable_frames ? "blowing" : "settling";
-            output.fan = stable >= cfg.stable_frames;
+            output.fan = true;
             return output;
         }
         stable = 0;
