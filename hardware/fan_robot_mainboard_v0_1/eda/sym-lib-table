@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name "FanRobot")(type "Legacy")(uri "${KIPRJMOD}/fan_robot.lib")(options "")(descr "Review-only custom pin blocks"))
+)

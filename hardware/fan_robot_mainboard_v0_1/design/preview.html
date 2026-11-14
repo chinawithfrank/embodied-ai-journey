@@ -1,0 +1,6 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>
+html,body{margin:0;color:var(--foreground);font-family:var(--font-sans,system-ui)}
+main{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start}
+img{display:block;width:100%;height:auto}p{margin:0 0 14px}dl{margin:0}dt{font-weight:500;margin:14px 0 4px}dd{margin:0;color:var(--muted-foreground)}
+@media(max-width:600px){main{grid-template-columns:1fr}}
+</style></head><body><main><img src="/Users/lichuang/Develop/team/embodied-ai-journey/hardware/fan_robot_mainboard_v0_1/design/placement-concept.svg" alt="60×50mm主板分区草案，非实际PCB布线"><section><p>V0.1 电气评审稿 · 尚不能下单生产</p><dl><dt>主控</dt><dd>ESP32-S3-WROOM-1-N16R8，保留外接相机。</dd><dt>三节干电池供电</dt><dd>电机使用电池电压；逻辑稳压3.3V，风扇单独升压至约5V。</dd><dt>默认禁能</dt><dd>复位/下载阶段关闭电机与风扇，程序初始化完成后才允许执行。</dd><dt>扩展</dt><dd>USB下载、UART测试、I2C传感器接口与电池检测。</dd><dt>生产前还需完成</dt><dd>相机配对插座/插合核验、电机电流与负载验证、封装/选型冻结、PCB布线及ERC/DRC，最后输出Gerber、BOM和贴片坐标。</dd></dl></section></main></body></html>

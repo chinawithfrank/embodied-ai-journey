@@ -1,0 +1,51 @@
+FAN ROBOT V0.1 INTERNAL CONSISTENCY CHECK
+NOT ERC / NOT DRC / NOT DFM / NOT PROTOTYPE VALIDATION
+
+PASS: All component references unique
+PASS: Review-only release state present
+PASS: All ESP32 module ground pads connected
+PASS: Octal PSRAM pins GPIO35/36/37 left NC
+PASS: Existing motor GPIO mapping preserved
+PASS: GPIO40 fan and GPIO47 enable are distinct
+PASS: Motor sleep and fan boost share hardware interlock
+PASS: Enable AND gate inputs/output agree with circuit
+PASS: Fan AND gate inputs/output agree with circuit
+PASS: Logic-only default-disable truth row EN=0, FAN_CMD=0
+PASS: Logic-only default-disable truth row EN=0, FAN_CMD=1
+PASS: Logic-only default-disable truth row EN=1, FAN_CMD=0
+PASS: Logic-only default-disable truth row EN=1, FAN_CMD=1
+PASS: Fan NMOS is low-side, not shorting supply
+PASS: Fan red/black remain on correct connector nets
+PASS: Fan clamp diode cathode faces positive supply
+PASS: Reverse-input PMOS has source on protected rail
+PASS: Logic OR diode polarity excludes intended USB-to-battery conduction
+PASS: Actuator supplies do not use the USB logic OR net
+PASS: DRV8833 charge-pump capacitor is between VCP and VM
+PASS: DRV8833 VINT bypass does not feed other loads
+PASS: DRV8833 PWP outputs use correct pin order
+PASS: DRV8833 ground and exposed thermal pad connected
+PASS: 3.3V divider arithmetic
+PASS: Nominal fan voltage arithmetic lies within series voltage window
+PASS: Provisional current-limit arithmetic only, NOT validated motor setting
+PASS: Battery ADC divider nominal full-fresh value below 1.3V
+PASS: Camera FLASH NC and camera supply 3.3V
+PASS: XML netlist reference set equals JSON
+PASS: Every populated physical pin/net exported exactly once
+PASS: BOM references equal schematic data references
+PASS: No invented LCSC ordering codes
+PASS: No placeholder PCB presented as routed output
+PASS: Legacy file framing fan_robot_mainboard; NOT a KiCad parse check
+PASS: Legacy file framing power; NOT a KiCad parse check
+PASS: Legacy file framing mcu_camera; NOT a KiCad parse check
+PASS: Legacy file framing actuators; NOT a KiCad parse check
+PASS: Legacy file framing usb_expansion; NOT a KiCad parse check
+
+OPEN RELEASE BLOCKERS:
+- No routed PCB, Gerber, drill or CPL
+- Legacy KiCad schematic not imported/checked in KiCad
+- All component footprints and LCSC inventory remain unfrozen
+- Camera 2x9 pitch/row 2.54mm USER CONFIRMED; socket MPN/mating view/height unreleased; photo sensor identity conflict needs PID check
+- N20 6V/60rpm USER CONFIRMED; stall/start current and sense resistor not qualified
+- Fuse and power inductors need exact rated MPNs
+- USB current, power sequencing, converter stability and RF/layout unverified
+- New-board firmware has not been ported or flashed

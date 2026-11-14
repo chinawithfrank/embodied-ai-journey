@@ -1,0 +1,89 @@
+﻿Reference,Value,Manufacturer,MPN,Package_candidate,Quantity,LCSC_SKU,Status,Notes
+J1,3xAA_INPUT,,,JST-XH-2.50_2P_CANDIDATE,1,,MECHANICAL_CONFIRM_REQUIRED,Polarity/keying and 3A connector derating must be checked
+SW1,MASTER_POWER,,,SW_SPST_TBD,1,,MECHANICAL_CONFIRM_REQUIRED,Switch battery feed before all converters; location/ratings TBD
+F1,FUSE_TBD,,,TBD,1,,BLOCKED_VALUE,Select after two-motor stall/inrush and cell capability measurements
+Q2,AO3401A,Alpha & Omega Semiconductor,AO3401A,SOT-23,1,,CANDIDATE_VERIFY,"Reverse-input protection: drain=input, source=protected rail; NOT a controlled load switch"
+R1,100k,,,0603,1,,CANDIDATE_VERIFY,1%; exact manufacturer and LCSC SKU not frozen
+C1,220uF_10V,,,SMD_ELECTROLYTIC_TBD,1,,CANDIDATE_VERIFY,Positive=VBAT; validate transient/ripple and reverse protection response
+D2,SS34,,SS34,SMA,1,,CANDIDATE_VERIFY,Diode OR; exact vendor/If/Vf/Ir/temp selection pending. No USB-to-battery path.
+D3,SS34,,SS34,SMA,1,,CANDIDATE_VERIFY,Diode OR; exact vendor/If/Vf/Ir/temp selection pending. No USB-to-battery path.
+U2,TPS63802DLAR,Texas Instruments,TPS63802DLAR,DLA_10_VSON_HR,1,,CANDIDATE_VERIFY,3.3V buck-boost; power-save mode. Layout/effective capacitance/inductor validation required.
+L1,0.47uH,,,SHIELDED_INDUCTOR_TBD,1,,BLOCKED_MPN,"Select with Isat exceeding worst-case IC current limit, DCR and thermal verified"
+C2,22uF_10V,,,0805,1,,CANDIDATE_VERIFY,X7R/X5R; verify DC-bias derating and exact MPN
+C3,22uF_10V,,,0805,1,,CANDIDATE_VERIFY,X7R/X5R; verify DC-bias derating and exact MPN
+C4,22uF_10V,,,0805,1,,CANDIDATE_VERIFY,X7R/X5R; verify DC-bias derating and exact MPN
+R2,560k,,,0603,1,,CANDIDATE_VERIFY,0.1% preferred; nominal 0.5*(1+560/100)=3.3V
+R3,100k,,,0603,1,,CANDIDATE_VERIFY,0.1% preferred
+R4,180k,,,0603,1,,CANDIDATE_VERIFY,1%; exact manufacturer and LCSC SKU not frozen
+R5,100k,,,0603,1,,CANDIDATE_VERIFY,"Nominal EN rising ~3.08V, falling ~2.80V at VLOGIC_IN, NOT raw battery"
+C5,1nF_16V,,,0603,1,,CANDIDATE_VERIFY,X7R/X5R; verify DC-bias derating and exact MPN
+R6,10k,,,0603,1,,CANDIDATE_VERIFY,1%; exact manufacturer and LCSC SKU not frozen
+C6,1uF_10V,,,0805,1,,CANDIDATE_VERIFY,X7R/X5R; verify DC-bias derating and exact MPN
+U3,TPS61023DRLR,Texas Instruments,TPS61023DRLR,DRL_6_SOT563,1,,CANDIDATE_VERIFY,"5V fan supply, enabled by actuator interlock; battery only, no USB actuator feed"
+L2,1uH,,,SHIELDED_INDUCTOR_TBD,1,,BLOCKED_MPN,"Select Isat/DCR against worst-case switch peak current, not fan average current"
+C7,10uF_10V,,,0805,1,,CANDIDATE_VERIFY,X7R/X5R; verify DC-bias derating and exact MPN
+C8,22uF_10V,,,0805,1,,CANDIDATE_VERIFY,X7R/X5R; verify DC-bias derating and exact MPN
+C9,22uF_10V,,,0805,1,,CANDIDATE_VERIFY,X7R/X5R; verify DC-bias derating and exact MPN
+R7,732k,,,0603,1,,CANDIDATE_VERIFY,1%; exact manufacturer and LCSC SKU not frozen
+R8,100k,,,0603,1,,CANDIDATE_VERIFY,Nominal 4.9504V at 595mV PWM reference; ~5.0V in PFM. Verify load transient and tolerance.
+C10,220pF_DNP,,,0603,0,,CANDIDATE_VERIFY,"Optional feed-forward, DNP by default; populate only from stability analysis"
+U1,ESP32-S3-WROOM-1-N16R8,Espressif Systems,ESP32-S3-WROOM-1-N16R8,ESP32-S3-WROOM-1,1,,CANDIDATE_VERIFY,"16MB Flash, 8MB Octal PSRAM. GPIO35/36/37 NC. Antenna over board edge; full keepout per manufacturer."
+C11,22uF_10V,,,0805,1,,CANDIDATE_VERIFY,X7R/X5R; verify DC-bias derating and exact MPN
+C12,100nF_16V,,,0603,1,,CANDIDATE_VERIFY,X7R/X5R; verify DC-bias derating and exact MPN
+R9,10k,,,0603,1,,CANDIDATE_VERIFY,1%; exact manufacturer and LCSC SKU not frozen
+SW2,RESET,,,TACT_SWITCH_TBD,1,,CANDIDATE_VERIFY,
+SW3,BOOT,,,TACT_SWITCH_TBD,1,,CANDIDATE_VERIFY,
+R10,1M,,,0603,1,,CANDIDATE_VERIFY,1%; exact manufacturer and LCSC SKU not frozen
+R11,330k,,,0603,1,,CANDIDATE_VERIFY,1%; exact manufacturer and LCSC SKU not frozen
+C13,100nF_16V,,,0603,1,,CANDIDATE_VERIFY,ADC2/GPIO15 availability and acquisition settling with Wi-Fi must be validated; no eFuse writes
+U6,SN74LVC1G08DBVR,Texas Instruments,SN74LVC1G08DBVR,SOT-23-5,1,,CANDIDATE_VERIFY,Ioff device required; no 74HC/5V-only substitution
+U7,SN74LVC1G08DBVR,Texas Instruments,SN74LVC1G08DBVR,SOT-23-5,1,,CANDIDATE_VERIFY,Ioff device required; no 74HC/5V-only substitution
+R12,10k,,,0603,1,,CANDIDATE_VERIFY,1%; exact manufacturer and LCSC SKU not frozen
+R13,10k,,,0603,1,,CANDIDATE_VERIFY,1%; exact manufacturer and LCSC SKU not frozen
+R14,100k,,,0603,1,,CANDIDATE_VERIFY,1%; exact manufacturer and LCSC SKU not frozen
+C14,100nF_16V,,,0603,1,,CANDIDATE_VERIFY,X7R/X5R; verify DC-bias derating and exact MPN
+C15,100nF_16V,,,0603,1,,CANDIDATE_VERIFY,X7R/X5R; verify DC-bias derating and exact MPN
+U4,DRV8833PWPR,Texas Instruments,DRV8833PWPR,HTSSOP-16_PWP_EP,1,,CANDIDATE_VERIFY,PowerPAD grounded with thermal-via array; cannot substitute PW/TSSOP or DRV8833C blindly
+R15,10k,,,0603,1,,CANDIDATE_VERIFY,1%; exact manufacturer and LCSC SKU not frozen
+R16,10k,,,0603,1,,CANDIDATE_VERIFY,1%; exact manufacturer and LCSC SKU not frozen
+R17,10k,,,0603,1,,CANDIDATE_VERIFY,1%; exact manufacturer and LCSC SKU not frozen
+R18,10k,,,0603,1,,CANDIDATE_VERIFY,1%; exact manufacturer and LCSC SKU not frozen
+R19,10k,,,0603,1,,CANDIDATE_VERIFY,1%; exact manufacturer and LCSC SKU not frozen
+RS1,0.39R_0.5W,,,1206,1,,CANDIDATE_VERIFY,PROVISIONAL: nominal Itrip=0.2/0.39=0.513A. Validate N20 start/stall/thermal and comparator tolerance before freeze.
+RS2,0.39R_0.5W,,,1206,1,,CANDIDATE_VERIFY,PROVISIONAL: nominal Itrip=0.2/0.39=0.513A. Validate N20 start/stall/thermal and comparator tolerance before freeze.
+C16,10uF_16V,,,0805,1,,CANDIDATE_VERIFY,X7R/X5R; verify DC-bias derating and exact MPN
+C17,100nF_16V,,,0603,1,,CANDIDATE_VERIFY,X7R/X5R; verify DC-bias derating and exact MPN
+C18,10nF_25V,,,0603,1,,CANDIDATE_VERIFY,X7R/X5R; verify DC-bias derating and exact MPN
+C19,2.2uF_10V,,,0603,1,,CANDIDATE_VERIFY,X7R/X5R; verify DC-bias derating and exact MPN
+J2,LEFT_MOTOR,,,JST-PH_2.00_2P_CANDIDATE,1,,MECHANICAL_CONFIRM_REQUIRED,"User-confirmed N20 6V 60rpm; driven from 3 dry cells, not regulated 6V. Both pins are bridge outputs, neither is ground. Start/stall current and cable polarity require validation."
+J3,RIGHT_MOTOR,,,JST-PH_2.00_2P_CANDIDATE,1,,MECHANICAL_CONFIRM_REQUIRED,"User-confirmed N20 6V 60rpm; VBAT drive, no 6V boost. Start/stall current and cable polarity require validation."
+Q1,AO3400A,Alpha & Omega Semiconductor,AO3400A,SOT-23,1,,CANDIDATE_VERIFY,"3.3V gate drive; use specified low-Vgs Rds_on, not just threshold"
+R20,100R,,,0603,1,,CANDIDATE_VERIFY,1%; exact manufacturer and LCSC SKU not frozen
+R21,100k,,,0603,1,,CANDIDATE_VERIFY,1%; exact manufacturer and LCSC SKU not frozen
+D1,SS14,,SS14,SMA,1,,CANDIDATE_VERIFY,Clamp option; exact vendor/pin marking and BLDC transient behavior reviewed before freeze
+J4,5V_FAN,,,JST-PH_2.00_2P_CANDIDATE,1,,MECHANICAL_CONFIRM_REQUIRED,AFB0405MA-A two-wire 5V/0.1A; no tach feedback
+J6,USB_C_USB2,,,USB_C_16P_TBD,1,,MECHANICAL_CONFIRM_REQUIRED,Select exact manufacturer then map pads; combined shell pads vs SH MUST be resolved before footprint assignment
+R22,5.1k,,,0603,1,,CANDIDATE_VERIFY,1%; exact manufacturer and LCSC SKU not frozen
+R23,5.1k,,,0603,1,,CANDIDATE_VERIFY,1%; exact manufacturer and LCSC SKU not frozen
+U5,USBLC6-2SC6,STMicroelectronics,USBLC6-2SC6,SOT-23-6,1,,CANDIDATE_VERIFY,"Flow-through I/O pairs internally connected; place at connector, short low-inductance ground"
+R24,22R,,,0603,1,,CANDIDATE_VERIFY,1%; exact manufacturer and LCSC SKU not frozen
+R25,22R,,,0603,1,,CANDIDATE_VERIFY,1%; exact manufacturer and LCSC SKU not frozen
+R26,0R,,,0603,1,,CANDIDATE_VERIFY,1%; exact manufacturer and LCSC SKU not frozen
+C20,1uF_10V,,,0805,1,,CANDIDATE_VERIFY,X7R/X5R; verify DC-bias derating and exact MPN
+J5,CAMERA_2x9_P2.54,,,2x9_P2.54_ROW2.54_SOCKET_MPN_TBD,1,,MECHANICAL_CONFIRM_REQUIRED,"User confirmed 2x9, pitch=2.54mm, row spacing=2.54mm. This design assigns pin numbers; final socket MPN, mating-view mapping and stack height require verification. Photo OV5640 silkscreen conflicts with working OV2640 configuration; verify sensor PID."
+C21,10uF_10V,,,0805,1,,CANDIDATE_VERIFY,X7R/X5R; verify DC-bias derating and exact MPN
+C22,100nF_16V,,,0603,1,,CANDIDATE_VERIFY,X7R/X5R; verify DC-bias derating and exact MPN
+J7,EXP_I2C_3V3,,,1x4_2.54_CANDIDATE,1,,MECHANICAL_CONFIRM_REQUIRED,Future ToF/IMU only; not a 5V sensor/power output. Implement fault/edge sensors before open-table autonomy.
+R27,4.7k,,,0603,1,,CANDIDATE_VERIFY,1%; exact manufacturer and LCSC SKU not frozen
+R28,4.7k,,,0603,1,,CANDIDATE_VERIFY,1%; exact manufacturer and LCSC SKU not frozen
+J8,SERVICE_3V3,,,1x6_2.54_CANDIDATE,1,,MECHANICAL_CONFIRM_REQUIRED,3V3 is reference/output; do not connect 5V UART. Do not drive power into 3V3.
+TP1,GND,,,TESTPAD_1MM,0,,PCB_ONLY,"Bare copper test pad, no purchased part"
+TP2,VBAT,,,TESTPAD_1MM,0,,PCB_ONLY,"Bare copper test pad, no purchased part"
+TP3,3V3,,,TESTPAD_1MM,0,,PCB_ONLY,"Bare copper test pad, no purchased part"
+TP4,FAN_5V,,,TESTPAD_1MM,0,,PCB_ONLY,"Bare copper test pad, no purchased part"
+TP5,ACT_REQ,,,TESTPAD_1MM,0,,PCB_ONLY,"Bare copper test pad, no purchased part"
+TP6,ACT_EN,,,TESTPAD_1MM,0,,PCB_ONLY,"Bare copper test pad, no purchased part"
+TP7,M_FAULT_N,,,TESTPAD_1MM,0,,PCB_ONLY,"Bare copper test pad, no purchased part"
+TP8,BAT_ADC,,,TESTPAD_1MM,0,,PCB_ONLY,"Bare copper test pad, no purchased part"
+TP9,USB_VBUS,,,TESTPAD_1MM,0,,PCB_ONLY,"Bare copper test pad, no purchased part"
+TP10,ESP_EN,,,TESTPAD_1MM,0,,PCB_ONLY,"Bare copper test pad, no purchased part"

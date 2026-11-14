@@ -1,0 +1,2232 @@
+{
+  "project": "FanRobot_Mainboard",
+  "revision": "0.1-review",
+  "release": "NOT_FOR_FABRICATION",
+  "hardware_inputs": {
+    "updated": "2026-11-14",
+    "board": {
+      "target_mm": [
+        60,
+        50
+      ],
+      "target_layers": 4
+    },
+    "camera": {
+      "rows": 2,
+      "contacts_per_row": 9,
+      "pitch_mm": 2.54,
+      "row_spacing_mm": 2.54,
+      "grid_status": "USER_CONFIRMED",
+      "pcb_width_mm": 24.0,
+      "pcb_width_source": "user_dimension_drawing",
+      "grid_source": "user_confirmation",
+      "front_photo": "reference/camera-user-front-photo.png",
+      "photo_silkscreen": "OV5640",
+      "working_configuration": "BY-OV2640-V1.5; onboard 24 MHz",
+      "identity_status": "PHOTO_CONFLICT_WITH_PREVIOUS_CONFIRMED_BOARD; verify actual sensor PID at bring-up",
+      "existing_firmware_accepted_pid": "OV2640_PID",
+      "mainboard_connector_candidate": "2x9 female socket, 2.54 mm pitch and row spacing",
+      "connector_mpn": null,
+      "mating_orientation_status": "Pin map checked against face labels; final socket/cable mating view and stack height not released"
+    },
+    "motors": {
+      "type": "N20 geared DC motor",
+      "quantity": 2,
+      "nominal_voltage_v": 6.0,
+      "advertised_speed_rpm": 60,
+      "speed_measurement_conditions": "not specified by seller evidence",
+      "specification_status": "USER_CONFIRMED_VOLTAGE_AND_SPEED",
+      "purchase_url": "https://item.taobao.com/item.htm?id=769096395403",
+      "running_current_a": null,
+      "starting_current_a": null,
+      "stall_current_a": null,
+      "drive_supply": "VBAT directly via DRV8833; no 6 V boost",
+      "battery_nominal_voltage_v": 4.5,
+      "pwm_duty_percent": 75,
+      "actual_speed_rpm": null,
+      "current_limit_status": "0.39 ohm sense resistors provisional; must qualify with actual motors and battery"
+    }
+  },
+  "parts": [
+    {
+      "ref": "J1",
+      "value": "3xAA_INPUT",
+      "package": "JST-XH-2.50_2P_CANDIDATE",
+      "pins": {
+        "1": {
+          "name": "BAT+",
+          "net": "BAT_RAW"
+        },
+        "2": {
+          "name": "BAT-",
+          "net": "GND"
+        }
+      },
+      "section": "power",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "Polarity/keying and 3A connector derating must be checked",
+      "status": "MECHANICAL_CONFIRM_REQUIRED"
+    },
+    {
+      "ref": "SW1",
+      "value": "MASTER_POWER",
+      "package": "SW_SPST_TBD",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "BAT_RAW"
+        },
+        "2": {
+          "name": "2",
+          "net": "BAT_SWITCHED"
+        }
+      },
+      "section": "power",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "Switch battery feed before all converters; location/ratings TBD",
+      "status": "MECHANICAL_CONFIRM_REQUIRED"
+    },
+    {
+      "ref": "F1",
+      "value": "FUSE_TBD",
+      "package": "TBD",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "BAT_SWITCHED"
+        },
+        "2": {
+          "name": "2",
+          "net": "BAT_FUSED"
+        }
+      },
+      "section": "power",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "Select after two-motor stall/inrush and cell capability measurements",
+      "status": "BLOCKED_VALUE"
+    },
+    {
+      "ref": "Q2",
+      "value": "AO3401A",
+      "package": "SOT-23",
+      "pins": {
+        "1": {
+          "name": "G",
+          "net": "REVERSE_GATE"
+        },
+        "2": {
+          "name": "S",
+          "net": "VBAT"
+        },
+        "3": {
+          "name": "D",
+          "net": "BAT_FUSED"
+        }
+      },
+      "section": "power",
+      "mpn": "AO3401A",
+      "manufacturer": "Alpha & Omega Semiconductor",
+      "note": "Reverse-input protection: drain=input, source=protected rail; NOT a controlled load switch",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "R1",
+      "value": "100k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "REVERSE_GATE"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "power",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "1%; exact manufacturer and LCSC SKU not frozen",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "C1",
+      "value": "220uF_10V",
+      "package": "SMD_ELECTROLYTIC_TBD",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "VBAT"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "power",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "Positive=VBAT; validate transient/ripple and reverse protection response",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "D2",
+      "value": "SS34",
+      "package": "SMA",
+      "pins": {
+        "1": {
+          "name": "K",
+          "net": "VLOGIC_IN"
+        },
+        "2": {
+          "name": "A",
+          "net": "VBAT"
+        }
+      },
+      "section": "power",
+      "mpn": "SS34",
+      "manufacturer": "",
+      "note": "Diode OR; exact vendor/If/Vf/Ir/temp selection pending. No USB-to-battery path.",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "D3",
+      "value": "SS34",
+      "package": "SMA",
+      "pins": {
+        "1": {
+          "name": "K",
+          "net": "VLOGIC_IN"
+        },
+        "2": {
+          "name": "A",
+          "net": "USB_VBUS"
+        }
+      },
+      "section": "power",
+      "mpn": "SS34",
+      "manufacturer": "",
+      "note": "Diode OR; exact vendor/If/Vf/Ir/temp selection pending. No USB-to-battery path.",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "U2",
+      "value": "TPS63802DLAR",
+      "package": "DLA_10_VSON_HR",
+      "pins": {
+        "1": {
+          "name": "EN",
+          "net": "LOGIC_UVLO"
+        },
+        "2": {
+          "name": "MODE",
+          "net": "GND"
+        },
+        "3": {
+          "name": "AGND",
+          "net": "GND"
+        },
+        "4": {
+          "name": "FB",
+          "net": "FB_3V3"
+        },
+        "5": {
+          "name": "PG",
+          "net": "ESP_EN"
+        },
+        "6": {
+          "name": "VOUT",
+          "net": "3V3"
+        },
+        "7": {
+          "name": "L2",
+          "net": "LOGIC_L2"
+        },
+        "8": {
+          "name": "GND",
+          "net": "GND"
+        },
+        "9": {
+          "name": "L1",
+          "net": "LOGIC_L1"
+        },
+        "10": {
+          "name": "VIN",
+          "net": "VLOGIC_IN"
+        }
+      },
+      "section": "power",
+      "mpn": "TPS63802DLAR",
+      "manufacturer": "Texas Instruments",
+      "note": "3.3V buck-boost; power-save mode. Layout/effective capacitance/inductor validation required.",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "L1",
+      "value": "0.47uH",
+      "package": "SHIELDED_INDUCTOR_TBD",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "LOGIC_L1"
+        },
+        "2": {
+          "name": "2",
+          "net": "LOGIC_L2"
+        }
+      },
+      "section": "power",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "Select with Isat exceeding worst-case IC current limit, DCR and thermal verified",
+      "status": "BLOCKED_MPN"
+    },
+    {
+      "ref": "C2",
+      "value": "22uF_10V",
+      "package": "0805",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "VLOGIC_IN"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "power",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "X7R/X5R; verify DC-bias derating and exact MPN",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "C3",
+      "value": "22uF_10V",
+      "package": "0805",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "3V3"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "power",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "X7R/X5R; verify DC-bias derating and exact MPN",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "C4",
+      "value": "22uF_10V",
+      "package": "0805",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "3V3"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "power",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "X7R/X5R; verify DC-bias derating and exact MPN",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "R2",
+      "value": "560k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "3V3"
+        },
+        "2": {
+          "name": "2",
+          "net": "FB_3V3"
+        }
+      },
+      "section": "power",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "0.1% preferred; nominal 0.5*(1+560/100)=3.3V",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "R3",
+      "value": "100k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "FB_3V3"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "power",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "0.1% preferred",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "R4",
+      "value": "180k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "VLOGIC_IN"
+        },
+        "2": {
+          "name": "2",
+          "net": "LOGIC_UVLO"
+        }
+      },
+      "section": "power",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "1%; exact manufacturer and LCSC SKU not frozen",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "R5",
+      "value": "100k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "LOGIC_UVLO"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "power",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "Nominal EN rising ~3.08V, falling ~2.80V at VLOGIC_IN, NOT raw battery",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "C5",
+      "value": "1nF_16V",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "LOGIC_UVLO"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "power",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "X7R/X5R; verify DC-bias derating and exact MPN",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "R6",
+      "value": "10k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "3V3"
+        },
+        "2": {
+          "name": "2",
+          "net": "ESP_EN"
+        }
+      },
+      "section": "power",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "1%; exact manufacturer and LCSC SKU not frozen",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "C6",
+      "value": "1uF_10V",
+      "package": "0805",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "ESP_EN"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "power",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "X7R/X5R; verify DC-bias derating and exact MPN",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "U3",
+      "value": "TPS61023DRLR",
+      "package": "DRL_6_SOT563",
+      "pins": {
+        "1": {
+          "name": "FB",
+          "net": "FB_5V"
+        },
+        "2": {
+          "name": "EN",
+          "net": "ACT_EN"
+        },
+        "3": {
+          "name": "VIN",
+          "net": "VBAT"
+        },
+        "4": {
+          "name": "GND",
+          "net": "GND"
+        },
+        "5": {
+          "name": "SW",
+          "net": "FAN_BOOST_SW"
+        },
+        "6": {
+          "name": "VOUT",
+          "net": "FAN_5V"
+        }
+      },
+      "section": "power",
+      "mpn": "TPS61023DRLR",
+      "manufacturer": "Texas Instruments",
+      "note": "5V fan supply, enabled by actuator interlock; battery only, no USB actuator feed",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "L2",
+      "value": "1uH",
+      "package": "SHIELDED_INDUCTOR_TBD",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "VBAT"
+        },
+        "2": {
+          "name": "2",
+          "net": "FAN_BOOST_SW"
+        }
+      },
+      "section": "power",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "Select Isat/DCR against worst-case switch peak current, not fan average current",
+      "status": "BLOCKED_MPN"
+    },
+    {
+      "ref": "C7",
+      "value": "10uF_10V",
+      "package": "0805",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "VBAT"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "power",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "X7R/X5R; verify DC-bias derating and exact MPN",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "C8",
+      "value": "22uF_10V",
+      "package": "0805",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "FAN_5V"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "power",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "X7R/X5R; verify DC-bias derating and exact MPN",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "C9",
+      "value": "22uF_10V",
+      "package": "0805",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "FAN_5V"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "power",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "X7R/X5R; verify DC-bias derating and exact MPN",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "R7",
+      "value": "732k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "FAN_5V"
+        },
+        "2": {
+          "name": "2",
+          "net": "FB_5V"
+        }
+      },
+      "section": "power",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "1%; exact manufacturer and LCSC SKU not frozen",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "R8",
+      "value": "100k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "FB_5V"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "power",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "Nominal 4.9504V at 595mV PWM reference; ~5.0V in PFM. Verify load transient and tolerance.",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "C10",
+      "value": "220pF_DNP",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "FAN_5V"
+        },
+        "2": {
+          "name": "2",
+          "net": "FB_5V"
+        }
+      },
+      "section": "power",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "Optional feed-forward, DNP by default; populate only from stability analysis",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "U1",
+      "value": "ESP32-S3-WROOM-1-N16R8",
+      "package": "ESP32-S3-WROOM-1",
+      "pins": {
+        "1": {
+          "name": "GND",
+          "net": "GND"
+        },
+        "2": {
+          "name": "3V3",
+          "net": "3V3"
+        },
+        "3": {
+          "name": "EN",
+          "net": "ESP_EN"
+        },
+        "4": {
+          "name": "IO4",
+          "net": "CAM_D0"
+        },
+        "5": {
+          "name": "IO5",
+          "net": "CAM_D1"
+        },
+        "6": {
+          "name": "IO6",
+          "net": "CAM_D2"
+        },
+        "7": {
+          "name": "IO7",
+          "net": "CAM_D3"
+        },
+        "8": {
+          "name": "IO15",
+          "net": "BAT_ADC"
+        },
+        "9": {
+          "name": "IO16",
+          "net": "CAM_VSYNC"
+        },
+        "10": {
+          "name": "IO17",
+          "net": "CAM_HREF"
+        },
+        "11": {
+          "name": "IO18",
+          "net": "CAM_SDA"
+        },
+        "12": {
+          "name": "IO8",
+          "net": "CAM_D4"
+        },
+        "13": {
+          "name": "IO19",
+          "net": "USB_DM_MCU"
+        },
+        "14": {
+          "name": "IO20",
+          "net": "USB_DP_MCU"
+        },
+        "15": {
+          "name": "IO3",
+          "net": null
+        },
+        "16": {
+          "name": "IO46",
+          "net": null
+        },
+        "17": {
+          "name": "IO9",
+          "net": "CAM_D5"
+        },
+        "18": {
+          "name": "IO10",
+          "net": "CAM_D6"
+        },
+        "19": {
+          "name": "IO11",
+          "net": "CAM_D7"
+        },
+        "20": {
+          "name": "IO12",
+          "net": "CAM_PWDN"
+        },
+        "21": {
+          "name": "IO13",
+          "net": "CAM_PCLK"
+        },
+        "22": {
+          "name": "IO14",
+          "net": "CAM_RST"
+        },
+        "23": {
+          "name": "IO21",
+          "net": "CAM_SCL"
+        },
+        "24": {
+          "name": "IO47",
+          "net": "ACT_REQ"
+        },
+        "25": {
+          "name": "IO48",
+          "net": "EXP_SCL"
+        },
+        "26": {
+          "name": "IO45",
+          "net": null
+        },
+        "27": {
+          "name": "IO0",
+          "net": "BOOT_N"
+        },
+        "28": {
+          "name": "IO35",
+          "net": null
+        },
+        "29": {
+          "name": "IO36",
+          "net": null
+        },
+        "30": {
+          "name": "IO37",
+          "net": null
+        },
+        "31": {
+          "name": "IO38",
+          "net": "M_BIN1"
+        },
+        "32": {
+          "name": "IO39",
+          "net": "M_BIN2"
+        },
+        "33": {
+          "name": "IO40",
+          "net": "FAN_CMD"
+        },
+        "34": {
+          "name": "IO41",
+          "net": "EXP_SDA"
+        },
+        "35": {
+          "name": "IO42",
+          "net": "M_FAULT_N"
+        },
+        "36": {
+          "name": "RXD0",
+          "net": "UART_RX"
+        },
+        "37": {
+          "name": "TXD0",
+          "net": "UART_TX"
+        },
+        "38": {
+          "name": "IO2",
+          "net": "M_AIN2"
+        },
+        "39": {
+          "name": "IO1",
+          "net": "M_AIN1"
+        },
+        "40": {
+          "name": "GND",
+          "net": "GND"
+        },
+        "41": {
+          "name": "EPAD",
+          "net": "GND"
+        }
+      },
+      "section": "mcu",
+      "mpn": "ESP32-S3-WROOM-1-N16R8",
+      "manufacturer": "Espressif Systems",
+      "note": "16MB Flash, 8MB Octal PSRAM. GPIO35/36/37 NC. Antenna over board edge; full keepout per manufacturer.",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "C11",
+      "value": "22uF_10V",
+      "package": "0805",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "3V3"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "mcu",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "X7R/X5R; verify DC-bias derating and exact MPN",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "C12",
+      "value": "100nF_16V",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "3V3"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "mcu",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "X7R/X5R; verify DC-bias derating and exact MPN",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "R9",
+      "value": "10k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "3V3"
+        },
+        "2": {
+          "name": "2",
+          "net": "BOOT_N"
+        }
+      },
+      "section": "mcu",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "1%; exact manufacturer and LCSC SKU not frozen",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "SW2",
+      "value": "RESET",
+      "package": "TACT_SWITCH_TBD",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "ESP_EN"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "mcu",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "SW3",
+      "value": "BOOT",
+      "package": "TACT_SWITCH_TBD",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "BOOT_N"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "mcu",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "R10",
+      "value": "1M",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "VBAT"
+        },
+        "2": {
+          "name": "2",
+          "net": "BAT_ADC"
+        }
+      },
+      "section": "mcu",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "1%; exact manufacturer and LCSC SKU not frozen",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "R11",
+      "value": "330k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "BAT_ADC"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "mcu",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "1%; exact manufacturer and LCSC SKU not frozen",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "C13",
+      "value": "100nF_16V",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "BAT_ADC"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "mcu",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "ADC2/GPIO15 availability and acquisition settling with Wi-Fi must be validated; no eFuse writes",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "U6",
+      "value": "SN74LVC1G08DBVR",
+      "package": "SOT-23-5",
+      "pins": {
+        "1": {
+          "name": "A",
+          "net": "ACT_REQ"
+        },
+        "2": {
+          "name": "B",
+          "net": "ESP_EN"
+        },
+        "3": {
+          "name": "GND",
+          "net": "GND"
+        },
+        "4": {
+          "name": "Y",
+          "net": "ACT_EN"
+        },
+        "5": {
+          "name": "VCC",
+          "net": "3V3"
+        }
+      },
+      "section": "interlock",
+      "mpn": "SN74LVC1G08DBVR",
+      "manufacturer": "Texas Instruments",
+      "note": "Ioff device required; no 74HC/5V-only substitution",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "U7",
+      "value": "SN74LVC1G08DBVR",
+      "package": "SOT-23-5",
+      "pins": {
+        "1": {
+          "name": "A",
+          "net": "FAN_CMD"
+        },
+        "2": {
+          "name": "B",
+          "net": "ACT_EN"
+        },
+        "3": {
+          "name": "GND",
+          "net": "GND"
+        },
+        "4": {
+          "name": "Y",
+          "net": "FAN_GATE_LOGIC"
+        },
+        "5": {
+          "name": "VCC",
+          "net": "3V3"
+        }
+      },
+      "section": "interlock",
+      "mpn": "SN74LVC1G08DBVR",
+      "manufacturer": "Texas Instruments",
+      "note": "Ioff device required; no 74HC/5V-only substitution",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "R12",
+      "value": "10k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "ACT_REQ"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "interlock",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "1%; exact manufacturer and LCSC SKU not frozen",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "R13",
+      "value": "10k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "ACT_EN"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "interlock",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "1%; exact manufacturer and LCSC SKU not frozen",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "R14",
+      "value": "100k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "FAN_CMD"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "interlock",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "1%; exact manufacturer and LCSC SKU not frozen",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "C14",
+      "value": "100nF_16V",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "3V3"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "interlock",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "X7R/X5R; verify DC-bias derating and exact MPN",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "C15",
+      "value": "100nF_16V",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "3V3"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "interlock",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "X7R/X5R; verify DC-bias derating and exact MPN",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "U4",
+      "value": "DRV8833PWPR",
+      "package": "HTSSOP-16_PWP_EP",
+      "pins": {
+        "1": {
+          "name": "nSLEEP",
+          "net": "ACT_EN"
+        },
+        "2": {
+          "name": "AOUT1",
+          "net": "MOTOR_A1"
+        },
+        "3": {
+          "name": "AISEN",
+          "net": "A_SENSE"
+        },
+        "4": {
+          "name": "AOUT2",
+          "net": "MOTOR_A2"
+        },
+        "5": {
+          "name": "BOUT2",
+          "net": "MOTOR_B2"
+        },
+        "6": {
+          "name": "BISEN",
+          "net": "B_SENSE"
+        },
+        "7": {
+          "name": "BOUT1",
+          "net": "MOTOR_B1"
+        },
+        "8": {
+          "name": "nFAULT",
+          "net": "M_FAULT_N"
+        },
+        "9": {
+          "name": "BIN1",
+          "net": "M_BIN1"
+        },
+        "10": {
+          "name": "BIN2",
+          "net": "M_BIN2"
+        },
+        "11": {
+          "name": "VCP",
+          "net": "DRV_VCP"
+        },
+        "12": {
+          "name": "VM",
+          "net": "VBAT"
+        },
+        "13": {
+          "name": "GND",
+          "net": "GND"
+        },
+        "14": {
+          "name": "VINT",
+          "net": "DRV_VINT"
+        },
+        "15": {
+          "name": "AIN2",
+          "net": "M_AIN2"
+        },
+        "16": {
+          "name": "AIN1",
+          "net": "M_AIN1"
+        },
+        "17": {
+          "name": "EPAD",
+          "net": "GND"
+        }
+      },
+      "section": "motor",
+      "mpn": "DRV8833PWPR",
+      "manufacturer": "Texas Instruments",
+      "note": "PowerPAD grounded with thermal-via array; cannot substitute PW/TSSOP or DRV8833C blindly",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "R15",
+      "value": "10k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "M_AIN1"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "motor",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "1%; exact manufacturer and LCSC SKU not frozen",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "R16",
+      "value": "10k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "M_AIN2"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "motor",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "1%; exact manufacturer and LCSC SKU not frozen",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "R17",
+      "value": "10k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "M_BIN1"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "motor",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "1%; exact manufacturer and LCSC SKU not frozen",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "R18",
+      "value": "10k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "M_BIN2"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "motor",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "1%; exact manufacturer and LCSC SKU not frozen",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "R19",
+      "value": "10k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "3V3"
+        },
+        "2": {
+          "name": "2",
+          "net": "M_FAULT_N"
+        }
+      },
+      "section": "motor",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "1%; exact manufacturer and LCSC SKU not frozen",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "RS1",
+      "value": "0.39R_0.5W",
+      "package": "1206",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "A_SENSE"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "motor",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "PROVISIONAL: nominal Itrip=0.2/0.39=0.513A. Validate N20 start/stall/thermal and comparator tolerance before freeze.",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "RS2",
+      "value": "0.39R_0.5W",
+      "package": "1206",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "B_SENSE"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "motor",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "PROVISIONAL: nominal Itrip=0.2/0.39=0.513A. Validate N20 start/stall/thermal and comparator tolerance before freeze.",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "C16",
+      "value": "10uF_16V",
+      "package": "0805",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "VBAT"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "motor",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "X7R/X5R; verify DC-bias derating and exact MPN",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "C17",
+      "value": "100nF_16V",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "VBAT"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "motor",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "X7R/X5R; verify DC-bias derating and exact MPN",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "C18",
+      "value": "10nF_25V",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "DRV_VCP"
+        },
+        "2": {
+          "name": "2",
+          "net": "VBAT"
+        }
+      },
+      "section": "motor",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "X7R/X5R; verify DC-bias derating and exact MPN",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "C19",
+      "value": "2.2uF_10V",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "DRV_VINT"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "motor",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "X7R/X5R; verify DC-bias derating and exact MPN",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "J2",
+      "value": "LEFT_MOTOR",
+      "package": "JST-PH_2.00_2P_CANDIDATE",
+      "pins": {
+        "1": {
+          "name": "A1",
+          "net": "MOTOR_A1"
+        },
+        "2": {
+          "name": "A2",
+          "net": "MOTOR_A2"
+        }
+      },
+      "section": "motor",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "User-confirmed N20 6V 60rpm; driven from 3 dry cells, not regulated 6V. Both pins are bridge outputs, neither is ground. Start/stall current and cable polarity require validation.",
+      "status": "MECHANICAL_CONFIRM_REQUIRED"
+    },
+    {
+      "ref": "J3",
+      "value": "RIGHT_MOTOR",
+      "package": "JST-PH_2.00_2P_CANDIDATE",
+      "pins": {
+        "1": {
+          "name": "B1",
+          "net": "MOTOR_B1"
+        },
+        "2": {
+          "name": "B2",
+          "net": "MOTOR_B2"
+        }
+      },
+      "section": "motor",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "User-confirmed N20 6V 60rpm; VBAT drive, no 6V boost. Start/stall current and cable polarity require validation.",
+      "status": "MECHANICAL_CONFIRM_REQUIRED"
+    },
+    {
+      "ref": "Q1",
+      "value": "AO3400A",
+      "package": "SOT-23",
+      "pins": {
+        "1": {
+          "name": "G",
+          "net": "FAN_GATE"
+        },
+        "2": {
+          "name": "S",
+          "net": "GND"
+        },
+        "3": {
+          "name": "D",
+          "net": "FAN_SW"
+        }
+      },
+      "section": "fan",
+      "mpn": "AO3400A",
+      "manufacturer": "Alpha & Omega Semiconductor",
+      "note": "3.3V gate drive; use specified low-Vgs Rds_on, not just threshold",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "R20",
+      "value": "100R",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "FAN_GATE_LOGIC"
+        },
+        "2": {
+          "name": "2",
+          "net": "FAN_GATE"
+        }
+      },
+      "section": "fan",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "1%; exact manufacturer and LCSC SKU not frozen",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "R21",
+      "value": "100k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "FAN_GATE"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "fan",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "1%; exact manufacturer and LCSC SKU not frozen",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "D1",
+      "value": "SS14",
+      "package": "SMA",
+      "pins": {
+        "1": {
+          "name": "K",
+          "net": "FAN_5V"
+        },
+        "2": {
+          "name": "A",
+          "net": "FAN_SW"
+        }
+      },
+      "section": "fan",
+      "mpn": "SS14",
+      "manufacturer": "",
+      "note": "Clamp option; exact vendor/pin marking and BLDC transient behavior reviewed before freeze",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "J4",
+      "value": "5V_FAN",
+      "package": "JST-PH_2.00_2P_CANDIDATE",
+      "pins": {
+        "1": {
+          "name": "RED_+",
+          "net": "FAN_5V"
+        },
+        "2": {
+          "name": "BLACK_-",
+          "net": "FAN_SW"
+        }
+      },
+      "section": "fan",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "AFB0405MA-A two-wire 5V/0.1A; no tach feedback",
+      "status": "MECHANICAL_CONFIRM_REQUIRED"
+    },
+    {
+      "ref": "J6",
+      "value": "USB_C_USB2",
+      "package": "USB_C_16P_TBD",
+      "pins": {
+        "A1": {
+          "name": "GND",
+          "net": "GND"
+        },
+        "A4": {
+          "name": "VBUS",
+          "net": "USB_VBUS"
+        },
+        "A5": {
+          "name": "CC1",
+          "net": "USB_CC1"
+        },
+        "A6": {
+          "name": "DP",
+          "net": "USB_DP_CONN"
+        },
+        "A7": {
+          "name": "DM",
+          "net": "USB_DM_CONN"
+        },
+        "A8": {
+          "name": "SBU1",
+          "net": null
+        },
+        "A9": {
+          "name": "VBUS",
+          "net": "USB_VBUS"
+        },
+        "A12": {
+          "name": "GND",
+          "net": "GND"
+        },
+        "B1": {
+          "name": "GND",
+          "net": "GND"
+        },
+        "B4": {
+          "name": "VBUS",
+          "net": "USB_VBUS"
+        },
+        "B5": {
+          "name": "CC2",
+          "net": "USB_CC2"
+        },
+        "B6": {
+          "name": "DP",
+          "net": "USB_DP_CONN"
+        },
+        "B7": {
+          "name": "DM",
+          "net": "USB_DM_CONN"
+        },
+        "B8": {
+          "name": "SBU2",
+          "net": null
+        },
+        "B9": {
+          "name": "VBUS",
+          "net": "USB_VBUS"
+        },
+        "B12": {
+          "name": "GND",
+          "net": "GND"
+        },
+        "SH": {
+          "name": "SHIELD",
+          "net": "USB_SHIELD"
+        }
+      },
+      "section": "usb",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "Select exact manufacturer then map pads; combined shell pads vs SH MUST be resolved before footprint assignment",
+      "status": "MECHANICAL_CONFIRM_REQUIRED"
+    },
+    {
+      "ref": "R22",
+      "value": "5.1k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "USB_CC1"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "usb",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "1%; exact manufacturer and LCSC SKU not frozen",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "R23",
+      "value": "5.1k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "USB_CC2"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "usb",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "1%; exact manufacturer and LCSC SKU not frozen",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "U5",
+      "value": "USBLC6-2SC6",
+      "package": "SOT-23-6",
+      "pins": {
+        "1": {
+          "name": "IO1",
+          "net": "USB_DM_CONN"
+        },
+        "2": {
+          "name": "GND",
+          "net": "GND"
+        },
+        "3": {
+          "name": "IO2",
+          "net": "USB_DP_CONN"
+        },
+        "4": {
+          "name": "IO2",
+          "net": "USB_DP_ESD"
+        },
+        "5": {
+          "name": "VBUS",
+          "net": "USB_VBUS"
+        },
+        "6": {
+          "name": "IO1",
+          "net": "USB_DM_ESD"
+        }
+      },
+      "section": "usb",
+      "mpn": "USBLC6-2SC6",
+      "manufacturer": "STMicroelectronics",
+      "note": "Flow-through I/O pairs internally connected; place at connector, short low-inductance ground",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "R24",
+      "value": "22R",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "USB_DM_ESD"
+        },
+        "2": {
+          "name": "2",
+          "net": "USB_DM_MCU"
+        }
+      },
+      "section": "usb",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "1%; exact manufacturer and LCSC SKU not frozen",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "R25",
+      "value": "22R",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "USB_DP_ESD"
+        },
+        "2": {
+          "name": "2",
+          "net": "USB_DP_MCU"
+        }
+      },
+      "section": "usb",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "1%; exact manufacturer and LCSC SKU not frozen",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "R26",
+      "value": "0R",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "USB_SHIELD"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "usb",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "1%; exact manufacturer and LCSC SKU not frozen",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "C20",
+      "value": "1uF_10V",
+      "package": "0805",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "USB_VBUS"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "usb",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "X7R/X5R; verify DC-bias derating and exact MPN",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "J5",
+      "value": "CAMERA_2x9_P2.54",
+      "package": "2x9_P2.54_ROW2.54_SOCKET_MPN_TBD",
+      "pins": {
+        "1": {
+          "name": "GND",
+          "net": "GND"
+        },
+        "2": {
+          "name": "3V3",
+          "net": "3V3"
+        },
+        "3": {
+          "name": "SCL",
+          "net": "CAM_SCL"
+        },
+        "4": {
+          "name": "VS",
+          "net": "CAM_VSYNC"
+        },
+        "5": {
+          "name": "SDA",
+          "net": "CAM_SDA"
+        },
+        "6": {
+          "name": "HS",
+          "net": "CAM_HREF"
+        },
+        "7": {
+          "name": "D0",
+          "net": "CAM_D0"
+        },
+        "8": {
+          "name": "RST",
+          "net": "CAM_RST"
+        },
+        "9": {
+          "name": "D2",
+          "net": "CAM_D2"
+        },
+        "10": {
+          "name": "D1",
+          "net": "CAM_D1"
+        },
+        "11": {
+          "name": "D4",
+          "net": "CAM_D4"
+        },
+        "12": {
+          "name": "D3",
+          "net": "CAM_D3"
+        },
+        "13": {
+          "name": "D6",
+          "net": "CAM_D6"
+        },
+        "14": {
+          "name": "D5",
+          "net": "CAM_D5"
+        },
+        "15": {
+          "name": "PCLK",
+          "net": "CAM_PCLK"
+        },
+        "16": {
+          "name": "D7",
+          "net": "CAM_D7"
+        },
+        "17": {
+          "name": "PWDN",
+          "net": "CAM_PWDN"
+        },
+        "18": {
+          "name": "FLASH_NC",
+          "net": null
+        }
+      },
+      "section": "camera",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "User confirmed 2x9, pitch=2.54mm, row spacing=2.54mm. This design assigns pin numbers; final socket MPN, mating-view mapping and stack height require verification. Photo OV5640 silkscreen conflicts with working OV2640 configuration; verify sensor PID.",
+      "status": "MECHANICAL_CONFIRM_REQUIRED"
+    },
+    {
+      "ref": "C21",
+      "value": "10uF_10V",
+      "package": "0805",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "3V3"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "camera",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "X7R/X5R; verify DC-bias derating and exact MPN",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "C22",
+      "value": "100nF_16V",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "3V3"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND"
+        }
+      },
+      "section": "camera",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "X7R/X5R; verify DC-bias derating and exact MPN",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "J7",
+      "value": "EXP_I2C_3V3",
+      "package": "1x4_2.54_CANDIDATE",
+      "pins": {
+        "1": {
+          "name": "3V3",
+          "net": "3V3"
+        },
+        "2": {
+          "name": "GND",
+          "net": "GND"
+        },
+        "3": {
+          "name": "SDA41",
+          "net": "EXP_SDA"
+        },
+        "4": {
+          "name": "SCL48",
+          "net": "EXP_SCL"
+        }
+      },
+      "section": "expansion",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "Future ToF/IMU only; not a 5V sensor/power output. Implement fault/edge sensors before open-table autonomy.",
+      "status": "MECHANICAL_CONFIRM_REQUIRED"
+    },
+    {
+      "ref": "R27",
+      "value": "4.7k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "3V3"
+        },
+        "2": {
+          "name": "2",
+          "net": "EXP_SDA"
+        }
+      },
+      "section": "expansion",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "1%; exact manufacturer and LCSC SKU not frozen",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "R28",
+      "value": "4.7k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "3V3"
+        },
+        "2": {
+          "name": "2",
+          "net": "EXP_SCL"
+        }
+      },
+      "section": "expansion",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "1%; exact manufacturer and LCSC SKU not frozen",
+      "status": "CANDIDATE_VERIFY"
+    },
+    {
+      "ref": "J8",
+      "value": "SERVICE_3V3",
+      "package": "1x6_2.54_CANDIDATE",
+      "pins": {
+        "1": {
+          "name": "GND",
+          "net": "GND"
+        },
+        "2": {
+          "name": "3V3_REF",
+          "net": "3V3"
+        },
+        "3": {
+          "name": "TX43",
+          "net": "UART_TX"
+        },
+        "4": {
+          "name": "RX44",
+          "net": "UART_RX"
+        },
+        "5": {
+          "name": "EN",
+          "net": "ESP_EN"
+        },
+        "6": {
+          "name": "BOOT0",
+          "net": "BOOT_N"
+        }
+      },
+      "section": "expansion",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "3V3 is reference/output; do not connect 5V UART. Do not drive power into 3V3.",
+      "status": "MECHANICAL_CONFIRM_REQUIRED"
+    },
+    {
+      "ref": "TP1",
+      "value": "GND",
+      "package": "TESTPAD_1MM",
+      "pins": {
+        "1": {
+          "name": "GND",
+          "net": "GND"
+        }
+      },
+      "section": "test",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "Bare copper test pad, no purchased part",
+      "status": "PCB_ONLY"
+    },
+    {
+      "ref": "TP2",
+      "value": "VBAT",
+      "package": "TESTPAD_1MM",
+      "pins": {
+        "1": {
+          "name": "VBAT",
+          "net": "VBAT"
+        }
+      },
+      "section": "test",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "Bare copper test pad, no purchased part",
+      "status": "PCB_ONLY"
+    },
+    {
+      "ref": "TP3",
+      "value": "3V3",
+      "package": "TESTPAD_1MM",
+      "pins": {
+        "1": {
+          "name": "3V3",
+          "net": "3V3"
+        }
+      },
+      "section": "test",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "Bare copper test pad, no purchased part",
+      "status": "PCB_ONLY"
+    },
+    {
+      "ref": "TP4",
+      "value": "FAN_5V",
+      "package": "TESTPAD_1MM",
+      "pins": {
+        "1": {
+          "name": "FAN_5V",
+          "net": "FAN_5V"
+        }
+      },
+      "section": "test",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "Bare copper test pad, no purchased part",
+      "status": "PCB_ONLY"
+    },
+    {
+      "ref": "TP5",
+      "value": "ACT_REQ",
+      "package": "TESTPAD_1MM",
+      "pins": {
+        "1": {
+          "name": "ACT_REQ",
+          "net": "ACT_REQ"
+        }
+      },
+      "section": "test",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "Bare copper test pad, no purchased part",
+      "status": "PCB_ONLY"
+    },
+    {
+      "ref": "TP6",
+      "value": "ACT_EN",
+      "package": "TESTPAD_1MM",
+      "pins": {
+        "1": {
+          "name": "ACT_EN",
+          "net": "ACT_EN"
+        }
+      },
+      "section": "test",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "Bare copper test pad, no purchased part",
+      "status": "PCB_ONLY"
+    },
+    {
+      "ref": "TP7",
+      "value": "M_FAULT_N",
+      "package": "TESTPAD_1MM",
+      "pins": {
+        "1": {
+          "name": "M_FAULT_N",
+          "net": "M_FAULT_N"
+        }
+      },
+      "section": "test",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "Bare copper test pad, no purchased part",
+      "status": "PCB_ONLY"
+    },
+    {
+      "ref": "TP8",
+      "value": "BAT_ADC",
+      "package": "TESTPAD_1MM",
+      "pins": {
+        "1": {
+          "name": "BAT_ADC",
+          "net": "BAT_ADC"
+        }
+      },
+      "section": "test",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "Bare copper test pad, no purchased part",
+      "status": "PCB_ONLY"
+    },
+    {
+      "ref": "TP9",
+      "value": "USB_VBUS",
+      "package": "TESTPAD_1MM",
+      "pins": {
+        "1": {
+          "name": "USB_VBUS",
+          "net": "USB_VBUS"
+        }
+      },
+      "section": "test",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "Bare copper test pad, no purchased part",
+      "status": "PCB_ONLY"
+    },
+    {
+      "ref": "TP10",
+      "value": "ESP_EN",
+      "package": "TESTPAD_1MM",
+      "pins": {
+        "1": {
+          "name": "ESP_EN",
+          "net": "ESP_EN"
+        }
+      },
+      "section": "test",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "Bare copper test pad, no purchased part",
+      "status": "PCB_ONLY"
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "project": "FanRobot_Mainboard",
+  "revision": "0.1-review",
+  "date": "2026-11-14",
+  "release": "NOT_FOR_FABRICATION",
+  "power": "3x1.5V dry cells, no charging",
+  "pcb_target_mm": [
+    60,
+    50
+  ],
+  "layers_target": 4,
+  "eda_validation": "NOT_RUN_NO_KICAD_INSTALLED",
+  "production_files_generated": false,
+  "files": {
+    "README.md": {
+      "sha256": "e987f0bbc336e59d2dbebc372956017f2e3848126aabcc5bac44c12f56bc084c",
+      "bytes": 3347
+    },
+    "assembly/BOM_REVIEW_ONLY.csv": {
+      "sha256": "d7500e5ed6f17fd9e6edeab518e5ec8d3ce99f8f2ffec23a0cbb49d8535f02ae",
+      "bytes": 9585
+    },
+    "checks/consistency-report.txt": {
+      "sha256": "fd4846307e64938dc4994a4f8fb57a9b5ab2c5ea719cbe97a638d6044769b753",
+      "bytes": 2733
+    },
+    "design/01-design-spec.md": {
+      "sha256": "f16d29097d04989f99359e04cc030a5694ed56e2da21c5b58677e2a4b418fef4",
+      "bytes": 7794
+    },
+    "design/02-interfaces-and-firmware.md": {
+      "sha256": "c9f5d576d105df40f5f242a40e16cf291342f6bc77eb5b6b2f92fa4dea95de0b",
+      "bytes": 5055
+    },
+    "design/03-manufacturing-and-bringup.md": {
+      "sha256": "b4c4419c89f364d6ffb31e81dc53443b1058a64195379e97bd95ac0e607776ec",
+      "bytes": 5130
+    },
+    "design/04-rfq-message.txt": {
+      "sha256": "d14d72036ff78f10c21e430e99b8fa275ea868cff93b6ad8be6d2c3386627388",
+      "bytes": 2567
+    },
+    "design/circuit.json": {
+      "sha256": "99712008e87c56c633f92c9fa50f1dd0eaaf51e9e7d96ea8e73bad0edf8f6cb5",
+      "bytes": 49455
+    },
+    "design/hardware-inputs.json": {
+      "sha256": "ea4052a64aa20ec32d4e1b940327bb746a64ff9a8f39d9119af7438288d1349a",
+      "bytes": 1653
+    },
+    "design/pin_net_map.csv": {
+      "sha256": "d73e8e434d522d2da31b67d4b0c82456f5bdfb7d7ca5e7369083a8ec813fffe0",
+      "bytes": 6408
+    },
+    "design/placement-concept.svg": {
+      "sha256": "3dc745b1929d7a7b5813fee6d59bd86ae5ac3305ebc68ff4a6c329cde848f596",
+      "bytes": 3433
+    },
+    "design/preview.html": {
+      "sha256": "d732b677f4e9740f3977305059909a641cb01eab5730599d89120bd1a21a7caa",
+      "bytes": 1403
+    },
+    "eda/actuators.sch": {
+      "sha256": "f77fb61afbabb50ae736ef33e142b9c83e87b4764c3f7435c06c64e4a2166f41",
+      "bytes": 12459
+    },
+    "eda/fan_robot-cache.lib": {
+      "sha256": "59180de1236a56e166e06bae12c12fa54a33de961e84d9414f3a9f7444991211",
+      "bytes": 21858
+    },
+    "eda/fan_robot.lib": {
+      "sha256": "59180de1236a56e166e06bae12c12fa54a33de961e84d9414f3a9f7444991211",
+      "bytes": 21858
+    },
+    "eda/fan_robot_mainboard.net": {
+      "sha256": "739608ba88fde40f40e688663c05d9991e570c0fb44abd85dcfad29bab9292ce",
+      "bytes": 34693
+    },
+    "eda/fan_robot_mainboard.pro": {
+      "sha256": "2ea3eb6c6637b0b8b989fff2adb9a8ae3b54e59923e9aafa653f247feb0f6f4f",
+      "bytes": 61
+    },
+    "eda/fan_robot_mainboard.sch": {
+      "sha256": "ea1dab5bc47c158acbbb6726f3c6103cf8f4f8e4523030b711a7c29567bd43bb",
+      "bytes": 866
+    },
+    "eda/mcu_camera.sch": {
+      "sha256": "6050046d5d9b27ad31e06442621252540a56f0cf4c8e7b366614edefc8eb0a48",
+      "bytes": 9064
+    },
+    "eda/power.sch": {
+      "sha256": "a760569bd9e5f7033e7db65df3833fae7c20f5ee07c5125c19f01ec19f183144",
+      "bytes": 12489
+    },
+    "eda/sym-lib-table": {
+      "sha256": "3042ca3e44a82c10535b74071772db2a3e1ca932265f4387c04a77401dc8cd24",
+      "bytes": 142
+    },
+    "eda/usb_expansion.sch": {
+      "sha256": "ec53ff2511c87da937985af729fe8095aacda0aa94d8610a83e35c82fc1bc8a3",
+      "bytes": 10191
+    },
+    "reference/2026-11-13-component-evidence.md": {
+      "sha256": "fdf459778d0f93f263b7e2d4aefc96925524af63135fc97449a25e4ba685db02",
+      "bytes": 2769
+    },
+    "reference/2026-11-14-component-evidence.md": {
+      "sha256": "9f1aa4d20b0fb3a5c0a0312bbce494ef1739ff85a20806926e73705ebbfe1f3a",
+      "bytes": 2471
+    },
+    "reference/camera-header-user-dimension.png": {
+      "sha256": "13b77aa6b68d6a31e5fe6602e1bf796e54a399946843eef60f85893659f6ada9",
+      "bytes": 249138
+    },
+    "reference/camera-user-front-photo.png": {
+      "sha256": "158f79ea7424e6fd2b2fcd1911d2f61af590d474d36e6e1a808e8ef4d7355809",
+      "bytes": 574178
+    },
+    "reference/sources.md": {
+      "sha256": "567b5593cd4d6ccd30d93fd8f3b6ed9644378d42da32b74522683a7ffe6650bd",
+      "bytes": 2643
+    },
+    "tools/build_design.py": {
+      "sha256": "c1165ca449fd2f7be8210c20923f9144ba2fe618cb3f0a9d51ccae367b26bc1c",
+      "bytes": 19105
+    },
+    "tools/build_layout_concept.py": {
+      "sha256": "1115db2405b5b8014970d5e28349ab3562932a8e092b13c662bc6e1c40b3d492",
+      "bytes": 2109
+    },
+    "tools/check_design.py": {
+      "sha256": "d4608bc4372be174112e94ec230976d8962729e86292f9163991600422695489",
+      "bytes": 5319
+    }
+  }
+}

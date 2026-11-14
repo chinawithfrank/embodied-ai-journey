@@ -1,0 +1,45 @@
+{
+  "updated": "2026-11-14",
+  "board": {
+    "target_mm": [
+      60,
+      50
+    ],
+    "target_layers": 4
+  },
+  "camera": {
+    "rows": 2,
+    "contacts_per_row": 9,
+    "pitch_mm": 2.54,
+    "row_spacing_mm": 2.54,
+    "grid_status": "USER_CONFIRMED",
+    "pcb_width_mm": 24.0,
+    "pcb_width_source": "user_dimension_drawing",
+    "grid_source": "user_confirmation",
+    "front_photo": "reference/camera-user-front-photo.png",
+    "photo_silkscreen": "OV5640",
+    "working_configuration": "BY-OV2640-V1.5; onboard 24 MHz",
+    "identity_status": "PHOTO_CONFLICT_WITH_PREVIOUS_CONFIRMED_BOARD; verify actual sensor PID at bring-up",
+    "existing_firmware_accepted_pid": "OV2640_PID",
+    "mainboard_connector_candidate": "2x9 female socket, 2.54 mm pitch and row spacing",
+    "connector_mpn": null,
+    "mating_orientation_status": "Pin map checked against face labels; final socket/cable mating view and stack height not released"
+  },
+  "motors": {
+    "type": "N20 geared DC motor",
+    "quantity": 2,
+    "nominal_voltage_v": 6.0,
+    "advertised_speed_rpm": 60,
+    "speed_measurement_conditions": "not specified by seller evidence",
+    "specification_status": "USER_CONFIRMED_VOLTAGE_AND_SPEED",
+    "purchase_url": "https://item.taobao.com/item.htm?id=769096395403",
+    "running_current_a": null,
+    "starting_current_a": null,
+    "stall_current_a": null,
+    "drive_supply": "VBAT directly via DRV8833; no 6 V boost",
+    "battery_nominal_voltage_v": 4.5,
+    "pwm_duty_percent": 75,
+    "actual_speed_rpm": null,
+    "current_limit_status": "0.39 ohm sense resistors provisional; must qualify with actual motors and battery"
+  }
+}

@@ -1,0 +1,943 @@
+<?xml version='1.0' encoding='utf-8'?>
+<export version="E">
+  <design>
+    <source>fan_robot_mainboard.sch</source>
+    <tool>FanRobot design generator: REVIEW ONLY</tool>
+  </design>
+  <components>
+    <comp ref="J1">
+      <value>3xAA_INPUT</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="J1" />
+    </comp>
+    <comp ref="SW1">
+      <value>MASTER_POWER</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="SW1" />
+    </comp>
+    <comp ref="F1">
+      <value>FUSE_TBD</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="F1" />
+    </comp>
+    <comp ref="Q2">
+      <value>AO3401A</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="Q2" />
+    </comp>
+    <comp ref="R1">
+      <value>100k</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="R1" />
+    </comp>
+    <comp ref="C1">
+      <value>220uF_10V</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="C1" />
+    </comp>
+    <comp ref="D2">
+      <value>SS34</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="D2" />
+    </comp>
+    <comp ref="D3">
+      <value>SS34</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="D3" />
+    </comp>
+    <comp ref="U2">
+      <value>TPS63802DLAR</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="U2" />
+    </comp>
+    <comp ref="L1">
+      <value>0.47uH</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="L1" />
+    </comp>
+    <comp ref="C2">
+      <value>22uF_10V</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="C2" />
+    </comp>
+    <comp ref="C3">
+      <value>22uF_10V</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="C3" />
+    </comp>
+    <comp ref="C4">
+      <value>22uF_10V</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="C4" />
+    </comp>
+    <comp ref="R2">
+      <value>560k</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="R2" />
+    </comp>
+    <comp ref="R3">
+      <value>100k</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="R3" />
+    </comp>
+    <comp ref="R4">
+      <value>180k</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="R4" />
+    </comp>
+    <comp ref="R5">
+      <value>100k</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="R5" />
+    </comp>
+    <comp ref="C5">
+      <value>1nF_16V</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="C5" />
+    </comp>
+    <comp ref="R6">
+      <value>10k</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="R6" />
+    </comp>
+    <comp ref="C6">
+      <value>1uF_10V</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="C6" />
+    </comp>
+    <comp ref="U3">
+      <value>TPS61023DRLR</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="U3" />
+    </comp>
+    <comp ref="L2">
+      <value>1uH</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="L2" />
+    </comp>
+    <comp ref="C7">
+      <value>10uF_10V</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="C7" />
+    </comp>
+    <comp ref="C8">
+      <value>22uF_10V</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="C8" />
+    </comp>
+    <comp ref="C9">
+      <value>22uF_10V</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="C9" />
+    </comp>
+    <comp ref="R7">
+      <value>732k</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="R7" />
+    </comp>
+    <comp ref="R8">
+      <value>100k</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="R8" />
+    </comp>
+    <comp ref="C10">
+      <value>220pF_DNP</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="C10" />
+    </comp>
+    <comp ref="U1">
+      <value>ESP32-S3-WROOM-1-N16R8</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="U1" />
+    </comp>
+    <comp ref="C11">
+      <value>22uF_10V</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="C11" />
+    </comp>
+    <comp ref="C12">
+      <value>100nF_16V</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="C12" />
+    </comp>
+    <comp ref="R9">
+      <value>10k</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="R9" />
+    </comp>
+    <comp ref="SW2">
+      <value>RESET</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="SW2" />
+    </comp>
+    <comp ref="SW3">
+      <value>BOOT</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="SW3" />
+    </comp>
+    <comp ref="R10">
+      <value>1M</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="R10" />
+    </comp>
+    <comp ref="R11">
+      <value>330k</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="R11" />
+    </comp>
+    <comp ref="C13">
+      <value>100nF_16V</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="C13" />
+    </comp>
+    <comp ref="U6">
+      <value>SN74LVC1G08DBVR</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="U6" />
+    </comp>
+    <comp ref="U7">
+      <value>SN74LVC1G08DBVR</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="U7" />
+    </comp>
+    <comp ref="R12">
+      <value>10k</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="R12" />
+    </comp>
+    <comp ref="R13">
+      <value>10k</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="R13" />
+    </comp>
+    <comp ref="R14">
+      <value>100k</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="R14" />
+    </comp>
+    <comp ref="C14">
+      <value>100nF_16V</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="C14" />
+    </comp>
+    <comp ref="C15">
+      <value>100nF_16V</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="C15" />
+    </comp>
+    <comp ref="U4">
+      <value>DRV8833PWPR</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="U4" />
+    </comp>
+    <comp ref="R15">
+      <value>10k</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="R15" />
+    </comp>
+    <comp ref="R16">
+      <value>10k</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="R16" />
+    </comp>
+    <comp ref="R17">
+      <value>10k</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="R17" />
+    </comp>
+    <comp ref="R18">
+      <value>10k</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="R18" />
+    </comp>
+    <comp ref="R19">
+      <value>10k</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="R19" />
+    </comp>
+    <comp ref="RS1">
+      <value>0.39R_0.5W</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="RS1" />
+    </comp>
+    <comp ref="RS2">
+      <value>0.39R_0.5W</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="RS2" />
+    </comp>
+    <comp ref="C16">
+      <value>10uF_16V</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="C16" />
+    </comp>
+    <comp ref="C17">
+      <value>100nF_16V</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="C17" />
+    </comp>
+    <comp ref="C18">
+      <value>10nF_25V</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="C18" />
+    </comp>
+    <comp ref="C19">
+      <value>2.2uF_10V</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="C19" />
+    </comp>
+    <comp ref="J2">
+      <value>LEFT_MOTOR</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="J2" />
+    </comp>
+    <comp ref="J3">
+      <value>RIGHT_MOTOR</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="J3" />
+    </comp>
+    <comp ref="Q1">
+      <value>AO3400A</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="Q1" />
+    </comp>
+    <comp ref="R20">
+      <value>100R</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="R20" />
+    </comp>
+    <comp ref="R21">
+      <value>100k</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="R21" />
+    </comp>
+    <comp ref="D1">
+      <value>SS14</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="D1" />
+    </comp>
+    <comp ref="J4">
+      <value>5V_FAN</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="J4" />
+    </comp>
+    <comp ref="J6">
+      <value>USB_C_USB2</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="J6" />
+    </comp>
+    <comp ref="R22">
+      <value>5.1k</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="R22" />
+    </comp>
+    <comp ref="R23">
+      <value>5.1k</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="R23" />
+    </comp>
+    <comp ref="U5">
+      <value>USBLC6-2SC6</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="U5" />
+    </comp>
+    <comp ref="R24">
+      <value>22R</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="R24" />
+    </comp>
+    <comp ref="R25">
+      <value>22R</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="R25" />
+    </comp>
+    <comp ref="R26">
+      <value>0R</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="R26" />
+    </comp>
+    <comp ref="C20">
+      <value>1uF_10V</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="C20" />
+    </comp>
+    <comp ref="J5">
+      <value>CAMERA_2x9_P2.54</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="J5" />
+    </comp>
+    <comp ref="C21">
+      <value>10uF_10V</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="C21" />
+    </comp>
+    <comp ref="C22">
+      <value>100nF_16V</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="C22" />
+    </comp>
+    <comp ref="J7">
+      <value>EXP_I2C_3V3</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="J7" />
+    </comp>
+    <comp ref="R27">
+      <value>4.7k</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="R27" />
+    </comp>
+    <comp ref="R28">
+      <value>4.7k</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="R28" />
+    </comp>
+    <comp ref="J8">
+      <value>SERVICE_3V3</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="J8" />
+    </comp>
+    <comp ref="TP1">
+      <value>GND</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="TP1" />
+    </comp>
+    <comp ref="TP2">
+      <value>VBAT</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="TP2" />
+    </comp>
+    <comp ref="TP3">
+      <value>3V3</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="TP3" />
+    </comp>
+    <comp ref="TP4">
+      <value>FAN_5V</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="TP4" />
+    </comp>
+    <comp ref="TP5">
+      <value>ACT_REQ</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="TP5" />
+    </comp>
+    <comp ref="TP6">
+      <value>ACT_EN</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="TP6" />
+    </comp>
+    <comp ref="TP7">
+      <value>M_FAULT_N</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="TP7" />
+    </comp>
+    <comp ref="TP8">
+      <value>BAT_ADC</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="TP8" />
+    </comp>
+    <comp ref="TP9">
+      <value>USB_VBUS</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="TP9" />
+    </comp>
+    <comp ref="TP10">
+      <value>ESP_EN</value>
+      <footprint />
+      <datasheet />
+      <libsource lib="FanRobot" part="TP10" />
+    </comp>
+  </components>
+  <nets>
+    <net code="1" name="3V3">
+      <node ref="U2" pin="6" pinfunction="VOUT" pintype="passive" />
+      <node ref="C3" pin="1" pinfunction="1" pintype="passive" />
+      <node ref="C4" pin="1" pinfunction="1" pintype="passive" />
+      <node ref="R2" pin="1" pinfunction="1" pintype="passive" />
+      <node ref="R6" pin="1" pinfunction="1" pintype="passive" />
+      <node ref="U1" pin="2" pinfunction="3V3" pintype="passive" />
+      <node ref="C11" pin="1" pinfunction="1" pintype="passive" />
+      <node ref="C12" pin="1" pinfunction="1" pintype="passive" />
+      <node ref="R9" pin="1" pinfunction="1" pintype="passive" />
+      <node ref="U6" pin="5" pinfunction="VCC" pintype="passive" />
+      <node ref="U7" pin="5" pinfunction="VCC" pintype="passive" />
+      <node ref="C14" pin="1" pinfunction="1" pintype="passive" />
+      <node ref="C15" pin="1" pinfunction="1" pintype="passive" />
+      <node ref="R19" pin="1" pinfunction="1" pintype="passive" />
+      <node ref="J5" pin="2" pinfunction="3V3" pintype="passive" />
+      <node ref="C21" pin="1" pinfunction="1" pintype="passive" />
+      <node ref="C22" pin="1" pinfunction="1" pintype="passive" />
+      <node ref="J7" pin="1" pinfunction="3V3" pintype="passive" />
+      <node ref="R27" pin="1" pinfunction="1" pintype="passive" />
+      <node ref="R28" pin="1" pinfunction="1" pintype="passive" />
+      <node ref="J8" pin="2" pinfunction="3V3_REF" pintype="passive" />
+      <node ref="TP3" pin="1" pinfunction="3V3" pintype="passive" />
+    </net>
+    <net code="2" name="ACT_EN">
+      <node ref="U3" pin="2" pinfunction="EN" pintype="passive" />
+      <node ref="U6" pin="4" pinfunction="Y" pintype="passive" />
+      <node ref="U7" pin="2" pinfunction="B" pintype="passive" />
+      <node ref="R13" pin="1" pinfunction="1" pintype="passive" />
+      <node ref="U4" pin="1" pinfunction="nSLEEP" pintype="passive" />
+      <node ref="TP6" pin="1" pinfunction="ACT_EN" pintype="passive" />
+    </net>
+    <net code="3" name="ACT_REQ">
+      <node ref="U1" pin="24" pinfunction="IO47" pintype="passive" />
+      <node ref="U6" pin="1" pinfunction="A" pintype="passive" />
+      <node ref="R12" pin="1" pinfunction="1" pintype="passive" />
+      <node ref="TP5" pin="1" pinfunction="ACT_REQ" pintype="passive" />
+    </net>
+    <net code="4" name="A_SENSE">
+      <node ref="U4" pin="3" pinfunction="AISEN" pintype="passive" />
+      <node ref="RS1" pin="1" pinfunction="1" pintype="passive" />
+    </net>
+    <net code="5" name="BAT_ADC">
+      <node ref="U1" pin="8" pinfunction="IO15" pintype="passive" />
+      <node ref="R10" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="R11" pin="1" pinfunction="1" pintype="passive" />
+      <node ref="C13" pin="1" pinfunction="1" pintype="passive" />
+      <node ref="TP8" pin="1" pinfunction="BAT_ADC" pintype="passive" />
+    </net>
+    <net code="6" name="BAT_FUSED">
+      <node ref="F1" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="Q2" pin="3" pinfunction="D" pintype="passive" />
+    </net>
+    <net code="7" name="BAT_RAW">
+      <node ref="J1" pin="1" pinfunction="BAT+" pintype="passive" />
+      <node ref="SW1" pin="1" pinfunction="1" pintype="passive" />
+    </net>
+    <net code="8" name="BAT_SWITCHED">
+      <node ref="SW1" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="F1" pin="1" pinfunction="1" pintype="passive" />
+    </net>
+    <net code="9" name="BOOT_N">
+      <node ref="U1" pin="27" pinfunction="IO0" pintype="passive" />
+      <node ref="R9" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="SW3" pin="1" pinfunction="1" pintype="passive" />
+      <node ref="J8" pin="6" pinfunction="BOOT0" pintype="passive" />
+    </net>
+    <net code="10" name="B_SENSE">
+      <node ref="U4" pin="6" pinfunction="BISEN" pintype="passive" />
+      <node ref="RS2" pin="1" pinfunction="1" pintype="passive" />
+    </net>
+    <net code="11" name="CAM_D0">
+      <node ref="U1" pin="4" pinfunction="IO4" pintype="passive" />
+      <node ref="J5" pin="7" pinfunction="D0" pintype="passive" />
+    </net>
+    <net code="12" name="CAM_D1">
+      <node ref="U1" pin="5" pinfunction="IO5" pintype="passive" />
+      <node ref="J5" pin="10" pinfunction="D1" pintype="passive" />
+    </net>
+    <net code="13" name="CAM_D2">
+      <node ref="U1" pin="6" pinfunction="IO6" pintype="passive" />
+      <node ref="J5" pin="9" pinfunction="D2" pintype="passive" />
+    </net>
+    <net code="14" name="CAM_D3">
+      <node ref="U1" pin="7" pinfunction="IO7" pintype="passive" />
+      <node ref="J5" pin="12" pinfunction="D3" pintype="passive" />
+    </net>
+    <net code="15" name="CAM_D4">
+      <node ref="U1" pin="12" pinfunction="IO8" pintype="passive" />
+      <node ref="J5" pin="11" pinfunction="D4" pintype="passive" />
+    </net>
+    <net code="16" name="CAM_D5">
+      <node ref="U1" pin="17" pinfunction="IO9" pintype="passive" />
+      <node ref="J5" pin="14" pinfunction="D5" pintype="passive" />
+    </net>
+    <net code="17" name="CAM_D6">
+      <node ref="U1" pin="18" pinfunction="IO10" pintype="passive" />
+      <node ref="J5" pin="13" pinfunction="D6" pintype="passive" />
+    </net>
+    <net code="18" name="CAM_D7">
+      <node ref="U1" pin="19" pinfunction="IO11" pintype="passive" />
+      <node ref="J5" pin="16" pinfunction="D7" pintype="passive" />
+    </net>
+    <net code="19" name="CAM_HREF">
+      <node ref="U1" pin="10" pinfunction="IO17" pintype="passive" />
+      <node ref="J5" pin="6" pinfunction="HS" pintype="passive" />
+    </net>
+    <net code="20" name="CAM_PCLK">
+      <node ref="U1" pin="21" pinfunction="IO13" pintype="passive" />
+      <node ref="J5" pin="15" pinfunction="PCLK" pintype="passive" />
+    </net>
+    <net code="21" name="CAM_PWDN">
+      <node ref="U1" pin="20" pinfunction="IO12" pintype="passive" />
+      <node ref="J5" pin="17" pinfunction="PWDN" pintype="passive" />
+    </net>
+    <net code="22" name="CAM_RST">
+      <node ref="U1" pin="22" pinfunction="IO14" pintype="passive" />
+      <node ref="J5" pin="8" pinfunction="RST" pintype="passive" />
+    </net>
+    <net code="23" name="CAM_SCL">
+      <node ref="U1" pin="23" pinfunction="IO21" pintype="passive" />
+      <node ref="J5" pin="3" pinfunction="SCL" pintype="passive" />
+    </net>
+    <net code="24" name="CAM_SDA">
+      <node ref="U1" pin="11" pinfunction="IO18" pintype="passive" />
+      <node ref="J5" pin="5" pinfunction="SDA" pintype="passive" />
+    </net>
+    <net code="25" name="CAM_VSYNC">
+      <node ref="U1" pin="9" pinfunction="IO16" pintype="passive" />
+      <node ref="J5" pin="4" pinfunction="VS" pintype="passive" />
+    </net>
+    <net code="26" name="DRV_VCP">
+      <node ref="U4" pin="11" pinfunction="VCP" pintype="passive" />
+      <node ref="C18" pin="1" pinfunction="1" pintype="passive" />
+    </net>
+    <net code="27" name="DRV_VINT">
+      <node ref="U4" pin="14" pinfunction="VINT" pintype="passive" />
+      <node ref="C19" pin="1" pinfunction="1" pintype="passive" />
+    </net>
+    <net code="28" name="ESP_EN">
+      <node ref="U2" pin="5" pinfunction="PG" pintype="passive" />
+      <node ref="R6" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="C6" pin="1" pinfunction="1" pintype="passive" />
+      <node ref="U1" pin="3" pinfunction="EN" pintype="passive" />
+      <node ref="SW2" pin="1" pinfunction="1" pintype="passive" />
+      <node ref="U6" pin="2" pinfunction="B" pintype="passive" />
+      <node ref="J8" pin="5" pinfunction="EN" pintype="passive" />
+      <node ref="TP10" pin="1" pinfunction="ESP_EN" pintype="passive" />
+    </net>
+    <net code="29" name="EXP_SCL">
+      <node ref="U1" pin="25" pinfunction="IO48" pintype="passive" />
+      <node ref="J7" pin="4" pinfunction="SCL48" pintype="passive" />
+      <node ref="R28" pin="2" pinfunction="2" pintype="passive" />
+    </net>
+    <net code="30" name="EXP_SDA">
+      <node ref="U1" pin="34" pinfunction="IO41" pintype="passive" />
+      <node ref="J7" pin="3" pinfunction="SDA41" pintype="passive" />
+      <node ref="R27" pin="2" pinfunction="2" pintype="passive" />
+    </net>
+    <net code="31" name="FAN_5V">
+      <node ref="U3" pin="6" pinfunction="VOUT" pintype="passive" />
+      <node ref="C8" pin="1" pinfunction="1" pintype="passive" />
+      <node ref="C9" pin="1" pinfunction="1" pintype="passive" />
+      <node ref="R7" pin="1" pinfunction="1" pintype="passive" />
+      <node ref="C10" pin="1" pinfunction="1" pintype="passive" />
+      <node ref="D1" pin="1" pinfunction="K" pintype="passive" />
+      <node ref="J4" pin="1" pinfunction="RED_+" pintype="passive" />
+      <node ref="TP4" pin="1" pinfunction="FAN_5V" pintype="passive" />
+    </net>
+    <net code="32" name="FAN_BOOST_SW">
+      <node ref="U3" pin="5" pinfunction="SW" pintype="passive" />
+      <node ref="L2" pin="2" pinfunction="2" pintype="passive" />
+    </net>
+    <net code="33" name="FAN_CMD">
+      <node ref="U1" pin="33" pinfunction="IO40" pintype="passive" />
+      <node ref="U7" pin="1" pinfunction="A" pintype="passive" />
+      <node ref="R14" pin="1" pinfunction="1" pintype="passive" />
+    </net>
+    <net code="34" name="FAN_GATE">
+      <node ref="Q1" pin="1" pinfunction="G" pintype="passive" />
+      <node ref="R20" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="R21" pin="1" pinfunction="1" pintype="passive" />
+    </net>
+    <net code="35" name="FAN_GATE_LOGIC">
+      <node ref="U7" pin="4" pinfunction="Y" pintype="passive" />
+      <node ref="R20" pin="1" pinfunction="1" pintype="passive" />
+    </net>
+    <net code="36" name="FAN_SW">
+      <node ref="Q1" pin="3" pinfunction="D" pintype="passive" />
+      <node ref="D1" pin="2" pinfunction="A" pintype="passive" />
+      <node ref="J4" pin="2" pinfunction="BLACK_-" pintype="passive" />
+    </net>
+    <net code="37" name="FB_3V3">
+      <node ref="U2" pin="4" pinfunction="FB" pintype="passive" />
+      <node ref="R2" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="R3" pin="1" pinfunction="1" pintype="passive" />
+    </net>
+    <net code="38" name="FB_5V">
+      <node ref="U3" pin="1" pinfunction="FB" pintype="passive" />
+      <node ref="R7" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="R8" pin="1" pinfunction="1" pintype="passive" />
+      <node ref="C10" pin="2" pinfunction="2" pintype="passive" />
+    </net>
+    <net code="39" name="GND">
+      <node ref="J1" pin="2" pinfunction="BAT-" pintype="passive" />
+      <node ref="R1" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="C1" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="U2" pin="2" pinfunction="MODE" pintype="passive" />
+      <node ref="U2" pin="3" pinfunction="AGND" pintype="passive" />
+      <node ref="U2" pin="8" pinfunction="GND" pintype="passive" />
+      <node ref="C2" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="C3" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="C4" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="R3" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="R5" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="C5" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="C6" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="U3" pin="4" pinfunction="GND" pintype="passive" />
+      <node ref="C7" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="C8" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="C9" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="R8" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="U1" pin="1" pinfunction="GND" pintype="passive" />
+      <node ref="U1" pin="40" pinfunction="GND" pintype="passive" />
+      <node ref="U1" pin="41" pinfunction="EPAD" pintype="passive" />
+      <node ref="C11" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="C12" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="SW2" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="SW3" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="R11" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="C13" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="U6" pin="3" pinfunction="GND" pintype="passive" />
+      <node ref="U7" pin="3" pinfunction="GND" pintype="passive" />
+      <node ref="R12" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="R13" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="R14" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="C14" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="C15" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="U4" pin="13" pinfunction="GND" pintype="passive" />
+      <node ref="U4" pin="17" pinfunction="EPAD" pintype="passive" />
+      <node ref="R15" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="R16" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="R17" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="R18" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="RS1" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="RS2" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="C16" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="C17" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="C19" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="Q1" pin="2" pinfunction="S" pintype="passive" />
+      <node ref="R21" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="J6" pin="A1" pinfunction="GND" pintype="passive" />
+      <node ref="J6" pin="A12" pinfunction="GND" pintype="passive" />
+      <node ref="J6" pin="B1" pinfunction="GND" pintype="passive" />
+      <node ref="J6" pin="B12" pinfunction="GND" pintype="passive" />
+      <node ref="R22" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="R23" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="U5" pin="2" pinfunction="GND" pintype="passive" />
+      <node ref="R26" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="C20" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="J5" pin="1" pinfunction="GND" pintype="passive" />
+      <node ref="C21" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="C22" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="J7" pin="2" pinfunction="GND" pintype="passive" />
+      <node ref="J8" pin="1" pinfunction="GND" pintype="passive" />
+      <node ref="TP1" pin="1" pinfunction="GND" pintype="passive" />
+    </net>
+    <net code="40" name="LOGIC_L1">
+      <node ref="U2" pin="9" pinfunction="L1" pintype="passive" />
+      <node ref="L1" pin="1" pinfunction="1" pintype="passive" />
+    </net>
+    <net code="41" name="LOGIC_L2">
+      <node ref="U2" pin="7" pinfunction="L2" pintype="passive" />
+      <node ref="L1" pin="2" pinfunction="2" pintype="passive" />
+    </net>
+    <net code="42" name="LOGIC_UVLO">
+      <node ref="U2" pin="1" pinfunction="EN" pintype="passive" />
+      <node ref="R4" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="R5" pin="1" pinfunction="1" pintype="passive" />
+      <node ref="C5" pin="1" pinfunction="1" pintype="passive" />
+    </net>
+    <net code="43" name="MOTOR_A1">
+      <node ref="U4" pin="2" pinfunction="AOUT1" pintype="passive" />
+      <node ref="J2" pin="1" pinfunction="A1" pintype="passive" />
+    </net>
+    <net code="44" name="MOTOR_A2">
+      <node ref="U4" pin="4" pinfunction="AOUT2" pintype="passive" />
+      <node ref="J2" pin="2" pinfunction="A2" pintype="passive" />
+    </net>
+    <net code="45" name="MOTOR_B1">
+      <node ref="U4" pin="7" pinfunction="BOUT1" pintype="passive" />
+      <node ref="J3" pin="1" pinfunction="B1" pintype="passive" />
+    </net>
+    <net code="46" name="MOTOR_B2">
+      <node ref="U4" pin="5" pinfunction="BOUT2" pintype="passive" />
+      <node ref="J3" pin="2" pinfunction="B2" pintype="passive" />
+    </net>
+    <net code="47" name="M_AIN1">
+      <node ref="U1" pin="39" pinfunction="IO1" pintype="passive" />
+      <node ref="U4" pin="16" pinfunction="AIN1" pintype="passive" />
+      <node ref="R15" pin="1" pinfunction="1" pintype="passive" />
+    </net>
+    <net code="48" name="M_AIN2">
+      <node ref="U1" pin="38" pinfunction="IO2" pintype="passive" />
+      <node ref="U4" pin="15" pinfunction="AIN2" pintype="passive" />
+      <node ref="R16" pin="1" pinfunction="1" pintype="passive" />
+    </net>
+    <net code="49" name="M_BIN1">
+      <node ref="U1" pin="31" pinfunction="IO38" pintype="passive" />
+      <node ref="U4" pin="9" pinfunction="BIN1" pintype="passive" />
+      <node ref="R17" pin="1" pinfunction="1" pintype="passive" />
+    </net>
+    <net code="50" name="M_BIN2">
+      <node ref="U1" pin="32" pinfunction="IO39" pintype="passive" />
+      <node ref="U4" pin="10" pinfunction="BIN2" pintype="passive" />
+      <node ref="R18" pin="1" pinfunction="1" pintype="passive" />
+    </net>
+    <net code="51" name="M_FAULT_N">
+      <node ref="U1" pin="35" pinfunction="IO42" pintype="passive" />
+      <node ref="U4" pin="8" pinfunction="nFAULT" pintype="passive" />
+      <node ref="R19" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="TP7" pin="1" pinfunction="M_FAULT_N" pintype="passive" />
+    </net>
+    <net code="52" name="REVERSE_GATE">
+      <node ref="Q2" pin="1" pinfunction="G" pintype="passive" />
+      <node ref="R1" pin="1" pinfunction="1" pintype="passive" />
+    </net>
+    <net code="53" name="UART_RX">
+      <node ref="U1" pin="36" pinfunction="RXD0" pintype="passive" />
+      <node ref="J8" pin="4" pinfunction="RX44" pintype="passive" />
+    </net>
+    <net code="54" name="UART_TX">
+      <node ref="U1" pin="37" pinfunction="TXD0" pintype="passive" />
+      <node ref="J8" pin="3" pinfunction="TX43" pintype="passive" />
+    </net>
+    <net code="55" name="USB_CC1">
+      <node ref="J6" pin="A5" pinfunction="CC1" pintype="passive" />
+      <node ref="R22" pin="1" pinfunction="1" pintype="passive" />
+    </net>
+    <net code="56" name="USB_CC2">
+      <node ref="J6" pin="B5" pinfunction="CC2" pintype="passive" />
+      <node ref="R23" pin="1" pinfunction="1" pintype="passive" />
+    </net>
+    <net code="57" name="USB_DM_CONN">
+      <node ref="J6" pin="A7" pinfunction="DM" pintype="passive" />
+      <node ref="J6" pin="B7" pinfunction="DM" pintype="passive" />
+      <node ref="U5" pin="1" pinfunction="IO1" pintype="passive" />
+    </net>
+    <net code="58" name="USB_DM_ESD">
+      <node ref="U5" pin="6" pinfunction="IO1" pintype="passive" />
+      <node ref="R24" pin="1" pinfunction="1" pintype="passive" />
+    </net>
+    <net code="59" name="USB_DM_MCU">
+      <node ref="U1" pin="13" pinfunction="IO19" pintype="passive" />
+      <node ref="R24" pin="2" pinfunction="2" pintype="passive" />
+    </net>
+    <net code="60" name="USB_DP_CONN">
+      <node ref="J6" pin="A6" pinfunction="DP" pintype="passive" />
+      <node ref="J6" pin="B6" pinfunction="DP" pintype="passive" />
+      <node ref="U5" pin="3" pinfunction="IO2" pintype="passive" />
+    </net>
+    <net code="61" name="USB_DP_ESD">
+      <node ref="U5" pin="4" pinfunction="IO2" pintype="passive" />
+      <node ref="R25" pin="1" pinfunction="1" pintype="passive" />
+    </net>
+    <net code="62" name="USB_DP_MCU">
+      <node ref="U1" pin="14" pinfunction="IO20" pintype="passive" />
+      <node ref="R25" pin="2" pinfunction="2" pintype="passive" />
+    </net>
+    <net code="63" name="USB_SHIELD">
+      <node ref="J6" pin="SH" pinfunction="SHIELD" pintype="passive" />
+      <node ref="R26" pin="1" pinfunction="1" pintype="passive" />
+    </net>
+    <net code="64" name="USB_VBUS">
+      <node ref="D3" pin="2" pinfunction="A" pintype="passive" />
+      <node ref="J6" pin="A4" pinfunction="VBUS" pintype="passive" />
+      <node ref="J6" pin="A9" pinfunction="VBUS" pintype="passive" />
+      <node ref="J6" pin="B4" pinfunction="VBUS" pintype="passive" />
+      <node ref="J6" pin="B9" pinfunction="VBUS" pintype="passive" />
+      <node ref="U5" pin="5" pinfunction="VBUS" pintype="passive" />
+      <node ref="C20" pin="1" pinfunction="1" pintype="passive" />
+      <node ref="TP9" pin="1" pinfunction="USB_VBUS" pintype="passive" />
+    </net>
+    <net code="65" name="VBAT">
+      <node ref="Q2" pin="2" pinfunction="S" pintype="passive" />
+      <node ref="C1" pin="1" pinfunction="1" pintype="passive" />
+      <node ref="D2" pin="2" pinfunction="A" pintype="passive" />
+      <node ref="U3" pin="3" pinfunction="VIN" pintype="passive" />
+      <node ref="L2" pin="1" pinfunction="1" pintype="passive" />
+      <node ref="C7" pin="1" pinfunction="1" pintype="passive" />
+      <node ref="R10" pin="1" pinfunction="1" pintype="passive" />
+      <node ref="U4" pin="12" pinfunction="VM" pintype="passive" />
+      <node ref="C16" pin="1" pinfunction="1" pintype="passive" />
+      <node ref="C17" pin="1" pinfunction="1" pintype="passive" />
+      <node ref="C18" pin="2" pinfunction="2" pintype="passive" />
+      <node ref="TP2" pin="1" pinfunction="VBAT" pintype="passive" />
+    </net>
+    <net code="66" name="VLOGIC_IN">
+      <node ref="D2" pin="1" pinfunction="K" pintype="passive" />
+      <node ref="D3" pin="1" pinfunction="K" pintype="passive" />
+      <node ref="U2" pin="10" pinfunction="VIN" pintype="passive" />
+      <node ref="C2" pin="1" pinfunction="1" pintype="passive" />
+      <node ref="R4" pin="1" pinfunction="1" pintype="passive" />
+    </net>
+  </nets>
+</export>
