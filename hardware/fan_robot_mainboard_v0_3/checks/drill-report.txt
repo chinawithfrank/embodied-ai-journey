@@ -1,0 +1,30 @@
+Drill report for fan_robot_mainboard.kicad_pcb
+Created on 2026-11-15T23:41:55
+
+Copper Layer Stackup:
+    =============================================================
+    L1 :  F.Cu                      front
+    L2 :  B.Cu                      back
+
+
+Drill file 'fan_robot_mainboard-PTH.drl' contains
+    plated through holes:
+    =============================================================
+    T1  0.300mm  0.0118"  (161 holes))
+    T2  0.300mm  0.0118"  (12 holes))
+    T3  0.400mm  0.0157"  (2 holes))
+    T4  0.600mm  0.0236"  (4 holes)  (with 4 slots)
+    T5  0.750mm  0.0295"  (6 holes))
+    T6  1.000mm  0.0394"  (30 holes))
+
+    Total plated holes count 215
+
+
+Drill file 'fan_robot_mainboard-NPTH.drl' contains
+    unplated through holes:
+    =============================================================
+    T1  0.650mm  0.0256"  (2 holes))
+    T2  0.900mm  0.0354"  (2 holes))
+    T3  2.700mm  0.1063"  (4 holes))
+
+    Total unplated holes count 8

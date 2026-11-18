@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "compared_to": "V0.2",
+  "parts_and_pin_net_assignments_unchanged": true,
+  "electrical_references": 95,
+  "copper_layers_old": 4,
+  "copper_layers_new": 2
+}

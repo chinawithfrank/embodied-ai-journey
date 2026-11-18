@@ -1,0 +1,59 @@
+{
+  "status": "PASS",
+  "independent_parser": "gerbonara",
+  "layers": {
+    "top/copper": 923,
+    "top/mask": 277,
+    "top/silk": 506,
+    "bottom/copper": 410,
+    "bottom/mask": 98,
+    "bottom/silk": 178,
+    "inner_2/copper": 424,
+    "inner_1/copper": 202,
+    "mechanical/outline": 4
+  },
+  "outline_centerline_dimensions_mm": [
+    60,
+    50
+  ],
+  "manufacturing_origin": "lower-left,common for Gerber,drill andCPL",
+  "drills": {
+    "PTH": {
+      "holes_and_slots": 201,
+      "round_holes": 197,
+      "routed_slots": 4,
+      "plating_header": "Plated"
+    },
+    "NPTH": {
+      "holes_and_slots": 8,
+      "round_holes": 8,
+      "routed_slots": 0,
+      "plating_header": "NonPlated"
+    }
+  },
+  "stencil": {
+    "top": {
+      "flashes": 226,
+      "unique_centers": 222,
+      "expected_unique_centers": 222,
+      "extra": [],
+      "missing": []
+    },
+    "bottom": {
+      "flashes": 37,
+      "unique_centers": 37,
+      "expected_unique_centers": 37,
+      "extra": [],
+      "missing": []
+    }
+  },
+  "source_sha256": {
+    "eda/fan_robot_mainboard.kicad_pcb": "967b07bc2d73f0a6db1dd4231566840c3e47fdf21487d260159b43bda6b1bd64",
+    "eda/fan_robot_mainboard.xml": "233418cb9bb92c0632f297b261607e5c3baeef7188d12f64bcb19af0ab8fa25c",
+    "assembly/CPL_JLC.csv": "91de04e61c9e3db7a0b3022565e89a5036a318bb11eaa6279253fb2a79b8f2cf",
+    "assembly/BOM_JLC_SMT.csv": "52abae79952ab350f202d85df7b04ae84c584b3f8c36b4afcfc5fe8c1163375d",
+    "assembly/BOM_JLC_THT.csv": "36e1b7021e4be7bd595fc5a0fad82831857c4ebcaf135cbc624b85550cc7d888"
+  },
+  "errors": [],
+  "scope": "File/data validation only; no physical prototype or factory DFM response. Standard KiCad G90-header placement accepted; explicit native plating metadata used rather than parser plating inference."
+}

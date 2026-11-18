@@ -1,0 +1,26 @@
+%TF.GenerationSoftware,KiCad,Pcbnew,10.0.8*%
+%TF.CreationDate,2026-11-14T19:43:43+08:00*%
+%TF.ProjectId,fan_robot_mainboard,66616e5f-726f-4626-9f74-5f6d61696e62,rev?*%
+%TF.SameCoordinates,Original*%
+%TF.FileFunction,Profile,NP*%
+%FSLAX46Y46*%
+G04 Gerber Fmt 4.6, Leading zero omitted, Abs format (unit mm)*
+G04 Created by KiCad (PCBNEW 10.0.8) date 2026-11-14 19:43:43*
+%MOMM*%
+%LPD*%
+G01*
+G04 APERTURE LIST*
+%TA.AperFunction,Profile*%
+%ADD10C,0.050000*%
+%TD*%
+G04 APERTURE END LIST*
+D10*
+X0Y50000000D02*
+X60000000Y50000000D01*
+X0Y0D02*
+X0Y50000000D01*
+X60000000Y50000000D02*
+X60000000Y0D01*
+X60000000Y0D02*
+X0Y0D01*
+M02*

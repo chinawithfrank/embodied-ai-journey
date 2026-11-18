@@ -1,0 +1,1519 @@
+[
+  {
+    "ref": "C17",
+    "mpn": "GRM188R71C104KA01D",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      52.7,
+      29.8
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      51.925,
+      29.8
+    ],
+    "pin1_net": "VBAT"
+  },
+  {
+    "ref": "C1",
+    "mpn": "10SVPE220M",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      20.6,
+      18.0
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      17.8,
+      18.0
+    ],
+    "pin1_net": "VBAT"
+  },
+  {
+    "ref": "R5",
+    "mpn": "0603WAF1003T5E",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      5.5,
+      36.2
+    ],
+    "rotation_degrees": -90.0,
+    "pin1_mm": [
+      5.5,
+      37.025
+    ],
+    "pin1_net": "LOGIC_UVLO"
+  },
+  {
+    "ref": "R12",
+    "mpn": "0603WAF1002T5E",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      27.0,
+      20.1
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      26.175,
+      20.1
+    ],
+    "pin1_net": "ACT_REQ"
+  },
+  {
+    "ref": "C5",
+    "mpn": "CL10B102KB8NNNC",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      3.2,
+      37.5
+    ],
+    "rotation_degrees": 180.0,
+    "pin1_mm": [
+      3.975,
+      37.5
+    ],
+    "pin1_net": "LOGIC_UVLO"
+  },
+  {
+    "ref": "C13",
+    "mpn": "GRM188R71C104KA01D",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      42.0,
+      37.8
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      41.225,
+      37.8
+    ],
+    "pin1_net": "BAT_ADC"
+  },
+  {
+    "ref": "U8",
+    "mpn": "TPS2553DBVR",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      15.0,
+      22.5
+    ],
+    "rotation_degrees": 90.0,
+    "pin1_mm": [
+      14.05,
+      21.3625
+    ],
+    "pin1_net": "USB_VBUS"
+  },
+  {
+    "ref": "J2",
+    "mpn": "B2B-PH-K-S(LF)(SN)",
+    "assembly": "THT",
+    "side": "Top",
+    "anchor_mm": [
+      54.0,
+      40.0
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      54.0,
+      40.0
+    ],
+    "pin1_net": "MOTOR_A1"
+  },
+  {
+    "ref": "R4",
+    "mpn": "0603WAF1803T5E",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      7.5,
+      36.2
+    ],
+    "rotation_degrees": 90.0,
+    "pin1_mm": [
+      7.5,
+      35.375
+    ],
+    "pin1_net": "VLOGIC_IN"
+  },
+  {
+    "ref": "R25",
+    "mpn": "0603WAF220JT5E",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      15.8,
+      28.0
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      14.975,
+      28.0
+    ],
+    "pin1_net": "USB_DP_ESD"
+  },
+  {
+    "ref": "U7",
+    "mpn": "SN74LVC1G08DBVR",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      36.0,
+      21.0
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      34.8625,
+      21.95
+    ],
+    "pin1_net": "FAN_CMD"
+  },
+  {
+    "ref": "C7",
+    "mpn": "GRM21BR61C106KE15L",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      41.3,
+      10.0
+    ],
+    "rotation_degrees": 90.0,
+    "pin1_mm": [
+      41.3,
+      9.049999999999997
+    ],
+    "pin1_net": "VBAT"
+  },
+  {
+    "ref": "R11",
+    "mpn": "0603WAF3303T5E",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      42.0,
+      40.0
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      41.175,
+      40.0
+    ],
+    "pin1_net": "BAT_ADC"
+  },
+  {
+    "ref": "C12",
+    "mpn": "GRM188R71C104KA01D",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      18.0,
+      39.2
+    ],
+    "rotation_degrees": 180.0,
+    "pin1_mm": [
+      18.775,
+      39.2
+    ],
+    "pin1_net": "3V3"
+  },
+  {
+    "ref": "R19",
+    "mpn": "0603WAF1002T5E",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      42.5,
+      24.0
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      41.675,
+      24.0
+    ],
+    "pin1_net": "3V3"
+  },
+  {
+    "ref": "J6",
+    "mpn": "TYPE-C-31-M-12",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      3.9,
+      29.0
+    ],
+    "rotation_degrees": -90.0,
+    "pin1_mm": null,
+    "pin1_net": null
+  },
+  {
+    "ref": "R3",
+    "mpn": "0603WAF1003T5E",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      10.5,
+      35.5
+    ],
+    "rotation_degrees": -90.0,
+    "pin1_mm": [
+      10.5,
+      36.325
+    ],
+    "pin1_net": "FB_3V3"
+  },
+  {
+    "ref": "C4",
+    "mpn": "GRM21BR61A226ME51L",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      15.0,
+      36.5
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      14.05,
+      36.5
+    ],
+    "pin1_net": "3V3"
+  },
+  {
+    "ref": "Q3",
+    "mpn": "AO3401A",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      14.3,
+      12.5
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      13.3625,
+      13.450000000000003
+    ],
+    "pin1_net": "POWER_GATE"
+  },
+  {
+    "ref": "U6",
+    "mpn": "SN74LVC1G08DBVR",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      31.0,
+      21.0
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      29.8625,
+      21.95
+    ],
+    "pin1_net": "ACT_REQ"
+  },
+  {
+    "ref": "U2",
+    "mpn": "TPS63802DLAR",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      11.0,
+      38.5
+    ],
+    "rotation_degrees": 90.0,
+    "pin1_mm": [
+      10.0,
+      37.6
+    ],
+    "pin1_net": "LOGIC_UVLO"
+  },
+  {
+    "ref": "C9",
+    "mpn": "GRM21BR61A226ME51L",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      54.0,
+      7.0
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      53.05,
+      7.0
+    ],
+    "pin1_net": "FAN_5V"
+  },
+  {
+    "ref": "C21",
+    "mpn": "GRM21BR61C106KE15L",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      23.0,
+      5.0
+    ],
+    "rotation_degrees": 90.0,
+    "pin1_mm": [
+      23.0,
+      4.049999999999997
+    ],
+    "pin1_net": "3V3"
+  },
+  {
+    "ref": "C2",
+    "mpn": "GRM21BR61A226ME51L",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      7.4,
+      39.25
+    ],
+    "rotation_degrees": 180.0,
+    "pin1_mm": [
+      8.35,
+      39.25
+    ],
+    "pin1_net": "VLOGIC_IN"
+  },
+  {
+    "ref": "U4",
+    "mpn": "DRV8833PWPR",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      47.0,
+      30.2
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      44.1375,
+      32.475
+    ],
+    "pin1_net": "ACT_EN"
+  },
+  {
+    "ref": "R2",
+    "mpn": "0603WAF5603T5E",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      12.5,
+      35.5
+    ],
+    "rotation_degrees": 90.0,
+    "pin1_mm": [
+      12.5,
+      34.675
+    ],
+    "pin1_net": "3V3"
+  },
+  {
+    "ref": "L1",
+    "mpn": "DFE201612E-R47M=P2",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      11.0,
+      41.5
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      10.2,
+      41.5
+    ],
+    "pin1_net": "LOGIC_L1"
+  },
+  {
+    "ref": "R16",
+    "mpn": "0603WAF1002T5E",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      52.5,
+      32.0
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      51.675,
+      32.0
+    ],
+    "pin1_net": "M_AIN2"
+  },
+  {
+    "ref": "R10",
+    "mpn": "0603WAF1004T5E",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      42.0,
+      42.2
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      41.175,
+      42.2
+    ],
+    "pin1_net": "VBAT"
+  },
+  {
+    "ref": "R20",
+    "mpn": "0603WAF1000T5E",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      45.5,
+      18.3
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      44.675,
+      18.3
+    ],
+    "pin1_net": "FAN_GATE_LOGIC"
+  },
+  {
+    "ref": "U5",
+    "mpn": "USBLC6-2SC6",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      12.2,
+      29.0
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      11.0625,
+      29.95
+    ],
+    "pin1_net": "USB_DM_CONN"
+  },
+  {
+    "ref": "R17",
+    "mpn": "0603WAF1002T5E",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      46.0,
+      23.0
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      45.175,
+      23.0
+    ],
+    "pin1_net": "M_BIN1"
+  },
+  {
+    "ref": "R6",
+    "mpn": "0603WAF1002T5E",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      18.4,
+      37.0
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      17.575,
+      37.0
+    ],
+    "pin1_net": "3V3"
+  },
+  {
+    "ref": "R18",
+    "mpn": "0603WAF1002T5E",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      46.0,
+      20.9
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      45.175,
+      20.9
+    ],
+    "pin1_net": "M_BIN2"
+  },
+  {
+    "ref": "Q1",
+    "mpn": "AO3400A",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      49.0,
+      16.0
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      48.0625,
+      16.950000000000003
+    ],
+    "pin1_net": "FAN_GATE"
+  },
+  {
+    "ref": "C8",
+    "mpn": "GRM21BR61A226ME51L",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      47.7,
+      10.600000000000001
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      46.75,
+      10.600000000000001
+    ],
+    "pin1_net": "FAN_5V"
+  },
+  {
+    "ref": "C11",
+    "mpn": "GRM21BR61A226ME51L",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      18.0,
+      41.5
+    ],
+    "rotation_degrees": 180.0,
+    "pin1_mm": [
+      18.95,
+      41.5
+    ],
+    "pin1_net": "3V3"
+  },
+  {
+    "ref": "J7",
+    "mpn": "DNP_2.54mm_1x4",
+    "assembly": "DNP",
+    "side": "Top",
+    "anchor_mm": [
+      28.0,
+      17.0
+    ],
+    "rotation_degrees": 90.0,
+    "pin1_mm": [
+      28.0,
+      17.0
+    ],
+    "pin1_net": "3V3"
+  },
+  {
+    "ref": "R24",
+    "mpn": "0603WAF220JT5E",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      15.8,
+      30.0
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      14.975,
+      30.0
+    ],
+    "pin1_net": "USB_DM_ESD"
+  },
+  {
+    "ref": "C19",
+    "mpn": "GRM21BR71C225KA12L",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      47.6,
+      35.5
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      46.65,
+      35.5
+    ],
+    "pin1_net": "DRV_VINT"
+  },
+  {
+    "ref": "J8",
+    "mpn": "DNP_2.54mm_1x6",
+    "assembly": "DNP",
+    "side": "Top",
+    "anchor_mm": [
+      25.5,
+      11.0
+    ],
+    "rotation_degrees": 90.0,
+    "pin1_mm": [
+      25.5,
+      11.0
+    ],
+    "pin1_net": "GND"
+  },
+  {
+    "ref": "R21",
+    "mpn": "0603WAF1003T5E",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      49.0,
+      19.2
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      48.175,
+      19.2
+    ],
+    "pin1_net": "FAN_GATE"
+  },
+  {
+    "ref": "J3",
+    "mpn": "B2B-PH-K-S(LF)(SN)",
+    "assembly": "THT",
+    "side": "Top",
+    "anchor_mm": [
+      54.0,
+      25.0
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      54.0,
+      25.0
+    ],
+    "pin1_net": "MOTOR_B1"
+  },
+  {
+    "ref": "C6",
+    "mpn": "GRM21BR71C105KA01L",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      18.0,
+      34.5
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      17.05,
+      34.5
+    ],
+    "pin1_net": "ESP_EN"
+  },
+  {
+    "ref": "D3",
+    "mpn": "SS34",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      9.0,
+      18.5
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      7.0,
+      18.5
+    ],
+    "pin1_net": "VLOGIC_IN"
+  },
+  {
+    "ref": "J5",
+    "mpn": "2.54-2*9P",
+    "assembly": "THT",
+    "side": "Top",
+    "anchor_mm": [
+      26.0,
+      6.0
+    ],
+    "rotation_degrees": 90.0,
+    "pin1_mm": [
+      26.0,
+      6.0
+    ],
+    "pin1_net": "GND"
+  },
+  {
+    "ref": "R15",
+    "mpn": "0603WAF1002T5E",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      52.0,
+      34.0
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      51.175,
+      34.0
+    ],
+    "pin1_net": "M_AIN1"
+  },
+  {
+    "ref": "R8",
+    "mpn": "0603WAF1003T5E",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      43.9,
+      10.399999999999999
+    ],
+    "rotation_degrees": 180.0,
+    "pin1_mm": [
+      44.725,
+      10.399999999999999
+    ],
+    "pin1_net": "FB_5V"
+  },
+  {
+    "ref": "U3",
+    "mpn": "TPS61023DRLR",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      47.0,
+      13.0
+    ],
+    "rotation_degrees": 180.0,
+    "pin1_mm": [
+      47.7125,
+      12.5
+    ],
+    "pin1_net": "FB_5V"
+  },
+  {
+    "ref": "R9",
+    "mpn": "0603WAF1002T5E",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      26.0,
+      22.0
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      25.175,
+      22.0
+    ],
+    "pin1_net": "3V3"
+  },
+  {
+    "ref": "R14",
+    "mpn": "0603WAF1003T5E",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      39.8,
+      21.0
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      38.975,
+      21.0
+    ],
+    "pin1_net": "FAN_CMD"
+  },
+  {
+    "ref": "C20",
+    "mpn": "GRM21BR71C105KA01L",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      11.5,
+      24.6
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      10.55,
+      24.6
+    ],
+    "pin1_net": "USB_VBUS"
+  },
+  {
+    "ref": "R29",
+    "mpn": "0603WAF1003T5E",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      14.0,
+      15.600000000000001
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      13.175,
+      15.600000000000001
+    ],
+    "pin1_net": "POWER_GATE"
+  },
+  {
+    "ref": "RS2",
+    "mpn": "RL12FTNR390",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      41.2,
+      28.3
+    ],
+    "rotation_degrees": 90.0,
+    "pin1_mm": [
+      41.2,
+      26.8375
+    ],
+    "pin1_net": "B_SENSE"
+  },
+  {
+    "ref": "C16",
+    "mpn": "GRM21BR61C106KE15L",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      56.0,
+      30.2
+    ],
+    "rotation_degrees": 90.0,
+    "pin1_mm": [
+      56.0,
+      29.25
+    ],
+    "pin1_net": "VBAT"
+  },
+  {
+    "ref": "Q2",
+    "mpn": "AO3401A",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      10.2,
+      13.0
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      9.2625,
+      13.950000000000003
+    ],
+    "pin1_net": "REVERSE_GATE"
+  },
+  {
+    "ref": "C24",
+    "mpn": "GRM188R71C104KA01D",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      12.0,
+      22.0
+    ],
+    "rotation_degrees": 90.0,
+    "pin1_mm": [
+      12.0,
+      21.225
+    ],
+    "pin1_net": "USB_VBUS"
+  },
+  {
+    "ref": "J1",
+    "mpn": "B2B-XH-A(LF)(SN)",
+    "assembly": "THT",
+    "side": "Top",
+    "anchor_mm": [
+      4.0,
+      9.0
+    ],
+    "rotation_degrees": 90.0,
+    "pin1_mm": [
+      4.0,
+      9.0
+    ],
+    "pin1_net": "BAT_RAW"
+  },
+  {
+    "ref": "F1",
+    "mpn": "MF-MSMF200-2",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      12.5,
+      5.5
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      10.3625,
+      5.5
+    ],
+    "pin1_net": "BAT_RAW"
+  },
+  {
+    "ref": "C3",
+    "mpn": "GRM21BR61A226ME51L",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      14.5,
+      39.25
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      13.55,
+      39.25
+    ],
+    "pin1_net": "3V3"
+  },
+  {
+    "ref": "R7",
+    "mpn": "0603WAF7323T5E",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      46.0,
+      8.75
+    ],
+    "rotation_degrees": 180.0,
+    "pin1_mm": [
+      46.825,
+      8.75
+    ],
+    "pin1_net": "FAN_5V"
+  },
+  {
+    "ref": "C18",
+    "mpn": "CL10B103KB8NNNC",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      48.0,
+      25.5
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      47.225,
+      25.5
+    ],
+    "pin1_net": "DRV_VCP"
+  },
+  {
+    "ref": "J4",
+    "mpn": "B2B-PH-K-S(LF)(SN)",
+    "assembly": "THT",
+    "side": "Top",
+    "anchor_mm": [
+      54.0,
+      16.0
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      54.0,
+      16.0
+    ],
+    "pin1_net": "FAN_5V"
+  },
+  {
+    "ref": "L2",
+    "mpn": "74438357010",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      43.0,
+      14.0
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      41.815,
+      14.0
+    ],
+    "pin1_net": "VBAT"
+  },
+  {
+    "ref": "D1",
+    "mpn": "SS14",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      55.0,
+      10.0
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      53.0,
+      10.0
+    ],
+    "pin1_net": "FAN_5V"
+  },
+  {
+    "ref": "RS1",
+    "mpn": "RL12FTNR390",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      41.2,
+      33.8
+    ],
+    "rotation_degrees": 90.0,
+    "pin1_mm": [
+      41.2,
+      32.3375
+    ],
+    "pin1_net": "A_SENSE"
+  },
+  {
+    "ref": "U1",
+    "mpn": "ESP32-S3-WROOM-1-N16R8",
+    "assembly": "SMT",
+    "side": "Top",
+    "anchor_mm": [
+      30.0,
+      37.25
+    ],
+    "rotation_degrees": 0.0,
+    "pin1_mm": [
+      21.25,
+      42.51
+    ],
+    "pin1_net": "GND"
+  },
+  {
+    "ref": "TP7",
+    "mpn": "",
+    "assembly": "PCB_ONLY",
+    "side": "Bottom",
+    "anchor_mm": [
+      43.0,
+      21.0
+    ],
+    "rotation_degrees": 180.0,
+    "pin1_mm": [
+      43.0,
+      21.0
+    ],
+    "pin1_net": "M_FAULT_N"
+  },
+  {
+    "ref": "TP10",
+    "mpn": "",
+    "assembly": "PCB_ONLY",
+    "side": "Bottom",
+    "anchor_mm": [
+      18.0,
+      33.5
+    ],
+    "rotation_degrees": 180.0,
+    "pin1_mm": [
+      18.0,
+      33.5
+    ],
+    "pin1_net": "ESP_EN"
+  },
+  {
+    "ref": "TP8",
+    "mpn": "",
+    "assembly": "PCB_ONLY",
+    "side": "Bottom",
+    "anchor_mm": [
+      46.0,
+      42.0
+    ],
+    "rotation_degrees": 180.0,
+    "pin1_mm": [
+      46.0,
+      42.0
+    ],
+    "pin1_net": "BAT_ADC"
+  },
+  {
+    "ref": "TP9",
+    "mpn": "",
+    "assembly": "PCB_ONLY",
+    "side": "Bottom",
+    "anchor_mm": [
+      2.0,
+      37.5
+    ],
+    "rotation_degrees": 180.0,
+    "pin1_mm": [
+      2.0,
+      37.5
+    ],
+    "pin1_net": "USB_VBUS"
+  },
+  {
+    "ref": "C22",
+    "mpn": "GRM188R71C104KA01D",
+    "assembly": "SMT",
+    "side": "Bottom",
+    "anchor_mm": [
+      23.0,
+      8.299999999999997
+    ],
+    "rotation_degrees": 180.0,
+    "pin1_mm": [
+      23.775,
+      8.299999999999997
+    ],
+    "pin1_net": "3V3"
+  },
+  {
+    "ref": "TP6",
+    "mpn": "",
+    "assembly": "PCB_ONLY",
+    "side": "Bottom",
+    "anchor_mm": [
+      38.7,
+      16.5
+    ],
+    "rotation_degrees": 180.0,
+    "pin1_mm": [
+      38.7,
+      16.5
+    ],
+    "pin1_net": "ACT_EN"
+  },
+  {
+    "ref": "TP1",
+    "mpn": "",
+    "assembly": "PCB_ONLY",
+    "side": "Bottom",
+    "anchor_mm": [
+      9.0,
+      2.0
+    ],
+    "rotation_degrees": 180.0,
+    "pin1_mm": [
+      9.0,
+      2.0
+    ],
+    "pin1_net": "GND"
+  },
+  {
+    "ref": "C10",
+    "mpn": "CL10C221JB8NNNC",
+    "assembly": "DNP",
+    "side": "Bottom",
+    "anchor_mm": [
+      46.0,
+      8.75
+    ],
+    "rotation_degrees": 180.0,
+    "pin1_mm": [
+      46.775,
+      8.75
+    ],
+    "pin1_net": "FAN_5V"
+  },
+  {
+    "ref": "R13",
+    "mpn": "0603WAF1002T5E",
+    "assembly": "SMT",
+    "side": "Bottom",
+    "anchor_mm": [
+      27.0,
+      20.5
+    ],
+    "rotation_degrees": 180.0,
+    "pin1_mm": [
+      27.825,
+      20.5
+    ],
+    "pin1_net": "ACT_EN"
+  },
+  {
+    "ref": "SW1",
+    "mpn": "JS102011SAQN",
+    "assembly": "SMT",
+    "side": "Bottom",
+    "anchor_mm": [
+      5.0,
+      18.5
+    ],
+    "rotation_degrees": -90.0,
+    "pin1_mm": [
+      2.25,
+      21.0
+    ],
+    "pin1_net": "unconnected-(SW1-OFF-Pad1)"
+  },
+  {
+    "ref": "TP5",
+    "mpn": "",
+    "assembly": "PCB_ONLY",
+    "side": "Bottom",
+    "anchor_mm": [
+      24.0,
+      20.0
+    ],
+    "rotation_degrees": 180.0,
+    "pin1_mm": [
+      24.0,
+      20.0
+    ],
+    "pin1_net": "ACT_REQ"
+  },
+  {
+    "ref": "R1",
+    "mpn": "0603WAF1003T5E",
+    "assembly": "SMT",
+    "side": "Bottom",
+    "anchor_mm": [
+      12.0,
+      16.200000000000003
+    ],
+    "rotation_degrees": 180.0,
+    "pin1_mm": [
+      12.825,
+      16.200000000000003
+    ],
+    "pin1_net": "REVERSE_GATE"
+  },
+  {
+    "ref": "D2",
+    "mpn": "SS34",
+    "assembly": "SMT",
+    "side": "Bottom",
+    "anchor_mm": [
+      12.0,
+      33.0
+    ],
+    "rotation_degrees": 180.0,
+    "pin1_mm": [
+      14.0,
+      33.0
+    ],
+    "pin1_net": "VLOGIC_IN"
+  },
+  {
+    "ref": "C23",
+    "mpn": "GRM21BR71C105KA01L",
+    "assembly": "SMT",
+    "side": "Bottom",
+    "anchor_mm": [
+      15.0,
+      19.4
+    ],
+    "rotation_degrees": 180.0,
+    "pin1_mm": [
+      15.95,
+      19.4
+    ],
+    "pin1_net": "USB_LIMITED"
+  },
+  {
+    "ref": "C14",
+    "mpn": "GRM188R71C104KA01D",
+    "assembly": "SMT",
+    "side": "Bottom",
+    "anchor_mm": [
+      31.0,
+      18.7
+    ],
+    "rotation_degrees": 180.0,
+    "pin1_mm": [
+      31.775,
+      18.7
+    ],
+    "pin1_net": "3V3"
+  },
+  {
+    "ref": "TP11",
+    "mpn": "",
+    "assembly": "PCB_ONLY",
+    "side": "Bottom",
+    "anchor_mm": [
+      19.0,
+      20.5
+    ],
+    "rotation_degrees": 180.0,
+    "pin1_mm": [
+      19.0,
+      20.5
+    ],
+    "pin1_net": "USB_FAULT_N"
+  },
+  {
+    "ref": "TP3",
+    "mpn": "",
+    "assembly": "PCB_ONLY",
+    "side": "Bottom",
+    "anchor_mm": [
+      18.0,
+      36.7
+    ],
+    "rotation_degrees": 180.0,
+    "pin1_mm": [
+      18.0,
+      36.7
+    ],
+    "pin1_net": "3V3"
+  },
+  {
+    "ref": "SW2",
+    "mpn": "KMR221GLFS",
+    "assembly": "SMT",
+    "side": "Bottom",
+    "anchor_mm": [
+      30.0,
+      28.0
+    ],
+    "rotation_degrees": 180.0,
+    "pin1_mm": [
+      32.05,
+      28.8
+    ],
+    "pin1_net": "ESP_EN"
+  },
+  {
+    "ref": "R30",
+    "mpn": "0603WAF6812T5E",
+    "assembly": "SMT",
+    "side": "Bottom",
+    "anchor_mm": [
+      15.0,
+      22.5
+    ],
+    "rotation_degrees": 180.0,
+    "pin1_mm": [
+      15.825,
+      22.5
+    ],
+    "pin1_net": "USB_ILIM"
+  },
+  {
+    "ref": "R28",
+    "mpn": "0603WAF4701T5E",
+    "assembly": "SMT",
+    "side": "Bottom",
+    "anchor_mm": [
+      36.0,
+      23.2
+    ],
+    "rotation_degrees": 180.0,
+    "pin1_mm": [
+      36.825,
+      23.2
+    ],
+    "pin1_net": "3V3"
+  },
+  {
+    "ref": "R27",
+    "mpn": "0603WAF4701T5E",
+    "assembly": "SMT",
+    "side": "Bottom",
+    "anchor_mm": [
+      32.0,
+      23.2
+    ],
+    "rotation_degrees": 180.0,
+    "pin1_mm": [
+      32.825,
+      23.2
+    ],
+    "pin1_net": "3V3"
+  },
+  {
+    "ref": "R22",
+    "mpn": "0603WAF5101T5E",
+    "assembly": "SMT",
+    "side": "Bottom",
+    "anchor_mm": [
+      10.0,
+      26.0
+    ],
+    "rotation_degrees": 90.0,
+    "pin1_mm": [
+      10.0,
+      25.175
+    ],
+    "pin1_net": "USB_CC1"
+  },
+  {
+    "ref": "C15",
+    "mpn": "GRM188R71C104KA01D",
+    "assembly": "SMT",
+    "side": "Bottom",
+    "anchor_mm": [
+      36.0,
+      18.7
+    ],
+    "rotation_degrees": 180.0,
+    "pin1_mm": [
+      36.775,
+      18.7
+    ],
+    "pin1_net": "3V3"
+  },
+  {
+    "ref": "R26",
+    "mpn": "0603WAF0000T5E",
+    "assembly": "SMT",
+    "side": "Bottom",
+    "anchor_mm": [
+      4.0,
+      30.5
+    ],
+    "rotation_degrees": 180.0,
+    "pin1_mm": [
+      4.825,
+      30.5
+    ],
+    "pin1_net": "USB_SHIELD"
+  },
+  {
+    "ref": "TP4",
+    "mpn": "",
+    "assembly": "PCB_ONLY",
+    "side": "Bottom",
+    "anchor_mm": [
+      58.0,
+      7.5
+    ],
+    "rotation_degrees": 180.0,
+    "pin1_mm": [
+      58.0,
+      7.5
+    ],
+    "pin1_net": "FAN_5V"
+  },
+  {
+    "ref": "SW3",
+    "mpn": "KMR221GLFS",
+    "assembly": "SMT",
+    "side": "Bottom",
+    "anchor_mm": [
+      37.5,
+      28.0
+    ],
+    "rotation_degrees": 180.0,
+    "pin1_mm": [
+      39.55,
+      28.8
+    ],
+    "pin1_net": "BOOT_N"
+  },
+  {
+    "ref": "TP2",
+    "mpn": "",
+    "assembly": "PCB_ONLY",
+    "side": "Bottom",
+    "anchor_mm": [
+      11.0,
+      8.0
+    ],
+    "rotation_degrees": 180.0,
+    "pin1_mm": [
+      11.0,
+      8.0
+    ],
+    "pin1_net": "VBAT"
+  },
+  {
+    "ref": "R23",
+    "mpn": "0603WAF5101T5E",
+    "assembly": "SMT",
+    "side": "Bottom",
+    "anchor_mm": [
+      12.0,
+      26.0
+    ],
+    "rotation_degrees": 90.0,
+    "pin1_mm": [
+      12.0,
+      25.175
+    ],
+    "pin1_net": "USB_CC2"
+  }
+]

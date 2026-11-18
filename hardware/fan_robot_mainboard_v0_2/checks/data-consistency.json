@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "pcb_dimensions_mm": [
+    60.0,
+    50.0
+  ],
+  "copper_layers": 4,
+  "electrical_refs": 95,
+  "smt_installed": 76,
+  "tht_installed": 5,
+  "dnp": [
+    "C10",
+    "J7",
+    "J8"
+  ],
+  "pcb_testpads": 11,
+  "connected_schematic_pin_net_tuples": 290,
+  "tracks": 885,
+  "vias": 149,
+  "cpl_origin": "lower-left (0,50mm in KiCad board coordinates); +X right,+Y up; bottom X not negated",
+  "errors": [],
+  "physical_validation": "Not yet fabricated or electrically tested; engineering prototype only"
+}

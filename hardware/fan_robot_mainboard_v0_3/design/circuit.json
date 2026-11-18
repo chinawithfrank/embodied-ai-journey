@@ -1,0 +1,3363 @@
+{
+  "project": "FanRobot_Mainboard",
+  "revision": "0.3-engineering",
+  "release": "ENGINEERING_PROTOTYPE_FAB_READY",
+  "hardware_inputs": {
+    "updated": "2026-11-15",
+    "board": {
+      "target_mm": [
+        60,
+        50
+      ],
+      "target_layers": 2
+    },
+    "camera": {
+      "rows": 2,
+      "contacts_per_row": 9,
+      "pitch_mm": 2.54,
+      "row_spacing_mm": 2.54,
+      "grid_status": "USER_CONFIRMED",
+      "pcb_width_mm": 24.0,
+      "pcb_width_source": "user_dimension_drawing",
+      "grid_source": "user_confirmation",
+      "front_photo": "reference/camera-user-front-photo.png",
+      "photo_silkscreen": "OV5640",
+      "working_configuration": "BY-OV2640-V1.5; onboard 24 MHz",
+      "identity_status": "PHOTO_CONFLICT_WITH_PREVIOUS_CONFIRMED_BOARD; verify actual sensor PID at bring-up",
+      "existing_firmware_accepted_pid": "OV2640_PID",
+      "mainboard_connector_candidate": "BOOMELE 2.54-2*9P / C71956, selected and placed",
+      "connector_mpn": "BOOMELE 2.54-2*9P / C71956",
+      "mating_orientation_status": "Actual PCB pin1 GND/pin2 3V3 and top view documented; verify physical camera mating unpowered before integration"
+    },
+    "motors": {
+      "type": "N20 geared DC motor",
+      "quantity": 2,
+      "nominal_voltage_v": 6.0,
+      "advertised_speed_rpm": 60,
+      "speed_measurement_conditions": "not specified by seller evidence",
+      "specification_status": "USER_CONFIRMED_VOLTAGE_AND_SPEED",
+      "purchase_url": "https://item.taobao.com/item.htm?id=769096395403",
+      "running_current_a": null,
+      "starting_current_a": null,
+      "stall_current_a": null,
+      "drive_supply": "VBAT directly via DRV8833; no 6 V boost",
+      "battery_nominal_voltage_v": 4.5,
+      "pwm_duty_percent": 75,
+      "actual_speed_rpm": null,
+      "current_limit_status": "0.39ohm,0.5W fixed engineering prototype selection; loaded start/thermal qualification after fabrication"
+    },
+    "new_board_gpio_changes": {
+      "BAT_ADC": "GPIO1/ADC1_CH0",
+      "M_AIN1": "GPIO15",
+      "ACT_REQ": "GPIO47",
+      "M_FAULT_N": "GPIO42"
+    }
+  },
+  "parts": [
+    {
+      "ref": "J1",
+      "value": "3xAA_INPUT",
+      "package": "JST-XH-2.50_2P_CANDIDATE",
+      "pins": {
+        "1": {
+          "name": "BAT+",
+          "net": "BAT_RAW",
+          "type": "passive"
+        },
+        "2": {
+          "name": "BAT-",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "power",
+      "mpn": "B2B-XH-A(LF)(SN)",
+      "manufacturer": "JST",
+      "note": "3A rated header; use XHP-2 housing and SXH contacts with 22AWG battery wire. Pad1 battery positive, pad2 GND.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C158012",
+      "footprint": "FanRobot:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C158012.html",
+      "assembly": "THT",
+      "schematic_uuid": "080fbbd4-0ebf-5cdd-94fa-2f9be82afb1d",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/766ef4e5-b493-57b0-ab03-1ad41a32263d"
+    },
+    {
+      "ref": "SW1",
+      "value": "POWER_GATE_SWITCH",
+      "package": "SW_SPST_TBD",
+      "pins": {
+        "1": {
+          "name": "OFF",
+          "net": null,
+          "type": "passive"
+        },
+        "2": {
+          "name": "COMMON",
+          "net": "POWER_GATE",
+          "type": "passive"
+        },
+        "3": {
+          "name": "ON",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "power",
+      "mpn": "JS102011SAQN",
+      "manufacturer": "C&K",
+      "note": "SPDT: common pad2 POWER_GATE; pad3 GND enables power, pad1 NC. Carries MOSFET gate current only.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C221660",
+      "footprint": "FanRobot:SW_SPDT_CK_JS102011SAQN",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C221660.html",
+      "assembly": "SMT",
+      "schematic_uuid": "7a8ae23d-2414-5bbe-bdf3-31ea724b7f07",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/766ef4e5-b493-57b0-ab03-1ad41a32263d"
+    },
+    {
+      "ref": "F1",
+      "value": "2A_HOLD_PPTC",
+      "package": "TBD",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "BAT_RAW",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "BAT_FUSED",
+          "type": "passive"
+        }
+      },
+      "section": "power",
+      "mpn": "MF-MSMF200-2",
+      "manufacturer": "Bourns",
+      "note": "2A hold/4A trip at 23C, 8V PPTC. Thermal derating and loaded cell tests are prototype acceptance items; not precision motor current protection.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C210837",
+      "footprint": "FanRobot:Fuse_1812_4532Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C210837.html",
+      "assembly": "SMT",
+      "schematic_uuid": "56eb2983-58bb-5607-805a-77e8f990f1f1",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/766ef4e5-b493-57b0-ab03-1ad41a32263d"
+    },
+    {
+      "ref": "Q2",
+      "value": "AO3401A",
+      "package": "SOT-23",
+      "pins": {
+        "1": {
+          "name": "G",
+          "net": "REVERSE_GATE",
+          "type": "passive"
+        },
+        "2": {
+          "name": "S",
+          "net": "BAT_PROTECTED",
+          "type": "passive"
+        },
+        "3": {
+          "name": "D",
+          "net": "BAT_FUSED",
+          "type": "passive"
+        }
+      },
+      "section": "power",
+      "mpn": "AO3401A",
+      "manufacturer": "Alpha & Omega Semiconductor",
+      "note": "Reverse protector: D=BAT_FUSED, S=BAT_PROTECTED, gate to GND via R1. Intentional reverse D/S relative to conventional load switch.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C15127",
+      "footprint": "FanRobot:SOT-23",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C15127.html",
+      "assembly": "SMT",
+      "schematic_uuid": "9228f568-c41d-51ab-9aac-77d5127a7fa2",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/766ef4e5-b493-57b0-ab03-1ad41a32263d"
+    },
+    {
+      "ref": "R1",
+      "value": "100k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "REVERSE_GATE",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "power",
+      "mpn": "0603WAF1003T5E",
+      "manufacturer": "UNI-ROYAL",
+      "note": "1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C25803",
+      "footprint": "FanRobot:R_0603_1608Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C25803.html",
+      "assembly": "SMT",
+      "schematic_uuid": "66b2f2e9-e946-56bd-aff6-435579235a0a",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/766ef4e5-b493-57b0-ab03-1ad41a32263d"
+    },
+    {
+      "ref": "C1",
+      "value": "220uF_10V",
+      "package": "SMD_ELECTROLYTIC_TBD",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "VBAT",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "power",
+      "mpn": "10SVPE220M",
+      "manufacturer": "Panasonic",
+      "note": "220uF10V OS-CON polymer; ESR20mOhm, ripple2.7Arms@100kHz/105C (frequency derating applies),6.3x5.9mm,C6. Pad1 positive. Panasonic land a2.1,b9.1,c1.6mm. Do not replace with low-ripple general-purpose electrolytic.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C165949",
+      "footprint": "FanRobot:CP_OSCON_C6_6.3x5.9",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C165949.html",
+      "assembly": "SMT",
+      "schematic_uuid": "369aff58-41c8-5651-b196-09d58f9aa2f8",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/766ef4e5-b493-57b0-ab03-1ad41a32263d"
+    },
+    {
+      "ref": "D2",
+      "value": "SS34",
+      "package": "SMA",
+      "pins": {
+        "1": {
+          "name": "K",
+          "net": "VLOGIC_IN",
+          "type": "passive"
+        },
+        "2": {
+          "name": "A",
+          "net": "VBAT",
+          "type": "passive"
+        }
+      },
+      "section": "power",
+      "mpn": "SS34",
+      "manufacturer": "MDD",
+      "note": "Cathode=pad1. D2/D3 diode OR only powers logic; no USB backfeed into battery. Validate reverse leakage and temperature.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C8678",
+      "footprint": "FanRobot:D_SMA",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C8678.html",
+      "assembly": "SMT",
+      "schematic_uuid": "d6a33e01-bef6-51f6-bf0f-b32e24164646",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/766ef4e5-b493-57b0-ab03-1ad41a32263d"
+    },
+    {
+      "ref": "D3",
+      "value": "SS34",
+      "package": "SMA",
+      "pins": {
+        "1": {
+          "name": "K",
+          "net": "VLOGIC_IN",
+          "type": "passive"
+        },
+        "2": {
+          "name": "A",
+          "net": "USB_LIMITED",
+          "type": "passive"
+        }
+      },
+      "section": "power",
+      "mpn": "SS34",
+      "manufacturer": "MDD",
+      "note": "Cathode=pad1. D2/D3 diode OR only powers logic; no USB backfeed into battery. Validate reverse leakage and temperature.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C8678",
+      "footprint": "FanRobot:D_SMA",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C8678.html",
+      "assembly": "SMT",
+      "schematic_uuid": "74b91370-d71c-5b3a-8653-c4e10dece649",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/766ef4e5-b493-57b0-ab03-1ad41a32263d"
+    },
+    {
+      "ref": "U2",
+      "value": "TPS63802DLAR",
+      "package": "DLA_10_VSON_HR",
+      "pins": {
+        "1": {
+          "name": "EN",
+          "net": "LOGIC_UVLO",
+          "type": "input"
+        },
+        "2": {
+          "name": "MODE",
+          "net": "GND",
+          "type": "input"
+        },
+        "3": {
+          "name": "AGND",
+          "net": "GND",
+          "type": "power_in"
+        },
+        "4": {
+          "name": "FB",
+          "net": "FB_3V3",
+          "type": "input"
+        },
+        "5": {
+          "name": "PG",
+          "net": "ESP_EN",
+          "type": "open_collector"
+        },
+        "6": {
+          "name": "VOUT",
+          "net": "3V3",
+          "type": "power_out"
+        },
+        "7": {
+          "name": "L2",
+          "net": "LOGIC_L2",
+          "type": "passive"
+        },
+        "8": {
+          "name": "GND",
+          "net": "GND",
+          "type": "power_in"
+        },
+        "9": {
+          "name": "L1",
+          "net": "LOGIC_L1",
+          "type": "passive"
+        },
+        "10": {
+          "name": "VIN",
+          "net": "VLOGIC_IN",
+          "type": "power_in"
+        }
+      },
+      "section": "power",
+      "mpn": "TPS63802DLAR",
+      "manufacturer": "Texas Instruments",
+      "note": "3.3V buck-boost; power-save mode. Layout/effective capacitance/inductor validation required.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C2845237",
+      "footprint": "FanRobot:TPS63802_DLA0010A",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C2845237.html",
+      "assembly": "SMT",
+      "schematic_uuid": "4ae68ee4-31b0-5a99-bbcb-649ecab7e2f4",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/766ef4e5-b493-57b0-ab03-1ad41a32263d"
+    },
+    {
+      "ref": "L1",
+      "value": "0.47uH",
+      "package": "SHIELDED_INDUCTOR_TBD",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "LOGIC_L1",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "LOGIC_L2",
+          "type": "passive"
+        }
+      },
+      "section": "power",
+      "mpn": "DFE201612E-R47M=P2",
+      "manufacturer": "Murata",
+      "note": "470nH +/-20%; Isat 5.5A (30% drop), Itemp 4.5A, DCR max26mOhm. Listed in TI TPS63802 recommended inductors.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C668312",
+      "footprint": "FanRobot:L_Murata_DFE201612E",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C668312.html",
+      "assembly": "SMT",
+      "schematic_uuid": "422a9580-b788-5730-a38c-18572ab8b3f3",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/766ef4e5-b493-57b0-ab03-1ad41a32263d"
+    },
+    {
+      "ref": "C2",
+      "value": "22uF_10V",
+      "package": "0805",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "VLOGIC_IN",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "power",
+      "mpn": "GRM21BR61A226ME51L",
+      "manufacturer": "Murata",
+      "note": "X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C77074",
+      "footprint": "FanRobot:C_0805_2012Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C77074.html",
+      "assembly": "SMT",
+      "schematic_uuid": "a89e795c-4236-5692-a6ba-cd156a0d773b",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/766ef4e5-b493-57b0-ab03-1ad41a32263d"
+    },
+    {
+      "ref": "C3",
+      "value": "22uF_10V",
+      "package": "0805",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "3V3",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "power",
+      "mpn": "GRM21BR61A226ME51L",
+      "manufacturer": "Murata",
+      "note": "X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C77074",
+      "footprint": "FanRobot:C_0805_2012Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C77074.html",
+      "assembly": "SMT",
+      "schematic_uuid": "c6d168bd-e799-55fa-8c7d-3fb7c32cc981",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/766ef4e5-b493-57b0-ab03-1ad41a32263d"
+    },
+    {
+      "ref": "C4",
+      "value": "22uF_10V",
+      "package": "0805",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "3V3",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "power",
+      "mpn": "GRM21BR61A226ME51L",
+      "manufacturer": "Murata",
+      "note": "X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C77074",
+      "footprint": "FanRobot:C_0805_2012Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C77074.html",
+      "assembly": "SMT",
+      "schematic_uuid": "ff701310-b82a-5a2e-a079-e71d890096b2",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/766ef4e5-b493-57b0-ab03-1ad41a32263d"
+    },
+    {
+      "ref": "R2",
+      "value": "560k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "3V3",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "FB_3V3",
+          "type": "passive"
+        }
+      },
+      "section": "power",
+      "mpn": "0603WAF5603T5E",
+      "manufacturer": "UNI-ROYAL",
+      "note": "1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C23203",
+      "footprint": "FanRobot:R_0603_1608Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C23203.html",
+      "assembly": "SMT",
+      "schematic_uuid": "e48c2458-f4ef-5fc9-986b-a5b688e42490",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/766ef4e5-b493-57b0-ab03-1ad41a32263d"
+    },
+    {
+      "ref": "R3",
+      "value": "100k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "FB_3V3",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "power",
+      "mpn": "0603WAF1003T5E",
+      "manufacturer": "UNI-ROYAL",
+      "note": "1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C25803",
+      "footprint": "FanRobot:R_0603_1608Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C25803.html",
+      "assembly": "SMT",
+      "schematic_uuid": "49757559-afbb-5b49-b5bf-3e057de9b2c4",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/766ef4e5-b493-57b0-ab03-1ad41a32263d"
+    },
+    {
+      "ref": "R4",
+      "value": "180k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "VLOGIC_IN",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "LOGIC_UVLO",
+          "type": "passive"
+        }
+      },
+      "section": "power",
+      "mpn": "0603WAF1803T5E",
+      "manufacturer": "UNI-ROYAL",
+      "note": "1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C22827",
+      "footprint": "FanRobot:R_0603_1608Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C22827.html",
+      "assembly": "SMT",
+      "schematic_uuid": "7ea69744-3268-5839-95aa-96705551514b",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/766ef4e5-b493-57b0-ab03-1ad41a32263d"
+    },
+    {
+      "ref": "R5",
+      "value": "100k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "LOGIC_UVLO",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "power",
+      "mpn": "0603WAF1003T5E",
+      "manufacturer": "UNI-ROYAL",
+      "note": "1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C25803",
+      "footprint": "FanRobot:R_0603_1608Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C25803.html",
+      "assembly": "SMT",
+      "schematic_uuid": "63c32dae-2d1c-586b-b84c-79d74c3ac168",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/766ef4e5-b493-57b0-ab03-1ad41a32263d"
+    },
+    {
+      "ref": "C5",
+      "value": "1nF_50V",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "LOGIC_UVLO",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "power",
+      "mpn": "CL10B102KB8NNNC",
+      "manufacturer": "Samsung Electro-Mechanics",
+      "note": "X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C1588",
+      "footprint": "FanRobot:C_0603_1608Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C1588.html",
+      "assembly": "SMT",
+      "schematic_uuid": "ec65a221-c880-5d9a-a3c9-557792deff28",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/766ef4e5-b493-57b0-ab03-1ad41a32263d"
+    },
+    {
+      "ref": "R6",
+      "value": "10k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "3V3",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "ESP_EN",
+          "type": "passive"
+        }
+      },
+      "section": "power",
+      "mpn": "0603WAF1002T5E",
+      "manufacturer": "UNI-ROYAL",
+      "note": "1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C25804",
+      "footprint": "FanRobot:R_0603_1608Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C25804.html",
+      "assembly": "SMT",
+      "schematic_uuid": "980ba4ce-2676-5e91-bd5b-366a12e3287b",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/766ef4e5-b493-57b0-ab03-1ad41a32263d"
+    },
+    {
+      "ref": "C6",
+      "value": "1uF_16V",
+      "package": "0805",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "ESP_EN",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "power",
+      "mpn": "GRM21BR71C105KA01L",
+      "manufacturer": "Murata",
+      "note": "X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C77079",
+      "footprint": "FanRobot:C_0805_2012Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C77079.html",
+      "assembly": "SMT",
+      "schematic_uuid": "fd65bab5-8c91-516e-9e0f-141b9e3c100f",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/766ef4e5-b493-57b0-ab03-1ad41a32263d"
+    },
+    {
+      "ref": "U3",
+      "value": "TPS61023DRLR",
+      "package": "DRL_6_SOT563",
+      "pins": {
+        "1": {
+          "name": "FB",
+          "net": "FB_5V",
+          "type": "input"
+        },
+        "2": {
+          "name": "EN",
+          "net": "ACT_EN",
+          "type": "input"
+        },
+        "3": {
+          "name": "VIN",
+          "net": "VBAT",
+          "type": "power_in"
+        },
+        "4": {
+          "name": "GND",
+          "net": "GND",
+          "type": "power_in"
+        },
+        "5": {
+          "name": "SW",
+          "net": "FAN_BOOST_SW",
+          "type": "passive"
+        },
+        "6": {
+          "name": "VOUT",
+          "net": "FAN_5V",
+          "type": "power_out"
+        }
+      },
+      "section": "power",
+      "mpn": "TPS61023DRLR",
+      "manufacturer": "Texas Instruments",
+      "note": "5V fan supply, enabled by actuator interlock; battery only, no USB actuator feed",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C919459",
+      "footprint": "FanRobot:SOT-563",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C919459.html",
+      "assembly": "SMT",
+      "schematic_uuid": "dae3a865-337d-5194-9276-f6a056f21951",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/766ef4e5-b493-57b0-ab03-1ad41a32263d"
+    },
+    {
+      "ref": "L2",
+      "value": "1uH",
+      "package": "SHIELDED_INDUCTOR_TBD",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "VBAT",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "FAN_BOOST_SW",
+          "type": "passive"
+        }
+      },
+      "section": "power",
+      "mpn": "74438357010",
+      "manufacturer": "Wurth Elektronik",
+      "note": "1uH +/-20%; TI TPS61023 recommended inductor; Isat9.6A, DCR max13.5mOhm. No substitution with same-size low-current part.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C5542269",
+      "footprint": "FanRobot:L_Wuerth_MAPI-4030",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C5542269.html",
+      "assembly": "SMT",
+      "schematic_uuid": "1dd68541-8874-5c2d-ab43-17ef38208361",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/766ef4e5-b493-57b0-ab03-1ad41a32263d"
+    },
+    {
+      "ref": "C7",
+      "value": "10uF_16V",
+      "package": "0805",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "VBAT",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "power",
+      "mpn": "GRM21BR61C106KE15L",
+      "manufacturer": "Murata",
+      "note": "X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C77075",
+      "footprint": "FanRobot:C_0805_2012Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C77075.html",
+      "assembly": "SMT",
+      "schematic_uuid": "c2f1e027-7cf6-57c4-ace5-93ea8c7d367b",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/766ef4e5-b493-57b0-ab03-1ad41a32263d"
+    },
+    {
+      "ref": "C8",
+      "value": "22uF_10V",
+      "package": "0805",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "FAN_5V",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "power",
+      "mpn": "GRM21BR61A226ME51L",
+      "manufacturer": "Murata",
+      "note": "X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C77074",
+      "footprint": "FanRobot:C_0805_2012Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C77074.html",
+      "assembly": "SMT",
+      "schematic_uuid": "2c5bd51a-400a-593d-bbf8-e03d25cde819",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/766ef4e5-b493-57b0-ab03-1ad41a32263d"
+    },
+    {
+      "ref": "C9",
+      "value": "22uF_10V",
+      "package": "0805",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "FAN_5V",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "power",
+      "mpn": "GRM21BR61A226ME51L",
+      "manufacturer": "Murata",
+      "note": "X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C77074",
+      "footprint": "FanRobot:C_0805_2012Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C77074.html",
+      "assembly": "SMT",
+      "schematic_uuid": "87ced250-76d1-56ee-85fa-a2b7224e10b4",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/766ef4e5-b493-57b0-ab03-1ad41a32263d"
+    },
+    {
+      "ref": "R7",
+      "value": "732k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "FAN_5V",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "FB_5V",
+          "type": "passive"
+        }
+      },
+      "section": "power",
+      "mpn": "0603WAF7323T5E",
+      "manufacturer": "UNI-ROYAL",
+      "note": "1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C23239",
+      "footprint": "FanRobot:R_0603_1608Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C23239.html",
+      "assembly": "SMT",
+      "schematic_uuid": "45cc7d8b-6413-5035-a655-e3fdcfabda01",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/766ef4e5-b493-57b0-ab03-1ad41a32263d"
+    },
+    {
+      "ref": "R8",
+      "value": "100k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "FB_5V",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "power",
+      "mpn": "0603WAF1003T5E",
+      "manufacturer": "UNI-ROYAL",
+      "note": "1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C25803",
+      "footprint": "FanRobot:R_0603_1608Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C25803.html",
+      "assembly": "SMT",
+      "schematic_uuid": "f414e5cb-2f72-5221-a33e-4ba575d8fd40",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/766ef4e5-b493-57b0-ab03-1ad41a32263d"
+    },
+    {
+      "ref": "C10",
+      "value": "220pF_DNP",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "FAN_5V",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "FB_5V",
+          "type": "passive"
+        }
+      },
+      "section": "power",
+      "mpn": "CL10C221JB8NNNC",
+      "manufacturer": "Samsung Electro-Mechanics",
+      "note": "X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C27675",
+      "footprint": "FanRobot:C_0603_1608Metric",
+      "dnp": true,
+      "source": "https://www.lcsc.com/product-detail/C27675.html",
+      "assembly": "DNP",
+      "schematic_uuid": "e9df97c8-8344-5b65-bc38-b06f7db2c67e",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/766ef4e5-b493-57b0-ab03-1ad41a32263d"
+    },
+    {
+      "ref": "U1",
+      "value": "ESP32-S3-WROOM-1-N16R8",
+      "package": "ESP32-S3-WROOM-1",
+      "pins": {
+        "1": {
+          "name": "GND",
+          "net": "GND",
+          "type": "power_in"
+        },
+        "2": {
+          "name": "3V3",
+          "net": "3V3",
+          "type": "power_in"
+        },
+        "3": {
+          "name": "EN",
+          "net": "ESP_EN",
+          "type": "input"
+        },
+        "4": {
+          "name": "IO4",
+          "net": "CAM_D0",
+          "type": "bidirectional"
+        },
+        "5": {
+          "name": "IO5",
+          "net": "CAM_D1",
+          "type": "bidirectional"
+        },
+        "6": {
+          "name": "IO6",
+          "net": "CAM_D2",
+          "type": "bidirectional"
+        },
+        "7": {
+          "name": "IO7",
+          "net": "CAM_D3",
+          "type": "bidirectional"
+        },
+        "8": {
+          "name": "IO15",
+          "net": "M_AIN1",
+          "type": "bidirectional"
+        },
+        "9": {
+          "name": "IO16",
+          "net": "CAM_VSYNC",
+          "type": "bidirectional"
+        },
+        "10": {
+          "name": "IO17",
+          "net": "CAM_HREF",
+          "type": "bidirectional"
+        },
+        "11": {
+          "name": "IO18",
+          "net": "CAM_SDA",
+          "type": "bidirectional"
+        },
+        "12": {
+          "name": "IO8",
+          "net": "CAM_D4",
+          "type": "bidirectional"
+        },
+        "13": {
+          "name": "IO19",
+          "net": "USB_DM_MCU",
+          "type": "bidirectional"
+        },
+        "14": {
+          "name": "IO20",
+          "net": "USB_DP_MCU",
+          "type": "bidirectional"
+        },
+        "15": {
+          "name": "IO3",
+          "net": null,
+          "type": "bidirectional"
+        },
+        "16": {
+          "name": "IO46",
+          "net": null,
+          "type": "bidirectional"
+        },
+        "17": {
+          "name": "IO9",
+          "net": "CAM_D5",
+          "type": "bidirectional"
+        },
+        "18": {
+          "name": "IO10",
+          "net": "CAM_D6",
+          "type": "bidirectional"
+        },
+        "19": {
+          "name": "IO11",
+          "net": "CAM_D7",
+          "type": "bidirectional"
+        },
+        "20": {
+          "name": "IO12",
+          "net": "CAM_PWDN",
+          "type": "bidirectional"
+        },
+        "21": {
+          "name": "IO13",
+          "net": "CAM_PCLK",
+          "type": "bidirectional"
+        },
+        "22": {
+          "name": "IO14",
+          "net": "CAM_RST",
+          "type": "bidirectional"
+        },
+        "23": {
+          "name": "IO21",
+          "net": "CAM_SCL",
+          "type": "bidirectional"
+        },
+        "24": {
+          "name": "IO47",
+          "net": "ACT_REQ",
+          "type": "bidirectional"
+        },
+        "25": {
+          "name": "IO48",
+          "net": "EXP_SCL",
+          "type": "bidirectional"
+        },
+        "26": {
+          "name": "IO45",
+          "net": null,
+          "type": "bidirectional"
+        },
+        "27": {
+          "name": "IO0",
+          "net": "BOOT_N",
+          "type": "bidirectional"
+        },
+        "28": {
+          "name": "IO35",
+          "net": null,
+          "type": "bidirectional"
+        },
+        "29": {
+          "name": "IO36",
+          "net": null,
+          "type": "bidirectional"
+        },
+        "30": {
+          "name": "IO37",
+          "net": null,
+          "type": "bidirectional"
+        },
+        "31": {
+          "name": "IO38",
+          "net": "M_BIN1",
+          "type": "bidirectional"
+        },
+        "32": {
+          "name": "IO39",
+          "net": "M_BIN2",
+          "type": "bidirectional"
+        },
+        "33": {
+          "name": "IO40",
+          "net": "FAN_CMD",
+          "type": "bidirectional"
+        },
+        "34": {
+          "name": "IO41",
+          "net": "EXP_SDA",
+          "type": "bidirectional"
+        },
+        "35": {
+          "name": "IO42",
+          "net": "M_FAULT_N",
+          "type": "bidirectional"
+        },
+        "36": {
+          "name": "RXD0",
+          "net": "UART_RX",
+          "type": "input"
+        },
+        "37": {
+          "name": "TXD0",
+          "net": "UART_TX",
+          "type": "output"
+        },
+        "38": {
+          "name": "IO2",
+          "net": "M_AIN2",
+          "type": "bidirectional"
+        },
+        "39": {
+          "name": "IO1",
+          "net": "BAT_ADC",
+          "type": "bidirectional"
+        },
+        "40": {
+          "name": "GND",
+          "net": "GND",
+          "type": "power_in"
+        },
+        "41": {
+          "name": "EPAD",
+          "net": "GND",
+          "type": "power_in"
+        }
+      },
+      "section": "mcu",
+      "mpn": "ESP32-S3-WROOM-1-N16R8",
+      "manufacturer": "Espressif Systems",
+      "note": "N16R8: 16MB Flash, 8MB Octal PSRAM. GPIO35/36/37 NC. New board: BAT_ADC GPIO1/ADC1; AIN1 GPIO15. Other mappings preserved.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C2913202",
+      "footprint": "FanRobot:ESP32-S3-WROOM-1",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C2913202.html",
+      "assembly": "SMT",
+      "schematic_uuid": "1cf33593-8fbd-5bf8-8184-b868ef9c4b89",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/4e5eb94d-a3bf-567f-8a80-9741ff5494ee"
+    },
+    {
+      "ref": "C11",
+      "value": "22uF_10V",
+      "package": "0805",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "3V3",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "mcu",
+      "mpn": "GRM21BR61A226ME51L",
+      "manufacturer": "Murata",
+      "note": "X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C77074",
+      "footprint": "FanRobot:C_0805_2012Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C77074.html",
+      "assembly": "SMT",
+      "schematic_uuid": "47ff33c7-f76d-5a69-85db-f9ce05124dca",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/4e5eb94d-a3bf-567f-8a80-9741ff5494ee"
+    },
+    {
+      "ref": "C12",
+      "value": "100nF_16V",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "3V3",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "mcu",
+      "mpn": "GRM188R71C104KA01D",
+      "manufacturer": "Murata",
+      "note": "X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C45000",
+      "footprint": "FanRobot:C_0603_1608Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C45000.html",
+      "assembly": "SMT",
+      "schematic_uuid": "030fb274-8e8c-52a0-a04e-ac1d5cd89b75",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/4e5eb94d-a3bf-567f-8a80-9741ff5494ee"
+    },
+    {
+      "ref": "R9",
+      "value": "10k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "3V3",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "BOOT_N",
+          "type": "passive"
+        }
+      },
+      "section": "mcu",
+      "mpn": "0603WAF1002T5E",
+      "manufacturer": "UNI-ROYAL",
+      "note": "1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C25804",
+      "footprint": "FanRobot:R_0603_1608Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C25804.html",
+      "assembly": "SMT",
+      "schematic_uuid": "344ee90c-4571-5da2-a24c-f22abc59db9d",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/4e5eb94d-a3bf-567f-8a80-9741ff5494ee"
+    },
+    {
+      "ref": "SW2",
+      "value": "RESET",
+      "package": "TACT_SWITCH_TBD",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "ESP_EN",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "mcu",
+      "mpn": "KMR221GLFS",
+      "manufacturer": "C&K",
+      "note": "",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C72443",
+      "footprint": "FanRobot:SW_Push_1P1T_NO_CK_KMR2",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C72443.html",
+      "assembly": "SMT",
+      "schematic_uuid": "afa6103e-f630-5e32-b6e9-f9d13c38c1b7",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/4e5eb94d-a3bf-567f-8a80-9741ff5494ee"
+    },
+    {
+      "ref": "SW3",
+      "value": "BOOT",
+      "package": "TACT_SWITCH_TBD",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "BOOT_N",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "mcu",
+      "mpn": "KMR221GLFS",
+      "manufacturer": "C&K",
+      "note": "",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C72443",
+      "footprint": "FanRobot:SW_Push_1P1T_NO_CK_KMR2",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C72443.html",
+      "assembly": "SMT",
+      "schematic_uuid": "ce4a0e7e-0683-5ecb-8e95-77d9eb1608ae",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/4e5eb94d-a3bf-567f-8a80-9741ff5494ee"
+    },
+    {
+      "ref": "R10",
+      "value": "1M",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "VBAT",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "BAT_ADC",
+          "type": "passive"
+        }
+      },
+      "section": "mcu",
+      "mpn": "0603WAF1004T5E",
+      "manufacturer": "UNI-ROYAL",
+      "note": "1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C22935",
+      "footprint": "FanRobot:R_0603_1608Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C22935.html",
+      "assembly": "SMT",
+      "schematic_uuid": "9cfd42da-e81e-54a2-a189-64ba5b5bfd48",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/4e5eb94d-a3bf-567f-8a80-9741ff5494ee"
+    },
+    {
+      "ref": "R11",
+      "value": "330k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "BAT_ADC",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "mcu",
+      "mpn": "0603WAF3303T5E",
+      "manufacturer": "UNI-ROYAL",
+      "note": "1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C23137",
+      "footprint": "FanRobot:R_0603_1608Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C23137.html",
+      "assembly": "SMT",
+      "schematic_uuid": "5a87e2e0-8fff-514c-9d93-d0c7c2e76755",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/4e5eb94d-a3bf-567f-8a80-9741ff5494ee"
+    },
+    {
+      "ref": "C13",
+      "value": "100nF_16V",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "BAT_ADC",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "mcu",
+      "mpn": "GRM188R71C104KA01D",
+      "manufacturer": "Murata",
+      "note": "X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C45000",
+      "footprint": "FanRobot:C_0603_1608Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C45000.html",
+      "assembly": "SMT",
+      "schematic_uuid": "d8d04970-e57a-5863-b9af-0add3bd0c9e3",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/4e5eb94d-a3bf-567f-8a80-9741ff5494ee"
+    },
+    {
+      "ref": "U6",
+      "value": "SN74LVC1G08DBVR",
+      "package": "SOT-23-5",
+      "pins": {
+        "1": {
+          "name": "A",
+          "net": "ACT_REQ",
+          "type": "input"
+        },
+        "2": {
+          "name": "B",
+          "net": "ESP_EN",
+          "type": "input"
+        },
+        "3": {
+          "name": "GND",
+          "net": "GND",
+          "type": "power_in"
+        },
+        "4": {
+          "name": "Y",
+          "net": "ACT_EN",
+          "type": "output"
+        },
+        "5": {
+          "name": "VCC",
+          "net": "3V3",
+          "type": "power_in"
+        }
+      },
+      "section": "interlock",
+      "mpn": "SN74LVC1G08DBVR",
+      "manufacturer": "Texas Instruments",
+      "note": "Ioff device required; no 74HC/5V-only substitution",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C7666",
+      "footprint": "FanRobot:SOT-23-5",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C7666.html",
+      "assembly": "SMT",
+      "schematic_uuid": "e4842c70-0d4e-53f1-9506-4668ea7630da",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/18f02339-f1ba-5d16-9b61-43296faae197"
+    },
+    {
+      "ref": "U7",
+      "value": "SN74LVC1G08DBVR",
+      "package": "SOT-23-5",
+      "pins": {
+        "1": {
+          "name": "A",
+          "net": "FAN_CMD",
+          "type": "input"
+        },
+        "2": {
+          "name": "B",
+          "net": "ACT_EN",
+          "type": "input"
+        },
+        "3": {
+          "name": "GND",
+          "net": "GND",
+          "type": "power_in"
+        },
+        "4": {
+          "name": "Y",
+          "net": "FAN_GATE_LOGIC",
+          "type": "output"
+        },
+        "5": {
+          "name": "VCC",
+          "net": "3V3",
+          "type": "power_in"
+        }
+      },
+      "section": "interlock",
+      "mpn": "SN74LVC1G08DBVR",
+      "manufacturer": "Texas Instruments",
+      "note": "Ioff device required; no 74HC/5V-only substitution",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C7666",
+      "footprint": "FanRobot:SOT-23-5",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C7666.html",
+      "assembly": "SMT",
+      "schematic_uuid": "3105c9c7-a5b8-5173-a147-0665e728f500",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/18f02339-f1ba-5d16-9b61-43296faae197"
+    },
+    {
+      "ref": "R12",
+      "value": "10k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "ACT_REQ",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "interlock",
+      "mpn": "0603WAF1002T5E",
+      "manufacturer": "UNI-ROYAL",
+      "note": "1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C25804",
+      "footprint": "FanRobot:R_0603_1608Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C25804.html",
+      "assembly": "SMT",
+      "schematic_uuid": "b2ac047a-c00a-531e-a1e3-a280d4f91f8a",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/18f02339-f1ba-5d16-9b61-43296faae197"
+    },
+    {
+      "ref": "R13",
+      "value": "10k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "ACT_EN",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "interlock",
+      "mpn": "0603WAF1002T5E",
+      "manufacturer": "UNI-ROYAL",
+      "note": "1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C25804",
+      "footprint": "FanRobot:R_0603_1608Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C25804.html",
+      "assembly": "SMT",
+      "schematic_uuid": "b7ec06dc-56f1-5d57-abac-08cbff54dd09",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/18f02339-f1ba-5d16-9b61-43296faae197"
+    },
+    {
+      "ref": "R14",
+      "value": "100k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "FAN_CMD",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "interlock",
+      "mpn": "0603WAF1003T5E",
+      "manufacturer": "UNI-ROYAL",
+      "note": "1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C25803",
+      "footprint": "FanRobot:R_0603_1608Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C25803.html",
+      "assembly": "SMT",
+      "schematic_uuid": "28ecc6b6-04cb-5d0e-879e-dfcb2baf0c2a",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/18f02339-f1ba-5d16-9b61-43296faae197"
+    },
+    {
+      "ref": "C14",
+      "value": "100nF_16V",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "3V3",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "interlock",
+      "mpn": "GRM188R71C104KA01D",
+      "manufacturer": "Murata",
+      "note": "X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C45000",
+      "footprint": "FanRobot:C_0603_1608Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C45000.html",
+      "assembly": "SMT",
+      "schematic_uuid": "64baf4b2-6e60-56a1-a27d-7cbea0643b8b",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/18f02339-f1ba-5d16-9b61-43296faae197"
+    },
+    {
+      "ref": "C15",
+      "value": "100nF_16V",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "3V3",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "interlock",
+      "mpn": "GRM188R71C104KA01D",
+      "manufacturer": "Murata",
+      "note": "X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C45000",
+      "footprint": "FanRobot:C_0603_1608Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C45000.html",
+      "assembly": "SMT",
+      "schematic_uuid": "3492d88a-f0cb-5283-b947-f99463ebd2bd",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/18f02339-f1ba-5d16-9b61-43296faae197"
+    },
+    {
+      "ref": "U4",
+      "value": "DRV8833PWPR",
+      "package": "HTSSOP-16_PWP_EP",
+      "pins": {
+        "1": {
+          "name": "nSLEEP",
+          "net": "ACT_EN",
+          "type": "input"
+        },
+        "2": {
+          "name": "AOUT1",
+          "net": "MOTOR_A1",
+          "type": "output"
+        },
+        "3": {
+          "name": "AISEN",
+          "net": "A_SENSE",
+          "type": "passive"
+        },
+        "4": {
+          "name": "AOUT2",
+          "net": "MOTOR_A2",
+          "type": "output"
+        },
+        "5": {
+          "name": "BOUT2",
+          "net": "MOTOR_B2",
+          "type": "output"
+        },
+        "6": {
+          "name": "BISEN",
+          "net": "B_SENSE",
+          "type": "passive"
+        },
+        "7": {
+          "name": "BOUT1",
+          "net": "MOTOR_B1",
+          "type": "output"
+        },
+        "8": {
+          "name": "nFAULT",
+          "net": "M_FAULT_N",
+          "type": "open_collector"
+        },
+        "9": {
+          "name": "BIN1",
+          "net": "M_BIN1",
+          "type": "input"
+        },
+        "10": {
+          "name": "BIN2",
+          "net": "M_BIN2",
+          "type": "input"
+        },
+        "11": {
+          "name": "VCP",
+          "net": "DRV_VCP",
+          "type": "passive"
+        },
+        "12": {
+          "name": "VM",
+          "net": "VBAT",
+          "type": "power_in"
+        },
+        "13": {
+          "name": "GND",
+          "net": "GND",
+          "type": "power_in"
+        },
+        "14": {
+          "name": "VINT",
+          "net": "DRV_VINT",
+          "type": "power_out"
+        },
+        "15": {
+          "name": "AIN2",
+          "net": "M_AIN2",
+          "type": "input"
+        },
+        "16": {
+          "name": "AIN1",
+          "net": "M_AIN1",
+          "type": "input"
+        },
+        "17": {
+          "name": "EPAD",
+          "net": "GND",
+          "type": "power_in"
+        }
+      },
+      "section": "motor",
+      "mpn": "DRV8833PWPR",
+      "manufacturer": "Texas Instruments",
+      "note": "PowerPAD grounded with thermal-via array; cannot substitute PW/TSSOP or DRV8833C blindly",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C50506",
+      "footprint": "FanRobot:HTSSOP-16-1EP_4.4x5mm_P0.65mm_EP3.4x5mm_Mask2.46x2.31mm",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C50506.html",
+      "assembly": "SMT",
+      "schematic_uuid": "fa4bd939-5faf-5ab9-9955-a2cea454eddb",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/18f02339-f1ba-5d16-9b61-43296faae197"
+    },
+    {
+      "ref": "R15",
+      "value": "10k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "M_AIN1",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "motor",
+      "mpn": "0603WAF1002T5E",
+      "manufacturer": "UNI-ROYAL",
+      "note": "1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C25804",
+      "footprint": "FanRobot:R_0603_1608Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C25804.html",
+      "assembly": "SMT",
+      "schematic_uuid": "06d60b8d-c551-5108-a81f-bd5167a632c4",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/18f02339-f1ba-5d16-9b61-43296faae197"
+    },
+    {
+      "ref": "R16",
+      "value": "10k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "M_AIN2",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "motor",
+      "mpn": "0603WAF1002T5E",
+      "manufacturer": "UNI-ROYAL",
+      "note": "1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C25804",
+      "footprint": "FanRobot:R_0603_1608Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C25804.html",
+      "assembly": "SMT",
+      "schematic_uuid": "6900adb6-6dbc-58b1-8336-4a90b3e906d6",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/18f02339-f1ba-5d16-9b61-43296faae197"
+    },
+    {
+      "ref": "R17",
+      "value": "10k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "M_BIN1",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "motor",
+      "mpn": "0603WAF1002T5E",
+      "manufacturer": "UNI-ROYAL",
+      "note": "1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C25804",
+      "footprint": "FanRobot:R_0603_1608Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C25804.html",
+      "assembly": "SMT",
+      "schematic_uuid": "a02fc170-44da-5e4e-92c2-37c84b68e4ac",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/18f02339-f1ba-5d16-9b61-43296faae197"
+    },
+    {
+      "ref": "R18",
+      "value": "10k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "M_BIN2",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "motor",
+      "mpn": "0603WAF1002T5E",
+      "manufacturer": "UNI-ROYAL",
+      "note": "1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C25804",
+      "footprint": "FanRobot:R_0603_1608Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C25804.html",
+      "assembly": "SMT",
+      "schematic_uuid": "f2dae9a8-9b57-5b02-be48-5792f2155b2a",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/18f02339-f1ba-5d16-9b61-43296faae197"
+    },
+    {
+      "ref": "R19",
+      "value": "10k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "3V3",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "M_FAULT_N",
+          "type": "passive"
+        }
+      },
+      "section": "motor",
+      "mpn": "0603WAF1002T5E",
+      "manufacturer": "UNI-ROYAL",
+      "note": "1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C25804",
+      "footprint": "FanRobot:R_0603_1608Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C25804.html",
+      "assembly": "SMT",
+      "schematic_uuid": "0fb443bc-3524-5799-8011-b83130dd5cda",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/18f02339-f1ba-5d16-9b61-43296faae197"
+    },
+    {
+      "ref": "RS1",
+      "value": "0.39R_0.5W",
+      "package": "1206",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "A_SENSE",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "motor",
+      "mpn": "RL12FTNR390",
+      "manufacturer": "TA-I Tech",
+      "note": "0.39ohm +/-1%,0.5W. Nominal motor chopper limit0.513A; fixed conservative first-board setting, qualify loaded starting before any increase.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C188072",
+      "footprint": "FanRobot:R_1206_3216Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C188072.html",
+      "assembly": "SMT",
+      "schematic_uuid": "93cf6f0d-c814-59ec-a2d5-87d4fa0f5fc2",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/18f02339-f1ba-5d16-9b61-43296faae197"
+    },
+    {
+      "ref": "RS2",
+      "value": "0.39R_0.5W",
+      "package": "1206",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "B_SENSE",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "motor",
+      "mpn": "RL12FTNR390",
+      "manufacturer": "TA-I Tech",
+      "note": "0.39ohm +/-1%,0.5W. Nominal motor chopper limit0.513A; fixed conservative first-board setting, qualify loaded starting before any increase.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C188072",
+      "footprint": "FanRobot:R_1206_3216Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C188072.html",
+      "assembly": "SMT",
+      "schematic_uuid": "4f3252e6-ab77-55d2-baa4-6bed6312950c",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/18f02339-f1ba-5d16-9b61-43296faae197"
+    },
+    {
+      "ref": "C16",
+      "value": "10uF_16V",
+      "package": "0805",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "VBAT",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "motor",
+      "mpn": "GRM21BR61C106KE15L",
+      "manufacturer": "Murata",
+      "note": "X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C77075",
+      "footprint": "FanRobot:C_0805_2012Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C77075.html",
+      "assembly": "SMT",
+      "schematic_uuid": "23cd428e-68ba-5f9b-a548-b57acf3c2aff",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/18f02339-f1ba-5d16-9b61-43296faae197"
+    },
+    {
+      "ref": "C17",
+      "value": "100nF_16V",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "VBAT",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "motor",
+      "mpn": "GRM188R71C104KA01D",
+      "manufacturer": "Murata",
+      "note": "X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C45000",
+      "footprint": "FanRobot:C_0603_1608Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C45000.html",
+      "assembly": "SMT",
+      "schematic_uuid": "a252efaa-a7d3-5068-a977-293bc10d6a67",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/18f02339-f1ba-5d16-9b61-43296faae197"
+    },
+    {
+      "ref": "C18",
+      "value": "10nF_50V",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "DRV_VCP",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "VBAT",
+          "type": "passive"
+        }
+      },
+      "section": "motor",
+      "mpn": "CL10B103KB8NNNC",
+      "manufacturer": "Samsung Electro-Mechanics",
+      "note": "X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C1589",
+      "footprint": "FanRobot:C_0603_1608Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C1589.html",
+      "assembly": "SMT",
+      "schematic_uuid": "e1ab33c0-b04f-542d-a4c0-8938554fb8d3",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/18f02339-f1ba-5d16-9b61-43296faae197"
+    },
+    {
+      "ref": "C19",
+      "value": "2.2uF_16V",
+      "package": "0805",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "DRV_VINT",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "motor",
+      "mpn": "GRM21BR71C225KA12L",
+      "manufacturer": "Murata",
+      "note": "X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C108378",
+      "footprint": "FanRobot:C_0805_2012Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C108378.html",
+      "assembly": "SMT",
+      "schematic_uuid": "87071467-5b3b-5255-8609-f31839258f6f",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/18f02339-f1ba-5d16-9b61-43296faae197"
+    },
+    {
+      "ref": "J2",
+      "value": "LEFT_MOTOR",
+      "package": "JST-PH_2.00_2P_CANDIDATE",
+      "pins": {
+        "1": {
+          "name": "A1",
+          "net": "MOTOR_A1",
+          "type": "passive"
+        },
+        "2": {
+          "name": "A2",
+          "net": "MOTOR_A2",
+          "type": "passive"
+        }
+      },
+      "section": "motor",
+      "mpn": "B2B-PH-K-S(LF)(SN)",
+      "manufacturer": "JST",
+      "note": "2A rated header; matching PHR-2 housing and SPH contacts. Motor outputs must not be grounded; fan pad1 positive.26AWG minimum for this limited-current prototype.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C131337",
+      "footprint": "FanRobot:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C131337.html",
+      "assembly": "THT",
+      "schematic_uuid": "236472ce-a908-56a4-9658-8368c7ca9cc7",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/18f02339-f1ba-5d16-9b61-43296faae197"
+    },
+    {
+      "ref": "J3",
+      "value": "RIGHT_MOTOR",
+      "package": "JST-PH_2.00_2P_CANDIDATE",
+      "pins": {
+        "1": {
+          "name": "B1",
+          "net": "MOTOR_B1",
+          "type": "passive"
+        },
+        "2": {
+          "name": "B2",
+          "net": "MOTOR_B2",
+          "type": "passive"
+        }
+      },
+      "section": "motor",
+      "mpn": "B2B-PH-K-S(LF)(SN)",
+      "manufacturer": "JST",
+      "note": "2A rated header; matching PHR-2 housing and SPH contacts. Motor outputs must not be grounded; fan pad1 positive.26AWG minimum for this limited-current prototype.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C131337",
+      "footprint": "FanRobot:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C131337.html",
+      "assembly": "THT",
+      "schematic_uuid": "f02ad91c-7dd7-50cc-bfbb-2b8f8bfd84a1",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/18f02339-f1ba-5d16-9b61-43296faae197"
+    },
+    {
+      "ref": "Q1",
+      "value": "AO3400A",
+      "package": "SOT-23",
+      "pins": {
+        "1": {
+          "name": "G",
+          "net": "FAN_GATE",
+          "type": "passive"
+        },
+        "2": {
+          "name": "S",
+          "net": "GND",
+          "type": "passive"
+        },
+        "3": {
+          "name": "D",
+          "net": "FAN_SW",
+          "type": "passive"
+        }
+      },
+      "section": "fan",
+      "mpn": "AO3400A",
+      "manufacturer": "Alpha & Omega Semiconductor",
+      "note": "3.3V gate drive; use specified low-Vgs Rds_on, not just threshold",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C20917",
+      "footprint": "FanRobot:SOT-23",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C20917.html",
+      "assembly": "SMT",
+      "schematic_uuid": "d5d180a2-2829-5c93-90c8-33815661a3fe",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/18f02339-f1ba-5d16-9b61-43296faae197"
+    },
+    {
+      "ref": "R20",
+      "value": "100R",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "FAN_GATE_LOGIC",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "FAN_GATE",
+          "type": "passive"
+        }
+      },
+      "section": "fan",
+      "mpn": "0603WAF1000T5E",
+      "manufacturer": "UNI-ROYAL",
+      "note": "1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C22775",
+      "footprint": "FanRobot:R_0603_1608Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C22775.html",
+      "assembly": "SMT",
+      "schematic_uuid": "0012f1aa-ab33-50ce-aa41-13b1933b2204",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/18f02339-f1ba-5d16-9b61-43296faae197"
+    },
+    {
+      "ref": "R21",
+      "value": "100k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "FAN_GATE",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "fan",
+      "mpn": "0603WAF1003T5E",
+      "manufacturer": "UNI-ROYAL",
+      "note": "1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C25803",
+      "footprint": "FanRobot:R_0603_1608Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C25803.html",
+      "assembly": "SMT",
+      "schematic_uuid": "ffd132ae-2557-5a80-982b-41d9ccccdfff",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/18f02339-f1ba-5d16-9b61-43296faae197"
+    },
+    {
+      "ref": "D1",
+      "value": "SS14",
+      "package": "SMA",
+      "pins": {
+        "1": {
+          "name": "K",
+          "net": "FAN_5V",
+          "type": "passive"
+        },
+        "2": {
+          "name": "A",
+          "net": "FAN_SW",
+          "type": "passive"
+        }
+      },
+      "section": "fan",
+      "mpn": "SS14",
+      "manufacturer": "MDD",
+      "note": "Cathode=pad1. D2/D3 diode OR only powers logic; no USB backfeed into battery. Validate reverse leakage and temperature.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C2480",
+      "footprint": "FanRobot:D_SMA",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C2480.html",
+      "assembly": "SMT",
+      "schematic_uuid": "84219b4a-9781-52a6-b177-fe6684fd53bc",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/18f02339-f1ba-5d16-9b61-43296faae197"
+    },
+    {
+      "ref": "J4",
+      "value": "5V_FAN",
+      "package": "JST-PH_2.00_2P_CANDIDATE",
+      "pins": {
+        "1": {
+          "name": "RED_+",
+          "net": "FAN_5V",
+          "type": "passive"
+        },
+        "2": {
+          "name": "BLACK_-",
+          "net": "FAN_SW",
+          "type": "passive"
+        }
+      },
+      "section": "fan",
+      "mpn": "B2B-PH-K-S(LF)(SN)",
+      "manufacturer": "JST",
+      "note": "2A rated header; matching PHR-2 housing and SPH contacts. Motor outputs must not be grounded; fan pad1 positive.26AWG minimum for this limited-current prototype.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C131337",
+      "footprint": "FanRobot:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C131337.html",
+      "assembly": "THT",
+      "schematic_uuid": "86fac85c-a6b5-5830-8587-ed5d691ff6df",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/18f02339-f1ba-5d16-9b61-43296faae197"
+    },
+    {
+      "ref": "J6",
+      "value": "USB_C_USB2",
+      "package": "USB_C_16P_TBD",
+      "pins": {
+        "A1": {
+          "name": "GND",
+          "net": "GND",
+          "type": "passive"
+        },
+        "A4": {
+          "name": "VBUS",
+          "net": "USB_VBUS",
+          "type": "passive"
+        },
+        "A5": {
+          "name": "CC1",
+          "net": "USB_CC1",
+          "type": "passive"
+        },
+        "A6": {
+          "name": "DP",
+          "net": "USB_DP_CONN",
+          "type": "passive"
+        },
+        "A7": {
+          "name": "DM",
+          "net": "USB_DM_CONN",
+          "type": "passive"
+        },
+        "A8": {
+          "name": "SBU1",
+          "net": null,
+          "type": "passive"
+        },
+        "A9": {
+          "name": "VBUS",
+          "net": "USB_VBUS",
+          "type": "passive"
+        },
+        "A12": {
+          "name": "GND",
+          "net": "GND",
+          "type": "passive"
+        },
+        "B1": {
+          "name": "GND",
+          "net": "GND",
+          "type": "passive"
+        },
+        "B4": {
+          "name": "VBUS",
+          "net": "USB_VBUS",
+          "type": "passive"
+        },
+        "B5": {
+          "name": "CC2",
+          "net": "USB_CC2",
+          "type": "passive"
+        },
+        "B6": {
+          "name": "DP",
+          "net": "USB_DP_CONN",
+          "type": "passive"
+        },
+        "B7": {
+          "name": "DM",
+          "net": "USB_DM_CONN",
+          "type": "passive"
+        },
+        "B8": {
+          "name": "SBU2",
+          "net": null,
+          "type": "passive"
+        },
+        "B9": {
+          "name": "VBUS",
+          "net": "USB_VBUS",
+          "type": "passive"
+        },
+        "B12": {
+          "name": "GND",
+          "net": "GND",
+          "type": "passive"
+        },
+        "SH": {
+          "name": "SHIELD",
+          "net": "USB_SHIELD",
+          "type": "passive"
+        }
+      },
+      "section": "usb",
+      "mpn": "TYPE-C-31-M-12",
+      "manufacturer": "Korean Hroparts Elec",
+      "note": "16-contact USB2 receptacle. Four shell tabs all S1=USB_SHIELD. Paired A1/B12 etc pads are intentionally coincident and share their assigned nets.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C165948",
+      "footprint": "FanRobot:USB_C_Receptacle_HRO_TYPE-C-31-M-12",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C165948.html",
+      "assembly": "SMT",
+      "schematic_uuid": "959693c0-34c0-56da-b574-19660b4d1bb4",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/4284ded3-e804-5e25-8c6e-6993f1c7dcde"
+    },
+    {
+      "ref": "R22",
+      "value": "5.1k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "USB_CC1",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "usb",
+      "mpn": "0603WAF5101T5E",
+      "manufacturer": "UNI-ROYAL",
+      "note": "1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C23186",
+      "footprint": "FanRobot:R_0603_1608Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C23186.html",
+      "assembly": "SMT",
+      "schematic_uuid": "5ccbedf7-e574-509d-a86c-31ba5800d159",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/4284ded3-e804-5e25-8c6e-6993f1c7dcde"
+    },
+    {
+      "ref": "R23",
+      "value": "5.1k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "USB_CC2",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "usb",
+      "mpn": "0603WAF5101T5E",
+      "manufacturer": "UNI-ROYAL",
+      "note": "1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C23186",
+      "footprint": "FanRobot:R_0603_1608Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C23186.html",
+      "assembly": "SMT",
+      "schematic_uuid": "75ade817-5414-5cf0-a8cb-afcb9f9e7e79",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/4284ded3-e804-5e25-8c6e-6993f1c7dcde"
+    },
+    {
+      "ref": "U5",
+      "value": "USBLC6-2SC6",
+      "package": "SOT-23-6",
+      "pins": {
+        "1": {
+          "name": "IO1",
+          "net": "USB_DM_CONN",
+          "type": "passive"
+        },
+        "2": {
+          "name": "GND",
+          "net": "GND",
+          "type": "power_in"
+        },
+        "3": {
+          "name": "IO2",
+          "net": "USB_DP_CONN",
+          "type": "passive"
+        },
+        "4": {
+          "name": "IO2",
+          "net": "USB_DP_ESD",
+          "type": "passive"
+        },
+        "5": {
+          "name": "VBUS",
+          "net": "USB_VBUS",
+          "type": "power_in"
+        },
+        "6": {
+          "name": "IO1",
+          "net": "USB_DM_ESD",
+          "type": "passive"
+        }
+      },
+      "section": "usb",
+      "mpn": "USBLC6-2SC6",
+      "manufacturer": "STMicroelectronics",
+      "note": "Flow-through I/O pairs internally connected; place at connector, short low-inductance ground",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C7519",
+      "footprint": "FanRobot:SOT-23-6",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C7519.html",
+      "assembly": "SMT",
+      "schematic_uuid": "979f52b4-fa5c-50b1-9a00-faf9633540e4",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/4284ded3-e804-5e25-8c6e-6993f1c7dcde"
+    },
+    {
+      "ref": "R24",
+      "value": "22R",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "USB_DM_ESD",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "USB_DM_MCU",
+          "type": "passive"
+        }
+      },
+      "section": "usb",
+      "mpn": "0603WAF220JT5E",
+      "manufacturer": "UNI-ROYAL",
+      "note": "1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C23345",
+      "footprint": "FanRobot:R_0603_1608Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C23345.html",
+      "assembly": "SMT",
+      "schematic_uuid": "fb43e3b0-0037-520d-80b2-9a9762329a93",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/4284ded3-e804-5e25-8c6e-6993f1c7dcde"
+    },
+    {
+      "ref": "R25",
+      "value": "22R",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "USB_DP_ESD",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "USB_DP_MCU",
+          "type": "passive"
+        }
+      },
+      "section": "usb",
+      "mpn": "0603WAF220JT5E",
+      "manufacturer": "UNI-ROYAL",
+      "note": "1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C23345",
+      "footprint": "FanRobot:R_0603_1608Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C23345.html",
+      "assembly": "SMT",
+      "schematic_uuid": "e9bad939-a597-5ea0-9c1c-dcc90445cf58",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/4284ded3-e804-5e25-8c6e-6993f1c7dcde"
+    },
+    {
+      "ref": "R26",
+      "value": "0R",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "USB_SHIELD",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "usb",
+      "mpn": "0603WAF0000T5E",
+      "manufacturer": "UNI-ROYAL",
+      "note": "1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C21189",
+      "footprint": "FanRobot:R_0603_1608Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C21189.html",
+      "assembly": "SMT",
+      "schematic_uuid": "2324aa21-ad74-5c15-9e3a-162bf9f0166f",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/4284ded3-e804-5e25-8c6e-6993f1c7dcde"
+    },
+    {
+      "ref": "C20",
+      "value": "1uF_16V",
+      "package": "0805",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "USB_VBUS",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "usb",
+      "mpn": "GRM21BR71C105KA01L",
+      "manufacturer": "Murata",
+      "note": "X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C77079",
+      "footprint": "FanRobot:C_0805_2012Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C77079.html",
+      "assembly": "SMT",
+      "schematic_uuid": "8becdcd8-191f-5691-bc1e-0ae59986fbbc",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/4284ded3-e804-5e25-8c6e-6993f1c7dcde"
+    },
+    {
+      "ref": "J5",
+      "value": "CAMERA_2x9_P2.54",
+      "package": "2x9_P2.54_ROW2.54_SOCKET_MPN_TBD",
+      "pins": {
+        "1": {
+          "name": "GND",
+          "net": "GND",
+          "type": "passive"
+        },
+        "2": {
+          "name": "3V3",
+          "net": "3V3",
+          "type": "passive"
+        },
+        "3": {
+          "name": "SCL",
+          "net": "CAM_SCL",
+          "type": "passive"
+        },
+        "4": {
+          "name": "VS",
+          "net": "CAM_VSYNC",
+          "type": "passive"
+        },
+        "5": {
+          "name": "SDA",
+          "net": "CAM_SDA",
+          "type": "passive"
+        },
+        "6": {
+          "name": "HS",
+          "net": "CAM_HREF",
+          "type": "passive"
+        },
+        "7": {
+          "name": "D0",
+          "net": "CAM_D0",
+          "type": "passive"
+        },
+        "8": {
+          "name": "RST",
+          "net": "CAM_RST",
+          "type": "passive"
+        },
+        "9": {
+          "name": "D2",
+          "net": "CAM_D2",
+          "type": "passive"
+        },
+        "10": {
+          "name": "D1",
+          "net": "CAM_D1",
+          "type": "passive"
+        },
+        "11": {
+          "name": "D4",
+          "net": "CAM_D4",
+          "type": "passive"
+        },
+        "12": {
+          "name": "D3",
+          "net": "CAM_D3",
+          "type": "passive"
+        },
+        "13": {
+          "name": "D6",
+          "net": "CAM_D6",
+          "type": "passive"
+        },
+        "14": {
+          "name": "D5",
+          "net": "CAM_D5",
+          "type": "passive"
+        },
+        "15": {
+          "name": "PCLK",
+          "net": "CAM_PCLK",
+          "type": "passive"
+        },
+        "16": {
+          "name": "D7",
+          "net": "CAM_D7",
+          "type": "passive"
+        },
+        "17": {
+          "name": "PWDN",
+          "net": "CAM_PWDN",
+          "type": "passive"
+        },
+        "18": {
+          "name": "FLASH_NC",
+          "net": null,
+          "type": "passive"
+        }
+      },
+      "section": "camera",
+      "mpn": "2.54-2*9P",
+      "manufacturer": "BOOMELE",
+      "note": "2x9 female header; pitch and row spacing2.54mm. Board pad1=GND, pad2=3V3; pin1 marked. Camera mating orientation/continuity must be checked unpowered; use a verified labelled harness if direct mating does not fit.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C71956",
+      "footprint": "FanRobot:PinSocket_2x09_P2.54mm_Vertical",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C71956.html",
+      "assembly": "THT",
+      "schematic_uuid": "7ef14585-f919-573f-a437-67088f0ebfee",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/4e5eb94d-a3bf-567f-8a80-9741ff5494ee"
+    },
+    {
+      "ref": "C21",
+      "value": "10uF_16V",
+      "package": "0805",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "3V3",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "camera",
+      "mpn": "GRM21BR61C106KE15L",
+      "manufacturer": "Murata",
+      "note": "X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C77075",
+      "footprint": "FanRobot:C_0805_2012Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C77075.html",
+      "assembly": "SMT",
+      "schematic_uuid": "7788161e-49ad-5003-92e7-eb4fad168d3b",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/4e5eb94d-a3bf-567f-8a80-9741ff5494ee"
+    },
+    {
+      "ref": "C22",
+      "value": "100nF_16V",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "3V3",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "camera",
+      "mpn": "GRM188R71C104KA01D",
+      "manufacturer": "Murata",
+      "note": "X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C45000",
+      "footprint": "FanRobot:C_0603_1608Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C45000.html",
+      "assembly": "SMT",
+      "schematic_uuid": "7a39159d-850e-55e1-a31e-8a9e5e6a208a",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/4e5eb94d-a3bf-567f-8a80-9741ff5494ee"
+    },
+    {
+      "ref": "J7",
+      "value": "EXP_I2C_3V3",
+      "package": "1x4_2.54_CANDIDATE",
+      "pins": {
+        "1": {
+          "name": "3V3",
+          "net": "3V3",
+          "type": "passive"
+        },
+        "2": {
+          "name": "GND",
+          "net": "GND",
+          "type": "passive"
+        },
+        "3": {
+          "name": "SDA41",
+          "net": "EXP_SDA",
+          "type": "passive"
+        },
+        "4": {
+          "name": "SCL48",
+          "net": "EXP_SCL",
+          "type": "passive"
+        }
+      },
+      "section": "expansion",
+      "mpn": "DNP_2.54mm_1x4",
+      "manufacturer": "Not populated",
+      "note": "Reserved 2.54mm service/expansion footprint; DNP by default, no purchased part included.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "",
+      "footprint": "FanRobot:PinHeader_1x04_P2.54mm_Vertical",
+      "dnp": true,
+      "source": "",
+      "assembly": "DNP",
+      "schematic_uuid": "9c6307b3-3cb5-5cdb-9b90-3249c2267094",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/4284ded3-e804-5e25-8c6e-6993f1c7dcde"
+    },
+    {
+      "ref": "R27",
+      "value": "4.7k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "3V3",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "EXP_SDA",
+          "type": "passive"
+        }
+      },
+      "section": "expansion",
+      "mpn": "0603WAF4701T5E",
+      "manufacturer": "UNI-ROYAL",
+      "note": "1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C23162",
+      "footprint": "FanRobot:R_0603_1608Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C23162.html",
+      "assembly": "SMT",
+      "schematic_uuid": "8eaeb8ea-9461-57ed-af42-d987fd88b134",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/4284ded3-e804-5e25-8c6e-6993f1c7dcde"
+    },
+    {
+      "ref": "R28",
+      "value": "4.7k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "3V3",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "EXP_SCL",
+          "type": "passive"
+        }
+      },
+      "section": "expansion",
+      "mpn": "0603WAF4701T5E",
+      "manufacturer": "UNI-ROYAL",
+      "note": "1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C23162",
+      "footprint": "FanRobot:R_0603_1608Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C23162.html",
+      "assembly": "SMT",
+      "schematic_uuid": "06322bd7-e7b5-5fbe-b978-297a10c7b351",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/4284ded3-e804-5e25-8c6e-6993f1c7dcde"
+    },
+    {
+      "ref": "J8",
+      "value": "SERVICE_3V3",
+      "package": "1x6_2.54_CANDIDATE",
+      "pins": {
+        "1": {
+          "name": "GND",
+          "net": "GND",
+          "type": "passive"
+        },
+        "2": {
+          "name": "3V3_REF",
+          "net": "3V3",
+          "type": "passive"
+        },
+        "3": {
+          "name": "TX43",
+          "net": "UART_TX",
+          "type": "passive"
+        },
+        "4": {
+          "name": "RX44",
+          "net": "UART_RX",
+          "type": "passive"
+        },
+        "5": {
+          "name": "EN",
+          "net": "ESP_EN",
+          "type": "passive"
+        },
+        "6": {
+          "name": "BOOT0",
+          "net": "BOOT_N",
+          "type": "passive"
+        }
+      },
+      "section": "expansion",
+      "mpn": "DNP_2.54mm_1x6",
+      "manufacturer": "Not populated",
+      "note": "Reserved 2.54mm service/expansion footprint; DNP by default, no purchased part included.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "",
+      "footprint": "FanRobot:PinHeader_1x06_P2.54mm_Vertical",
+      "dnp": true,
+      "source": "",
+      "assembly": "DNP",
+      "schematic_uuid": "e6440820-9025-5a6c-9f8e-e58d28927371",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/4284ded3-e804-5e25-8c6e-6993f1c7dcde"
+    },
+    {
+      "ref": "TP1",
+      "value": "GND",
+      "package": "TESTPAD_1MM",
+      "pins": {
+        "1": {
+          "name": "GND",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "test",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "Bare copper test pad, no purchased part",
+      "status": "PCB_ONLY",
+      "lcsc": "",
+      "source": "",
+      "footprint": "FanRobot:TestPoint_Pad_D1.0mm",
+      "dnp": false,
+      "assembly": "PCB_ONLY",
+      "schematic_uuid": "415e2d2e-4333-5f27-99e6-30c5039e1605",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/4284ded3-e804-5e25-8c6e-6993f1c7dcde"
+    },
+    {
+      "ref": "TP2",
+      "value": "VBAT",
+      "package": "TESTPAD_1MM",
+      "pins": {
+        "1": {
+          "name": "VBAT",
+          "net": "VBAT",
+          "type": "passive"
+        }
+      },
+      "section": "test",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "Bare copper test pad, no purchased part",
+      "status": "PCB_ONLY",
+      "lcsc": "",
+      "source": "",
+      "footprint": "FanRobot:TestPoint_Pad_D1.0mm",
+      "dnp": false,
+      "assembly": "PCB_ONLY",
+      "schematic_uuid": "1151864a-3457-5d9f-9f14-21147f701235",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/4284ded3-e804-5e25-8c6e-6993f1c7dcde"
+    },
+    {
+      "ref": "TP3",
+      "value": "3V3",
+      "package": "TESTPAD_1MM",
+      "pins": {
+        "1": {
+          "name": "3V3",
+          "net": "3V3",
+          "type": "passive"
+        }
+      },
+      "section": "test",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "Bare copper test pad, no purchased part",
+      "status": "PCB_ONLY",
+      "lcsc": "",
+      "source": "",
+      "footprint": "FanRobot:TestPoint_Pad_D1.0mm",
+      "dnp": false,
+      "assembly": "PCB_ONLY",
+      "schematic_uuid": "f03f45bd-de98-570b-b334-610b3c21d9b0",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/4284ded3-e804-5e25-8c6e-6993f1c7dcde"
+    },
+    {
+      "ref": "TP4",
+      "value": "FAN_5V",
+      "package": "TESTPAD_1MM",
+      "pins": {
+        "1": {
+          "name": "FAN_5V",
+          "net": "FAN_5V",
+          "type": "passive"
+        }
+      },
+      "section": "test",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "Bare copper test pad, no purchased part",
+      "status": "PCB_ONLY",
+      "lcsc": "",
+      "source": "",
+      "footprint": "FanRobot:TestPoint_Pad_D1.0mm",
+      "dnp": false,
+      "assembly": "PCB_ONLY",
+      "schematic_uuid": "71b657be-7c52-5c38-83f0-234905f21711",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/4284ded3-e804-5e25-8c6e-6993f1c7dcde"
+    },
+    {
+      "ref": "TP5",
+      "value": "ACT_REQ",
+      "package": "TESTPAD_1MM",
+      "pins": {
+        "1": {
+          "name": "ACT_REQ",
+          "net": "ACT_REQ",
+          "type": "passive"
+        }
+      },
+      "section": "test",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "Bare copper test pad, no purchased part",
+      "status": "PCB_ONLY",
+      "lcsc": "",
+      "source": "",
+      "footprint": "FanRobot:TestPoint_Pad_D1.0mm",
+      "dnp": false,
+      "assembly": "PCB_ONLY",
+      "schematic_uuid": "7f9eb6ef-d16a-5d33-b45a-03c1e7243206",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/4284ded3-e804-5e25-8c6e-6993f1c7dcde"
+    },
+    {
+      "ref": "TP6",
+      "value": "ACT_EN",
+      "package": "TESTPAD_1MM",
+      "pins": {
+        "1": {
+          "name": "ACT_EN",
+          "net": "ACT_EN",
+          "type": "passive"
+        }
+      },
+      "section": "test",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "Bare copper test pad, no purchased part",
+      "status": "PCB_ONLY",
+      "lcsc": "",
+      "source": "",
+      "footprint": "FanRobot:TestPoint_Pad_D1.0mm",
+      "dnp": false,
+      "assembly": "PCB_ONLY",
+      "schematic_uuid": "d248faeb-ec14-56d9-8bef-aee585ad9f78",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/4284ded3-e804-5e25-8c6e-6993f1c7dcde"
+    },
+    {
+      "ref": "TP7",
+      "value": "M_FAULT_N",
+      "package": "TESTPAD_1MM",
+      "pins": {
+        "1": {
+          "name": "M_FAULT_N",
+          "net": "M_FAULT_N",
+          "type": "passive"
+        }
+      },
+      "section": "test",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "Bare copper test pad, no purchased part",
+      "status": "PCB_ONLY",
+      "lcsc": "",
+      "source": "",
+      "footprint": "FanRobot:TestPoint_Pad_D1.0mm",
+      "dnp": false,
+      "assembly": "PCB_ONLY",
+      "schematic_uuid": "9a617509-bf6d-5b21-b045-8593219b8aba",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/4284ded3-e804-5e25-8c6e-6993f1c7dcde"
+    },
+    {
+      "ref": "TP8",
+      "value": "BAT_ADC",
+      "package": "TESTPAD_1MM",
+      "pins": {
+        "1": {
+          "name": "BAT_ADC",
+          "net": "BAT_ADC",
+          "type": "passive"
+        }
+      },
+      "section": "test",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "Bare copper test pad, no purchased part",
+      "status": "PCB_ONLY",
+      "lcsc": "",
+      "source": "",
+      "footprint": "FanRobot:TestPoint_Pad_D1.0mm",
+      "dnp": false,
+      "assembly": "PCB_ONLY",
+      "schematic_uuid": "33df8c4b-2a0e-54d2-9a78-f7dec797e9ef",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/4284ded3-e804-5e25-8c6e-6993f1c7dcde"
+    },
+    {
+      "ref": "TP9",
+      "value": "USB_VBUS",
+      "package": "TESTPAD_1MM",
+      "pins": {
+        "1": {
+          "name": "USB_VBUS",
+          "net": "USB_VBUS",
+          "type": "passive"
+        }
+      },
+      "section": "test",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "Bare copper test pad, no purchased part",
+      "status": "PCB_ONLY",
+      "lcsc": "",
+      "source": "",
+      "footprint": "FanRobot:TestPoint_Pad_D1.0mm",
+      "dnp": false,
+      "assembly": "PCB_ONLY",
+      "schematic_uuid": "204e5342-97fc-5bd9-b7d4-ce11aca4c3f3",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/4284ded3-e804-5e25-8c6e-6993f1c7dcde"
+    },
+    {
+      "ref": "TP10",
+      "value": "ESP_EN",
+      "package": "TESTPAD_1MM",
+      "pins": {
+        "1": {
+          "name": "ESP_EN",
+          "net": "ESP_EN",
+          "type": "passive"
+        }
+      },
+      "section": "test",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "Bare copper test pad, no purchased part",
+      "status": "PCB_ONLY",
+      "lcsc": "",
+      "source": "",
+      "footprint": "FanRobot:TestPoint_Pad_D1.0mm",
+      "dnp": false,
+      "assembly": "PCB_ONLY",
+      "schematic_uuid": "8ef2e73e-c640-5728-bb79-f6d82f5b6394",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/4284ded3-e804-5e25-8c6e-6993f1c7dcde"
+    },
+    {
+      "ref": "Q3",
+      "value": "AO3401A",
+      "package": "SOT-23",
+      "pins": {
+        "1": {
+          "name": "G",
+          "net": "POWER_GATE",
+          "type": "passive"
+        },
+        "2": {
+          "name": "S",
+          "net": "BAT_PROTECTED",
+          "type": "passive"
+        },
+        "3": {
+          "name": "D",
+          "net": "VBAT",
+          "type": "passive"
+        }
+      },
+      "section": "power",
+      "mpn": "AO3401A",
+      "manufacturer": "Alpha & Omega Semiconductor",
+      "note": "Power switch: S=BAT_PROTECTED, D=VBAT; R29 pulls gate to source (OFF). SW1 pulls gate to GND (ON). Gate contacts carry about 50uA, not motor current.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C15127",
+      "footprint": "FanRobot:SOT-23",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C15127.html",
+      "assembly": "SMT",
+      "schematic_uuid": "68a266ba-9af5-5523-82a5-384faccf65d9",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/766ef4e5-b493-57b0-ab03-1ad41a32263d"
+    },
+    {
+      "ref": "R29",
+      "value": "100k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "POWER_GATE",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "BAT_PROTECTED",
+          "type": "passive"
+        }
+      },
+      "section": "power",
+      "mpn": "0603WAF1003T5E",
+      "manufacturer": "UNI-ROYAL",
+      "note": "1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C25803",
+      "footprint": "FanRobot:R_0603_1608Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C25803.html",
+      "assembly": "SMT",
+      "schematic_uuid": "5f6a3911-9d46-58bc-bfda-768634c91954",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/766ef4e5-b493-57b0-ab03-1ad41a32263d"
+    },
+    {
+      "ref": "U8",
+      "value": "TPS2553DBVR",
+      "package": "SOT-23-6",
+      "pins": {
+        "1": {
+          "name": "IN",
+          "net": "USB_VBUS",
+          "type": "power_in"
+        },
+        "2": {
+          "name": "GND",
+          "net": "GND",
+          "type": "power_in"
+        },
+        "3": {
+          "name": "EN",
+          "net": "USB_VBUS",
+          "type": "input"
+        },
+        "4": {
+          "name": "nFAULT",
+          "net": "USB_FAULT_N",
+          "type": "open_collector"
+        },
+        "5": {
+          "name": "ILIM",
+          "net": "USB_ILIM",
+          "type": "passive"
+        },
+        "6": {
+          "name": "OUT",
+          "net": "USB_LIMITED",
+          "type": "power_out"
+        }
+      },
+      "section": "usb",
+      "mpn": "TPS2553DBVR",
+      "manufacturer": "Texas Instruments",
+      "note": "USB input protection: 68.1k +/-1% ILIM resistor; max current from datasheet equations <500mA. Not USB current negotiation; battery required for full-load operation. FAULT is open drain test point.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C55266",
+      "footprint": "FanRobot:SOT-23-6",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C55266.html",
+      "assembly": "SMT",
+      "schematic_uuid": "0413c72e-126e-552f-b685-85d218330ea8",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/4284ded3-e804-5e25-8c6e-6993f1c7dcde"
+    },
+    {
+      "ref": "R30",
+      "value": "68.1k",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "USB_ILIM",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "usb",
+      "mpn": "0603WAF6812T5E",
+      "manufacturer": "UNI-ROYAL",
+      "note": "1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C25976",
+      "footprint": "FanRobot:R_0603_1608Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C25976.html",
+      "assembly": "SMT",
+      "schematic_uuid": "cf1a0719-76ac-5623-896e-ab3844c79046",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/4284ded3-e804-5e25-8c6e-6993f1c7dcde"
+    },
+    {
+      "ref": "C23",
+      "value": "1uF_16V",
+      "package": "0805",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "USB_LIMITED",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "usb",
+      "mpn": "GRM21BR71C105KA01L",
+      "manufacturer": "Murata",
+      "note": "X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C77079",
+      "footprint": "FanRobot:C_0805_2012Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C77079.html",
+      "assembly": "SMT",
+      "schematic_uuid": "a77df73c-c41a-56fe-a4b7-5786ef42db0d",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/4284ded3-e804-5e25-8c6e-6993f1c7dcde"
+    },
+    {
+      "ref": "C24",
+      "value": "100nF_16V",
+      "package": "0603",
+      "pins": {
+        "1": {
+          "name": "1",
+          "net": "USB_VBUS",
+          "type": "passive"
+        },
+        "2": {
+          "name": "2",
+          "net": "GND",
+          "type": "passive"
+        }
+      },
+      "section": "usb",
+      "mpn": "GRM188R71C104KA01D",
+      "manufacturer": "Murata",
+      "note": "X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.",
+      "status": "SELECTED_ENGINEERING_PROTOTYPE",
+      "lcsc": "C45000",
+      "footprint": "FanRobot:C_0603_1608Metric",
+      "dnp": false,
+      "source": "https://www.lcsc.com/product-detail/C45000.html",
+      "assembly": "SMT",
+      "schematic_uuid": "6a1a1f63-d6eb-5d7e-8330-f633f4dc99be",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/4284ded3-e804-5e25-8c6e-6993f1c7dcde"
+    },
+    {
+      "ref": "TP11",
+      "value": "USB_FAULT_N",
+      "package": "TESTPAD_1MM",
+      "pins": {
+        "1": {
+          "name": "USB_FAULT_N",
+          "net": "USB_FAULT_N",
+          "type": "passive"
+        }
+      },
+      "section": "test",
+      "mpn": "",
+      "manufacturer": "",
+      "note": "",
+      "status": "PCB_ONLY",
+      "lcsc": "",
+      "source": "",
+      "footprint": "FanRobot:TestPoint_Pad_D1.0mm",
+      "dnp": false,
+      "assembly": "PCB_ONLY",
+      "schematic_uuid": "a7e3d959-9883-5e61-86be-87a1ebcbeddc",
+      "sheet_path": "/93d9d6ee-96c5-51c1-8ddb-6ab83660a584/4284ded3-e804-5e25-8c6e-6993f1c7dcde"
+    }
+  ]
+}

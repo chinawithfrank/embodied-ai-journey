@@ -1,0 +1,23 @@
+[
+  {
+    "net": "MOTOR_A2",
+    "layer": "F.Cu",
+    "width_mm": 0.2,
+    "length_mm": 2.8022149184306744,
+    "vertices": 12
+  },
+  {
+    "net": "MOTOR_A2",
+    "layer": "In2.Cu",
+    "width_mm": 0.45,
+    "length_mm": 18.750104602052662,
+    "vertices": 58
+  },
+  {
+    "net": "VBAT",
+    "layer": "F.Cu",
+    "width_mm": 0.65,
+    "length_mm": 6.3490620433565885,
+    "vertices": 20
+  }
+]

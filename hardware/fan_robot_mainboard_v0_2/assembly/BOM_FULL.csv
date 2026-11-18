@@ -1,0 +1,96 @@
+﻿Reference,Value,Manufacturer,MPN,LCSC,Footprint,Assembly,Quantity,Notes
+J1,3xAA_INPUT,JST,B2B-XH-A(LF)(SN),C158012,FanRobot:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical,THT,1,"3A rated header; use XHP-2 housing and SXH contacts with 22AWG battery wire. Pad1 battery positive, pad2 GND."
+SW1,POWER_GATE_SWITCH,C&K,JS102011SAQN,C221660,FanRobot:SW_SPDT_CK_JS102011SAQN,SMT,1,"SPDT: common pad2 POWER_GATE; pad3 GND enables power, pad1 NC. Carries MOSFET gate current only."
+F1,2A_HOLD_PPTC,Bourns,MF-MSMF200-2,C210837,FanRobot:Fuse_1812_4532Metric,SMT,1,"2A hold/4A trip at 23C, 8V PPTC. Thermal derating and loaded cell tests are prototype acceptance items; not precision motor current protection."
+Q2,AO3401A,Alpha & Omega Semiconductor,AO3401A,C15127,FanRobot:SOT-23,SMT,1,"Reverse protector: D=BAT_FUSED, S=BAT_PROTECTED, gate to GND via R1. Intentional reverse D/S relative to conventional load switch."
+R1,100k,UNI-ROYAL,0603WAF1003T5E,C25803,FanRobot:R_0603_1608Metric,SMT,1,"1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations."
+C1,220uF_10V,Panasonic,10SVPE220M,C165949,FanRobot:CP_OSCON_C6_6.3x5.9,SMT,1,"220uF10V OS-CON polymer; ESR20mOhm, ripple2.7Arms@100kHz/105C (frequency derating applies),6.3x5.9mm,C6. Pad1 positive. Panasonic land a2.1,b9.1,c1.6mm. Do not replace with low-ripple general-purpose electrolytic."
+D2,SS34,MDD,SS34,C8678,FanRobot:D_SMA,SMT,1,Cathode=pad1. D2/D3 diode OR only powers logic; no USB backfeed into battery. Validate reverse leakage and temperature.
+D3,SS34,MDD,SS34,C8678,FanRobot:D_SMA,SMT,1,Cathode=pad1. D2/D3 diode OR only powers logic; no USB backfeed into battery. Validate reverse leakage and temperature.
+U2,TPS63802DLAR,Texas Instruments,TPS63802DLAR,C2845237,FanRobot:TPS63802_DLA0010A,SMT,1,3.3V buck-boost; power-save mode. Layout/effective capacitance/inductor validation required.
+L1,0.47uH,Murata,DFE201612E-R47M=P2,C668312,FanRobot:L_Murata_DFE201612E,SMT,1,"470nH +/-20%; Isat 5.5A (30% drop), Itemp 4.5A, DCR max26mOhm. Listed in TI TPS63802 recommended inductors."
+C2,22uF_10V,Murata,GRM21BR61A226ME51L,C77074,FanRobot:C_0805_2012Metric,SMT,1,X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.
+C3,22uF_10V,Murata,GRM21BR61A226ME51L,C77074,FanRobot:C_0805_2012Metric,SMT,1,X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.
+C4,22uF_10V,Murata,GRM21BR61A226ME51L,C77074,FanRobot:C_0805_2012Metric,SMT,1,X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.
+R2,560k,UNI-ROYAL,0603WAF5603T5E,C23203,FanRobot:R_0603_1608Metric,SMT,1,"1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations."
+R3,100k,UNI-ROYAL,0603WAF1003T5E,C25803,FanRobot:R_0603_1608Metric,SMT,1,"1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations."
+R4,180k,UNI-ROYAL,0603WAF1803T5E,C22827,FanRobot:R_0603_1608Metric,SMT,1,"1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations."
+R5,100k,UNI-ROYAL,0603WAF1003T5E,C25803,FanRobot:R_0603_1608Metric,SMT,1,"1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations."
+C5,1nF_50V,Samsung Electro-Mechanics,CL10B102KB8NNNC,C1588,FanRobot:C_0603_1608Metric,SMT,1,X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.
+R6,10k,UNI-ROYAL,0603WAF1002T5E,C25804,FanRobot:R_0603_1608Metric,SMT,1,"1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations."
+C6,1uF_16V,Murata,GRM21BR71C105KA01L,C77079,FanRobot:C_0805_2012Metric,SMT,1,X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.
+U3,TPS61023DRLR,Texas Instruments,TPS61023DRLR,C919459,FanRobot:SOT-563,SMT,1,"5V fan supply, enabled by actuator interlock; battery only, no USB actuator feed"
+L2,1uH,Wurth Elektronik,74438357010,C5542269,FanRobot:L_Wuerth_MAPI-4030,SMT,1,"1uH +/-20%; TI TPS61023 recommended inductor; Isat9.6A, DCR max13.5mOhm. No substitution with same-size low-current part."
+C7,10uF_16V,Murata,GRM21BR61C106KE15L,C77075,FanRobot:C_0805_2012Metric,SMT,1,X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.
+C8,22uF_10V,Murata,GRM21BR61A226ME51L,C77074,FanRobot:C_0805_2012Metric,SMT,1,X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.
+C9,22uF_10V,Murata,GRM21BR61A226ME51L,C77074,FanRobot:C_0805_2012Metric,SMT,1,X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.
+R7,732k,UNI-ROYAL,0603WAF7323T5E,C23239,FanRobot:R_0603_1608Metric,SMT,1,"1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations."
+R8,100k,UNI-ROYAL,0603WAF1003T5E,C25803,FanRobot:R_0603_1608Metric,SMT,1,"1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations."
+C10,220pF_DNP,Samsung Electro-Mechanics,CL10C221JB8NNNC,C27675,FanRobot:C_0603_1608Metric,DNP,0,X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.
+U1,ESP32-S3-WROOM-1-N16R8,Espressif Systems,ESP32-S3-WROOM-1-N16R8,C2913202,FanRobot:ESP32-S3-WROOM-1,SMT,1,"N16R8: 16MB Flash, 8MB Octal PSRAM. GPIO35/36/37 NC. New board: BAT_ADC GPIO1/ADC1; AIN1 GPIO15. Other mappings preserved."
+C11,22uF_10V,Murata,GRM21BR61A226ME51L,C77074,FanRobot:C_0805_2012Metric,SMT,1,X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.
+C12,100nF_16V,Murata,GRM188R71C104KA01D,C45000,FanRobot:C_0603_1608Metric,SMT,1,X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.
+R9,10k,UNI-ROYAL,0603WAF1002T5E,C25804,FanRobot:R_0603_1608Metric,SMT,1,"1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations."
+SW2,RESET,C&K,KMR221GLFS,C72443,FanRobot:SW_Push_1P1T_NO_CK_KMR2,SMT,1,
+SW3,BOOT,C&K,KMR221GLFS,C72443,FanRobot:SW_Push_1P1T_NO_CK_KMR2,SMT,1,
+R10,1M,UNI-ROYAL,0603WAF1004T5E,C22935,FanRobot:R_0603_1608Metric,SMT,1,"1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations."
+R11,330k,UNI-ROYAL,0603WAF3303T5E,C23137,FanRobot:R_0603_1608Metric,SMT,1,"1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations."
+C13,100nF_16V,Murata,GRM188R71C104KA01D,C45000,FanRobot:C_0603_1608Metric,SMT,1,X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.
+U6,SN74LVC1G08DBVR,Texas Instruments,SN74LVC1G08DBVR,C7666,FanRobot:SOT-23-5,SMT,1,Ioff device required; no 74HC/5V-only substitution
+U7,SN74LVC1G08DBVR,Texas Instruments,SN74LVC1G08DBVR,C7666,FanRobot:SOT-23-5,SMT,1,Ioff device required; no 74HC/5V-only substitution
+R12,10k,UNI-ROYAL,0603WAF1002T5E,C25804,FanRobot:R_0603_1608Metric,SMT,1,"1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations."
+R13,10k,UNI-ROYAL,0603WAF1002T5E,C25804,FanRobot:R_0603_1608Metric,SMT,1,"1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations."
+R14,100k,UNI-ROYAL,0603WAF1003T5E,C25803,FanRobot:R_0603_1608Metric,SMT,1,"1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations."
+C14,100nF_16V,Murata,GRM188R71C104KA01D,C45000,FanRobot:C_0603_1608Metric,SMT,1,X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.
+C15,100nF_16V,Murata,GRM188R71C104KA01D,C45000,FanRobot:C_0603_1608Metric,SMT,1,X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.
+U4,DRV8833PWPR,Texas Instruments,DRV8833PWPR,C50506,FanRobot:HTSSOP-16-1EP_4.4x5mm_P0.65mm_EP3.4x5mm_Mask2.46x2.31mm,SMT,1,PowerPAD grounded with thermal-via array; cannot substitute PW/TSSOP or DRV8833C blindly
+R15,10k,UNI-ROYAL,0603WAF1002T5E,C25804,FanRobot:R_0603_1608Metric,SMT,1,"1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations."
+R16,10k,UNI-ROYAL,0603WAF1002T5E,C25804,FanRobot:R_0603_1608Metric,SMT,1,"1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations."
+R17,10k,UNI-ROYAL,0603WAF1002T5E,C25804,FanRobot:R_0603_1608Metric,SMT,1,"1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations."
+R18,10k,UNI-ROYAL,0603WAF1002T5E,C25804,FanRobot:R_0603_1608Metric,SMT,1,"1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations."
+R19,10k,UNI-ROYAL,0603WAF1002T5E,C25804,FanRobot:R_0603_1608Metric,SMT,1,"1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations."
+RS1,0.39R_0.5W,TA-I Tech,RL12FTNR390,C188072,FanRobot:R_1206_3216Metric,SMT,1,"0.39ohm +/-1%,0.5W. Nominal motor chopper limit0.513A; fixed conservative first-board setting, qualify loaded starting before any increase."
+RS2,0.39R_0.5W,TA-I Tech,RL12FTNR390,C188072,FanRobot:R_1206_3216Metric,SMT,1,"0.39ohm +/-1%,0.5W. Nominal motor chopper limit0.513A; fixed conservative first-board setting, qualify loaded starting before any increase."
+C16,10uF_16V,Murata,GRM21BR61C106KE15L,C77075,FanRobot:C_0805_2012Metric,SMT,1,X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.
+C17,100nF_16V,Murata,GRM188R71C104KA01D,C45000,FanRobot:C_0603_1608Metric,SMT,1,X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.
+C18,10nF_50V,Samsung Electro-Mechanics,CL10B103KB8NNNC,C1589,FanRobot:C_0603_1608Metric,SMT,1,X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.
+C19,2.2uF_16V,Murata,GRM21BR71C225KA12L,C108378,FanRobot:C_0805_2012Metric,SMT,1,X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.
+J2,LEFT_MOTOR,JST,B2B-PH-K-S(LF)(SN),C131337,FanRobot:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical,THT,1,2A rated header; matching PHR-2 housing and SPH contacts. Motor outputs must not be grounded; fan pad1 positive.26AWG minimum for this limited-current prototype.
+J3,RIGHT_MOTOR,JST,B2B-PH-K-S(LF)(SN),C131337,FanRobot:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical,THT,1,2A rated header; matching PHR-2 housing and SPH contacts. Motor outputs must not be grounded; fan pad1 positive.26AWG minimum for this limited-current prototype.
+Q1,AO3400A,Alpha & Omega Semiconductor,AO3400A,C20917,FanRobot:SOT-23,SMT,1,"3.3V gate drive; use specified low-Vgs Rds_on, not just threshold"
+R20,100R,UNI-ROYAL,0603WAF1000T5E,C22775,FanRobot:R_0603_1608Metric,SMT,1,"1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations."
+R21,100k,UNI-ROYAL,0603WAF1003T5E,C25803,FanRobot:R_0603_1608Metric,SMT,1,"1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations."
+D1,SS14,MDD,SS14,C2480,FanRobot:D_SMA,SMT,1,Cathode=pad1. D2/D3 diode OR only powers logic; no USB backfeed into battery. Validate reverse leakage and temperature.
+J4,5V_FAN,JST,B2B-PH-K-S(LF)(SN),C131337,FanRobot:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical,THT,1,2A rated header; matching PHR-2 housing and SPH contacts. Motor outputs must not be grounded; fan pad1 positive.26AWG minimum for this limited-current prototype.
+J6,USB_C_USB2,Korean Hroparts Elec,TYPE-C-31-M-12,C165948,FanRobot:USB_C_Receptacle_HRO_TYPE-C-31-M-12,SMT,1,16-contact USB2 receptacle. Four shell tabs all S1=USB_SHIELD. Paired A1/B12 etc pads are intentionally coincident and share their assigned nets.
+R22,5.1k,UNI-ROYAL,0603WAF5101T5E,C23186,FanRobot:R_0603_1608Metric,SMT,1,"1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations."
+R23,5.1k,UNI-ROYAL,0603WAF5101T5E,C23186,FanRobot:R_0603_1608Metric,SMT,1,"1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations."
+U5,USBLC6-2SC6,STMicroelectronics,USBLC6-2SC6,C7519,FanRobot:SOT-23-6,SMT,1,"Flow-through I/O pairs internally connected; place at connector, short low-inductance ground"
+R24,22R,UNI-ROYAL,0603WAF220JT5E,C23345,FanRobot:R_0603_1608Metric,SMT,1,"1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations."
+R25,22R,UNI-ROYAL,0603WAF220JT5E,C23345,FanRobot:R_0603_1608Metric,SMT,1,"1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations."
+R26,0R,UNI-ROYAL,0603WAF0000T5E,C21189,FanRobot:R_0603_1608Metric,SMT,1,"1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations."
+C20,1uF_16V,Murata,GRM21BR71C105KA01L,C77079,FanRobot:C_0805_2012Metric,SMT,1,X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.
+J5,CAMERA_2x9_P2.54,BOOMELE,2.54-2*9P,C71956,FanRobot:PinSocket_2x09_P2.54mm_Vertical,THT,1,"2x9 female header; pitch and row spacing2.54mm. Board pad1=GND, pad2=3V3; pin1 marked. Camera mating orientation/continuity must be checked unpowered; use a verified labelled harness if direct mating does not fit."
+C21,10uF_16V,Murata,GRM21BR61C106KE15L,C77075,FanRobot:C_0805_2012Metric,SMT,1,X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.
+C22,100nF_16V,Murata,GRM188R71C104KA01D,C45000,FanRobot:C_0603_1608Metric,SMT,1,X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.
+J7,EXP_I2C_3V3,Not populated,DNP_2.54mm_1x4,,FanRobot:PinHeader_1x04_P2.54mm_Vertical,DNP,0,"Reserved 2.54mm service/expansion footprint; DNP by default, no purchased part included."
+R27,4.7k,UNI-ROYAL,0603WAF4701T5E,C23162,FanRobot:R_0603_1608Metric,SMT,1,"1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations."
+R28,4.7k,UNI-ROYAL,0603WAF4701T5E,C23162,FanRobot:R_0603_1608Metric,SMT,1,"1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations."
+J8,SERVICE_3V3,Not populated,DNP_2.54mm_1x6,,FanRobot:PinHeader_1x06_P2.54mm_Vertical,DNP,0,"Reserved 2.54mm service/expansion footprint; DNP by default, no purchased part included."
+TP1,GND,,,,FanRobot:TestPoint_Pad_D1.0mm,PCB_ONLY,0,"Bare copper test pad, no purchased part"
+TP2,VBAT,,,,FanRobot:TestPoint_Pad_D1.0mm,PCB_ONLY,0,"Bare copper test pad, no purchased part"
+TP3,3V3,,,,FanRobot:TestPoint_Pad_D1.0mm,PCB_ONLY,0,"Bare copper test pad, no purchased part"
+TP4,FAN_5V,,,,FanRobot:TestPoint_Pad_D1.0mm,PCB_ONLY,0,"Bare copper test pad, no purchased part"
+TP5,ACT_REQ,,,,FanRobot:TestPoint_Pad_D1.0mm,PCB_ONLY,0,"Bare copper test pad, no purchased part"
+TP6,ACT_EN,,,,FanRobot:TestPoint_Pad_D1.0mm,PCB_ONLY,0,"Bare copper test pad, no purchased part"
+TP7,M_FAULT_N,,,,FanRobot:TestPoint_Pad_D1.0mm,PCB_ONLY,0,"Bare copper test pad, no purchased part"
+TP8,BAT_ADC,,,,FanRobot:TestPoint_Pad_D1.0mm,PCB_ONLY,0,"Bare copper test pad, no purchased part"
+TP9,USB_VBUS,,,,FanRobot:TestPoint_Pad_D1.0mm,PCB_ONLY,0,"Bare copper test pad, no purchased part"
+TP10,ESP_EN,,,,FanRobot:TestPoint_Pad_D1.0mm,PCB_ONLY,0,"Bare copper test pad, no purchased part"
+Q3,AO3401A,Alpha & Omega Semiconductor,AO3401A,C15127,FanRobot:SOT-23,SMT,1,"Power switch: S=BAT_PROTECTED, D=VBAT; R29 pulls gate to source (OFF). SW1 pulls gate to GND (ON). Gate contacts carry about 50uA, not motor current."
+R29,100k,UNI-ROYAL,0603WAF1003T5E,C25803,FanRobot:R_0603_1608Metric,SMT,1,"1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations."
+U8,TPS2553DBVR,Texas Instruments,TPS2553DBVR,C55266,FanRobot:SOT-23-6,SMT,1,USB input protection: 68.1k +/-1% ILIM resistor; max current from datasheet equations <500mA. Not USB current negotiation; battery required for full-load operation. FAULT is open drain test point.
+R30,68.1k,UNI-ROYAL,0603WAF6812T5E,C25976,FanRobot:R_0603_1608Metric,SMT,1,"1%, 100mW, 0603; feedback/divider tolerances included in engineering calculations."
+C23,1uF_16V,Murata,GRM21BR71C105KA01L,C77079,FanRobot:C_0805_2012Metric,SMT,1,X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.
+C24,100nF_16V,Murata,GRM188R71C104KA01D,C45000,FanRobot:C_0603_1608Metric,SMT,1,X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.
+TP11,USB_FAULT_N,,,,FanRobot:TestPoint_Pad_D1.0mm,PCB_ONLY,0,

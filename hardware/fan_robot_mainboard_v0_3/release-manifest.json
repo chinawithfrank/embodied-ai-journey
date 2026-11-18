@@ -1,0 +1,49 @@
+{
+  "project": "FanRobot Mainboard",
+  "revision": "0.3",
+  "release": "ENGINEERING_PROTOTYPE_FAB_READY",
+  "purpose": "Small first-prototype fabrication and assembly; not physically validated production release",
+  "board_mm": [
+    60,
+    50
+  ],
+  "copper_layers": 2,
+  "nominal_thickness_mm": 1.6,
+  "finish": "ENIG",
+  "population": {
+    "SMT_top": 60,
+    "SMT_bottom": 16,
+    "THT_top": 5,
+    "DNP": [
+      "C10",
+      "J7",
+      "J8"
+    ],
+    "test_pads_no_purchase": 11
+  },
+  "checks": {
+    "ERC": 0,
+    "DRC": 0,
+    "unconnected_pads": 0,
+    "schematic_parity_issues": 0,
+    "data_consistency": "PASS",
+    "independent_manufacturing_parse": "PASS"
+  },
+  "pcb_sha256": "34b424b905c429325e62d49090fae09c4158abb6b37392b2603d7c9fa1d6c5a8",
+  "gerber_zip_sha256": "59080af6a3c35ee0e3fd99a896ef2e5f2d6cc2d339550b115a647a0be951b84d",
+  "firmware": "Not modified or supplied; new-board port required",
+  "factory_status": "No order, payment, CAM/DFM acceptance or assembly orientation approval obtained",
+  "physical_validation_pending": [
+    "loaded motor start/current",
+    "battery droop and supply transients",
+    "temperature",
+    "camera PID and mating orientation",
+    "USB and RF in enclosure",
+    "firmware port/interlock/reset tests"
+  ],
+  "packages": [
+    "PCB_Gerber_V0.3.zip",
+    "FanRobot_Mainboard_V0.3_MANUFACTURING.zip",
+    "FanRobot_Mainboard_V0.3_SOURCE.zip"
+  ]
+}

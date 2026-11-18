@@ -1,0 +1,5 @@
+Interface,Board_Header,Mating_Housing,Contacts,Wire,Pinout,Quantity_per_robot,Scope
+J1,JST B2B-XH-A(LF)(SN),JST XHP-2,SXH series compatible with chosen wire,22AWG,1=BAT+;2=GND,1,External harness not in PCB BOM
+J2/J3,JST B2B-PH-K-S(LF)(SN),JST PHR-2,SPH series compatible with chosen wire,26AWG or thicker,1/2=motor terminals;neither is GND,2,External harness not in PCB BOM
+J4,JST B2B-PH-K-S(LF)(SN),JST PHR-2,SPH series compatible with chosen wire,26AWG or thicker,1=FAN_5V;2=FAN_SW,1,External harness not in PCB BOM
+J5,BOOMELE 2.54-2*9P C71956,Existing camera 2x9 male pins,Verify square pin fit and engagement,Direct mate preferred,See design/02-interfaces-and-firmware.md;verify unpowered,1,Existing camera not in PCB BOM

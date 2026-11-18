@@ -1,0 +1,4 @@
+﻿Designator,Value,Reason
+C10,220pF_DNP,X5R/X7R (C10 C0G); actual MPN and voltage rating selected. C10 DNP. Effective capacitance/ripple verified in supply review and prototype acceptance.
+J7,EXP_I2C_3V3,"Reserved 2.54mm service/expansion footprint; DNP by default, no purchased part included."
+J8,SERVICE_3V3,"Reserved 2.54mm service/expansion footprint; DNP by default, no purchased part included."

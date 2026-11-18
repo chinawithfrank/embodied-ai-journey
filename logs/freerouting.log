@@ -1,0 +1,48 @@
+2026-11-14 18:39:46.225 [main] INFO  Freerouting v1.9.0 (build-date: 2023-10-30)
+2026-11-14 18:40:58.918 [main] INFO  Freerouting v1.9.0 (build-date: 2023-10-30)
+2026-11-14 18:40:58.943 [main] INFO  Settings were loaded from freerouting.json
+2026-11-14 18:40:59.976 [main] INFO  Opening 'hardware/fan_robot_mainboard_v0_2/eda/fan_robot_mainboard-routing.dsn'...
+2026-11-14 18:41:01.399 [ForkJoinPool.commonPool-worker-1] INFO  New version available: v2.5.0
+2026-11-14 18:41:21.926 [Thread-1] INFO  Starting auto-routing...
+2026-11-14 18:42:18.386 [Thread-1] WARN  There were only 17.80 changes in the last 20 passes, so it's very likely that autorouter can't improve the result much further. It is recommended to stop it and finish the board manually.
+2026-11-14 18:42:30.489 [Thread-1] INFO  Auto-routing was completed in 1 minute(s) 8.56 seconds.
+2026-11-14 18:42:30.598 [Thread-1] INFO  Starting route optimization on 1 thread...
+2026-11-14 18:42:33.815 [Thread-1] INFO  Route optimization was completed in 3.22 seconds.
+2026-11-14 18:42:33.822 [Thread-1] INFO  Saving 'hardware/fan_robot_mainboard_v0_2/eda/fan_robot_mainboard.ses'...
+2026-11-14 18:47:18.400 [main] INFO  Freerouting v1.9.0 (build-date: 2023-10-30)
+2026-11-14 18:47:18.428 [main] INFO  Settings were loaded from freerouting.json
+2026-11-14 18:47:19.459 [main] INFO  Opening 'hardware/fan_robot_mainboard_v0_2/eda/fan_robot_mainboard-routing.dsn'...
+2026-11-14 18:47:20.600 [ForkJoinPool.commonPool-worker-1] INFO  New version available: v2.5.0
+2026-11-14 18:47:41.341 [Thread-1] INFO  Starting auto-routing...
+2026-11-14 18:47:57.350 [Thread-1] WARN  There were only 16.80 changes in the last 20 passes, so it's very likely that autorouter can't improve the result much further. It is recommended to stop it and finish the board manually.
+2026-11-14 18:48:04.912 [Thread-1] WARN  There were only 7.78 changes in the last 40 passes, so it's very likely that autorouter can't improve the result much further. It is recommended to stop it and finish the board manually.
+2026-11-14 18:48:06.997 [Thread-1] INFO  Auto-routing was completed in 25.65 seconds.
+2026-11-14 18:48:07.108 [Thread-1] INFO  Starting route optimization on 1 thread...
+2026-11-14 18:48:10.483 [Thread-1] INFO  Route optimization was completed in 3.37 seconds.
+2026-11-14 18:48:10.491 [Thread-1] INFO  Saving 'hardware/fan_robot_mainboard_v0_2/eda/fan_robot_mainboard.ses'...
+2026-11-15 22:24:18.621 [main] INFO  Freerouting v1.9.0 (build-date: 2023-10-30)
+2026-11-15 22:24:18.688 [main] INFO  Settings were loaded from freerouting.json
+2026-11-15 22:24:19.729 [main] INFO  Opening 'hardware/fan_robot_mainboard_v0_3/eda/fan_robot_mainboard-routing.dsn'...
+2026-11-15 22:24:21.730 [ForkJoinPool.commonPool-worker-1] INFO  New version available: v2.5.0
+2026-11-15 22:24:42.808 [Thread-1] INFO  Starting auto-routing...
+2026-11-15 22:26:36.621 [Thread-1] WARN  IntPoint: p_y is out of range
+2026-11-15 22:26:36.631 [Thread-1] WARN  IntPoint: p_y is out of range
+2026-11-15 22:26:36.632 [Thread-1] WARN  IntPoint: p_x is out of range
+2026-11-15 22:26:36.632 [Thread-1] WARN  IntPoint: p_x is out of range
+2026-11-15 22:26:36.633 [Thread-1] WARN  IntPoint: p_x is out of range
+2026-11-15 22:26:36.633 [Thread-1] WARN  IntPoint: p_x is out of range
+2026-11-15 22:26:36.634 [Thread-1] WARN  ShapeSearchTree.overlaps_with_clearance: p_shape is not bounded
+2026-11-15 22:26:36.635 [Thread-1] WARN  IntPoint: p_y is out of range
+2026-11-15 22:26:36.636 [Thread-1] WARN  IntPoint: p_y is out of range
+2026-11-15 22:26:36.636 [Thread-1] WARN  IntPoint: p_x is out of range
+2026-11-15 22:26:36.637 [Thread-1] WARN  IntPoint: p_x is out of range
+2026-11-15 22:26:36.638 [Thread-1] WARN  IntPoint: p_x is out of range
+2026-11-15 22:26:36.638 [Thread-1] WARN  IntPoint: p_x is out of range
+2026-11-15 22:26:36.640 [Thread-1] WARN  IntPoint: p_y is out of range
+2026-11-15 22:26:36.641 [Thread-1] WARN  IntPoint: p_y is out of range
+2026-11-15 22:26:36.641 [Thread-1] WARN  IntPoint: p_x is out of range
+2026-11-15 22:26:36.641 [Thread-1] WARN  IntPoint: p_x is out of range
+2026-11-15 22:26:36.642 [Thread-1] WARN  IntPoint: p_x is out of range
+2026-11-15 22:26:36.642 [Thread-1] WARN  IntPoint: p_x is out of range
+2026-11-15 22:26:36.643 [Thread-1] WARN  IntPoint: p_y is out of range
+2026-11-15 22:26:36.643 [Thread-1] WARN  IntPoint: p_x is out of range

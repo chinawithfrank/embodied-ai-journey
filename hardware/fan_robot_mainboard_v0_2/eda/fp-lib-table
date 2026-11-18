@@ -1,0 +1,1 @@
+(fp_lib_table (lib (name "FanRobot") (type "KiCad") (uri "${KIPRJMOD}/FanRobot.pretty") (options "") (descr "Locally pinned KiCad10 and datasheet-derived footprints")))

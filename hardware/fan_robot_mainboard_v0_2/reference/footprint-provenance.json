@@ -1,0 +1,154 @@
+[
+  {
+    "footprint": "SW_Push_1P1T_NO_CK_KMR2",
+    "source": "Contents/SharedSupport/footprints/Button_Switch_SMD.pretty/SW_Push_1P1T_NO_CK_KMR2.kicad_mod",
+    "library_version": "KiCad10.0.8",
+    "license": "KiCad libraries CC-BY-SA4.0 with exception"
+  },
+  {
+    "footprint": "SW_SPDT_CK_JS102011SAQN",
+    "source": "Contents/SharedSupport/footprints/Button_Switch_SMD.pretty/SW_SPDT_CK_JS102011SAQN.kicad_mod",
+    "library_version": "KiCad10.0.8",
+    "license": "KiCad libraries CC-BY-SA4.0 with exception"
+  },
+  {
+    "footprint": "C_0603_1608Metric",
+    "source": "Contents/SharedSupport/footprints/Capacitor_SMD.pretty/C_0603_1608Metric.kicad_mod",
+    "library_version": "KiCad10.0.8",
+    "license": "KiCad libraries CC-BY-SA4.0 with exception"
+  },
+  {
+    "footprint": "C_0805_2012Metric",
+    "source": "Contents/SharedSupport/footprints/Capacitor_SMD.pretty/C_0805_2012Metric.kicad_mod",
+    "library_version": "KiCad10.0.8",
+    "license": "KiCad libraries CC-BY-SA4.0 with exception"
+  },
+  {
+    "footprint": "JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical",
+    "source": "Contents/SharedSupport/footprints/Connector_JST.pretty/JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical.kicad_mod",
+    "library_version": "KiCad10.0.8",
+    "license": "KiCad libraries CC-BY-SA4.0 with exception"
+  },
+  {
+    "footprint": "JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical",
+    "source": "Contents/SharedSupport/footprints/Connector_JST.pretty/JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical.kicad_mod",
+    "library_version": "KiCad10.0.8",
+    "license": "KiCad libraries CC-BY-SA4.0 with exception"
+  },
+  {
+    "footprint": "PinHeader_1x04_P2.54mm_Vertical",
+    "source": "Contents/SharedSupport/footprints/Connector_PinHeader_2.54mm.pretty/PinHeader_1x04_P2.54mm_Vertical.kicad_mod",
+    "library_version": "KiCad10.0.8",
+    "license": "KiCad libraries CC-BY-SA4.0 with exception"
+  },
+  {
+    "footprint": "PinHeader_1x06_P2.54mm_Vertical",
+    "source": "Contents/SharedSupport/footprints/Connector_PinHeader_2.54mm.pretty/PinHeader_1x06_P2.54mm_Vertical.kicad_mod",
+    "library_version": "KiCad10.0.8",
+    "license": "KiCad libraries CC-BY-SA4.0 with exception"
+  },
+  {
+    "footprint": "PinSocket_2x09_P2.54mm_Vertical",
+    "source": "Contents/SharedSupport/footprints/Connector_PinSocket_2.54mm.pretty/PinSocket_2x09_P2.54mm_Vertical.kicad_mod",
+    "library_version": "KiCad10.0.8",
+    "license": "KiCad libraries CC-BY-SA4.0 with exception"
+  },
+  {
+    "footprint": "USB_C_Receptacle_HRO_TYPE-C-31-M-12",
+    "source": "Contents/SharedSupport/footprints/Connector_USB.pretty/USB_C_Receptacle_HRO_TYPE-C-31-M-12.kicad_mod",
+    "library_version": "KiCad10.0.8",
+    "license": "KiCad libraries CC-BY-SA4.0 with exception"
+  },
+  {
+    "footprint": "D_SMA",
+    "source": "Contents/SharedSupport/footprints/Diode_SMD.pretty/D_SMA.kicad_mod",
+    "library_version": "KiCad10.0.8",
+    "license": "KiCad libraries CC-BY-SA4.0 with exception"
+  },
+  {
+    "footprint": "Fuse_1812_4532Metric",
+    "source": "Contents/SharedSupport/footprints/Fuse.pretty/Fuse_1812_4532Metric.kicad_mod",
+    "library_version": "KiCad10.0.8",
+    "license": "KiCad libraries CC-BY-SA4.0 with exception"
+  },
+  {
+    "footprint": "L_Wuerth_MAPI-4030",
+    "source": "Contents/SharedSupport/footprints/Inductor_SMD.pretty/L_Wuerth_MAPI-4030.kicad_mod",
+    "library_version": "KiCad10.0.8",
+    "license": "KiCad libraries CC-BY-SA4.0 with exception"
+  },
+  {
+    "footprint": "HTSSOP-16-1EP_4.4x5mm_P0.65mm_EP3.4x5mm_Mask2.46x2.31mm",
+    "source": "Contents/SharedSupport/footprints/Package_SO.pretty/HTSSOP-16-1EP_4.4x5mm_P0.65mm_EP3.4x5mm_Mask2.46x2.31mm.kicad_mod",
+    "library_version": "KiCad10.0.8",
+    "license": "KiCad libraries CC-BY-SA4.0 with exception"
+  },
+  {
+    "footprint": "SOT-23",
+    "source": "Contents/SharedSupport/footprints/Package_TO_SOT_SMD.pretty/SOT-23.kicad_mod",
+    "library_version": "KiCad10.0.8",
+    "license": "KiCad libraries CC-BY-SA4.0 with exception"
+  },
+  {
+    "footprint": "SOT-23-5",
+    "source": "Contents/SharedSupport/footprints/Package_TO_SOT_SMD.pretty/SOT-23-5.kicad_mod",
+    "library_version": "KiCad10.0.8",
+    "license": "KiCad libraries CC-BY-SA4.0 with exception"
+  },
+  {
+    "footprint": "SOT-23-6",
+    "source": "Contents/SharedSupport/footprints/Package_TO_SOT_SMD.pretty/SOT-23-6.kicad_mod",
+    "library_version": "KiCad10.0.8",
+    "license": "KiCad libraries CC-BY-SA4.0 with exception"
+  },
+  {
+    "footprint": "SOT-563",
+    "source": "Contents/SharedSupport/footprints/Package_TO_SOT_SMD.pretty/SOT-563.kicad_mod",
+    "library_version": "KiCad10.0.8",
+    "license": "KiCad libraries CC-BY-SA4.0 with exception"
+  },
+  {
+    "footprint": "ESP32-S3-WROOM-1",
+    "source": "Contents/SharedSupport/footprints/RF_Module.pretty/ESP32-S3-WROOM-1.kicad_mod",
+    "library_version": "KiCad10.0.8",
+    "license": "KiCad libraries CC-BY-SA4.0 with exception"
+  },
+  {
+    "footprint": "R_0603_1608Metric",
+    "source": "Contents/SharedSupport/footprints/Resistor_SMD.pretty/R_0603_1608Metric.kicad_mod",
+    "library_version": "KiCad10.0.8",
+    "license": "KiCad libraries CC-BY-SA4.0 with exception"
+  },
+  {
+    "footprint": "R_1206_3216Metric",
+    "source": "Contents/SharedSupport/footprints/Resistor_SMD.pretty/R_1206_3216Metric.kicad_mod",
+    "library_version": "KiCad10.0.8",
+    "license": "KiCad libraries CC-BY-SA4.0 with exception"
+  },
+  {
+    "footprint": "TestPoint_Pad_D1.0mm",
+    "source": "Contents/SharedSupport/footprints/TestPoint.pretty/TestPoint_Pad_D1.0mm.kicad_mod",
+    "library_version": "KiCad10.0.8",
+    "license": "KiCad libraries CC-BY-SA4.0 with exception"
+  },
+  {
+    "footprint": "CP_OSCON_C6_6.3x5.9",
+    "source": "KiCad CP_Elec_6.3x7.7 outline adapted to Panasonic C6 land a2.1,b9.1,c1.6mm; centers+-2.8mm,pads3.5x1.6mm; 3D omitted",
+    "license": "KiCad libraries CC-BY-SA4.0 with exception"
+  },
+  {
+    "footprint": "TPS63802_DLA0010A",
+    "source": "TI SLVSEU9D, drawing4223750/D land pattern; generated by build_board.py",
+    "license": "Datasheet dimensions; original local footprint"
+  },
+  {
+    "footprint": "L_Murata_DFE201612E",
+    "source": "Murata O05E2019 land a0.8,b2.4,c1.8mm; generated by build_board.py",
+    "license": "Datasheet dimensions; original local footprint"
+  },
+  {
+    "footprint": "ALL_LOCAL_FOOTPRINTS",
+    "source": "KiCad10.0.8; silk-only artwork removed, references retained on Fab. ESP32 thermal drills0.3mm rather than0.2mm. See original-source entries and scripts.",
+    "license": "KiCad libraries CC-BY-SA4.0 with exception"
+  }
+]

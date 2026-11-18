@@ -1,0 +1,1 @@
+(sym_lib_table (lib (name "FanRobot")(type "KiCad")(uri "${KIPRJMOD}/FanRobot.kicad_sym")(options "")(descr "Datasheet pin mapping with electrical types")))
