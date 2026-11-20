@@ -1,0 +1,25 @@
+{
+  "nominal_board_mm": [
+    72,
+    60,
+    1.6
+  ],
+  "mount_pitch_mm": [
+    54,
+    44
+  ],
+  "substrate_side_wall_clearance_mm": 3.6,
+  "board_to_inner_floor_mm": 12,
+  "installed_model_z_extent_mm": [
+    11.814999999999996,
+    25.115000000000002
+  ],
+  "clearance_volumes_mm3": {
+    "01_chassis": 0,
+    "02_cover": 0,
+    "03_fan_mount": 0,
+    "04_camera_holder": 0,
+    "05_motor_cap_print_2": 0
+  },
+  "excluded": "Unmodelled packages, cables, screw heads, battery and track hardware. See README."
+}

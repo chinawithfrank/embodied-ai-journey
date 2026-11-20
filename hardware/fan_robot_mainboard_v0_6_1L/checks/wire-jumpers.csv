@@ -1,0 +1,14 @@
+Ref,Net,Type,Pitch_mm,X1_mm,Y1_mm,X2_mm,Y2_mm,Insert_side,Solder_side
+WJ1,USB_VBUS,formed wire,10.316,17.8,31.6,7.9,28.7,B,F
+WJ2,MOTOR_B2,formed wire,15.0814,44.0,18.1,55.2,28.2,B,F
+WJ3,CAM_PCLK,formed wire,9.3005,41.0,26.7,38.3,35.6,B,F
+WJ4,CAM_PCLK,formed wire,3.6056,33.3,49.4,29.7,49.6,B,F
+WJ5,UART_TX,formed wire,23.3461,41.1,15.2,30.9,36.2,B,F
+WJ6,M_BIN1,formed wire,4.0311,44.1,25.8,47.6,27.8,B,F
+WJ7,ESP_EN,formed wire,3.8,18.8,27.4,18.8,23.6,B,F
+WJ8,ACT_EN,formed wire,6.8,51.4,48.0,44.6,48.0,B,F
+WJ9,GND,formed wire,3.189,52.2,33.3,50.1,30.9,B,F
+WJ10,GND,formed wire,3.189,54.6,8.1,52.5,10.5,B,F
+WJ11,GND,formed wire,3.8419,57.9,58.5,55.5,55.5,B,F
+WJ12,GND,formed wire,5.1,5.1,58.5,5.1,53.4,B,F
+WJ13,GND,formed wire,6.1847,13.5,21.6,15.0,15.6,B,F

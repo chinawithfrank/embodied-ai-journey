@@ -1,0 +1,14 @@
+{
+  "status": "NOT_FOR_FABRICATION",
+  "tracks": {
+    "F.Cu": 600
+  },
+  "vias": 0,
+  "front_copper_pours": 1,
+  "SMT_pads_on_back": 0,
+  "DRC_categories": {
+    "unconnected_items": 63
+  },
+  "open_connections": 63,
+  "native_stack_note": "KiCad retains F.Cu/B.Cu and standard through-hole pad stacks. Back routing forbidden; not an audited single-copper manufacturing stack."
+}
