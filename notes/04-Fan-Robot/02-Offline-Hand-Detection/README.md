@@ -106,7 +106,7 @@ idf.py -p /dev/cu.usbmodemXXXX flash monitor
 3. 要连 Wi-Fi 射频也关闭：运行 `idf.py menuconfig` → `Fan robot: offline hand detector` → 取消 `Enable optional local Wi-Fi AP and browser preview`，保存，再 `idf.py build` 和 `idf.py -p 实际端口 flash monitor`。
 4. 此时没有热点和网页，串口仍应输出检测结果。完全脱离电脑时可以只接可靠 USB 电源；没有屏幕时人看不到结果，不代表没有推理。之后执行机构会直接读取本地结果，不必经过串口或网络。
 
-默认每轮至少间隔 400ms，即目标上限约 2.5 次/秒，不保证实际帧率。拍照、JPEG 解码、推理、预览都会花时间，串口 `processing_ms` 才是本机实际一轮耗时。它不是摄像头曝光时间测量，也不是严格的端到端控制延迟。
+默认每轮至少间隔 200ms，即目标上限约 5 次/秒，不保证实际帧率。拍照、JPEG 解码、推理、预览都会花时间，串口 `processing_ms` 才是本机实际一轮耗时。它不是摄像头曝光时间测量，也不是严格的端到端控制延迟。
 
 ## 坐标怎么用于后续“只吹手”
 
@@ -127,7 +127,7 @@ error_y = 2 × center_y / (height - 1) - 1
 |---|---|
 | `wiring_not_confirmed` | 是否复用到已经验证的私有配置；模板默认不允许启动 |
 | `8mb_opi_psram_required` | 实际板型、OPI PSRAM 配置、供电，不要关闭保护绕过 |
-| 图像正常但总是 `not_found` | 手是否清晰完整、足够大，先降低复杂背景；阈值默认 50%，可在 menuconfig 小幅调低比较误检 |
+| 图像正常但总是 `not_found` | 手是否清晰完整、足够大，先降低复杂背景；阈值默认 45%，可在 menuconfig 小幅调低比较误检 |
 | `capture_failed` / `jpeg_decode_failed` | 供电、线长、接触和原相机实验是否仍正常，出错即清空目标 |
 | `stale` | 距开始取帧超过 3 秒；旧坐标不可用，排查推理耗时或阻塞 |
 | 网页消失但串口仍检测 | 是否关闭了预览配置，或热点初始化失败；网络不是识别循环的前提 |

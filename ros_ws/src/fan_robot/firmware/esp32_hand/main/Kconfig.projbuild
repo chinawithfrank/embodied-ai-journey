@@ -7,12 +7,12 @@ config FAN_ENABLE_PREVIEW
 config FAN_HAND_SCORE_PERCENT
     int "Minimum hand confidence (percent)"
     range 1 99
-    default 50
+    default 45
 
 config FAN_HAND_INTERVAL_MS
     int "Minimum capture cycle interval (milliseconds)"
     range 100 5000
-    default 400
+    default 200
 
 config FAN_ENABLE_AUTONOMY
     bool "Enable local hand-follow controller (requires calibrated local settings)"

@@ -70,7 +70,7 @@ Keep the hand in focus, fully visible, and reasonably large against a simple bac
 3. For no radio at all, run `idf.py menuconfig` → `Fan robot: offline hand detector` and disable `Enable optional local Wi-Fi AP and browser preview`. Build and flash again.
 4. There is now no hotspot or page. Serial detection must continue. With only a reliable USB supply it also runs without a computer, but a person cannot observe the result without a display or serial connection.
 
-The minimum cycle interval defaults to400ms, an upper target of2.5 updates/second, not a promised rate. `processing_ms` includes capture, decoding, and inference; it is not a measured exposure timestamp or a full control-loop latency. Data older than3 seconds is invalidated. Capture/decode failures clear the previous target.
+The minimum cycle interval defaults to 200 ms, an upper target of 5 updates/second, not a promised rate. `processing_ms` includes capture, decoding, and inference; it is not a measured exposure timestamp or a full control-loop latency. Data older than3 seconds is invalidated. Capture/decode failures clear the previous target.
 
 Pixel coordinates start at the top left. `error_x = 2 × center_x / (width - 1) - 1`, with negative left and positive right; `error_y` follows the same rule vertically. Pixels and box area are not calibrated distance. Future airflow aiming needs camera/fan calibration, emergency stops, target-loss stopping, and speed limits before any actuation.
 
@@ -78,7 +78,7 @@ Pixel coordinates start at the top left. `error_x = 2 × center_x / (width - 1) 
 
 - `main/app_main.cpp`: camera initialization, JPEG decode, `detector.run(image)`, serial publishing, optional AP preview.
 - `main/observation.hpp`: valid boxes, confidence selection, clipping, offsets, and expiration.
-- `main/Kconfig.projbuild`: preview switch, confidence (default50%), and minimum cycle time.
+- `main/Kconfig.projbuild`: preview switch, confidence (default 45%), and minimum cycle time.
 - `sdkconfig.defaults`: S3,16MB Flash, OPI PSRAM, USB console, and Flash-resident model.
 - `wiring_not_confirmed`: check the private header, not just the example template.
 - `8mb_opi_psram_required`: verify hardware, PSRAM settings, and power; do not bypass the guard.
