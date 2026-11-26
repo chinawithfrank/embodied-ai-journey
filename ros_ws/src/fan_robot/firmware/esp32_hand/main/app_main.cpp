@@ -20,6 +20,7 @@
 #include "hand_detect.hpp"
 #include "camera_clock.h"
 #include "observation.hpp"
+#include "action_voice.hpp"
 
 #if __has_include("camera_config.local.h")
 #include "camera_config.local.h"
@@ -87,6 +88,7 @@ static void publish(const HandObservation &observation, const camera_fb_t *frame
         latest_jpeg_size = frame->len;
     }
     xSemaphoreGive(observation_mutex);
+    action_voice::observe(observation.found);
 #if CONFIG_FAN_ENABLE_AUTONOMY
     autonomy::publish(observation);
 #endif
@@ -344,6 +346,7 @@ static esp_err_t start_preview() {
 }
 #endif
 
+
 extern "C" void app_main() {
     if (!output_safety::initialize()) {
         ESP_LOGE(TAG, "Safe GPIO initialization failed; aborting camera and control startup. Disconnect motor power.");
@@ -356,6 +359,7 @@ extern "C" void app_main() {
         ESP_LOGE(TAG, "Cannot allocate observation mutex");
         return;
     }
+    action_voice::start();
     initialize_camera();
 #if CONFIG_FAN_ENABLE_AUTONOMY
     if (camera_ready) autonomy::begin();
@@ -375,6 +379,7 @@ extern "C" void app_main() {
     }
     HandDetect detector;
     detector.set_score_thr(CONFIG_FAN_HAND_SCORE_PERCENT / 100.0f);
+
     uint32_t frame_id = 0;
     while (true) {
         const int64_t started = esp_timer_get_time();

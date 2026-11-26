@@ -63,6 +63,8 @@ static void task(void *) {
             if (result != ESP_OK) { supervisor.stop("output_error"); ready=false; fault="output_error"; coast(); }
             previous = command;
         }
+        if (ready && supervisor.armed) action_voice::motion(command.left, command.right);
+        else action_voice::motion(0, 0);
         xSemaphoreGive(mutex);
         vTaskDelay(pdMS_TO_TICKS(20));
     }

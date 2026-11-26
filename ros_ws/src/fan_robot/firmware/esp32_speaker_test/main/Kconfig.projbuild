@@ -1,0 +1,5 @@
+menu "Fan robot audio bench test"
+config FAN_TEST_MICROPHONE
+    bool "Measure microphone level instead of playing the speaker tone"
+    default n
+endmenu
